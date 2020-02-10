@@ -1,0 +1,614 @@
+\chapter{VSFG Spectroscopy of Water/Vapor Interfaces}\label{CHAPTER_SFG_Calculation}
+In Chapter 3, we investigated the VDOS for water clusters containing nitrate ions and alkali metal ions.
+We find that the small clusters cannot be directly used to model the interfaces of aqueous solutions,
+and we need to build more realistic ones to capture the main features of interfaces.
+In this chapter, we will analyze the structure and dynamics of salty solutions containing an alkali cation and a nitrate (iodide) ion and to provide 
+a microscopic interpretation of recent experimental results.\cite{PS03,AJ12,HuaWei2014} 
+
+%We will choose the interface of lithium nitrate solution as our research object, which is a typical example of the interface of alkali metal nitrate solution.
+From the experimental data of surface tension dependence on solute concentration $\text{d}\gamma/\text{d}m_2$ 
+at low electrolyte concentrations ($\leq$1.5 M )\cite{Weissenborn95,Hey81,Jarvis68,Jarvis72}, 
+%and the assumption that \Na is the most excluded cation
+the relation of the surface/bulk molar concentration ratio $K_{\text{p}}$\cite{Pegram06} among \li, \Na and \K is: 
+\begin{equation}
+0=K_{\text{p,Na}^+}< K_{\text{p,K}^+}< K_{\text{p,Li}^+}.
+\label{eq:bscr}
+\end{equation}
+i.e., \Na is the most surface-excluded in the water solution RNO$_3$, \K is less excluded, 
+and \Li is the least excluded cation.
+In modeling the alkali nitrate solution at the interface we decided to start with \Li ions, which is the least excluded of the vapor-liquid interface 
+among the alkali metal ions as the cation in the model. 
+%
+%The aim of our work here is to provide a molecular picture 
+%for the water/vapor interface of the \ch{LiNO3}-containing solution 
+%to interpret the experimental spectra. In particular a question raises if simple models 
+%for the solvated ion clusters can already provide information
+%on the ions-water complexes formed at the interface. 
+%It is known that nitrate (\nitrate) is a naturally occurring ion which is part of the nitrogen cycle, 
+%and it can reach both surface water and groundwater as a consequence of agricultural activity. 
+%Nitrate also has effects on human health,  because of the toxicity caused by its reduction to nitrite (NO$_2^-$). \cite{WHO11}
+%The biological effect of nitrite in humans is its involvement in the oxidation of
+%normal Hb to metHb, which is unable to transport oxygen to the tissues.
+%For example, infants who drink water with high levels of nitrate (more than 10 mg/L) may suffer 
+%a serious health condition due to blue baby syndrome.\cite{Knobeloch00}
+%
+
+The goal of this chapter is to find the origin of the main characteristics of the VSFG spectra of the \LiN solution,
+and provide a molecular picture to interpret the recorded spectra.
+In order to achieve this goal, we simulate water/vapor interface including \Li and \nitrate, 
+as shown in Fig.\thinspace\ref{fig:interface_chandler},
+and extract the vibrational spectroscopic properties of the water/vapor interface of LiNO$_3$ solution.
+%=========
+%
+\begin{figure}[htbp]
+\centering
+\includegraphics [width=0.5 \textwidth] {./diagrams/interface_chandler}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:interface_chandler} The water/vapor interfaces of \LiN solution and pure water. 
+The right panel shows that the \Li and the \nitrate ions are separated by a water molecule at the salty interface.}
+\end{figure}
+%The water molecules below 4 \AA  of the instantaneous interfaces are shown opaquely. 
+
+%
+Hua et. al.\cite{HuaWei2014} have recently measured the VSFG spectra of water/vapor interface of \LiN salt solutions in the OH stretching region
+(3000--3800 cm$^{-1}$) using Heterodyne Detected VSFG spectroscopy.
+\cite{HuaWei2011,HuaWei2011b,ChenXiangKe2010} 
+The experimental result of the VSFG intensity of the alkali nitrate interfaces is given by in Fig.\space\ref{fig:Allen12}. 
+At a difference with the spectra for the water interface, in the spectra of 
+\LiN solutions, a depletion of the 3200 cm$^{-1}$ peak is observed, with an 
+enhancement of the 3400 cm$^{-1}$ peak.
+A similar behaviour had been observed for the interface of NaNO$_3$ and 
+Mg(NO$_3$)$_2$ solutions \cite{AJ12,HuaWei2014}. It has been 
+suggested that this depletion of the 3200 cm$^{-1}$ peak, and in some cases 
+the enhancement of the 3400 cm$^{-1}$ peak, is an indication that nitrate 
+ions reside at the interface. On the other hand the small 
+cations should have little surface propensity. 
+It has also been argued that the positive electric field found at the interface of NaCl, NaI and 
+NaNO$_3$ salt solutions is due to the formation of an ionic double layer 
+between anions located near the surface and their counter-cations (e.g.
+Na$^+$) located further below. In PS VSFG experiments the 
+magnitude of the induced change in the Im$\chi^{(2)}$ spectra comparatively
+to that of the neat water suggested that \nitrate has a surface propensity 
+just in between I$^-$ and Cl$^-$.\cite{Verreault2013,Verreault2009} 
+% exp. results.
+\begin{figure}[htbp]
+\centering
+  \includegraphics [width=0.6 \textwidth] {./diagrams/vsfg_alkali_nitrate}
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:Allen12}Experimental VSFG intensity of \LiN solutions, compared with that of neat water.\cite{HuaWei2014}}
+\end{figure}
+
+%\begin{figure}[htbp]
+%    \centering
+%    \begin{tikzpicture}
+%        \begin{axis}[
+%        scale=0.8, % scale the figure but the labels
+%        /pgf/number format/.cd,
+%        %use comma,
+%        1000 sep={}, % separator of thousands
+%        legend style={draw=none},
+%        legend pos=north west,
+%        %title=VSFG Intensity,
+%        xlabel={Wave Number (cm$^{-1}$)},
+%        every axis x label/.style={
+%        at={(rel axis cs: 0.5, -0.20)},
+%        anchor=center}, 
+%        ylabel={Intensity (Arb. Unit)},
+%        every axis y label/.style={    
+%        at={(rel axis cs:-0.18, 0.5)},rotate=90,
+%        anchor=center}, 
+%        ymin=0,
+%        ymax=0.3,
+%        minor y tick num=1,
+%        ]
+%        \addplot[mark=x, black,domain=3000:3800,very thick]table{./chapters/chap4/data/Net_water.dat};
+%        \addlegendentry{Neat Water}
+%        \addplot[mark=*, blue,domain=3000:3800,very thick]table{./chapters/chap4/data/LiNO3.dat};
+%        \addlegendentry{1M  \LiN}
+%      \end{axis}
+%   \end{tikzpicture}
+% \setlength{\abovecaptionskip}{0pt}
+%  \caption{\label{fig:Allen12}Experimental VSFG intensity of \LiN solutions, compared with that of neat water.\cite{HuaWei2014}}
+% \end{figure}
+
+%\paragraph{The Interface Picture}
+%In order to further progress in our analysis beyond the clusters RNO$_3$(H$_2$O)$_n$ (R=Li, Na or K),
+We considered a model for water/vapor interface where a slab of 256 water molecules containing one \Li and 
+one \nitrate (denoted by LiNO$_3$(H$_2$O)$_{256}$) is included in a periodic simulation box of 19.7 $\times $ 19.7 $\times $ 40.0 \A$^3$ at 300 K.
+The slab is 20 \AA thick and infinite in the \X and \Y direction, while the
+separation between the periodic slabs in the \Z direction is 20 \A.
+The  \LiN was inserted at one of the two interfaces, with the \nitrate residing in the topmost layer and 
+the \Li residing somewhat deeper at about 5 \AA from the surface. In this way we have a model with one "salty" interface
+and one neat interface which can be used as a reference. The sample of input files are given in Appendix \ref{computational_detail}.  
+To provide the interpretation to the above experimental results, the following analysis tools are used:
+(1) VDOS; 
+(2) calculation of the nonlinear susceptibility; 
+(3) reconcile of the interface and cluster picture.
+In paragraph \ref{stru_lino3_interface}, the VDOS for water molecules at the interface is explored. 
+In paragraph \ref{sfg_lino3_interface}, the VSFG spectroscopy of the whole alkali nitrate interfaces of  aqueous solutions is calculated,
+to find the connection between these two kind of models: the interface and cluster picture.
+Additionally, in order to study the effect of cations, the water/vapor interfaces of alkali-iodine solutions are also studied in paragraph \ref{sfg_alkali_iodide_interface}.
+%To test the convergence of the dynamics of the system, $g_z(\nu)$ is calculated for the first half 10 ps and the later half second 10 ps, respectively. 
+
+%=========
+%Interface
+%=========
+\section{Structure of the Water/Vapor Interface of LiNO$_3$ Solutions}\label{stru_lino3_interface}
+In the model of the water/vapor interface of LiNO$_3$ solutions, stable clusters Li$^+$(H$_2$O)$_4$ and NO$_3^-$H$_2$O can be observed,
+%in the subsystem LiNO$_3$H$_2$O, 
+and ions \Li and \nitrate are separated by one water molecule.
+We can see both clusters in the right panel of Fig.\thinspace\ref{fig:interface_chandler}.
+This water-separated structure (named as LiNO$_3$H$_2$O) is more stable than the structure in which \Li and \nitrate is bonded directly.
+In the subsystem NO$_3^-$(H$_2$O)$_6$ at the interface of the \LiN solution, the water molecules are bonded to the O atoms of \nitrate.
+
+
+%To explore the ion-induecd effect in the interface, 
+The VDOS $g_z(\nu)$ for the water molecules at the interface, which is calculated from the Fourier Transform (FT) of the auto-correlation function 
+of velocity of the atoms in the z-axis projection, gives a rough value of the thickness of the interface $d$. 
+Using 1, 2 and 5 \AA thicknesses, we have defined three different interfacial regions. 
+For the LiNO$_3$ solution, $g_z(\nu)$ of the salty and neat water interfaces in the slab is reported in Fig.\space\ref{fig:surf_x-vs-l_x_d1-5}.
+When $d=$1 \A, water molecules at the solution surface have lower free OH stretching frequency than that in pure water.
+This means that there are less water molecules with free OH stretch at the interface of \LiN solution than at the interface of pure water. 
+It compares very well with the experimental result of the surface propensity of nitrate anions in water solution. \cite{PS03} 
+Meanwhile, compared to the result of pure water, the H-bonded band of the VDOS for the salty interface has a blue-shift of $\Delta\nu\approx 80$ \centimeter.
+As we increase the value of $d$, the difference between pure water and salt water VDOS is gradually reduced. For example, when $d=2$ \A, 
+the amount of blue shift $\Delta\nu$ is reduced to 55 \centimeter; when $d=5$ \A, the amount of blue shift is almost zero.
+This indicates that the ions' (\li, \na, \K and \nit) effects 
+can be found only on the water molecules in the top $\sim$5-\AA layer of the interface.
+% p3: l=1A, peak of g_z for the interface is blue-shifted.
+As the thickness of the interfacial water layer included in $g_z(\nu)$ increases, the free OH signal is depressed
+and at the same time the H-bonded OH bands for the salty and neat water interfaces become more similar.
+%To check the convergence of the dynamics of the system, $g_z(\nu)$ is calculated for the first half 10 ps 
+%and the later half second 10 ps, respectively. (see Fig.\ref{fig:FT_all_w_in_interf})
+%
+\begin{figure}[h!]
+\centering
+\includegraphics [width=0.5 \textwidth] {./diagrams/surf_x-vs-l_x_d1-5}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:surf_x-vs-l_x_d1-5} The VDOS $g_z(\nu)$ of water molecules in the water/vapor interface of LiNO$_3$ solution 
+  (solid line) and in vapor-pure water interface (dashed line). (a): $d=1$ \A; (b): $d=2$ \A; (c): $d=5$ \A.}
+\end{figure}
+%
+
+In order to explore the reason for the blue-shift of the H-bonded OH stretch in the interface system,
+we also calculated the VDOS $g(\nu)$ for the 6 water molecules in the subsystems NO$_3^-$(H$_2$O)$_6$
+(The structure of this cluster is shown in Fig.\space\ref{fig:interface_chandler}).
+Compared to the VDOS for H-bonded water molecules at the surface of pure liquid water, a blue-shift of $\Delta\nu' \approx 80$ \cm on the vibrational modes 
+of water molecules is found at the interface (Fig.\space\ref{fig:vdos_LiNO3-256w_w_near_nitrate}).
+It indicates that a HB with nitrate acceptor is weaker than that with water acceptor. 
+This feature agrees with experimental result obtained by Jubb et.al.\cite{AJ12}  
+The OH stretching band at 3394 \cm(300 K) also agrees with that of liquid pure water (3400 \centimeter \cite{Marechal11}). 
+Since the value of $\Delta\nu'$ is almost equal to the value of $\Delta\nu$ at $d=1$ \A, we can conclude that the blue shift of the VDOS 
+at the salty water interface is mainly caused by the H-bonds between the uppermost nitrate and water molecules at the salty interface.
+% Extra info
+% In VDOS for water molecules bound to \nitrate in the water/vapor interface 
+% and to water molecules in the interface system as shown in Fig. \ref{fig:vdos_LiNO3-256w_w_near_nitrate},
+% there is no 3700 \centimeter-peak, all the water molecules considered are H-bonded either to  \nitrate or \wat. 
+% Therefore, for the bonded water molecules, those bonded to \nitrate have higher OH stretching frequency (3455 \centimeter) 
+% than that (3400 \centimeter) of water molecules H-bonded to \wat. 
+%
+\begin{figure}[htbp]
+\centering
+\includegraphics [width=0.65 \textwidth] {./diagrams/vdos_LiNO3-256w_w_near_nitrate}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:vdos_LiNO3-256w_w_near_nitrate}The VDOS for 6 water molecules bound to \nitrate in vapor/\LiN solution interface (salty water) and
+ that for 15 water molecules at the top layer ($d$=1 \A) of the neat water.}
+\end{figure} 
+%
+%\paragraph{Radial Distribution Functions}
+
+%In addition, we studied two radial distribution functions at the interface of lithium nitrate solution.
+%From the RDFs for the interface of the \LiN solution shown in Fig. \ref{fig:gdr_Li-wat--117_LiNO3_Sans}, we find that
+%the water orientation is strongly affected by the \Li ions in the water/vapor interface. 
+%There are two layers (6 \AA ) of water molecules with dipole pointing outwards respect to \Li, in the solvation shell.
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics [width=0.5 \textwidth] {./diagrams/gdr_Li-wat--117_LiNO3_Sans} 
+%\setlength{\abovecaptionskip}{0pt}
+%\caption{\label{fig:gdr_Li-wat--117_LiNO3_Sans} The Li--water O (black) 
+%and Li--water H (red) RDFs for \LiN/vapor interface. 
+%The peaks of Li--water O and Li--water H RDFs are 2.02, 4.10, 6.20 \AA ; and 2.64, 4.80, 6.90 \AA , respectively.}
+%\end{figure}
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics [width=0.5 \textwidth] {./diagrams/gdr_NitrateO-wat--117_LiNO3_Sans} 
+%\setlength{\abovecaptionskip}{0pt}
+%\caption{\label{fig:gdr_NitrateO-wat--117_LiNO3_Sans } The nitrate O--water O (${\text O}_{\text n}-{\text O}_{\text w}$) 
+%and nitrate O--water H (${\text O}_{\text n}-{\text H}_{\text w}$) RDFs for  \LiN water interface. 
+%The peaks of nitrate O--water O and nitrate O--water H RDFs are: 2.88, 4.72 and 6.70 \AA ; and 1.88, (3.32 and 3.90 \AA .) }
+%\end{figure}
+%
+%
+%The VDOS for water molecules bound to \Li at the interface, in the cluster Li$^+$(H$_2$O)$_4$,
+%and in the interface system  LiNO$_3$(H$_2$O)$_{256}$ are compared in Fig. \ref{fig:vdos_Li-4w_gauss150_font35}.
+%The alkali cation's effect on the bending modes of interfacial water is trivial.
+% (For the bending modes, VDOS for bulk water peaks at 1630 \centimeter. 
+% The VDOS for  water molecules in the cluster Li$^+$(H$_2$O)$_4$ is red-shifted with $\Delta\nu=$-20 \cm, 
+% and that of water molecules bounded to \Li in the LiNO$_3$(H$_2$O)$_{256}$ interface system  are blue-shifted ($\Delta\nu=$30 \centimeter).)
+%What is the microscopic structure at the water/vapor interface for solutions? 
+
+
+\section{VSFG Spectra of the Water/Vapor Interface of LiNO$_3$ Aqueous Solutions} \label{sfg_lino3_interface}
+%By using DFTMD simulation and analysing the VDOS for water molecules in alkali-nitrate-water clusters,  red-shift of H-bonded OH stretching band is induced by alkali cations and nitrate anions in these clusters, compared with the cluster including only water molecules and nitrate anions.This result explains the difference between SFG spectrum of water/vapor interface of water solution of alkali nitrate and that of pure water (Fig. \ref{fig:Allen12}). 
+%We estimated the scale of the interface of the alkali nitrate solution 
+%by calculation of the nonlinear susceptibility of water/vapor interfaces of aqueous alkali nitrate solutions. 
+%
+%
+%\begin{figure}[htbp]
+%\centering
+%\includegraphics [width=0.8 \textwidth] {./diagrams/sfg_117_LiNO3_7A_20ps_gauss150_roman_font40}
+%\setlength{\abovecaptionskip}{0pt}
+%\caption{\label{fig:sfg_117_LiNO3_7A_20ps_gauss150_roman_font40} (a) Im$\chi^{(2)}_{SSP}$, 
+%  and (b) $I_{SSP}$ of water molecules at water/vapor interface of \LiN solution.} 
+%\end{figure}
+%The simulation time is 25 ps
+%and the thickness of the interface is $d$=8 \A.
+
+% MAIN STATEMENT p1: LiNO3 forms a stable water separated ion pair at the interface.
+% p1a: NO3- is on the surface.
+It has been often put forward the idea that in nitrate solution anion and cation are paired 
+at the interface and form a double layer. Based on the relatively high propensity of \nitrate for the interface 
+\cite{XM09,DEO07} we decided to start the simulations with the anion at the water surface and to investigate the possibility that  \LiN
+forms a stable water-separated ion pair at the interface. The idea that nitrate anions form water-separated pair where
+the Coulomb interaction is shielded was already suggested for divalent cation nitrate\cite{XM09}.
+An equilibration time of about 10 ps was considered before the trajectory analysis, and subsequently
+40 ps have been considered for production. The first result is that
+such model system is stable and the \nitrate remains within the topmost water layer during all the simulation time.
+This result can be found in the probability distribution along $z$-axis of the simulation box, 
+as shown in Fig.\space\ref{fig:prob_LiNO3-wat--256_LiNO3_Sans_double_axis}.
+This is in agreement with previous simulation results based on polarizable classical force field\cite{DJT13}
+and also with some DFTMD work on nitric acid, which was also found stable at the interface\cite{ESS07}. 
+Moreover, the \Li remains relatively close to the surface, in a water sub-layer forming a water separated ion pair 
+with the \nitrate at the interface.
+%
+\begin{figure}[h!]
+\centering
+\includegraphics [width=0.6\textwidth] {./diagrams/prob_LiNO3-wat--256_LiNO3_Sans_double_axis} 
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:prob_LiNO3-wat--256_LiNO3_Sans_double_axis} The probability distributions of \Li, \nitrate and water molecules for 
+\LiN water interface along the normal direction, through the trajectory of 40 ps. 
+During the simulation, the \Li is located in the middle layers of the system. 
+Thus, the effects of \Li on susceptibility of the water molecules is canceled. }
+\end{figure}
+%
+% p2: The interface LiNO3 has depletion in 3200 cm-1 in SFG
+% p1 => p2
+We have calculated the susceptibility for the two interfaces, namely the one containing the \LiN pair(salty interface) 
+and the neat one which does not include any ion. 
+%The SFG signal is calculated by Eq. ~(\ref{eq:chi}):
+%\begin{align}
+%  \chi^{(2)}_{SSP,\text{R}}&=\frac{i}{k_BT \omega} \sum\limits_j \int_0^\infty dt e^{i\omega t} \frac{\partial A_{XX}}{\partial r_j} \frac{\partial M_Z}{\partial r_j} \langle \dot{r}_j(0) \dot{r}_j(t) \rangle \nonumber
+% \end{align}
+%where $r_j$ is the length of the OH bond, %(i.e., the vibrational coordinate of the $j$th normal mode),
+%$X, Y, Z$ denote the axes of Cartesian coordinates in space, $A$ is the polarizability,  and $M$ the transition dipole moment.
+%
+%This VDOS can be seen as the resonant second order susceptibility 
+%($\chi^{(2)}_{SSP,\text{R}}$) of a system having an VSFG signal only based (1) on the bond stretching 
+%(2) without any correlation between the different bonds and (3) with a fully isotropic polarizability. 
+%These approximations are valid, since (1) we are focusing only on the stretching region of water, 
+%(2) no splitting between the symmetric and antisymmetric stretching is expected, 
+%(3) the total polarizability of water is nearly isotropic.\cite{Salanne08}.
+%The main advantage of such approximation for $\chi^{(2)}_{\text{R}}$ is that it retain details of the
+%water/vapor interfaces including the full electronic structure, but its computational
+%cost is reduced with respect to a full calculation with the instantaneous evaluation of the 
+%molecular dipoles and polarizabilities\cite{Sulpizi13}.
+% p5: for the top 1 \AA, free OH region is less intense.
+% p6: for the top 1\AA, Free OH is less than neat water surface
+% p1a: NO3- is in the region of top 1\AA (or NO3- is on the surface). p5 => p6, p6 => p1a.
+The calculated imaginary part is reported in panel (a) and the intensity in panel (b) of  
+Fig.\space\ref{fig:sfg_LiNO3_7A_20ps_gauss150}. The calculated intensity spectra show a depletion of the 3200 \cm region as in the experiments.
+The same feature is also shown in the imaginary part. 
+Also the calculated spectra show that the free OH region is less intense in the salty interface with respect to the neat water interface.
+%
+\begin{figure}[htbp]
+\centering
+\includegraphics [width=\textwidth] {./diagrams/sfg_LiNO3_7A_20ps_gauss150}
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:sfg_LiNO3_7A_20ps_gauss150} (a) The Im$\chi^{(2),\text{R}}_{SSP}$ and (b) the $\chi_{SSP}^{(2),\text{R}}$ of water molecules at water/vapor interface of \LiN solution. 
+The simulation time is 40 ps and the thickness of the interface is $d$=9 \A. The simulation system is \Li ion, 1 \nitrate ion, 
+and 256 water molecules in 19.7 $\times $ 19.7 $\times $ 40.0 \A$^3$ simulation box.}
+\end{figure}
+
+%Fig. \ref{fig:sfg_117_LiNO3_7A_20ps_gauss150_roman_font40}, which is calculated from LiNO$_3$(H$_2$O)$_{117}$/vapor system 
+%(with a 15.6 $\times$15.6 $\times$31.0 \A$^3$ simulation box) also gives the same characteristics of the VSFG intensity.
+
+To find the microscopic origin of the depression of the lower frequency region,
+we have also decomposed the salty water interface VDOS into the contributions coming from the different water molecules. 
+
+% p1a => p6 => p5
+First, there are two reasons to support the view that \nitrate is located at the top layer of the surface.
+(1): The reduced intensity of the free OH peak can be explained by that \nitrate is at the surface.
+The 3700 \centimeter-peak is the character of free OH stretch in water molecules with 
+their dipole moment pointing to the vapor phase.\cite{Du93,Baldelli1997} 
+\nitrate binds to water molecules from the water surfaces which have less free OH, therefore reduce the intensity of the free OH peak.
+% p3 => p1a
+%p3:
+(2): Those water molecules directly H-bonded to the \nitrate ion show an higher frequency band with respect to the neat 
+water at the interface, which explain the increased intensity of the 3400 \cm band.
+%It is the water molecules H-bonded to \nitrate cause the blue shift in the VDOS $g_z$. 
+
+% p1b: separated pair
+Second, the statement that \Li and \nitrate are separated is confirmed by Ref.\citenum{Pegram06,Pegram08},
+which show that the alkali metal cations are of \emph{small}
+composite partition coefficients ($k_{p,\text{K}^+} = 0.00\pm 0.03$, $k_{p,\text{Na}^+} = 0.05\pm 0.17$, $k_{p,\text{Li}^+} = 0.14\pm 0.18$),
+\cite{Pegram06,Pegram08} i.e., these cations are more surface-excluded than 
+NO$_3^-$ ($k_{p,\text{NO}_3^-} \approx 1.0$).
+How do we reconcile the interface picture and the cluster picture?
+In the small clusters (with 3, 4 and 5 water molecules) the contact ion pair is the most stable configuration, 
+while at the interface the water separated configuration is the most stable.
+This suggests that a sufficiently large number of water molecules is required to stabilize a water separated ion pair where
+the \nitrate anion still reside at the surface. 
+To verify this idea we extracted a relatively large cluster with 30 water molecules from the full interface, centered
+around the \Li ion and we simulate it in the gas phase. 
+For this medium size cluster we calculated the free energy difference between the
+water separated and the contact ion pair. The details of the calculation is given in Appendix \ref{calculate_free_energy}. 
+%[REMOVED: We find a very small free energy difference (0.3 kcal/mol) 
+%in favor of the water separated ion pair. 
+%In the interface system, the relation between free energies of different configurations 
+%can give us the explain of the vibrational properties of water molecules. 
+%Consider a cluster including an alkali metal cation, a nitrate anion and more water: LiNO$_3$(H$_2$O)$_{30}$.]
+The blue-moon ensemble method\cite{CCHK89,Sprik98,Tuckerman10} is used to calculate the free energy as a function of a parameter: 
+the distance $r$ between alkali metal cation and the nitrogen of \nitrate in LiNO$_3$(H$_2$O)$_{30}$.
+In Fig.\space\ref{fig:Li-nitrate-32w_free-ener}, we find that there are two minima in the free energy
+at $r=2.9$ \AA (configuration A)  and $r=4.3$ \AA(configuration B).
+\Li and \nitrate are bonded in configuration A, but are water-separated in configuration B.
+The free energy difference $\Delta{F}_{\text{AB}}=F_{\text{A}}-F_{\text{B}} = 0.3$ kcal/mol. 
+%We use C denotes the transition state. 
+The energy barrier between C and A (B) is:
+$\Delta{F_{\text{CA}}} = 1.2$ kcal/mol ($\Delta F_{\text{CB}} = 1.5$ kcal/mol). Configuration B is more stable than A.
+% [REMOVED: This result interprets the probability that the system is in configuration B is larger than in A.]
+For the water molecules in interface system, \nitrate resides on the surface and \Li in the layer below, separated from \nitrate by water molecules.
+Therefore, no obvious red-shift induced by alkali metal cation and nitrate is obtained in the VSFG spectrum.
+Our results show that as the number of waters increases, the first solvation shell around the \Li is stabilized and 
+the water separated ion pair is equally stable as the contact ion.
+%ALSO: In the medium size cluster, the \nitrate resides at the surface of the cluster as in the full interface.
+%
+\begin{figure}[h!]
+\centering
+\includegraphics [width=0.6 \textwidth] {./diagrams/Li-nitrate-32w_free-ener}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:Li-nitrate-32w_free-ener} The free energy profile with respect to the 
+distance $r$ between alkali metal cation and the nitrogen in \nitrate in the cluster LiNO$_3$(H$_2$O)$_{30}$.  
+\emph{A} denotes the configuration A where $r=2.9$ \A; \emph{B} denotes the configuration B where $r=4.3$ \AA;
+\emph{C} denotes the transition states.}
+\end{figure}
+
+% p1c: one single water is constantly shared between the \Li and the \nitrate
+% p8: The water (bound to both Li and \nitrate<0) shows a vibrational peak with a very pronounced red shift
+Finally, in the salty interface, one single water is constantly shared between the \Li and the \nitrate and indeed 
+this water shows a vibrational peak with a very pronounced red shift. This clearly reminds the water peak we already observed 
+in the small clusters, however if the full interface is considered its signature do not emerge from the spectra, as it can be 
+seen in Fig.\space\ref{fig:sfg_LiNO3_7A_20ps_gauss150}.
+
+From the three arguments above, our conclusion is thus that in the VSFG spectra we do only see the changes induced by the \nitrate at the interface.
+This points to a clear 3400 \cm band in the vibrational spectra.
+The \Li resides in the sub-layer forming a water separated ion pair at the interface.
+
+We have analyzed the behaviour of a salty water/vapor interface containing \LiN.
+Both the measured and calculated VSFG spectra show a reduced intensity of the lower frequency portion of
+the HB region, namely around 3200 \centimeter, when compared to the pure water/vapor interface. 
+This reduction can be attributed to the H-bonds which are established between the \nitrate and the surrounding water molecules at the interface.
+This effect is only related to the presence of \nitrate at the water surface and is not affected by the presence of \Li ions.
+Indeed we have shown that although \Li can reside relative close to the water surface, also forming a water mediated
+ion pair with \nit, its effect on the VSFG spectrum is not visible. The water which mediate the interaction 
+between the \nitrate and \Li would produce a red-shifted peak in small water cluster, but its influence is not visible 
+neither in the calculated or the measured VSFG spectra. We have also shown that the very simple models,
+such as small clusters are not suitable to reproduce the experimental spectra and cannot provide a microscopic interpretation of the spectra. 
+A realistic model of the interface is required to address the perturbation of the ion on the water surface.
+%In summary, by the DFTMD simulation and analysing the VDOS for water molecules in alkali-nitrate-water clusters and alkali nitrate/vapor interface, 
+%we explains the difference between SFG spectrum of water/vapor interface of water solution of alkali nitrate and that of pure water (Fig. ~\ref{fig:Allen12}). 
+
+\section{VSFG Spectra of the Water/Vapor Interface of Alkali Iodine Aqueous Solutions}\label{sfg_alkali_iodide_interface} %Solutions LiI, NaI, KI
+Direct investigations of dynamics 
+of simple ions, such as \I and \br, at interfaces, 
+by the x-ray photoelectron spectroscopy\cite{ghosal2005} and MD simulations\cite{PJ01,PJ02} 
+have shown that these ions could accumulate at the interface.
+In order to study the effect of alkali cations and iodine ions, we analyze the structure and dynamics of salty solutions containing alkali cations 
+and iodine ions.
+%and to provide a microscopic interpretation of recent experimental results. 
+We will consider the alkali-iodine aqueous solutions, and will provide a molecular picture to interpret the recorded spectra.
+%
+
+A model for water/vapor interface is built, in which a slab of 124 water molecules containing one \Li and 
+one \I is included in a period simulation box of 15.6 $\times $ 15.6 $\times $ 31.0 \A$^3$ at 330 K.
+The slab is about 20 \AA thick and infinite in the \X and \Y direction, while the separation between the periodic slabs 
+in the \Z direction is about 20 \AA. The LiI was inserted at one of the two interfaces, with the \I residing in the topmost 
+layer and the \Li residing somewhat deeper at about 5 \AA from the surface. 
+Using the same method, we also constructed interface models of NaI solution and KI solution for DFT simulations.
+%For \Na, we use the Gaussian and Augmented-Plane-Wave (GAPW) method, where the electronic density is partitioned 
+%in hard and soft contributions. The hard contributions are local terms naturally expanded in a Gaussian basis, whereas 
+%the soft parts are expanded in plane-waves by using a low energy cutoff, without loss in accuracy. \cite{Iannuzzi05}  
+%GAPW is a hybrid method.
+
+%To see the microscopic origin of the spectroscopic characters, we studied these interfaces from the probability distribution functions, RDFs, and VSFG spectra as follows.
+%
+\paragraph{Structural Properties} % LiI, NaI and KI solutions
+\begin{figure}[h!]
+\centering
+\includegraphics [width=0.6 \textwidth] {./diagrams/prob_124_LiI_double_axis} 
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:prob_124_LiI_double_axis}  The probability distributions $P(z)$, along the normal direction, 
+  of \li, I$^-$ and O in LiI solution-air interface, through the trajectory of 60 ps. During the simulation, 
+  the \Li is located in the middle layers of the system.}
+\end{figure}
+% Thus, the effects of \Li on susceptibility of the water molecules is canceled. 
+%
+First, we have calculated the probability distributions of \li, \I and O with respect to 
+the normal direction of the LiI solution surface. The ions are originally randomly distributed at the interface, and 
+the first 30 ps trajectory is used for equilibrating the system.  
+Subsequently a 60 ps trajectory is used to calculate the probability of ions' position. 
+The result is given by Fig.\space\ref{fig:prob_124_LiI_double_axis}, from which we see that \I anions prefer to be located at the surface of the 
+solution, while the \Li cations prefer to stay below the surface. This result is consistent with the calculations from 
+Ishiyama and Morita\cite{TI07,Ishiyama2014} on a similar system. 
+The ions distribution affects the orientation of water molecules in the interface system. 
+
+The effects of \Li and \I on the orientation of water molecules are shown in Li--water (Fig.\space\ref{fig:gdr_124_LiI}(a)) 
+and I--water RDFs (Fig.\space\ref{fig:gdr_124_LiI}(b)), respectively.  
+In Fig.\space\ref{fig:gdr_124_LiI}, the first two peaks of $g_{\text{Li-Ow}}$ and $g_{\text{Li-Hw}}$ are located at 1.97 \AA and 4.12 \ \A,  
+and, 2.61 \AA and 4.73 \ \A, respectively. Thus, one can determine the differences of the peaks' positions, which are shown in Table \ref{tab:gdr_Li-water}. 
+The difference $\delta_1$ between the first peaks, 0.67 \A, is shorter than the OH group length $R_{\text{OH}}$ in a water molecule which is about 0.98 \A, i.e.,
+\begin{equation}
+\delta_1 < R_{\text{OH}}.\nonumber
+\end{equation}
+This relation reflects that all the water molecules around the \Li have their O atom facing \li. 
+\begin{table}[htbp]
+\centering
+\caption{\label{tab:gdr_Li-water} 
+The peaks of $g_{\text{Li-O}}$ and $g_{\text{Li-H}}$ for 0.9 M LiI solution at 330 K.}
+\begin{tabular}{ccc}
+  $g_{\text{Li-O}}$& $g_{\text{Li-H}}$ & Difference  \\
+\hline
+ 1.97 & 2.64 & 0.67 \\
+4.12&4.73  &0.61  \\
+6.13 &6.93 & 0.80 
+\end{tabular}
+\end{table}
+%
+\begin{figure}[h!]
+\centering
+\includegraphics [width=\textwidth] {./diagrams/gdr_124_LiI} 
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:gdr_124_LiI} 
+  (a) The RDF $g_{\text{Li-O}}$ and $g_\text{{Li-H}}$ for LiI--water interface. 
+  The first two peaks of $g_{\text{Li-O}}$ and $g_{\text{Li-H}}$: 1.97 and 4.12 \A, and, 2.61 \AA and 4.73 \A, respectively. 
+  (b)The RDF $g_{\text{I-O}}$  and $g_{\text{I-H}}$ for LiI-water interface. 
+  The first two peaks of $g_{\text{I-O}}$ and $g_{\text{I-H}}$: 3.62 \AA and 5.28 \A; and, 2.69 \AA and 4.11 \A, respectively.
+  }
+\end{figure}
+%
+Similarly, we find from Fig.\space\ref{fig:gdr_124_LiI}(b) that the distance $\delta_1$ between the first peaks of the 
+two radial distribution functions is $0.93$ \A, and it can be seen that $\delta_1$ is slightly equal to $R_{\text{OH}}$, i.e., 
+\begin{equation}
+\delta_1 \approx R_{\text{OH}}.\nonumber
+\end{equation}
+This shows that for the water molecules around the I$^-$, 
+only one H atom forms an I--H bond with the I$^-$. This also implies that \I is essentially at the outermost layer of the solution interface. 
+This is consistent with many of the previous results\cite{dang2002,PJ01,PJ02,vrbka2004,Garrett2004}.
+%
+\paragraph{Vibrational Sum-Frequency Generation Spectra}
+%We have calculated the susceptibility for the two interfaces, the one containing the LiI pair 
+%and the neat one which does not include any ion.
+%As we assumed in chapter 3, there is no time dependence of the dipole/polarisability components, therefore, 
+%only the value at $t=0$ is taken into account. 
+%The expression for the VSFG spectrum is :
+%\begin{align}
+%\chi^{(2)}_{SSP}(\omega)=
+%&\frac{i\omega}{kT}\frac{1}{\pm \omega^2}\sum_{j=1}^{N_\text{m}}\sum_{a=1}^{N_{\text{mode} j}}
+%\langle\frac{\partial A_{ss}^j(0)}{\partial q_a}\rangle\langle\frac{\partial M_p^j(0)}{\partial q_a}\rangle  \nonumber \\
+%&\times\int e^{i\omega t}\langle \frac{\text{d}q_a(t)}{\text{d}t}\frac{\text{d}q_a(0)}{\text{d}t}\rangle
+%\label{eq:sfg},
+%\end{align}
+%where $N_\text{m}$ is the number of molecules in the system, $N_{\text{mode} j}$ denotes the number of normal modes for water 
+%molecules, $q_a$ is the normal vibrational coordinates, and $\langle\cdots\rangle$ denotes the average over starting times. 
+%
+For NaI solution surface, from Fig.\space\ref{fig:sfg_NaI_16_40ps_gauss150}, we find that the $|\chi^{(2),\text{R}}_{SSP}|^2$ spectra 
+show a free OH stretching band (3600--3800 \centimeter) and a bonded OH stretching band (3200--3600 \centimeter). 
+In the region $3600 -- 3800$ cm$^{-1}$, Im$\chi^{(2),\text{R}}_{SSP}>0$ is obtained, and it is in 
+agreement with experiment for NaI (2.0 M) solution.\cite{JiN08,CST11,Verreault2013}
+In the experimental results, NaI solution also exhibits an Im$\chi^{(2),\text{R}}_{SSP}$ spectrum in which the magnitude is positive over the frequency region $3000 -- 3400$ cm$^{-1}$.
+This peak is usually regarded as the concequence of water molecules in the icelike region and it decreases as the temperature increases. \cite{Shen2006} 
+Our DFTMD simulations are done at 330 K, therefore the icelike peak is not visible in the Im$\chi^{(2),\text{R}}_{SSP}$ spectrum.
+For LiI and KI solution surfaces, as shown in Fig.\space\ref{fig:sfg_LiI_16_40ps_gauss150} and 
+Fig.\space\ref{fig:sfg_KI_16_40ps_gauss150}, there is one wide free OH stretching band (3400--3800 \centimeter) and 
+one extremely small bonded OH stretching band (3000--3400 \centimeter).
+In all the three solutions, the free OH stretching band are red-shifted, with respect to the free OH stretching band of the pure water/vapor interface. 
+This red shift suggests that the I--H bonds are apt to located at the surface of the three aqueous solutions and thus the number of free OH streching OH bonds is reduecd.
+This result is consistent with the VSFG spetrum calculated in last paragraph, i.e., 
+(1) the anion--water H-bonds at water/vapor interfaces decrease the amount of free strching OH bonds 
+(2) the free streching peak in the intensity of VSFG decrease and the H-bonded streching peak is shifted at the interfaces of LiNO$_3$ (or alkali-iodine) solutions.
+%
+\begin{figure}[htbp]
+\centering    
+\includegraphics [width=\textwidth] {./diagrams/sfg_NaI_16_40ps_gauss150}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:sfg_NaI_16_40ps_gauss150} The 
+        (a) Im$\chi^{(2),\text{R}}_{SSP}$ and 
+        (b) $|\chi^{(2),\text{R}}_{SSP}|^2$ of the water/vapor interface of 0.9 M NaI solution (solid line) and pure water/vapor interface (dashed line).
+The spectrum are calculated from the average of two interfaces of the NaI solution, which are under the same condition.
+       }
+%There are two \Na cations and two \I anions in the solution part of the simulation box.
+%The simulation box is with the size of 15.6 \AA$ \times$15.6 \AA$ \times$31.0 \A. Half of the volume of the simulation box is vacuum. 
+%For LiI and KI solutions, the simulation methods are the same as that used for the NaI solution. 
+% The molar concentration of the solution is $c_{\text{LiI}}=0.9\times10^3 \text{ mol}/\text{m}^3$. 
+\end{figure}
+\begin{figure}[htbp]
+\centering    
+\includegraphics [width=\textwidth] {./diagrams/sfg_LiI_16_40ps_gauss150}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:sfg_LiI_16_40ps_gauss150} The 
+        (a) Im$\chi^{(2),R}_{SSP}$ and 
+        (b) $|\chi^{(2),\text{R}}_{SSP}|^2$ of the water/vapor interface of 0.9 M LiI solution (solid line) and pure water/vapor interface (dashed line).}
+\end{figure}
+%
+\begin{figure}[htbp]
+\centering    
+\includegraphics [width= \textwidth] {./diagrams/sfg_KI_16_40ps_gauss150}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:sfg_KI_16_40ps_gauss150} The 
+        (a) Im$\chi^{(2),R}_{SSP}$ and 
+        (b) $|\chi^{(2),\text{R}}_{SSP}|^2$ of the water/vapor interface of  0.9 M KI solution (solid line) and pure water/vapor interface (dashed line).}
+\end{figure}
+%
+The spectra of the NaI solution interface are quite different compared to that of LiI and KI solutions. 
+Moreover, the spectrum of the NaI solution interface is closer to the VSFG spectrum of the interface of pure water, 
+that is, in addition to the influence of iodide ions, we verify the result by the calculation of the nonlinear polarizability, that is, 
+the effect of \Na on the spectrum at the aqueous solution interface is weaker than that of both lithium and potassium ions. 
+In contrast to calculating surface tension as a function of concentration\cite{vrbka2004,Pegram06,Pegram08}, 
+we further illustrate from the VSFG spectroscopy that  
+among the lithium ions, sodium ions and potassium ions, sodium ions are the ions that are most repelled the water/vapor interface of solutions.
+
+%\begin{figure}[htbp]
+%\centering
+%\includegraphics [width=0.5 \textwidth] {./diagrams/FT_vvaf_both_interf_0-20ps_zzx_Im_layer_150226_s} %
+%\setlength{\abovecaptionskip}{0pt}
+%\caption{\label{fig:FT_vvaf_both_interf_0-20ps_zzx_Im_layer_150226} Im$\chi^{(2)}$ spectra in the OH stretching region (2800--3800 \centimeter) of  the water/vapor interface of NaI solutions (molar concentration: 0.9 M) at 330 K. }
+%\end{figure} 
+%
+%Fig.\space\ref{fig:FT_vvaf_pure_interf_0-20ps_zzx_cross_150226} shows that in auto-correlation functions (for the NaI solution),
+%the interaction between the two OH stretching motions in one water molecule is neglected, while in auto-plus intra-correlation fuctions, it is considered. This figure shows that autocorrelation and auto- and intra-correlation function 
+%give similar Im$\chi^{(2)}$ spectra, and the intermolecular interaction results in the crossing from positive to negative at 3000 \centimeter. 
+ 
+%\begin{figure}[htbp]
+%\centering
+%\includegraphics [width=0.5 \textwidth] {./diagrams/FT_vvaf_pure_interf_0-20ps_zzx_cross_150226_s} % Here is how to import EPS art
+%\setlength{\abovecaptionskip}{0pt}
+%\caption{\label{fig:FT_vvaf_pure_interf_0-20ps_zzx_cross_150226} Im$\chi^{(2)}$ spectra in the OH stretching region (2800/3800 \centimeter) 
+%of the water/vapor interface of NaI solutions at 330 K.}
+%\end{figure} 
+%
+%\begin{figure}[htbp]
+%\centering
+%\includegraphics [width=0.5 \textwidth] {./diagrams/FT_comparison3_intra_vvaf_pure_interf_0-20ps_zzx_150209_s} 
+%\setlength{\abovecaptionskip}{0pt}
+%\caption{\label{fig:FT_comparison3_intra_vvaf_pure_interf_0-20ps_zzx_150209} Im$\chi^{(2)}$ spectra in the OH stretching region (2800--3800 \centimeter) of the water/vapor interface of LiI, NaI solutions and pure water at 330 K.}
+%\end{figure} 
+%
+%\begin{figure}[htbp]
+%\centering
+%\includegraphics [width=0.5 \textwidth] {./diagrams/FT_vvaf_both_interf_0-20ps_zzx_cross_LiI_s} 
+%\setlength{\abovecaptionskip}{0pt}
+%\caption{\label{fig:FT_vvaf_both_interf_0-20ps_zzx_cross_LiI_s}Comparison of Im$\chi^{(2)}$ spectrum in the OH stretching region (2800--3800 \centimeter) of the water/vapor interface of LiI at 330 K, among three different correlations: auto, intromolecular and intermolecular correlations. Like the case of NaI solution, the intermolecular interaction results in the crossing from positive to negative at about 3000 \cm in LiI solution.}
+%\end{figure} 
+
+%\section{Instantaneous Interfaces of  Water/Vapor Interfaces}
+%We have tried a different layering method for the solution/vapor interfaces: plane layering and instantaneous layering.
+%Based on the density distribution, we determined the surface of the solutions. 
+%In the plane layering method, we assume that the surface is a plane, and we calculate the Im$\chi^{(2)}$ spectra for layers with different thicknesses. This is what we did in the above sections.
+%This section, we use the second layering method to study water/vapor interfaces.
+%\begin{figure}[H]
+%\centering
+%\includegraphics [width=0.6 \textwidth] {./diagrams/interface_chandler}
+%\setlength{\abovecaptionskip}{0pt}
+%\caption{\label{fig:interface_chandler} The water/vapor interfaces of  \LiN solution and pure water.
+% The alkali cation and the nitrate ion are in the top interface (salty interface).
+%Four water molecules are directly bonded to \Li (green) and there are  more than 6 water molecules bonded to \nitrate.}
+%\end{figure}
+%
+%\begin{wrapfigure}{r}[0.05cm]{8.0cm}
+%\centering
+%\includegraphics[width=0.5\textwidth]{./diagrams/vdos_256_LiNO3_5w_bond_to_no3_roman_font35}
+%\setlength{\abovecaptionskip}{0pt}
+%\caption{\label{fig:vdos_256_LiNO3_5w_bond_to_no3_roman} The VDOS for \water bounded to \nitrate in LiNO$_3$ solution/vapor interface and to \water. Five water molecules are considered.} 
+%\end{wrapfigure}

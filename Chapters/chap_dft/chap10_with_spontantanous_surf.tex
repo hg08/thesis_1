@@ -1,0 +1,892 @@
+\section{Extract the Molecules from Instantaneous Interface}
+The structure of the program is as follows.
+The aim of the program is:
+1) determine the instananeous interface of a system.
+2) print the atomic indices of atoms which are near the instananeous interface.
+3) print all the atomic indices of molecules which are near the instananous interface.
+
+\paragraph{Extracting O bonded to H} \label{Extracting O bonded to H}
+For the alkali nitrate solution/vapor interface system , if we only analyz properties of water molecules, we need to exclude \nitrate in the calculation of VDOS, i.e., we do not print the atomic indices of O atoms which are not in a water molecule. Here is one general algorithm. 
+% backgroundcolor=\color{lightgray},  
+\begin{lstlisting}[                                                                                          
+                  language=python]
+#=================
+#From chandler3.py
+#=================
+for at in range(nb_atoms):
+    if at not in [1,2,3]:
+        if lsymb[at].number == 8:
+            good_Oss=False   #Test value, to know if the studied O is good 
+
+            #Conversion of the (y,z) coordinates of O into (j,k)
+            i=math.floor(lx[at]/divx)
+            j=math.floor(ly[at]/divy)
+            k=math.floor(lz[at]/divz)
+
+            if n_axis ==0:
+                #Comparison between the distance of O to surf1 and surf2 with the default thickness
+                #if the O is far away from the surfaces, then we print it
+                if surf1[nb_divz*j+k]+thickness <= lx[at] and surf2[nb_divz*j+k]-thickness >= lx[at]:
+                    file_o1.write(str(at+1)+' ')
+                    print (at+1, " ", end="")
+                    good_Oss=True
+
+                elif n_axis ==1:
+                    if surf1[nb_divz*i+k]+thickness <= ly[at] and  surf2[nb_divz*i+k]-thickness >= ly[at]:
+                        file_o1.write(str(at+1)+' ')
+                        print (at+1, " ", end="")
+                        good_Oss=True
+                else:
+                    if surf1[nb_divy*i+j]+thickness <= lz[at] and surf2[nb_divy*i+j]-thickness >= lz[at]:
+                        file_o1.write(str(at+1)+' ')
+                        print (at+1, " ", end="")
+                        good_Oss=True
+#====================================================
+\end{lstlisting}
+%
+However, this code is not a general one! 
+We used the statement \texttt{if at not in [1,2,3]:}. 
+This works because this is a special case, and then we easily know 
+that the atoms with index 1, 2, and 3 are the O atoms which are not bonded to H atoms. 
+Our aim is to find a general cirterion to judge whether there is a O-H bond exists for any O atom. 
+I put the method in the following parts.
+
+\paragraph{chandler3\_1.py}     \label{chandler3_1}
+The function \texttt{chandler3\_1.py} can be used to extract the O atoms bonded to H atoms in water molecules, with the definition of the list \texttt{list\_O1} and 
+the maximal lengh of the O-N bond \texttt{max\_dist\_no}. This is more general than the above one in ~\ref{Extracting O bonded to H} .
+%\begin{widetext}
+%\lstset{language=Python}
+% backgroundcolor=\color{lightgray},
+\begin{lstlisting}[ language=python]
+#Filename: chandler3.py 
+#To run this function: python3.2 chandler3.py
+import periodictable
+import math 
+
+#=========
+#CONSTANTS
+#=========
+atob=1.88971616463     #Factor to convert from Ang to bohr
+dim = 3
+xi = 2.4      #Angstrom
+xi2_2 = 2*xi**2
+xi2_9 = 9*xi**2
+norm = (2*math.pi*xi**2)**(-dim/2)
+rho_ref=0.016
+max_dist=1.2      #Maximal length of the O-H bond
+max_dist2= max_dist**2
+max_dist_no= 1.4      #Maximal lengh of the O-N bond
+max_dist2_no= max_dist_no**2      #Maximal lengh of the O-N 
+
+#===========
+#SUBROUTINES
+#===========
+#Calculate the density associated with one O on a grid point
+#Pbc are taken into account
+#If distance higher than 3xi we do not take it into account
+def density(x,y,z,a,b,c,range_x,range_y,range_z): 
+	d=0
+	for i in range(-range_x,range_x+1): 
+		for j in range(-range_y,range_y+1): 
+			for k in range(-range_z,range_z+1):
+
+				r2=(x-a*i)**2+(y-b*j)**2+(z-c*k)**2 
+				#The atoms which are to far away (more than 3*xi) are not taken into account
+				if r2 <xi2_9:
+					d+= math.exp(-r2/xi2_2)     #1 op
+
+	return d 
+
+#This subroutine determines the position of rho_ref on the grid and returns it. 
+def pos_surf(start,end,step,rho,itoc):
+	#Fist grid point with rho>rho_ref
+	for i in range(start,end,step):
+		if rho[i] >= rho_ref:
+			break
+	if i==end-1:#Protection if there is a hole in the slab (low density along the normal axis)
+		j=i+step
+	else:
+		#First grid point after the water slab with rho<rho_ref
+		for j in range(i+step,end,step):
+			if rho[j] <= rho_ref:
+				break
+
+	#Linear interpolation of the surface position 
+	#1)Interpolation between i and i-1
+	z1= (rho_ref-rho[i])/(rho[i]-rho[i-step])+i
+	z1= (z1-start)/step*itoc
+	#2)Interpolation between j-1 and j
+	z2= (rho_ref-rho[j])/(rho[j]-rho[j-step])+j
+	z2 =(z2-start)/step*itoc
+	
+	return z1,z2
+
+#===============
+#Basic questions
+#===============
+name=input("What is the name of the position file? (input)\n")
+file_i = open(name,"r")
+line=input("What are the crystal parameters? (a b c in Ang)\n")
+line_split=line.split(' ')
+a=float(line_split[0])
+b=float(line_split[1])
+c=float(line_split[2])
+whish_size=float(input("What is aproximatively the size of a grid division? (in Ang)\n"))
+thickness=float(input("What is the thickness of your surface? (in Ang)\n"))
+n_axis=int(input("What is the normal axis? (0->x, 1->y, 2->z)\n"))
+name_split=name.split('.')
+name0=name_split[0]+'.cube'
+file_o = open(name0, 'w')     #the cube file as output
+name1 = 'surf_'+ name_split[0]+'.dat' 
+file_o1 = open(name1, 'w')     #store the atomic indices into file_o1
+#END OF QUESTIONS
+
+#================================================
+#Reading the main information
+nb_atoms=int(file_i.readline())     #Number of atoms
+
+#================================================
+#The first 2 lines of the cube file are written
+file_o.write("cube file for determining the isosurface of a system.\n")
+file_o.write("OUTER LOOP: X, MIDDLE LOOP: Y, INNER LOOP: Z\n")
+
+#================================================
+#The 3rd line of the cube file are written
+#{0:5d} means: the data number 0 is an integer and will be printed with 5 digits
+#{1:12.6f} means: the data number 1 is float and will be printed with 12 digits whom 6 will be after the .
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_atoms,0,0,0))
+
+#=============================
+#the 4th line of the cube file
+#Definition of the grid
+#=============================
+
+nb_divx=round(a/whish_size) 
+nb_divy=round(b/whish_size) 
+nb_divz=round(c/whish_size) 
+divx=a/nb_divx
+divy=b/nb_divy
+divz=c/nb_divz
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_divx,divx*atob,0        ,0))
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_divy,0        ,divy*atob,0))
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_divz,0        ,0        ,divz*atob))
+#Calculation of the number of boxes to take into account
+#Depends on:
+#1)the orientation of the normal axis
+#2)the ratio between the cell parameters and 3xi
+if n_axis == 0:
+	range_x=0
+	range_y=math.ceil(3*xi/b)
+	range_z=math.ceil(3*xi/c)
+elif n_axis ==1:
+	range_x=math.ceil(3*xi/a) 
+	range_y=0
+	range_z=math.ceil(3*xi/c)
+else:
+	range_x=math.ceil(3*xi/a)
+	range_y=math.ceil(3*xi/b)
+	range_z=0
+	
+#========================================
+#nb_atoms lines about the atomic position
+#atomic_number   random_float    x   y  z
+#========================================
+#Skip the commentary line of the xyz file
+file_i.readline()
+
+#1)Read all the atomic positions (and symbol)
+#and calculate the position of the mass center
+lsymb = [None]*nb_atoms
+lx = [None]*nb_atoms
+ly = [None]*nb_atoms
+lz = [None]*nb_atoms
+sum_mass=0
+center_pos=0
+for i in range(nb_atoms):
+
+#	print(file_i.readline().split())
+	symb,x,y,z=file_i.readline().split()
+
+	#Record the values inside a list with good format
+	lsymb[i]=periodictable.elements.symbol(symb)#lsymb is an object
+	lx[i]=float(x)
+	ly[i]=float(y)
+	lz[i]=float(z)
+	
+	#Calculate the mass center along the normal axis
+	if n_axis==0:
+                center_pos += lx[i]*lsymb[i].mass
+	elif n_axis==1:
+                center_pos += ly[i]*lsymb[i].mass
+	else: 
+		center_pos += lz[i]*lsymb[i].mass
+	sum_mass +=lsymb[i].mass 
+center_pos/=sum_mass
+
+#2)Recenter (along the normal axis only) the atoms according to the mass center
+if n_axis==0:
+	for i in range(nb_atoms):
+		lx[i]=lx[i]-center_pos +a/2
+elif n_axis ==1:
+	for i in range(nb_atoms):
+		ly[i]=ly[i]-center_pos +b/2
+else:
+	for i in range(nb_atoms):
+		lz[i]=lz[i]-center_pos +c/2
+
+#3)Recenter all the atoms inside the cell (along all the directions) and write the data
+for i in range(nb_atoms):
+	lx[i]=lx[i]%a ; ly[i]=ly[i]%b ; lz[i]=lz[i]%c
+	file_o.write(" {0:5d} {1:12.6f} {2:12.6f} {3:12.6f} {4:12.6f}\n".format(lsymb[i].number,0,lx[i]*atob,ly[i]*atob,lz[i]*atob))
+
+#===============
+#Volumetric data
+#===============
+inc=0
+rho=[0]*nb_divx*nb_divy*nb_divz
+#Loop for the grid
+for i in range (nb_divx):     #The program starts with this line
+	for j in range(nb_divy):
+		for k in range(nb_divz):
+			#Sum over all the O
+			for at in range(nb_atoms):
+				if lsymb[at].number == 8:#Only the O are selected
+					rho[inc]+=density(lx[at]-(i+0.5)*divx, ly[at]-(j+0.5)*divy,lz[at]-(k+0.5)*divz,a,b,c,range_x,range_y,range_z)
+			rho[inc] *= norm
+
+			file_o.write(" {0:12.6f}".format(rho[inc]))
+			inc+=1
+			if k % 6 == 5:
+				file_o.write("\n")
+		if k%6 != 5:
+			file_o.write("\n")
+
+#====================
+#Determine isosurface
+#====================
+inc =0
+if n_axis==0:
+	surf1=[0]*nb_divy*nb_divz#Initialization of the list associated with the perpendicular plane
+	surf2=[0]*nb_divy*nb_divz
+	#For each point of this plane, the point where the reference density is reached is calculated (and stored inside surf1 surf2)
+	for j in range(nb_divy):
+		for k in range(nb_divz):
+			start_inc= k+nb_divz*j
+			step_inc = nb_divz*nb_divy
+			end_inc  = start_inc+step_inc*nb_divx
+			surf1[inc],surf2[inc] =pos_surf(start_inc, end_inc, step_inc, rho,divx)#This function calculates the position of the reference density
+			#print(start_inc, step_inc, end_inc)
+			#print(surf1[inc])
+			inc += 1
+elif n_axis ==1:
+	surf1=[0]*nb_divx*nb_divz
+	surf2=[0]*nb_divx*nb_divz
+	for i in range(nb_divx):
+		for k in range(nb_divz):
+			start_inc= k+nb_divz*(nb_divy*i)
+			step_inc = nb_divz
+			end_inc  = start_inc+step_inc*nb_divy
+			surf1[inc],surf2[inc] =pos_surf(start_inc, end_inc, step_inc, rho,divy)
+			#print(start_inc, step_inc, end_inc)
+			#print(surf1[inc])
+			inc += 1
+else:
+	surf1=[0]*nb_divx*nb_divy
+	surf2=[0]*nb_divx*nb_divy
+	for i in range(nb_divx):
+		for j in range(nb_divy):
+			start_inc= nb_divz*(j+nb_divy*i)
+			step_inc = 1
+			end_inc  = start_inc+step_inc*nb_divz
+			surf1[inc],surf2[inc]=pos_surf(start_inc, end_inc, step_inc, rho,divz)
+			#print(start_inc, step_inc, end_inc)
+			#print(surf1[inc],surf2[inc])
+			inc += 1
+
+#==================================================
+#Determine the atoms which are close to the surface
+#and print their index
+#==================================================
+list_O1=[-1]
+for at in range(nb_atoms):
+	if lsymb[at].number == 8:
+		for at1 in range(nb_atoms): 
+			if lsymb[at1].number != 8:    #To avoid the O atoms itself as at and at1 [at-the-same-time]  
+				if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number !=1:
+					list_O1.append(at)
+					#print(list_O1)   #for testing
+file_o1.write('surface 1:\n')
+for at in range(nb_atoms):
+	if lsymb[at].number == 8:
+		if at not in list_O1:
+			good_O=False   #Test value, to know if the studied O is good 
+
+			#Conversion of the (y,z) coordinates of O into (j,k)
+			i=math.floor(lx[at]/divx)
+			j=math.floor(ly[at]/divy)
+			k=math.floor(lz[at]/divz)
+
+			if n_axis ==0:
+				#Comparison between the distance of O to surf1 with the default thickness
+				#if the O is close to the surface, then we print it
+				if surf1[nb_divz*j+k]+thickness >= lx[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_O=True
+
+			elif n_axis ==1:
+				if surf1[nb_divz*i+k]+thickness >= ly[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_O=True
+			else:
+				if surf1[nb_divy*i+j]+thickness >= lz[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_O=True
+
+			#If the O is close to the surface (good_O=True)
+			#Therefore, the H close to him are printed too             
+			if good_O:
+				for at2 in range(nb_atoms):                                    
+					if lsymb[at2].number ==1: 
+						if (lx[at2]-lx[at])**2 + (ly[at2]-ly[at])**2 +(lz[at2]-lz[at])**2 <= max_dist2:                                                                
+							file_o1.write(str(at2+1)+' ')
+							print(at2+1, " ", end=" ")
+file_o1.write('\nsurface 2:\n')
+print()
+for at in range(nb_atoms):
+	if lsymb[at].number == 8:
+		if at not in list_O1:
+			good_Os=False   #Test value, to know if the studied O is good 
+
+			#Conversion of the (y,z) coordinates of O into (j,k)
+			i=math.floor(lx[at]/divx)
+			j=math.floor(ly[at]/divy)
+			k=math.floor(lz[at]/divz)
+
+			if n_axis ==0:
+				#Comparison between the distance of O to surf2 with the default thickness
+				#if the O is close to the surface, then we print it
+				if surf2[nb_divz*j+k]-thickness <= lx[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_Os=True
+
+			elif n_axis ==1:
+				if surf2[nb_divz*i+k]-thickness <= ly[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_Os=True
+			else:
+				if surf2[nb_divy*i+j]-thickness <= lz[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_Os=True
+
+			#If the O's close to the surface (good_Os=True)
+			#Therefore, the H close to him are printed too             
+			if good_Os:
+				for at2 in range(nb_atoms):                                    
+					if lsymb[at2].number ==1: 
+						if (lx[at2]-lx[at])**2 + (ly[at2]-ly[at])**2 +(lz[at2]-lz[at])**2 <= max_dist2:                                                                
+							file_o1.write(str(at2+1)+' ')
+							print(at2+1, " ", end=" ")
+file_o1.write('\n')
+print()
+
+file_o1.write('\nbulk:\n')
+print()
+for at in range(nb_atoms):
+	if lsymb[at].number == 8:
+		if at not in list_O1:
+			good_Oss=False   #Test value, to know if the studied O is good 
+			#Conversion of the (y,z) coordinates of O into (j,k)
+			i=math.floor(lx[at]/divx)
+			j=math.floor(ly[at]/divy)
+			k=math.floor(lz[at]/divz)
+	
+			if n_axis ==0:
+				#Comparison between the distance of O to surf1 and surf2 with the default thickness
+				#if the O is far away from the surfaces, then we print it
+				if surf1[nb_divz*j+k]+thickness <= lx[at] and surf2[nb_divz*j+k]-thickness >= lx[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_Oss=True
+
+			elif n_axis ==1:
+				if surf1[nb_divz*i+k]+thickness <= ly[at] and  surf2[nb_divz*i+k]-thickness >= ly[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_Oss=True
+			else:
+				if surf1[nb_divy*i+j]+thickness <= lz[at] and surf2[nb_divy*i+j]-thickness >= lz[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_Oss=True
+			#If the O's close to the surface (good_Os=True)
+			#Therefore, the H close to him are printed too             
+			if good_Oss:
+				for at2 in range(nb_atoms): 
+					if lsymb[at2].number ==1: 
+						if (lx[at2]-lx[at])**2 + (ly[at2]-ly[at])**2 +(lz[at2]-lz[at])**2 <= max_dist2:                                                                
+							file_o1.write(str(at2+1)+' ')
+							print(at2+1, " ", end=" ")
+file_o1.write('\n')
+print()
+\end{lstlisting}
+%==========
+%\begin{figure}
+%\includegraphics [width=0.5\textwidth]{./diagrams/result_chandler3_1}   % Here is how to import EPS art
+%\caption{\label{fig:criterion}  The consequence of the criterion in \texttt{chandler3\_1.py} for judging the existence of O-H bond in water molecules. This cirterion can extract the O atoms in water molecules, and are satisfying the position criteria (close surface 1, close to surface 2 or in the bulk). }
+%\end{figure}
+%=========
+
+\paragraph{Reduce the parameters}
+We need to reduce the number of input parameters as possible as we can! 
+%For example,  if we do not care the name of the cube file, we do not need to ask the user to input it. 
+\lstset{language=Python}
+\begin{lstlisting}
+#=================
+#From chandler3.py
+#=================
+name=input("What is the name of the position file? (input)\n")
+file_i = open(name,"r")
+line=input("What are the crystal parameters? (a b c in Ang)\n")
+line_split=line.split(' ')
+a=float(line_split[0])
+b=float(line_split[1])
+c=float(line_split[2])
+
+whish_size=float(input("What is aproximatively the size of a grid division? (in Ang)\n"))
+thickness=float(input("What is the thickness of your surface? (in Ang)\n"))
+n_axis=int(input("What is the normal axis? (0->x, 1->y, 2->z)\n"))
+name_split=name.split('.')
+name0=name_split[0]+'.cube'
+file_o = open(name0, 'w')     #the cube file as output
+name1 = 'surf_'+ name_split[0]+'.dat'
+file_o1 = open(name1, 'w')     #store the atomic indices into file_o1
+#End of questions
+\end{lstlisting}
+%===========
+
+Instead, by using the \texttt{split()} function, we extract information from the position file (one input) and then to construct a name of the cube file automatically! This idea makes the program more efficient.
+
+The following is the function to extract the water molecules close to the instantaneous interface. In this function, the O-N distance criterion (O-H distance criterion, or call it \texttt{max\_dist2\_no} criterion) is used to make sure all the O atoms extracted are O atoms in water and not O atoms in other ions (eg. \nitrate). 
+The basic idea is: if O-H distance satisfys the criterion, print the index of the O atom.
+However, this criterion produces another problem. Because there are two H atoms in a water molecules, it prints atomic indices of O atoms two times.
+To remove the repeated atomic indices coming from the \texttt{max\_dist2\_no} criterion. We introduce the \texttt{if at!=test\_Os} part. Here is the code:
+%===================
+\lstset{language=Python}
+\begin{lstlisting}
+#================================
+#Filename: chandler4_2.py 
+#To run: python3.2 chandler4_2.py
+#================================
+import periodictable
+import math 
+
+#=========
+#CONSTANTS
+#=========
+atob=1.88971616463     #Factor to convert from Ang to bohr
+dim = 3
+xi = 2.4     #Angstrom
+xi2_2 = 2*xi**2
+xi2_9 = 9*xi**2
+norm = (2*math.pi*xi**2)**(-dim/2)
+rho_ref=0.016
+max_dist=1.2#Maximal length of the O-H bond
+max_dist2= max_dist**2
+max_dist_no= 1.4    #Maximal lengh of the O-N bond
+max_dist2_no= max_dist_no**2      #Maximal lengh of the O-N bond
+
+#===========
+#SUBROUTINES
+#===========
+#Calculate the density associated with one O on a grid point
+#Pbc are taken into account
+#If distance higher than 3xi we do not take it into account
+def density(x,y,z,a,b,c,range_x,range_y,range_z): 
+	d=0
+	for i in range(-range_x,range_x+1): 
+		for j in range(-range_y,range_y+1): 
+			for k in range(-range_z,range_z+1):
+
+				r2=(x-a*i)**2+(y-b*j)**2+(z-c*k)**2 
+				#The atoms which are to far away (more than 3*xi) are not taken into account
+				if r2 <xi2_9:
+					d+= math.exp(-r2/xi2_2)     #op
+	return d 
+
+#This subroutine determines the position of rho_ref on the grid and returns it. 
+def pos_surf(start,end,step,rho,itoc):
+	#Fist grid point with rho>rho_ref
+	for i in range(start,end,step):
+		if rho[i] >= rho_ref:
+			break
+	if i==end-1:#Protection if there is a hole in the slab (low density along the normal axis)
+		j=i+step
+	else:
+		#First grid point after the water slab with rho<rho_ref
+		for j in range(i+step,end,step):
+			if rho[j] <= rho_ref:
+				break
+
+	#Linear interpolation of the surface position 
+	#1)Interpolation between i and i-1
+	z1= (rho_ref-rho[i])/(rho[i]-rho[i-step])+i
+	z1= (z1-start)/step*itoc
+	#2)Interpolation between j-1 and j
+	z2= (rho_ref-rho[j])/(rho[j]-rho[j-step])+j
+	z2 =(z2-start)/step*itoc
+	
+	return z1,z2
+
+#===============
+#Basic questions
+#===============
+name=input("What is the name of the position file? (input)\n")
+file_i = open(name,"r")
+line=input("What are the crystal parameters? (a b c in Ang)\n")
+line_split=line.split(' ')
+a=float(line_split[0])
+b=float(line_split[1])
+c=float(line_split[2])
+whish_size=float(input("What is aproximatively the size of a grid division? (in Ang)\n"))
+thickness=float(input("What is the thickness of your surface? (in Ang)\n"))
+n_axis=int(input("What is the normal axis? (0->x, 1->y, 2->z)\n"))
+name_split=name.split('.')
+name0=name_split[0]+'.cube'
+file_o = open(name0, 'w')     #the cube file as output
+name1 = 'surf_'+ name_split[0]+'.dat' 
+file_o1 = open(name1, 'w')     #store the atomic indices into file_o1
+
+#================================================
+#Reading the main information
+nb_atoms=int(file_i.readline())     #Number of atoms
+
+#================================================
+#The first 2 lines of the cube file are written
+file_o.write("cube file for determining the isosurface of a system.\n")
+file_o.write("OUTER LOOP: X, MIDDLE LOOP: Y, INNER LOOP: Z\n")
+
+#=========================================
+#The 3rd line of the cube file are written
+#{0:5d} means: the data number 0 is an integer and will be printed with 5 digits
+#{1:12.6f} means: the data number 1 is float and will be printed with 12 digits whom 6 will be after the .
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_atoms,0,0,0))
+
+
+#=============================
+#the 4th line of the cube file
+#Definition of the grid
+#=============================
+nb_divx=round(a/whish_size) 
+nb_divy=round(b/whish_size) 
+nb_divz=round(c/whish_size) 
+divx=a/nb_divx
+divy=b/nb_divy
+divz=c/nb_divz
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_divx,divx*atob,0        ,0))
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_divy,0        ,divy*atob,0))
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_divz,0        ,0        ,divz*atob))
+#Calculation of the number of boxes to take into account
+#Depends on:
+#1)the orientation of the normal axis
+#2)the ratio between the cell parameters and 3xi
+if n_axis == 0:
+	range_x=0
+	range_y=math.ceil(3*xi/b)
+	range_z=math.ceil(3*xi/c)
+elif n_axis ==1:
+	range_x=math.ceil(3*xi/a) 
+	range_y=0
+	range_z=math.ceil(3*xi/c)
+else:
+	range_x=math.ceil(3*xi/a)
+	range_y=math.ceil(3*xi/b)
+	range_z=0
+	
+#========================================
+#nb_atoms lines about the atomic position
+#atomic_number   random_float    x   y  z
+#========================================
+#Skip the commentary line of the xyz file
+file_i.readline()
+
+#Read all the atomic positions (and symbol) and calculate the position of the mass center
+lsymb = [None]*nb_atoms
+lx = [None]*nb_atoms
+ly = [None]*nb_atoms
+lz = [None]*nb_atoms
+lx0 = [None]*nb_atoms
+ly0 = [None]*nb_atoms
+lz0 = [None]*nb_atoms
+sum_mass=0
+center_pos=0
+for i in range(nb_atoms):
+	symb,x,y,z=file_i.readline().split()
+
+	#Record the values inside a list with good format
+	lsymb[i]=periodictable.elements.symbol(symb)#lsymb is an object
+	lx[i]=float(x)
+	ly[i]=float(y)
+	lz[i]=float(z)
+	
+	#Calculate the mass center along the normal axis
+	if n_axis==0:
+                center_pos += lx[i]*lsymb[i].mass
+	elif n_axis==1:
+                center_pos += ly[i]*lsymb[i].mass
+	else: 
+		center_pos += lz[i]*lsymb[i].mass
+	sum_mass +=lsymb[i].mass 
+
+center_pos/=sum_mass
+
+#2)Recenter (along the normal axis only) the atoms according to the mass center
+if n_axis==0:
+	for i in range(nb_atoms):
+		lx[i]=lx[i]-center_pos +a/2
+elif n_axis ==1:
+	for i in range(nb_atoms):
+		ly[i]=ly[i]-center_pos +b/2
+else:
+	for i in range(nb_atoms):
+		lz[i]=lz[i]-center_pos +c/2
+
+#3)Recenter all the atoms inside the cell (along all the directions)
+#and write the data
+for i in range(nb_atoms):
+	lx[i]=lx[i]%a ; ly[i]=ly[i]%b ; lz[i]=lz[i]%c
+
+	file_o.write(" {0:5d} {1:12.6f} {2:12.6f} {3:12.6f} {4:12.6f}\n".format(lsymb[i].number,0,lx[i]*atob,ly[i]*atob,lz[i]*atob))
+
+#===============
+#Volumetric data
+#===============
+inc=0
+rho=[0]*nb_divx*nb_divy*nb_divz
+#Loop for the grid
+for i in range (nb_divx):     #The program starts with this line
+	for j in range(nb_divy):
+		for k in range(nb_divz):
+			#Sum over all the O
+			for at in range(nb_atoms):
+				if lsymb[at].number == 8:#Only the O are selected
+					rho[inc]+=density(lx[at]-(i+0.5)*divx, ly[at]-(j+0.5)*divy,lz[at]-(k+0.5)*divz,a,b,c,range_x,range_y,range_z)
+			rho[inc] *= norm
+
+			file_o.write(" {0:12.6f}".format(rho[inc]))
+			inc+=1
+			if k % 6 == 5:
+				file_o.write("\n")
+		if k%6 != 5:
+			file_o.write("\n")
+
+#====================
+#Determine isosurface
+#====================
+inc =0
+if n_axis==0:
+	surf1=[0]*nb_divy*nb_divz#Initialization of the list associated with the perpendicular plane
+	surf2=[0]*nb_divy*nb_divz
+	#For each point of this plane, the point where the reference density is reached is calculated (and stored inside surf1 surf2)
+	for j in range(nb_divy):
+		for k in range(nb_divz):
+			start_inc= k+nb_divz*j
+			step_inc = nb_divz*nb_divy
+			end_inc  = start_inc+step_inc*nb_divx
+			surf1[inc],surf2[inc] =pos_surf(start_inc, end_inc, step_inc, rho,divx)      #The function calculates the position of the reference density
+			#print(start_inc, step_inc, end_inc)
+			#print(surf1[inc])
+			inc += 1
+elif n_axis ==1:
+	surf1=[0]*nb_divx*nb_divz
+	surf2=[0]*nb_divx*nb_divz
+	for i in range(nb_divx):
+		for k in range(nb_divz):
+			start_inc= k+nb_divz*(nb_divy*i)
+			step_inc = nb_divz
+			end_inc  = start_inc+step_inc*nb_divy
+			surf1[inc],surf2[inc] =pos_surf(start_inc, end_inc, step_inc, rho,divy)
+			#print(start_inc, step_inc, end_inc)
+			#print(surf1[inc])
+			inc += 1
+else:
+	surf1=[0]*nb_divx*nb_divy
+	surf2=[0]*nb_divx*nb_divy
+	for i in range(nb_divx):
+		for j in range(nb_divy):
+			start_inc= nb_divz*(j+nb_divy*i)
+			step_inc = 1
+			end_inc  = start_inc+step_inc*nb_divz
+			surf1[inc],surf2[inc]=pos_surf(start_inc, end_inc, step_inc, rho,divz)
+			#print(start_inc, step_inc, end_inc)
+			#print(surf1[inc],surf2[inc])
+			inc += 1
+
+#==================================================
+#Determine the atoms which are close to the surface
+#and print their index
+#==================================================
+file_o1.write('surface 1:\n')
+for at in range(nb_atoms):
+	if lsymb[at].number == 8:
+		good_O=False     #Test value, to know if the studied O is good 
+		test_Os=-1
+		#Conversion of the (y,z) coordinates of O into (j,k)
+		i=math.floor(lx[at]/divx)
+		j=math.floor(ly[at]/divy)
+		k=math.floor(lz[at]/divz)
+
+		if n_axis ==0:
+			#Comparison between the distance of O to surf1 with the default thickness
+			#if the O is close to the surface, then we print it
+			if surf1[nb_divz*j+k]+thickness >= lx[at]:
+				for at1 in range(nb_atoms): 
+					#The following two lines (for... if...) are used to extract O atoms' indices with O-H bond.
+					#the criterion for judging the existence of O-H bond
+					if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+						if at!=test_Os:
+							file_o1.write(str(at+1)+' ')
+							print (at+1, " ", end="")
+							good_O=True
+							test_Os=at
+
+		elif n_axis ==1:
+			if surf1[nb_divz*i+k]+thickness >= ly[at]:
+				for at1 in range(nb_atoms):
+					if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+						if at!=test_Os:
+							file_o1.write(str(at+1)+' ')
+							print (at+1, " ", end="")
+							good_O=True
+							test_Os=at
+		else:
+			if surf1[nb_divy*i+j]+thickness >= lz[at]:
+				for at1 in range(nb_atoms):
+					if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+						if at!=test_Os:
+							file_o1.write(str(at+1)+' ')
+							print (at+1, " ", end="")
+							good_O=True
+							test_Os=at
+
+
+		#If the O is close to the surface (good_O=True)
+		#Therefore, the H close to him are printed too             
+		if good_O:
+			for at2 in range(nb_atoms):                                    
+				if lsymb[at2].number ==1: 
+					if (lx[at2]-lx[at])**2 + (ly[at2]-ly[at])**2 +(lz[at2]-lz[at])**2 <= max_dist2:                                                                
+						file_o1.write(str(at2+1)+' ')
+						print(at2+1, " ", end=" ")
+file_o1.write('\nsurface 2:\n')
+print()
+for at in range(nb_atoms):
+	if lsymb[at].number == 8:
+		good_Os=False     #Test value, to know if the studied O is good 
+		test_Os=-1
+		#Conversion of the (y,z) coordinates of O into (j,k)
+		i=math.floor(lx[at]/divx)
+		j=math.floor(ly[at]/divy)
+		k=math.floor(lz[at]/divz)
+
+		if n_axis ==0:
+			#Comparison between the distance of O to surf2 with the default thickness
+			#if the O is close to the surface, then we print it
+			if surf2[nb_divz*j+k]-thickness <= lx[at]:
+				for at1 in range(nb_atoms):     #The following two lines (for... if...) are used to extract O atoms' indices with O-H bond.
+					if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+						if at!=test_Os:
+							file_o1.write(str(at+1)+' ')
+							print (at+1, " ", end="")
+							good_Os=True
+							test_Os=at
+
+		elif n_axis ==1:
+			if surf2[nb_divz*i+k]-thickness <= ly[at]:
+				for at1 in range(nb_atoms):     #The following two lines (for... if...) are used to extract O atoms' indices with O-H bond.
+					if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+						if at!=test_Os:
+							file_o1.write(str(at+1)+' ')
+							print (at+1, " ", end="")
+							good_Os=True
+							test_Os=at
+		else:
+			if surf2[nb_divy*i+j]-thickness <= lz[at]:
+				for at1 in range(nb_atoms):     #the useness is the same as obove 
+					if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+						if at!=test_Os:
+							file_o1.write(str(at+1)+' ')
+							print (at+1, " ", end="")
+							good_Os=True
+							test_Os=at
+
+		#If the O's close to the surface (good_Os=True)
+		#Therefore, the H close to him are printed too             
+		if good_Os:
+			for at2 in range(nb_atoms):                                    
+				if lsymb[at2].number ==1: 
+					if (lx[at2]-lx[at])**2 + (ly[at2]-ly[at])**2 +(lz[at2]-lz[at])**2 <= max_dist2:                                                                
+						file_o1.write(str(at2+1)+' ')
+						print(at2+1, " ", end=" ")
+file_o1.write('\n')
+print()
+
+file_o1.write('\nbulk:\n')
+print()
+for at in range(nb_atoms):
+		if lsymb[at].number == 8:
+			good_Os=False     #Test value, to know if the studied O is good 
+			test_Os=-1
+			#Conversion of the (y,z) coordinates of O into (j,k)
+			i=math.floor(lx[at]/divx)
+			j=math.floor(ly[at]/divy)
+			k=math.floor(lz[at]/divz)
+	
+			if n_axis ==0:
+				#Comparison between the distance of O to surf1 and surf2 with the default thickness
+				#if the O is far away from the surfaces, then we print it
+				if surf1[nb_divz*j+k]+thickness <= lx[at] and surf2[nb_divz*j+k]-thickness >= lx[at]:
+					for at1 in range(nb_atoms):
+						if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+							if at!=test_Os:     #to remove the repeated atomic indices coming from the max_dist2_no criterion. 
+								file_o1.write(str(at+1)+' ')
+								print (at+1, " ", end="")
+								good_Os=True     #If there exists a H-O bond for an O atom which is far way from any of the surfaces, print the index of the O atom
+								test_Os=at
+
+			elif n_axis ==1:
+				if surf1[nb_divz*i+k]+thickness <= ly[at] and  surf2[nb_divz*i+k]-thickness >= ly[at]:
+					for at1 in range(nb_atoms):
+						if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+							if at!=test_Os:
+								file_o1.write(str(at+1)+' ')
+								print (at+1, " ", end="")
+								good_Os=True
+								test_Os=at
+			else:
+				if surf1[nb_divy*i+j]+thickness <= lz[at] and surf2[nb_divy*i+j]-thickness >= lz[at]:
+					for at1 in range(nb_atoms):
+						if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+							if at!=test_Os:
+								file_o1.write(str(at+1)+' ')
+								print (at+1, " ", end="")
+								good_Os=True
+								test_Os=at
+
+
+			#If the O's close to the surface (good_Os=True)
+			#Therefore, the H close to him are printed too             
+			if good_Os:
+				for at2 in range(nb_atoms): 
+					if lsymb[at2].number ==1: 
+						if (lx[at2]-lx[at])**2 + (ly[at2]-ly[at])**2 +(lz[at2]-lz[at])**2 <= max_dist2:                                                                
+							file_o1.write(str(at2+1)+' ')
+							print(at2+1, " ", end=" ")
+file_o1.write('\n')
+print()
+ \end{lstlisting}

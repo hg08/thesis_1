@@ -1,0 +1,1849 @@
+\chapter{}\label{CHAPETR_A}
+\section{Proof of Hohenberg-Kohn Theorem} \label{proof_HK}
+The Hohenberg-Kohn theorem: The density $n({\bf r})$ of a nondegenerate ground state uniquely determines the external potential $V({\bf r})$ up to an arbitrary constant.
+
+Proof:
+Consider the subset $\mathscr{\nu}\subset L^{\frac{3}{2}}+L^{\infty}$ of potential that yields a normalizable nondegenerate ground state. The solution of the Schrodinger equation provides us with a mapping from the external potential to the ground state wavefunction
+\begin{equation}
+ v(\vec {\bf r})\rightarrow |\Psi[v]\rangle.
+\end{equation}
+Since nondegenerate ground state, $|\Psi[v]\rangle$ is uniquely determined apart from a trival phase factor.
+Thus we have established a map $C: \mathscr{\nu}\rightarrow \Phi$, where $\Phi$ is the set of ground states.
+(1) We can prove that $C$ is invertible. Suppose that $|\Psi_1\rangle$ and $|\Psi_2\rangle$ (They are functions in Sobolev space, i.e.,  $|\Psi_1\rangle, |\Psi_2\rangle \in \mathscr{H}^1(R^{3N})$.) correspond to external potential $v_1$ and $v_2 \in L^{\infty}+L^{\frac{3}{2}}$. Here, $v_1 \neq v_2+\text{C}$. If we assume that $|\Psi_1\rangle=|\Psi_2\rangle=|\Psi\rangle$, by subtraction of Hamiltonian for  $|\Psi_1\rangle$ and $|\Psi_2\rangle$, we find
+\begin{equation}
+ (v_1-v_2)|\Psi\rangle = (E_1-E_2)|\Psi\rangle
+\label{subtraction}
+ \end{equation}
+If $v_1-v_2$ is  not constant in some region then $\Psi$ must vanish in this region for the above equation(~\ref{subtraction})
+to be true. However, if $v_1, v_2 \in L^{\infty}+L^{\frac{3}{2}}$, then $|\Psi\rangle$ cannot vanish on a open set by the unique continuation theorem. Therefore, we obtain a contradiction and hence the assumption we made is wrong. Therefore, $\Psi_1 \neq \Psi_2$ and we obtain the result that different potentials (more than a constant) give different wavefunctions.  So we find that the map $C: \mathscr{\nu}\rightarrow \Phi$ is invertible.
+
+Define the set $A$ as the set of densities which come from a nondegenerate ground state (we only consider the ground 
+state densities from potentials in the set $L^{\infty}+L^{\frac{3}{2}}$). The set $A$ is obviously a subset of $S$:
+\begin{equation}
+S=\{n|n({\bf r})\geq0, \sqrt{n}\in H^1(R^3), \int d^3rn({\bf r})=N\} .
+\end{equation}
+
+The electron density $n({\bf r})$ is obtained from the many body wavefuction, which is usually the ground state wavefunction of Hamiltonian $H_v={\hat T}+\hat V+ \hat W$, by
+\begin{equation}
+ n({\bf r_1})=\langle\Phi |\hat n({\bf r_1})|\Phi\rangle = N\sum_{\sigma_1...\sigma_N}\int d^3_{r_1}...d^3_{r_N}|\Phi({\bf r}_1\sigma_1,...,{\bf r}_N\sigma_N)|.
+\label{density}
+\end{equation}
+According to eqn.(~\ref{density}),from a given wavefunction in the set of ground states $\Phi$,  we can calculate the density.
+This provides us a second map $D:\Phi \rightarrow A$ from ground state wavefunctions to ground state densities. To show this we calculate 
+\begin{eqnarray}
+E[v_1] &=& \langle\Psi[v_1]|\hat T + \hat V_1 +\hat W|\Psi[v_1]\rangle \nonumber\\  
+           &<& \langle\Psi[v_2]|\hat T + \hat V_1 +\hat W|\Psi[v_2]\rangle \nonumber \\
+           &=&  \langle\Psi[v_2]|\hat T + \hat V_2 +\hat W|\Psi[v_2]\rangle +\int n_2({\bf r})(v_1({\bf r})-v_2({\bf r}))d{\bf r} \nonumber\\
+           &=&  E[v_2] +\int n_2({\bf r})(v_1({\bf r})-v_2({\bf r}))d{\bf r} \label{Ev1}.
+\end{eqnarray}
+Likewise, we find
+\begin{equation}
+E[v_2]<  E[v_1] +\int n_1({\bf r})(v_2({\bf r})-v_1({\bf r}))d{\bf r} \label{Ev2}.
+\end{equation}
+ Using (~\ref{Ev1})+(~\ref{Ev2}), we have
+ \begin{equation}
+  \int (n_2({\bf r})-n_1({\bf r}))(v_1({\bf r})-v_2({\bf r}))d{\bf r} < 0.
+ \end{equation}
+If we assume $n_2=n_1$, then obtain contradiction $0<0$, and we conclude that: different ground states must yield
+different densities, i.e., $D$ is also invertible. Therefore, the map $DC: \nu \rightarrow A$ is also invertible and the density therefore uniquely determines the external potential. The HK theorem is proved.
+
+%Decomment the following line if I need gray background for lst
+%\lstset{backgroundcolor=\color{lightgray}}
+
+\section{The Computational Details of the DFTMD Simulations}
+In the thesis, the DFT calculations were done with the CP2K program, which incorporates the Gaussian and plane waves (GPW) method\cite{GL99}. 
+Core electrons were described by Goedecker-Teter-Hutter pseudopotentials\cite{MK05}, while the valence electrons were expanded as a double-zeta Gaussian basis set.
+The keyword ''CUTOFF'' defines the planewave cutoff (default unit is in Ry) for the finest level of the multi-grid. 
+The higher the planewave cutoff, the finer the grid.
+Having constructed the multi-grid, QUICKSTEP then map the Gaussians onto the grids. The keyword ''REL$\_$CUTOFF'' controls which product Gaussians 
+are mapped onto which level of the multi-grid. CP2K tries to map each Gaussian onto a grid such that the number of grid points 
+covered by the Gaussian---no matter how wide or narrow---are roughly the same. ''REL$\_$CUTOFF'' defines the planewave cutoff of a reference grid 
+covered by a Gaussian with unit standard deviation $e^{|\vec r|^2}$.\cite{CP2K}
+
+Therefore, the two most important keywords effecting the integration grid and the accuracy of a calculation are ''CUTOFF'' and ''REL$\_$CUTFF''.
+If ''CUTOFF'' is too low, then all grids will be coarse and the calculation may become inaccurate; and if REL$\_$CUTOFF is too low, then even if you have a high ''CUTOFF'', 
+all Gaussians will be mapped onto the coarsest level of the multi-grid, and thus the effective integration grid for the calculation may still be too coarse.
+
+The CP2K input file for the system of water/vapor interface is as follows. 
+% backgroundcolor=\color{lightgray},
+\begin{lstlisting}[language=C]                  ]
+&FORCE_EVAL
+  METHOD QS
+  &DFT
+    BASIS_SET_FILE_NAME ./BASIS_MOLOPT   
+    POTENTIAL_FILE_NAME ./GTH_POTENTIALS
+    &MGRID
+      CUTOFF 280
+    &END MGRID
+    &QS
+      EPS_DEFAULT 1.0E-12
+      WF_INTERPOLATION PS 
+      EXTRAPOLATION_ORDER 3
+    &END QS
+    &SCF
+
+      &OT ON
+      #MINIMIZER DIIS
+      &END OT
+     SCF_GUESS        RESTART
+     #SCF_GUESS ATOMIC
+     EPS_SCF     1.0E-6
+     MAX_SCF 300
+
+    &END SCF
+    &XC
+      &XC_FUNCTIONAL BLYP  
+      &END XC_FUNCTIONAL
+      &vdW_POTENTIAL
+         DISPERSION_FUNCTIONAL PAIR_POTENTIAL
+         &PAIR_POTENTIAL
+            TYPE DFTD3
+            CALCULATE_C9_TERM .TRUE.
+            REFERENCE_C9_TERM .TRUE.
+            LONG_RANGE_CORRECTION .TRUE.
+            PARAMETER_FILE_NAME ./dftd3.dat
+            REFERENCE_FUNCTIONAL BLYP 
+            R_CUTOFF 8.
+            EPS_CN 0.01
+         &END PAIR_POTENTIAL
+      &END vdW_POTENTIAL
+    &END XC
+  &END DFT
+  &SUBSYS
+    &CELL
+      ABC 10.00 10.00 40.0
+    &END CELL
+    #input coords from an equilibrated structure 
+    &COORD
+      @INCLUDE 'pos.inc'  #pos.inc is the coordinates of the system
+    &END COORD
+    &KIND H
+      BASIS_SET DZVP-MOLOPT-SR-GTH
+      POTENTIAL GTH-BLYP-q1
+    &END KIND
+    &KIND O
+      BASIS_SET DZVP-MOLOPT-SR-GTH
+      POTENTIAL GTH-BLYP-q6
+    &END KIND
+    &KIND I 
+      BASIS_SET DZVP-MOLOPT-SR-GTH
+      POTENTIAL GTH-BLYP-q7
+    &END KIND
+    &KIND Na 
+      BASIS_SET DZVP-MOLOPT-SR-GTH
+      POTENTIAL GTH-BLYP-q9                        
+    &END KIND
+  &END SUBSYS
+&END FORCE_EVAL
+&GLOBAL
+  PROJECT 63wat
+  RUN_TYPE MD        
+  PRINT_LEVEL LOW
+&END GLOBAL
+
+&MOTION
+  &GEO_OPT
+    TYPE minimization
+    OPTIMIZER BFGS
+    MAX_ITER 20
+  &END GEO_OPT
+
+  &MD
+    &THERMOSTAT
+      &NOSE
+        LENGTH 3
+        YOSHIDA 3
+        TIMECON 1000.
+        MTS 2
+      &END NOSE
+    &END THERMOSTAT
+    ENSEMBLE NVT
+    STEPS 1000000
+    TIMESTEP 0.5
+    TEMPERATURE 300.0
+    TEMP_TOL 60
+  &END MD
+
+  &PRINT
+   &TRAJECTORY
+     &EACH
+       MD 1
+     &END EACH
+   &END TRAJECTORY
+   &VELOCITIES ON
+     &EACH
+       MD 1
+     &END EACH
+   &END VELOCITIES
+   &FORCES ON
+     &EACH
+       MD 1
+     &END EACH
+   &END FORCES
+
+   &RESTART_HISTORY
+     &EACH
+       MD 1000
+     &END EACH
+   &END RESTART_HISTORY
+   &RESTART
+     BACKUP_COPIES 1
+     &EACH
+       MD 1
+     &END EACH
+   &END RESTART
+  &END PRINT
+&END MOTION
+ \end{lstlisting}
+
+ \section{Structural Characterization of Water Clusters}
+ The structural parameters of the considered water clusters are shown in this section.
+Table ~\ref{tab:3_nitrate_bond} gives the calculated lengths of H-bonds in the cluster NO$_3^-$(H$_2$O)$_3$. $r_a$ denotes the average distances (with the standard deviation) of the length of H bonds. 
+ In Table ~\ref{tab:table_geo_opt} (Table ~\ref{tab:3w_nitrate}) selected distances characterizing 
+ the RNO$_3$(H$_2$O)$_3$ (NO$_3^-$(H$_2$O)$_3$) clusters are reported.
+ In Table ~\ref{tab:table_rnitrate_3w} selected geometrical parameters are reported for the RNO$_3$   
+ (H$_2$O)$_3$ (R=Li, Na, K) clusters as averaged over 2 ps DFTMD trajectory at 300 K.
+% 
+\begin{table}[!h]
+\centering
+\caption{\label{tab:3_nitrate_bond}%
+  The lengths of H-bonds ($r_a$) in each water molecule of the cluster NO$_3^-$(H$_2$O)$_3$.} 
+\begin{tabular}{cc} \\\toprule
+ water & \multicolumn{1}{c}{ $r_a$}(\A)\\
+\hline
+ w1 &2.40$\pm$0.52; 3.02$\pm$0.72 \\
+ w2 &2.56$\pm$0.48; 3.20$\pm$0.41 \\
+ w3 &2.29$\pm$0.47; 3.11$\pm$0.72
+\end{tabular}
+\end{table}
+%
+\begin{table}[!htbp]
+\centering
+\caption{\label{tab:table_geo_opt}%
+The structual parameters of RNO$_3$(H$_2$O)$_3$ from geometry optimization. 
+The unit for length and angle are \AA and degree ($^\circ$), respectively.}
+\begin{tabular}{l*{4}ccc}
+Parameters  & LiNO$_3$(H$_2$O)$_3$& NaNO$_3$(H$_2$O)$_3$ & KNO$_3$(H$_2$O)$_3$\\
+\hline
+$r_\text{HB1}$& 1.67 & 1.71 & 1.82 \\
+$r_\text{HB2}$& 1.91 & 1.78 & 1.92\\
+$r_\text{HB3}$& 1.82 & 1.69 & 1.94\\
+$r_\text{R-O(w1)}$ & 1.91 & 2.31 & 2.70\\
+$r_\text{R-O(w2)}$ & 1.90 & 2.26 & 2.70\\
+$r_\text{R-O(\nitrate)}$ & 1.84 & 2.29 & 2.69 \\
+$\angle$HOH(w1)& 109 & 106 &107 \\
+$\angle$HOH(w2)& 106 & 105&105 \\
+$\angle$HOH(w3)& 108 & 107 &106
+\end{tabular}
+\end{table}
+%
+\begin{table}[!htbp]
+\centering
+\caption{\label{tab:3w_nitrate}%
+The parameters of water molecules and HBs in NO$_3^-$(H$_2$O)$_3$ at 300 K.}
+\begin{tabular}{lccc}
+water &$R_\text{OH}$ &$\angle$HOH ($^\circ$) & $r_\text{OH}$ \\
+\hline
+w1 &0.98$\pm$0.02 &101$\pm$4 & 2.40$\pm$0.52, 3.02$\pm$0.72 \\
+w2 &0.98$\pm$0.02 &101$\pm$5 & 2.56$\pm$0.48, 3.20$\pm$0.41 \\
+w3 &0.98$\pm$0.02 &101$\pm$4 & 2.29$\pm$0.47, 3.11$\pm$0.72
+\end{tabular}
+\end{table}
+%
+\begin{table}[!htbp]
+\centering
+\caption{\label{tab:table_rnitrate_3w}%
+The parameters of RNO$_3$(H$_2$O)$_3$. For RNO$_3$(H$_2$O)$_3$, $R_\text{OH}$ and $R'_\text{OH}$ 
+  denote the lengths of O-H bonds in which H atoms is H-bonded and is free, respectively.
+  The unit for length and angle are \AA and degree ($^\circ$), respectively.
+  }
+\begin{tabular}{l*{4}ccc}
+Parameters & LiNO$_3$(H$_2$O)$_3$& NaNO$_3$(H$_2$O)$_3$ & KNO$_3$(H$_2$O)$_3$\\
+\hline
+$r_\text{HB1}$ & $1.83\pm0.14$ & $1.78\pm0.09$ & $1.82\pm0.13$\\
+$r_\text{HB2}$ & $2.00\pm0.25$ & $1.91\pm0.24$ & $1.80\pm0.12$\\
+$r_\text{HB3}$ &$1.79\pm0.16$ & $1.76\pm0.11$ & $1.89\pm0.18$\\
+$R_\text{OH}$(w1) &$0.97\pm0.01$ &$0.98\pm0.04$ &$0.97\pm0.03$ \\
+$R'_\text{OH}$(w1) &$1.00\pm0.02$ &$1.00\pm0.02$ & $1.00\pm0.03$ \\
+$R_\text{OH} $(w2) &$0.97\pm0.01$ &$0.98\pm0.02$ &$0.97\pm0.02$ \\ 
+$R'_\text{OH}$(w2) &$0.99\pm0.01$ &$1.00\pm0.02$ & $1.00\pm0.03$ \\
+$R_\text{OH}$(w3) &$0.97\pm0.01$ & $0.97\pm0.02$&$0.97\pm0.03$ \\
+$R'_\text{OH}$(w3) &$1.00\pm0.02$ &$1.00\pm0.02$ & $1.00\pm0.03$ \\
+$r_\text{R-O(w1)}$ & $1.95\pm0.09$ & $2.34\pm0.08$ & $2.76\pm0.11$\\
+$r_\text{R-O(w3)}$ & $1.92\pm0.07$ & $2.32\pm0.11$ & $2.74\pm0.13$\\
+$r_\text{R-O(\nitrate)}$ & $1.91\pm0.08$ & $2.31\pm0.09$ & $2.74\pm0.12$ \\
+$\angle$HOH (w1) &$107\pm4$ & $106\pm4$ &$105\pm5$ \\
+$\angle$HOH (w2) &$106\pm6$ & $105\pm4$ &$106\pm4$ \\
+$\angle$HOH (w3) &$108\pm5$ & $106\pm3$ &$106\pm3$ 
+\end{tabular}
+\end{table}
+%--
+
+
+\section{Calculation of Molecular Dipole Moment Derivative and Dipole Polarizibility Derivative} \label{CHAPETR_A_derivatives} 
+We describe the main procedure to implement the parametrization of the molecular dipole moment 
+derivative $\frac{\partial \mu_k}{\partial r_z}$ and dipole polarizibility derivatives $\frac{\partial\alpha_{\eta\xi}}{\partial r_z}$. 
+
+Given a DFT MD trajectory of total length $\sim 10^2$ ps for bulk water, sampled in a frequency $\sim 1$ ps$^{-1}$.
+For the $j$-th water molecule in the $n$-th snapshot of the trajectory, 
+we denote the two OH bonds as H$^{n,j,\epsilon=1}$ and H$^{n,j,\epsilon=-1}$. We want to calculate statistical average of the
+derivatives over all time steps and all OH bonds, therefore, 
+we just denote the corresponding OH bonds by ${\epsilon=1}$ and ${\epsilon=-1}$, respectively. 
+The H atoms in a water molecule are denoted by H$^{\epsilon=1}$ and H$^{\epsilon=-1}$ respectively, and the O atom by O$^{0}$.
+%For the bond OH$_{\epsilon}$, we calculate vector OH$_{\epsilon}$, and $|\text{OH}_{\epsilon}|$ in the lab framework,
+%then the direction cosines ($\cos\alpha_{\epsilon}$, $\cos\beta_{\epsilon}$, $\cos\gamma_{\epsilon}$) of the vector OH$_{\epsilon}$ in the molecular frame MF$_{n,j}$.
+%The size of the array to store the direction cosines is $ 40\times 32\times 3 \times 3$.
+%Calculate the direction cosine matrix between bond framework and molecular framework. 
+
+There are two direction cosine matrices, we name them as ${\bf D}^{\text{b},\epsilon=-1}$ and  ${\bf D}^{\text{b},\epsilon=1}$. \cite{Khatib2017},
+or ${\bf D}^{\text{b},-1}$ and  ${\bf D}^{\text{b},1}$ for short, where ${\bf D}^{\text b}$ denotes the direction cosine matrix between 
+bond framework and molecular framework.
+Then the direction matrix ${\bf D}^{\text{b},\epsilon} $ can be represented by direction cosines between $({\bf x}^{\text{b},\epsilon}$ and $({\bf x}^m)$, 
+where $\epsilon=\pm 1$ and $\theta$ denotes the H-O-H angle in the $j$-th water molecule for the $n$-step:
+\[\begin{sistema}
+  \hat x^{\text{b},\epsilon}_1 =\ \ \epsilon \cos\frac{\theta}{2} \ \hat x^m_1 + 0\ \hat x^m_2 + \sin\frac{\theta}{2} \ \hat x^m_3 \\
+  \hat x^{\text{b},\epsilon}_2 =\ \ \ \ \ \ \ \ 0\ \hat x^m_1   +  \ \epsilon\ \hat x^m_2 \ + \ \ \ 0 \ \hat x^m_3 \\
+  \hat x^{\text{b},\epsilon}_3 = -\epsilon \sin\frac{\theta}{2} \ \hat x^m_1 + 0 \ \hat x^m_2 + \cos\frac{\theta}{2} \ \hat x^m_3
+\end{sistema}\]
+%\begin{subequations}
+%\begin{align}
+%  &(\hat x^{\text{b},\epsilon}_1) = \epsilon \cos\frac{\theta}{2} (\hat x^m_1) + 0 (\hat x^m_2) + \sin\frac{\theta}{2} (\hat x^m_3) \\
+%  &(\hat x^{\text{b},\epsilon}_2) = 0 (\hat x^m_1) + \epsilon (\hat x^m_2) + 0 (\hat x^m_3) \\
+%  &(\hat x^{\text{b},\epsilon}_3) = -\epsilon \sin\frac{\theta}{2} (\hat x^m_1) + 0 (\hat x^m_2) + \cos\frac{\theta}{2} (\hat x^m_3)
+%\end{align}
+%\end{subequations}
+i.e., the cosine matrices are
+\begin{equation}
+  {\bf D}^{\text{b},\epsilon} =\left(
+  \begin{matrix}
+    \epsilon\text{cos}\frac{\theta}{2} &  0  & \text{sin}\frac{\theta}{2}\\
+    0 & \epsilon & 0\\
+    -\epsilon\text{sin}\frac{\theta}{2} & 0 & \text{cos}\frac{\theta}{2}
+  \end{matrix}
+  \right).
+\end{equation}
+  The molecular framework is given by the direction cosine matrix ${\bf D}^\text{m,l}$ (or ${\bf D}^\text{m}$) between molecular framework  and the lab framework
+  %How to determine  $({\bf D}^\text{m,l})$?  
+%Since we can know the coordinates of $(\hat x^m_3)$ in the lab framework: 
+%\begin{equation}
+%(\hat x^m_3) = (a_{31}) \hat x^l_1 + (a_{32}) \hat x^l_2 + (a_{31})_{nj} \hat x^l_3,
+%\end{equation}
+%Therefore, the relation between the unit vector  $(\hat x^m_1)$ and $(\hat x^m_2)$ are
+%
+\begin{subequations}
+\begin{align}
+  \hat {\bf x}^m ={\bf D}^\text{m} \hat{\bf x}^l.
+\end{align}
+\end{subequations}
+%i.e., we obtain  $({\bf D}^\text{m})$.
+
+% 2a1c.
+%\begin{subequations}
+%  \begin{align}\left(
+%  \begin{matrix}
+%  \{\bf D} x^{\epsilon} \\
+%  \Delta y^{\epsilon} \\
+%  \Delta z^{\epsilon} 
+%  \end{matrix}
+%    \right)
+%    =\Delta r \left(
+%  \begin{matrix}
+%  \cos\alpha^{\epsilon}\\
+%  \cos\beta^{\epsilon}\\
+%  \cos\gamma^{\epsilon}
+%  \end{matrix}
+%    \right)
+%\end{align}
+%\end{subequations}
+%i.e., $\Delta {\bf r}^{\epsilon} =(\Delta x^{\epsilon}, \Delta y^{\epsilon} ,\Delta z^{\epsilon} )^\text{T}$.
+%        
+%2a2.
+%\begin{subequations}
+%\begin{align}
+%  &   (x'_H)_{\epsilon} -(x_O)_{0} = (x_H)_{\epsilon} -(x_O)_{0} + \Delta  x_{\epsilon} \\
+%  &   (y'_H)_{\epsilon} -(y_O)_{0} = (y_H)_{\epsilon} -(y_O)_{0} + \Delta  y_{\epsilon} \\
+%  &   (z'_H)_{\epsilon} -(z_O)_{0} = (z_H)_{\epsilon} -(z_O)_{0} + \Delta  z_{\epsilon}
+%\end{align}
+%\end{subequations}
+%
+%2a4.We need to calculate the dipole moment of each molecule for $\Delta r \in [-0.05,0.05]$. 
+The dipole moment of each OH bond with different length is requird to determine the dipole moment derivative. 
+    %(For convenient, we have defined $ \text{inc} =\Delta r/|\Delta r|$.)
+    %We elongate (reduce) the bond OH$_{n, j,\epsilon}$, and keep other bonds still, then we obtain a updated coordinate file ${\text{pos}}nj\epsilon\text{inc}.\text{xyz}$, where $(n, j,\epsilon)$ is the index of the H in OH$_{\epsilon}$.
+Therefore, we elongate (reduce) one bond ${\epsilon}$ by $\Delta r \in \{-0.05 $\AA, $0.05 $\AA $\}$, and keep other 
+bonds in the total system still, then we obtain a updated coordinate.
+Then the MLWF centers for the system can be calculated from the updated coordinate, using force and energy calculation at the DFT level.
+%which is represented by the coordinate file ${\text{pos}}nj\epsilon\text{inc}.\text{xyz}$.
+    %2a5a: before next step, we generated a template input file 1.inp. 
+    %2a5b: From the template input file 1.inp, we generate an input file for the disturbed position represented by ${\text{pos}}nj\epsilon\text{inc}.\text{xyz}$ with the elongated bond OH$_{\epsilon}$: $n j \epsilon\text{inc}.\text{inp}$
+    %2a5c: Using DFTMD, we use the input file $nj\epsilon\text{inc}.\text{inp}$ to calculate and write out the Wannier centers for the system  ${\text{pos}}n j \epsilon\text{inc}.\text{xyz}$. The output: ${\text{HOMO}}n j \epsilon \text{inc}.\text{xyz}$.
+    %2a6: From the Wannier centers of the water molecule (can be found in the output ${\text{HOMO}}nj \epsilon \text{inc}.\text{xyz}$), we can calculate the dipole moment for the elongated (reduced) bond OH$_{\epsilon}$.  The $k$ component of the dipole moment: $(\mu^{b,r+\Delta r}_k)_{\epsilon}$.
+    From the Wannier centers of the $j$-th water molecule, we can calculate the dipole moment for the elongated (reduced) bond ${\epsilon}$. 
+    %Therefore, the $k$ component of the dipole moment $(\mu^{b,r+\Delta r}_k)_{\epsilon}$ can be obtained.
+    In the bond frame, $|\mu^b| =|\mu^b_z|$. 
+    Therefore, we can calculate the $k=z$ component of the dipole moment for ${\epsilon}$ in water molecule $j$ from the MLWF centers.\cite{Silvestrelli1999} 
+      The MLWF centers are computed\cite{Silvestrelli1999} and the partial dipole moment for a given molecular species $I$ is defined as\cite{Salanne08}
+      %
+      \begin{equation}
+        \mu^I = \sum_{i\in I}(Z_i {\bf R}_i - 2\sum_{n\in i} {\bf r}^w_n).
+      \end{equation}
+       %
+In particular, here it is expressed as 
+%\begin{equation}
+%  \mu^{\text{b},r+\Delta r,\epsilon} = \frac{1}{2}Z_O {\bf R}^{0} +Z_H{\bf R}^{\epsilon} +1\times (-2) \times r^{w,\epsilon} +\frac{1}{2}\times 2\times (-2)\times r^{w,0},
+%\end{equation}
+\begin{equation}
+  \mu^{\text{b},r+\Delta r,\epsilon} = \frac{1}{2}Z_O {\bf R}^{0} +Z_H{\bf R}^{\epsilon} -2r^{w,\epsilon} -2r^{w,0},
+\end{equation}
+where $\epsilon=\pm 1$.
+%3c: 
+In the $\epsilon$ frame, the $k=z$ component dipole moment derivative for bond $\epsilon$ in water molecule $j$ is
+        %
+        \begin{equation}
+          \frac{\partial \mu^{\text{b},\epsilon}}{\partial r} = (\mu^{\text{b},r+|\Delta r|,\epsilon}-\mu^{\text{b},r-|\Delta r|,\epsilon})/2|\Delta r|
+        \end{equation}
+        %3d
+        Using ${\bf D}^{\text{b},\epsilon}$, we can finally represent this vector as $( 0, 0, \frac{\partial \mu^{\text{b},\epsilon}}{\partial r} )^\text{T}$.
+        Since
+        \begin{subequations}
+          \begin{align}
+            \left(
+            \begin{matrix}
+              (\frac{\partial \mu^\text{m}}{\partial r})_1\\
+              (\frac{\partial \mu^\text{m}}{\partial r})_2\\
+              (\frac{\partial \mu^\text{m}}{\partial r})_3
+            \end{matrix}
+            \right)
+            = {\bf D}^{\text{b},\epsilon}
+            \left(
+            \begin{matrix}
+              0\\
+              0\\
+              \frac{\partial \mu^{\text{b},\epsilon}}{\partial r}
+            \end{matrix}
+            \right).
+            \end{align}
+        \end{subequations}
+    % END of r-loop 
+    Then, to calculate the individual polarizability for a OH bond from Wannier centers, 
+    calculations involving finite electric fields of 0.0001 au intensity were performed independently 
+    along the $x$, $y$, and $z$ directions at each sampled time step.\cite{sulpizi2013}
+        %4a: 
+    For the electric field $\varepsilon \in \{\varepsilon_x,\varepsilon_y, \varepsilon_z\}$,
+            %similar to 2a5a, but add an electric filed $ \varepsilon$. %The template input file is: 2.inp.
+            %4a1: from the template input file, generate a input file $nj\epsilon\varepsilon.\text{inp}$, where if extra electric filed $\varepsilon=\varepsilon_x$, that means we add a electric field along $x$ axis. Similar for $\varepsilon_y$ and $\varepsilon_z$.
+            %4a2: similar to 2a5c, for the position file ${\text{pos}}nj\epsilon.\text{xyz}$, the output Wannier centers are in   ${\text{HOMO}}nj\epsilon\varepsilon.\text{xyz}$.
+        Similar to the case of no external electric field, the MLWF centers are calculated. %in ${\text{HOMO}}nj\epsilon\varepsilon.\text{xyz}$.
+ For $\Delta r \in \{-0.05 $\AA, $0.05 $\AA $\}$, the dipole moment is given by 
+%\begin{equation}
+%  \mu^{b,r+\Delta r,\epsilon,\varepsilon} = Z_H{\bf R}^{\epsilon,\varepsilon} + 
+%  \frac{1}{2}Z^0 {\bf R}^{0,\varepsilon} + 
+%  1\times (-2) \times {\bf r}^{\text{w},\epsilon,\varepsilon} +\frac{1}{2}\times 2\times (-2)\times ({\bf r}^\text{w})^{0,\varepsilon}
+%\end{equation}
+\begin{equation}
+  \mu^{b,r+\Delta r,\epsilon,\varepsilon} = Z_H{\bf R}^{\epsilon,\varepsilon} + 
+  \frac{1}{2}Z^0 {\bf R}^{0,\varepsilon} -2 {\bf r}^{\text{w},\epsilon,\varepsilon} -2{\bf r}^{\text{w},0,\varepsilon}.
+\end{equation}
+        %END $ \Delta r$-loop  
+%4a4 the polarizability tensors $\alpha^{b,r+|\Delta r|}$ and $\alpha^{b,|r-\Delta r|}$. 
+From the relation
+\[\begin{sistema}
+\ \ \ \ 0\ \ = (\alpha^{b,r+\Delta r})_{11}\varepsilon_{1} + (\alpha^{b,r+\Delta r})_{12}\varepsilon_{2} + (\alpha^{b,r+\Delta r})_{13}\varepsilon_{3}\\
+\ \ \ \ 0\ \ = (\alpha^{b,r+\Delta r})_{21}\varepsilon_{1} + (\alpha^{b,r+\Delta r})_{22}\varepsilon_{2} + (\alpha^{b,r+\Delta r})_{23}\varepsilon_{3}\\
+(\delta \mu^{b,r+\Delta r})_{3} = (\alpha^{b,r+\Delta r})_{31}\varepsilon_{1} + (\alpha^{b,r+\Delta r})_{32}\varepsilon_{2} + (\alpha^{b,r+\Delta r})_{33}\varepsilon_{3}.
+\end{sistema}\]
+%      \begin{subequations}
+%          \begin{align}
+%            & 0 = (\alpha^{b,r+\Delta r})_{11}\varepsilon_{1} + (\alpha^{b,r+\Delta r})_{12}\varepsilon_{2} + (\alpha^{b,r+\Delta r})_{13}\varepsilon_{3}\\
+%            & 0 = (\alpha^{b,r+\Delta r})_{21}\varepsilon_{1} + (\alpha^{b,r+\Delta r})_{22}\varepsilon_{2} + (\alpha^{b,r+\Delta r})_{23}\varepsilon_{3}\\
+%            & (\delta \mu^{b,r+\Delta r})_{3} = (\alpha^{b,r+\Delta r})_{31}\varepsilon_{1} + (\alpha^{b,r+\Delta r})_{32}\varepsilon_{2} + (\alpha^{b,r+\Delta r})_{33}\varepsilon_{3}.
+%          \end{align}
+%      \end{subequations}
+%
+where
+\begin{equation}
+  (\delta \mu^{b,r+\Delta r})_{3} = \mu^{b,\epsilon,r+\Delta r,\varepsilon_x}_{3} - \mu^{b,\epsilon,r+\Delta r}_{3}.
+\end{equation}
+%
+and the expressions of the electric filed ${\varepsilon^\text{b}}$ in a OH framework for the 3 cases of external eletric field 
+which is along $x$, $y$ and $z$ in lab framework, respectively, we obtain 9 equations.
+%
+For
+\begin{equation}
+  \varepsilon^{\text{l}} = (\varepsilon_0, 0,0)^T \nonumber
+\end{equation}  
+where $\varepsilon_0 = 0.0001$ au, we can obtain the intensity of the external electric filed in the molecular framework  
+\begin{subequations}
+  \begin{align}
+    &\varepsilon^\text{m}_1 = {\bf D}^{\text{m}}_{12} \varepsilon^\text{l}_2\\
+    &\varepsilon^\text{m}_2 = {\bf D}^{\text{m}}_{22} \varepsilon^\text{l}_2\\
+    &\varepsilon^\text{m}_3 = {\bf D}^{\text{m}}_{32} \varepsilon^\text{l}_2,
+    \end{align}
+\end{subequations}
+where ${\bf D}^{\text{m}}_{pq}$ is the $pq$-component of ${\bf D}^\text{m}$.
+%
+In OH bond framework,  
+\begin{equation}
+  \varepsilon^{\text b} = {\bf D}^{\text b} \varepsilon^{\text{m}}.
+\end{equation}
+Similarly, we obtain similar but differenent expansions of the intensity of the electric field for the other two cases: 
+when $\varepsilon^{\text{l}} = (0,\varepsilon_0, 0)^\text{T}$ and when $\varepsilon^{\text{l}} = (0,0,\varepsilon_0)^\text{T}$, respectively.
+Here, $\varepsilon_x$ is the electric field along $x$-axis in the lab frame. 
+    %4a5: 
+    The dipole polarizability for the bond ${\epsilon}$ is as follows:
+\begin{subequations}
+  \begin{align}
+    &\frac{\partial \alpha^{b,\epsilon}_{31}}{\partial r} = (\alpha^{b,\epsilon,r+|\Delta r|}_{31} -\alpha^{b,\epsilon,r-|\Delta r|}_{31})/2|\Delta r|\\
+    &\frac{\partial \alpha^{b,\epsilon}_{32}}{\partial r} = (\alpha^{b,\epsilon,r+|\Delta r|}_{32} -\alpha^{b,\epsilon,r-|\Delta r|}_{32})/2|\Delta r|\\
+    &\frac{\partial \alpha^{b,\epsilon}_{33}}{\partial r} = (\alpha^{b,\epsilon,r+|\Delta r|}_{33} -\alpha^{b,\epsilon,r-|\Delta r|}_{33})/2|\Delta r|.
+  \end{align}
+\end{subequations}
+
+At last, the average for $(\frac{\partial \mu^{\text{b},\epsilon}}{\partial r})_k$ and $(\frac{\partial \alpha^{\text{b},\epsilon}}{\partial r})_{\eta\xi}$ 
+($k,\eta,\xi = x^m, y^m, z^m$, or 1,2,3) over all OH bonds gives the molecular dipole and polarizability derivatives. 
+
+
+\section{Thickness of the Interface of the Alkali Solutions} \label{thickness_interface}
+To check the scale of the interface of alkali solutions, we chose several different thickness values 
+of slab of the interface and calculate the corresponding susceptibility for these salbs, respectively.
+As the limitation of the box scale, we chose 4 different thickness values---$d=2,3,4,5$ \A, for checking. 
+The VSFG intensities $I_{ssp} \propto |\chi^{(2),R}_{ssp}|^2$ for the water/vapor interface of the LiI solution
+are given in Fig.~\ref{fig:124_2LiI_30ps_2-5A_150_Im_150720} (a) and (b).
+The results show that $|\chi^{(2),R}_{ssp}|^2$ increases 
+as the thickness increase from 2 \AA to 5 \A. 
+
+%
+The thickness of the the water/vapor interface of NaI solution can be seen from the calculated RDF, which is shown in Fig.\space\ref{fig:2NaI-124w_gdr_OH_s2_150122}.
+\begin{figure}[!h]
+\centering
+\includegraphics [width=0.7\textwidth] {./diagrams/2NaI-124w_gdr_OH_s2_150122}
+\setlength{\abovecaptionskip}{20pt}
+\caption{\label{fig:2NaI-124w_gdr_OH_s2_150122}The RDF $g_{\text{OH}}(r)$  in the NaI solution/vapor interface. 
+The simulation system includes one \Na ion, one \I ion, and 124 water molecule in
+15.6 \AA $\times$ 15.6 \AA $\times$ 31.0 \AA simulation box.
+The solid and dashed lines are corresponding to the two interface in our simulation, respectively. 
+The simulation time is 22.5 ps. }
+\end{figure}
+%
+\begin{figure}[!h]
+\centering
+\includegraphics [width=0.8 \textwidth] {./diagrams/sfg_Issp_117_LiNO3_gauss150_20ps_roman_font40_s}
+\setlength{\abovecaptionskip}{10pt}
+\caption{\label{fig:sfg_Issp_117_LiNO3_gauss150_20ps_roman_font40} The calculated intensity $|\chi^{(2)}_{ssp}|^2$, 
+of water molecules at aqueous/vapor interfaces with different thickness. This calculation is done for a model 
+  for water/vapor interface where a slab of 117 water molecules containing one \Li and one \nitrate is included 
+  in a period simulation box of 15.6 \AA$\times$15.6 \AA$\times$31.0 \AA at 300 K.}
+\end{figure}
+%
+\begin{figure}[!h]
+\centering
+  \includegraphics [width=0.8 \textwidth] {./diagrams/124_2LiI_30ps_2-5A_150_Im_150720}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:124_2LiI_30ps_2-5A_150_Im_150720} The calculated intensity $|\chi^{(2),R}_{ssp}|^2$, 
+  of water molecules at water/vapor interfaces with different thickness. This calculation is done for a model 
+  for water/vapor interface where a slab of 118 water molecules containing one \Li and one \I is included 
+  in a period simulation box of 15.6 \AA $\times$ 15.6 \AA $\times$ 15.6 \AA.}
+\end{figure}
+%
+We can also calculate the H-bond dynamics for the interfaces with different thickness. Fig.\space\ref{fig:2LiI-124w_S_layers} shows 
+the thickness of the water/vapor interface of the LiI solutions. We can see that $\ln S_{\text{HB}}$ for a 5-\AA interface is the same 
+as that for a interface with a larger thickness.  
+\begin{figure}[!h]
+\centering
+\includegraphics [width=0.5\textwidth] {./diagrams/2LiI-124w_S_layers} %fig.5.9
+\setlength{\abovecaptionskip}{20pt}
+\caption{\label{fig:2LiI-124w_S_layers}The logarithms of the function \SHB for water-water H-bonds at interfaces with different thickness in 0.9 M LiI solution. $\kappa$=0.16. }
+\end{figure}
+
+%To make sure we start from the right configuration in the liquid/vapor interface system and to explain 
+%the calcualted VDOS of the water molecules in the interface,we study the interface from the view of free energy.
+%
+%For a NVT ensemble, the most stable state is the one with the lowest free energy. We will find out 
+%different configurations which have minimum free energies.
+
+\section{Testing the Program for Calculating Dipole Distribution}
+For testing the program, we use the trajectory of the water molecules from the classical Molecular Dynamics (MD) to calculate the dipole tilt angle.
+\begin{figure}
+\centering
+\includegraphics [width=0.6\textwidth]{./diagrams/dipole_orien_128w}   % Here is how to import EPS art
+\setlength{\abovecaptionskip}{10pt}
+\caption{\label{fig:bulk} The diple moment orientation for water molecules in bulk water. The number of bins $n=72$.}
+\end{figure}
+
+Fig.\ref{fig:bulk} shows the dipole moment orientation distribution of all the water molecules.  
+It is a sine-like function.
+We assume that the system is isotropic, then the dipole moment will be distributed uniformly in any direction ($\theta,\phi$). The probability density
+$P(\theta,\phi)=1/{4\pi}$.The probability that the dipole moment is point
+to the area element $\text{d}\theta\text{sin}\theta\text{d}\phi$ in the direction ($\theta,\phi$) is 
+\begin{equation}
+P(\theta,\phi)\text{d}\theta\text{sin}\theta\text{d}\phi\nonumber,
+\label{eq:6}
+\end{equation}
+thus the probability that the dipole moment is pointing to the direction in the internal ($\theta,\theta+\text{d}\theta$) is
+\begin{equation}
+P(\theta)\text{d}\theta=\frac{1}{4\pi}\int_0^{2\pi}\text{d}\phi\text{d}\theta\text{sin}\theta.\nonumber
+\label{eq:7}
+\end{equation}
+Therefore, the probability density is $P(\theta)=\frac{1}{2}\text{sin}\theta$. From the Fig.~\ref{fig:bulk}, we find that the resulting $P(\theta)$ is indeed a sine function. If we have chosen $n$ bins to plot the histogram,
+then the width of each bin is ${2\pi}/n$, and the maximum will be
+\begin{equation}
+P(\pi/2)=1\times\frac{2\pi}{n}.
+\label{eq:8}
+\end{equation}
+For example, if $n=72$, the maximum probability should be 
+$P(\pi/2)=0.087$ (Fig. ~\ref{fig:bulk}).
+Our simulation fits this result well. So our program for calculating the dipole moment orientation works well.
+
+For a longer MD trajectory, we repeat the calculation. Thus we have the comparison of the dipole orientation distribution between 
+the long and the short MD trajectories.
+
+Now we calculate the O-H group orientation distribution of the water molecules with similar mehod.
+This is a natural result of fluctuations. The main reason for no probability in small $\theta$'s is
+that here we did not consider the integration of the angle $\phi$ and that the sample points is small, i.e., less than 100 values.
+
+
+\section{HB Population Operator Auto-Correlation Function}
+%!function: hbacf2.f95
+\begin{lstlisting}[language=fortran]                  ]
+      PROGRAM hbacf
+      IMPLICIT NONE 
+      !Purpose: For any pair of water molecules, calculate the average of h(t) and functions S_HB(t), S_d_HB(t), C_HB(t) and C_d_HB(t).
+      !=====================
+      !parameters dictionary
+      !=====================
+      CHARACTER(LEN=30) :: filename,pos_filename,list_filename 
+      INTEGER,PARAMETER :: RK=4              
+      INTEGER,PARAMETER :: NMAX=2001 ! max number of atoms
+      INTEGER,PARAMETER :: NMO_MAX=300000 ! max number of movie
+      REAL(kind=RK),PARAMETER :: RATE=0.50 ! condition for cutting off autocorrelation functions
+      REAL,PARAMETER :: ROOC=29.16 ! cutoff distance of rOO (5.4**2 )
+      REAL,PARAMETER :: ROHC=12.25 ! rOH (3.5**2)
+      REAL,PARAMETER :: COSPHIC=0.866 ! 1.732/2; phiC=pi/6.
+      REAL(kind=RK),PARAMETER :: HB_MIN=0.0000001 ! condition for the existence of h-bond
+      REAL(kind=RK),PARAMETER :: DELTA_T=0.01 ! ps
+      REAL(kind=RK)  :: r12,r13,r23,cosphi,pm,qj,qj_d,tot_hb
+      INTEGER :: i,j,k,jj,nmo,nat,iatom,& 
+                 imovie,np,m1,m2,m3,mt 
+      REAL(kind=RK),ALLOCATABLE,DIMENSION (:)  :: h,h_d
+      REAL(kind=RK),ALLOCATABLE,DIMENSION (:)  :: hb,hb_d
+      REAL,ALLOCATABLE,DIMENSION (:,:)  :: x,y,z
+      CHARACTER(LEN=3)  :: atom_type  
+      INTEGER,ALLOCATABLE,DIMENSION(:)  :: ndx_1, ndx_2, ndx_3
+      REAL(kind=RK),ALLOCATABLE,DIMENSION (:) :: corr_h, corr_h_d
+      REAL(kind=RK)  :: scalar, scalar_d 
+      
+      !==========
+      !read data
+      !==========
+      WRITE(6,*) 'The name of the system:'
+      READ(5,*) fiename
+      WRITE(6,*) 'The name of the trajecotry file:'
+      READ(5,*) pos_filename     
+      WRITE(6,*) 'The name of thei list file:'
+      READ(5,*) list_filename    
+      WRITE(6,*) 'The total steps of the trajecotry:'
+      READ(5,*) nmo !number of movie steps
+      WRITE(6,*) 'The total number of atoms in the system:'
+      READ(5,*) nat !number of atoms per mole.
+      WRITE(6,*) 'The total number of water pairs:'
+      READ(5,*) np !number of pairs   
+
+      ALLOCATE(ndx_1(np))          
+      ALLOCATE(ndx_2(np))          
+      ALLOCATE(ndx_3(np))          
+
+      IF (nmo) >= nmo_max .OR. nat >= nmax)then
+        WRITE(6,*)'!! nmo > nmo_max or nat > nmax !!'
+        STOP
+      ENDIF
+      
+      list_filename=trim(list_filename)
+      OPEN(10,file=list_filename)     
+      DO k = 1,np
+          READ(10,*)ndx_1(k),ndx_2(k),ndx_3(k)
+      ENDDO
+      CLOSE(10)
+
+      ALLOCATE(x(nat,nmo))
+      ALLOCATE(y(nat,nmo))
+      ALLOCATE(z(nat,nmo))
+      ALLOCATE(h(nmo))
+      ALLOCATE(h_d(nmo))
+      ALLOCATE(hb(np))  !Average H-bonded population 
+      ALLOCATE(hb_d(np))
+      
+      !=======================
+      !read in trajectory file 
+      !=======================
+      OPEN(10,file=trim(pos_filename))     
+      DO imovie = 1,nmo
+         READ(10,*)  !Neglect data of this line
+         READ(10,*)                 
+         DO iatom = 1,nat
+             READ (10,*)atom_type,x(iatom,imovie),y(iatom,imovie),&
+                        z(iatom,imovie)
+         ENDDO
+      ENDDO
+      CLOSE(10)
+      ALLOCATE(corr_h(nmo))
+      ALLOCATE(corr_h_d(nmo))
+
+      !==================================
+      !Calculate autocorrelation function
+      !C_HB(t) and C^d_HB(t)  
+      !==================================
+      
+      tot_hb = 0.0
+      corr_h = 0.0, corr_h_d = 0.0
+      hb = 0.0, hb_d = 0.0
+
+      !--------------
+      !Calculate h(j)
+      !--------------
+      DO k = 1,np
+        qj = 0
+        qj_d = 0
+        m1 = ndx_1(k)
+        m2 = ndx_2(k)
+        m3 = ndx_3(k)
+        
+        DO jj = 1, nmo
+          h(jj) = 0
+          h_d(jj) = 0 
+          r13 = (x(m1,jj)-x(m3,jj))**2+       &
+                    (y(m1,jj)-y(m3,jj))**2+  &
+                    (z(m1,jj)-z(m3,jj))**2  !r: square of distances
+          r12 = (x(m1,jj)-x(m2,jj))**2+       &
+                    (y(m1,jj)-y(m2,jj))**2+  &
+                    (z(m1,jj)-z(m2,jj))**2
+          r23 = (x(m2,jj)-x(m3,jj))**2+       &
+                    (y(m2,jj)-y(m3,jj))**2+  &
+                    (z(m2,jj)-z(m3,jj))**2
+          pm = (x(m3,jj)-x(m2,jj))*           &
+                   (x(m1,jj)-x(m2,jj))+      & 
+                   (y(m3,jj)-y(m2,jj))*      & 
+                   (y(m1,jj)-y(m2,jj))+      & 
+                   (z(m3,jj)-z(m2,jj))*      &
+                   (z(m1,jj)-z(m2,jj)) 
+          cosphi = pm/(sqrt(r23*r12)) !pm: point multiplication.
+          if (r13 .lt. ROHC .and. r12 .lt. ROOC   & 
+             .and. cosphi .gt. COSPHIC) then    
+              h(jj) = 1.0 
+              qj = qj + h(jj)                          
+          ENDIF
+          IF (r13 .lt. ROHC ) then                           
+              h_d(jj) = 1.0
+              qj_d = qj_d + h_d(jj)                          
+          ENDIF
+        ENDDO   
+        qj = qj/nmo ! ave of hb for each pair 
+        qj_d = qj_d/nmo
+        hb(k) = qj
+        hb_d(k) = qj_d
+        tot_hb = tot_hb + hb(k)
+
+        DO mt = 0,nmo-1     ! time interval
+            IF (hb(k)>hb_min) then
+                scalar = 0.d0
+                DO j = 1, nmo-mt-1
+                    scalar = scalar + h(j)*h(j+mt)  ! 1: the first pair of water molecules
+                ENDDO
+                scalar=scalar/(nmo-mt-1)  ! C_k(t)
+                corr_h(mt+1) = corr_h(mt+1) + scalar  ! sum_C_k(t)
+            ENDIF
+        ENDDO
+
+        DO mt = 0,nmo-1 ! time interval
+          IF(hb_d(k)>hb_min) then
+                scalar_d = 0.d0
+                DO j = 1, nmo-mt-1
+                    scalar_d = scalar_d + h(j)*h_d(j+mt) ! 1: the first pair of water molecules
+                ENDDO
+                scalar_d = scalar_d/(nmo-mt-1) ! C_k(t)
+                corr_h_d(mt+1) = corr_h_d(mt+1) + scalar_d  ! sum_C_k(t)
+            ENDIF
+        ENDDO
+      ENDDO ! k loop 
+      tot_hb = tot_hb/np
+
+      DO mt = 0,nmo-1 ! time interval
+          corr_h(mt+1) = corr_h(mt+1)/(np*TOT_HB)  
+          corr_h_d(mt+1) = corr_h_d(mt+1)/(np*TOT_HB)  
+      ENDDO
+      
+      !---------------------
+      !Release the variables
+      !---------------------
+      DEALLOCATE(x,y,z,ndx_1,ndx_2,ndx_3)          
+
+      END PROGRAM
+\end{lstlisting}
+%
+For a given system, the list file gives all the pairs of molecules which may H-bonded. Each line in the file 
+include three index of O or H atom in a pair of molecules, which may H-bonded. It provides all the pairs of molecules 
+that may H-bonded. For example, for the cluster LiNO$_3$(H$_2$O)$_3$ (Fig. ~\ref{fig:clusters_4})(b), there are three 
+water molecules ($N_{\text{water}}$=3) and three nitrate O atoms ($N_{\text {nitrate O}}=3$).  The possible H bonds 
+$N_{\text HB}$ for this system is
+\begin{equation}
+N_{\text{HB}}=2N_{\text{water}} [N_{\text {nitrate O}}+ (N_{\text{water}}-1)],
+\label{N_HB}
+\end{equation}
+where the factor 2 stems from the fact that there are two H atoms in a water molecule.
+Thus, for the cluster LiNO$_3$(H$_2$O)$_3$, $N_{\text HB}$=30. The explicit content of the list file is as follows.
+% backgroundcolor=\color{lightgray},
+\begin{lstlisting}[language=fortran]                  
+! filename: LiNO3-3w_list.dat
+! 1st column: O (nitrate O, or water O)
+! 2nd column: O (water O)
+! 3rd column: H (water H)
+           2           5           6
+           3           5           6
+           4           5           6
+           8           5           6
+          11           5           6
+           2           5           7
+           3           5           7
+           4           5           7
+           8           5           7
+          11           5           7
+           2           8           9
+           3           8           9
+           4           8           9
+           5           8           9
+          11           8           9
+           2           8          10
+           3           8          10
+           4           8          10
+           5           8          10
+          11           8          10
+           2          11          12
+           3          11          12
+           4          11          12
+           5          11          12
+           8          11          12
+           2          11          13
+           3          11          13
+           4          11          13
+           5          11          13
+           8          11          13
+\end{lstlisting}
+%
+%\section{Instantaneous Interfaces of  Vapor/Aqueous Interfaces}
+%We have tried a different layering method for the solution/vapor interfaces: plane layering and instantaneous layering.
+%Based on the density distribution, we determined the surface of the solutions. 
+%In the plane layering method, we assume that the surface is a plane, and we calculate the Im$\chi^{(2)}$ spectra for layers with different thicknesses. This is what we did in the above sections.
+%This section, we use the second layering method to study Vapor/Aqueous interfaces.
+%\begin{figure}[H]
+%\centering
+%\includegraphics [width=0.6 \textwidth] {./diagrams/interface_chandler}
+%\setlength{\abovecaptionskip}{10pt}
+%\caption{\label{fig:interface_chandler} The liquid/vapor interfaces of  \LiN solution and pure water.
+% The alkali cation and the nitrate ion are in the top interface (salty interface).
+%Four water molecules are directly bonded to \Li (green) and there are  more than 6 water molecules bonded to \nitrate.}
+%\end{figure}
+
+%\section{List File 2}\label{append_eg_list}
+%\lstset{language=Fortran}
+%\begin{lstlisting}
+%!filename: 256_LiNO3_NEAR_Li_list.dat
+%! 1st col.: O (water O in the first shell of Li atom)
+%! 2nd col.: O (water O)
+%! 3rd col.: H (water H in the same water molecle as O in the 2nd column)
+%         156         139         528
+%         156         139         529
+%         156         152         554
+%         156         152         555
+%         156         209         668
+%         156         209         669
+%         156         222         694
+%         156         222         695
+%         209         156         562
+%         209         156         563
+%         209         222         694
+%         209         222         695
+%         209         232         714
+%         209         232         715
+%         209         234         718
+%         209         234         719
+%         209         235         720
+%         209         235         721
+%         222         156         562
+%         222         156         563
+%         222         209         668
+%         222         209         669
+%         222         219         688
+%         222         219         689
+%         222         234         718
+%         222         234         719
+%         222         241         732
+%         222         241         733
+%         234          25         300
+%         234          25         301
+%         234          80         410
+%         234          80         411
+%         234         209         668
+%         234         209         669
+%         234         222         694
+%         234         222         695
+%\end{lstlisting}
+%In above list, we see that for each O atom in water molecules, if they located in the first solution shell of \Li at the initial time,
+%we will consider the possible H-bonds formed by it and other water molecules nearby. For example, for O(156), there are 4 other water 
+%molecules can be H-bonded to it. The number of nearby water molecules depends on the distance criteria we choose, but the result 
+%will not change heavily. Since each water molecules owns two H atoms, the number of the possible H-Bonds formed by O(156) is 8.  
+%Therefore, there are 36 possible bonds to be considered. 
+
+%\section{Graphs}
+%\begin{figure}[h]
+%\centering
+%\includegraphics [width=0.5\textwidth] {./diagrams/FT_all_w_in_interf_s6}
+%\setlength{\abovecaptionskip}{20pt}
+%\caption{\label{fig:FT_all_w_in_interf} The VDOS of all water molecules in aqueous/vapor interface LiNO$_3$(H$_2$O)$_{256}$. Both VDOS for the first 10 ps and the latter 10 ps have the same spectral shape. This calculation ensure convergence of dynamics of the system in 20 ps. }
+%\end{figure}
+
+
+\section{Details of DFT Simulations for Alkali Iodide Solutions}
+This paragraph gives the simulated SFG spectrum of the aqueous/vapor interface of LiI solutions at 330 K.
+%The spectrum are calculated from the average of two LiI solution/vapor interfaces, which are under the same condition.
+For LiI and NaI solutions, we use the following procedures to calculate the molar concentration of ions in the solutions we study:
+%&V_{\text{liquid}}=3.796\times10^{-33}\text{ m}^3 \nonumber
+$n_j=N_j\times[1/(6.02\times10^{23})] {\text{ mol}}$, and
+$V_{\text{liquid}}=15.6\times15.6\times15.6 \text{ \AA}^3$, 
+where $n_j$, $N_j$ and $V_{\text{liquid}}$ is the amount of substance $j$, the number of substance $j$, and the 
+volume of the liquid part of the aqueous/vapor interface.  
+For the LiI solution/vapor interface system. 
+The simulation box is with the size of 31.0 \AA$ \times$15.6 \AA$ \times$15.6 \AA. 
+Half of the volume of the simulation box is vacuum. In the liquid part of the simulation box, there are two \Li cations and two \I anions.
+Therefore, the molar concentration of the solution LiI is $c_{\text{LiI}}={n_{\text{LiI}}}/{V_\text{liquid}}=0.9\times10^3  \text{ mol}/\text{m}^3$.
+
+we calculate the RDF of Ow-Hw which are loacated at the top surface.   
+The result of NaI solution is shown in fig.~\ref{fig:2NaI-124w_gdr_OH_s2_150122}.
+The  for two interface consistent to each other when the interface is large enough, i.e., the thickness is 6 \A.
+
+
+\section{Calculation of Nonlinear Optical Susceptibilities}
+Here are some useful identities:\cite{Neipert06}
+\begin{equation}
+i\int_0^\infty dt e^{-it(a-ib)}=\frac{1}{a-bi},
+\label{integral_identity1}
+\end{equation}
+\begin{equation}
+i\int_0^\infty dt e^{-it(a-ib)}i\int_0^\infty dt' e^{-it'(a-ib)}=\frac{1}{(a-bi)^2}.
+\label{integral_identity1}
+\end{equation}
+%
+Some definitions used in calculating nonlinear optical susceptibilities:
+
+1. Definition of double product of a $m$-order tensor $A$ and a $n$-order tensor $B$ is a tensor with order $m+n-2$.
+\begin{equation}
+    A:B=A_{ij}B_{lm}\delta_{jl}\delta_{im}.
+\label{tensor_double_product}
+\end{equation}
+
+2. The components of product of $AB$ is defined by 
+\begin{equation}
+    (AB)_{ijlm}=A_{ij}B_{lm}.
+\label{tensor_product}
+\end{equation}
+
+3. For vectors $\bf{a}$, $\bf{b}$, $\bf{c}$ and $\bf{d}$, $\bf{ab}:\bf{cd}=(\bf{a}\cdot\bf{d})(\bf{b}\cdot\bf{c})$.
+
+Proof:
+\begin{align}
+    {\bf{ab}:\bf{cd}}&=({\bf{ab}})_{ij}({\bf{cd}})_{lm}\delta_{jl}\delta_{im} \nonumber \\
+    &=({\bf{ab}})_{ij}({\bf{cd}})_{ji} \nonumber\\
+    &=(a_i b_j)(c_j d_i) \nonumber\\
+    &=(\bf{b}\cdot\bf{c})(\bf{a}\cdot\bf{d})
+\end{align}
+
+\section{Extract the Molecules from Instantaneous Interface}
+The structure of the program is as follows.
+The aim of the program is:
+1) determine the instananeous interface of a system.
+2) print the atomic indices of atoms which are near the instananeous interface.
+3) print all the atomic indices of molecules which are near the instananous interface.
+
+\paragraph{Extracting O bonded to H} \label{Extracting O bonded to H}
+For the alkali nitrate solution/vapor interface system , if we only analyz properties of water molecules, we need to exclude \nitrate in the calculation of VDOS, i.e., we do not print the atomic indices of O atoms which are not in a water molecule. Here is one general algorithm. 
+% backgroundcolor=\color{lightgray},  
+\begin{lstlisting}[                                                                                          
+                  language=python]
+#=================
+#From chandler3.py
+#=================
+for at in range(nb_atoms):
+    if at not in [1,2,3]:
+        if lsymb[at].number == 8:
+            good_Oss=False   #Test value, to know if the studied O is good 
+
+            #Conversion of the (y,z) coordinates of O into (j,k)
+            i=math.floor(lx[at]/divx)
+            j=math.floor(ly[at]/divy)
+            k=math.floor(lz[at]/divz)
+
+            if n_axis ==0:
+                #Comparison between the distance of O to surf1 and surf2 with the default thickness
+                #if the O is far away from the surfaces, then we print it
+                if surf1[nb_divz*j+k]+thickness <= lx[at] and surf2[nb_divz*j+k]-thickness >= lx[at]:
+                    file_o1.write(str(at+1)+' ')
+                    print (at+1, " ", end="")
+                    good_Oss=True
+
+                elif n_axis ==1:
+                    if surf1[nb_divz*i+k]+thickness <= ly[at] and  surf2[nb_divz*i+k]-thickness >= ly[at]:
+                        file_o1.write(str(at+1)+' ')
+                        print (at+1, " ", end="")
+                        good_Oss=True
+                else:
+                    if surf1[nb_divy*i+j]+thickness <= lz[at] and surf2[nb_divy*i+j]-thickness >= lz[at]:
+                        file_o1.write(str(at+1)+' ')
+                        print (at+1, " ", end="")
+                        good_Oss=True
+#====================================================
+\end{lstlisting}
+%
+However, this code is not a general one! 
+We used the statement \texttt{if at not in [1,2,3]:}. 
+This works because this is a special case, and then we easily know 
+that the atoms with index 1, 2, and 3 are the O atoms which are not bonded to H atoms. 
+Our aim is to find a general cirterion to judge whether there is a O-H bond exists for any O atom. 
+I put the method in the following parts.
+
+\paragraph{chandler3\_1.py}     \label{chandler3_1}
+The function \texttt{chandler3\_1.py} can be used to extract the O atoms bonded to H atoms in water molecules, with the definition of the list \texttt{list\_O1} and 
+the maximal lengh of the O-N bond \texttt{max\_dist\_no}. This is more general than the above one in ~\ref{Extracting O bonded to H} .
+%\begin{widetext}
+%\lstset{language=Python}
+% backgroundcolor=\color{lightgray},
+\begin{lstlisting}[ language=python]
+#Filename: chandler3.py 
+#To run this function: python3.2 chandler3.py
+import periodictable
+import math 
+
+#=========
+#CONSTANTS
+#=========
+atob=1.88971616463     #Factor to convert from Ang to bohr
+dim = 3
+xi = 2.4      #Angstrom
+xi2_2 = 2*xi**2
+xi2_9 = 9*xi**2
+norm = (2*math.pi*xi**2)**(-dim/2)
+rho_ref=0.016
+max_dist=1.2      #Maximal length of the O-H bond
+max_dist2= max_dist**2
+max_dist_no= 1.4      #Maximal lengh of the O-N bond
+max_dist2_no= max_dist_no**2      #Maximal lengh of the O-N 
+
+#===========
+#SUBROUTINES
+#===========
+#Calculate the density associated with one O on a grid point
+#Pbc are taken into account
+#If distance higher than 3xi we do not take it into account
+def density(x,y,z,a,b,c,range_x,range_y,range_z): 
+	d=0
+	for i in range(-range_x,range_x+1): 
+		for j in range(-range_y,range_y+1): 
+			for k in range(-range_z,range_z+1):
+
+				r2=(x-a*i)**2+(y-b*j)**2+(z-c*k)**2 
+				#The atoms which are to far away (more than 3*xi) are not taken into account
+				if r2 <xi2_9:
+					d+= math.exp(-r2/xi2_2)     #1 op
+
+	return d 
+
+#This subroutine determines the position of rho_ref on the grid and returns it. 
+def pos_surf(start,end,step,rho,itoc):
+	#Fist grid point with rho>rho_ref
+	for i in range(start,end,step):
+		if rho[i] >= rho_ref:
+			break
+	if i==end-1:#Protection if there is a hole in the slab (low density along the normal axis)
+		j=i+step
+	else:
+		#First grid point after the water slab with rho<rho_ref
+		for j in range(i+step,end,step):
+			if rho[j] <= rho_ref:
+				break
+
+	#Linear interpolation of the surface position 
+	#1)Interpolation between i and i-1
+	z1= (rho_ref-rho[i])/(rho[i]-rho[i-step])+i
+	z1= (z1-start)/step*itoc
+	#2)Interpolation between j-1 and j
+	z2= (rho_ref-rho[j])/(rho[j]-rho[j-step])+j
+	z2 =(z2-start)/step*itoc
+	
+	return z1,z2
+
+#===============
+#Basic questions
+#===============
+name=input("What is the name of the position file? (input)\n")
+file_i = open(name,"r")
+line=input("What are the crystal parameters? (a b c in Ang)\n")
+line_split=line.split(' ')
+a=float(line_split[0])
+b=float(line_split[1])
+c=float(line_split[2])
+whish_size=float(input("What is aproximatively the size of a grid division? (in Ang)\n"))
+thickness=float(input("What is the thickness of your surface? (in Ang)\n"))
+n_axis=int(input("What is the normal axis? (0->x, 1->y, 2->z)\n"))
+name_split=name.split('.')
+name0=name_split[0]+'.cube'
+file_o = open(name0, 'w')     #the cube file as output
+name1 = 'surf_'+ name_split[0]+'.dat' 
+file_o1 = open(name1, 'w')     #store the atomic indices into file_o1
+#END OF QUESTIONS
+
+#================================================
+#Reading the main information
+nb_atoms=int(file_i.readline())     #Number of atoms
+
+#================================================
+#The first 2 lines of the cube file are written
+file_o.write("cube file for determining the isosurface of a system.\n")
+file_o.write("OUTER LOOP: X, MIDDLE LOOP: Y, INNER LOOP: Z\n")
+
+#================================================
+#The 3rd line of the cube file are written
+#{0:5d} means: the data number 0 is an integer and will be printed with 5 digits
+#{1:12.6f} means: the data number 1 is float and will be printed with 12 digits whom 6 will be after the .
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_atoms,0,0,0))
+
+#=============================
+#the 4th line of the cube file
+#Definition of the grid
+#=============================
+
+nb_divx=round(a/whish_size) 
+nb_divy=round(b/whish_size) 
+nb_divz=round(c/whish_size) 
+divx=a/nb_divx
+divy=b/nb_divy
+divz=c/nb_divz
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_divx,divx*atob,0        ,0))
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_divy,0        ,divy*atob,0))
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_divz,0        ,0        ,divz*atob))
+#Calculation of the number of boxes to take into account
+#Depends on:
+#1)the orientation of the normal axis
+#2)the ratio between the cell parameters and 3xi
+if n_axis == 0:
+	range_x=0
+	range_y=math.ceil(3*xi/b)
+	range_z=math.ceil(3*xi/c)
+elif n_axis ==1:
+	range_x=math.ceil(3*xi/a) 
+	range_y=0
+	range_z=math.ceil(3*xi/c)
+else:
+	range_x=math.ceil(3*xi/a)
+	range_y=math.ceil(3*xi/b)
+	range_z=0
+	
+#========================================
+#nb_atoms lines about the atomic position
+#atomic_number   random_float    x   y  z
+#========================================
+#Skip the commentary line of the xyz file
+file_i.readline()
+
+#1)Read all the atomic positions (and symbol)
+#and calculate the position of the mass center
+lsymb = [None]*nb_atoms
+lx = [None]*nb_atoms
+ly = [None]*nb_atoms
+lz = [None]*nb_atoms
+sum_mass=0
+center_pos=0
+for i in range(nb_atoms):
+
+#	print(file_i.readline().split())
+	symb,x,y,z=file_i.readline().split()
+
+	#Record the values inside a list with good format
+	lsymb[i]=periodictable.elements.symbol(symb)#lsymb is an object
+	lx[i]=float(x)
+	ly[i]=float(y)
+	lz[i]=float(z)
+	
+	#Calculate the mass center along the normal axis
+	if n_axis==0:
+                center_pos += lx[i]*lsymb[i].mass
+	elif n_axis==1:
+                center_pos += ly[i]*lsymb[i].mass
+	else: 
+		center_pos += lz[i]*lsymb[i].mass
+	sum_mass +=lsymb[i].mass 
+center_pos/=sum_mass
+
+#2)Recenter (along the normal axis only) the atoms according to the mass center
+if n_axis==0:
+	for i in range(nb_atoms):
+		lx[i]=lx[i]-center_pos +a/2
+elif n_axis ==1:
+	for i in range(nb_atoms):
+		ly[i]=ly[i]-center_pos +b/2
+else:
+	for i in range(nb_atoms):
+		lz[i]=lz[i]-center_pos +c/2
+
+#3)Recenter all the atoms inside the cell (along all the directions) and write the data
+for i in range(nb_atoms):
+	lx[i]=lx[i]%a ; ly[i]=ly[i]%b ; lz[i]=lz[i]%c
+	file_o.write(" {0:5d} {1:12.6f} {2:12.6f} {3:12.6f} {4:12.6f}\n".format(lsymb[i].number,0,lx[i]*atob,ly[i]*atob,lz[i]*atob))
+
+#===============
+#Volumetric data
+#===============
+inc=0
+rho=[0]*nb_divx*nb_divy*nb_divz
+#Loop for the grid
+for i in range (nb_divx):     #The program starts with this line
+	for j in range(nb_divy):
+		for k in range(nb_divz):
+			#Sum over all the O
+			for at in range(nb_atoms):
+				if lsymb[at].number == 8:#Only the O are selected
+					rho[inc]+=density(lx[at]-(i+0.5)*divx, ly[at]-(j+0.5)*divy,lz[at]-(k+0.5)*divz,a,b,c,range_x,range_y,range_z)
+			rho[inc] *= norm
+
+			file_o.write(" {0:12.6f}".format(rho[inc]))
+			inc+=1
+			if k % 6 == 5:
+				file_o.write("\n")
+		if k%6 != 5:
+			file_o.write("\n")
+
+#====================
+#Determine isosurface
+#====================
+inc =0
+if n_axis==0:
+	surf1=[0]*nb_divy*nb_divz#Initialization of the list associated with the perpendicular plane
+	surf2=[0]*nb_divy*nb_divz
+	#For each point of this plane, the point where the reference density is reached is calculated (and stored inside surf1 surf2)
+	for j in range(nb_divy):
+		for k in range(nb_divz):
+			start_inc= k+nb_divz*j
+			step_inc = nb_divz*nb_divy
+			end_inc  = start_inc+step_inc*nb_divx
+			surf1[inc],surf2[inc] =pos_surf(start_inc, end_inc, step_inc, rho,divx)#This function calculates the position of the reference density
+			#print(start_inc, step_inc, end_inc)
+			#print(surf1[inc])
+			inc += 1
+elif n_axis ==1:
+	surf1=[0]*nb_divx*nb_divz
+	surf2=[0]*nb_divx*nb_divz
+	for i in range(nb_divx):
+		for k in range(nb_divz):
+			start_inc= k+nb_divz*(nb_divy*i)
+			step_inc = nb_divz
+			end_inc  = start_inc+step_inc*nb_divy
+			surf1[inc],surf2[inc] =pos_surf(start_inc, end_inc, step_inc, rho,divy)
+			#print(start_inc, step_inc, end_inc)
+			#print(surf1[inc])
+			inc += 1
+else:
+	surf1=[0]*nb_divx*nb_divy
+	surf2=[0]*nb_divx*nb_divy
+	for i in range(nb_divx):
+		for j in range(nb_divy):
+			start_inc= nb_divz*(j+nb_divy*i)
+			step_inc = 1
+			end_inc  = start_inc+step_inc*nb_divz
+			surf1[inc],surf2[inc]=pos_surf(start_inc, end_inc, step_inc, rho,divz)
+			#print(start_inc, step_inc, end_inc)
+			#print(surf1[inc],surf2[inc])
+			inc += 1
+
+#==================================================
+#Determine the atoms which are close to the surface
+#and print their index
+#==================================================
+list_O1=[-1]
+for at in range(nb_atoms):
+	if lsymb[at].number == 8:
+		for at1 in range(nb_atoms): 
+			if lsymb[at1].number != 8:    #To avoid the O atoms itself as at and at1 [at-the-same-time]  
+				if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number !=1:
+					list_O1.append(at)
+					#print(list_O1)   #for testing
+file_o1.write('surface 1:\n')
+for at in range(nb_atoms):
+	if lsymb[at].number == 8:
+		if at not in list_O1:
+			good_O=False   #Test value, to know if the studied O is good 
+
+			#Conversion of the (y,z) coordinates of O into (j,k)
+			i=math.floor(lx[at]/divx)
+			j=math.floor(ly[at]/divy)
+			k=math.floor(lz[at]/divz)
+
+			if n_axis ==0:
+				#Comparison between the distance of O to surf1 with the default thickness
+				#if the O is close to the surface, then we print it
+				if surf1[nb_divz*j+k]+thickness >= lx[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_O=True
+
+			elif n_axis ==1:
+				if surf1[nb_divz*i+k]+thickness >= ly[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_O=True
+			else:
+				if surf1[nb_divy*i+j]+thickness >= lz[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_O=True
+
+			#If the O is close to the surface (good_O=True)
+			#Therefore, the H close to him are printed too             
+			if good_O:
+				for at2 in range(nb_atoms):                                    
+					if lsymb[at2].number ==1: 
+						if (lx[at2]-lx[at])**2 + (ly[at2]-ly[at])**2 +(lz[at2]-lz[at])**2 <= max_dist2:                                                                
+							file_o1.write(str(at2+1)+' ')
+							print(at2+1, " ", end=" ")
+file_o1.write('\nsurface 2:\n')
+print()
+for at in range(nb_atoms):
+	if lsymb[at].number == 8:
+		if at not in list_O1:
+			good_Os=False   #Test value, to know if the studied O is good 
+
+			#Conversion of the (y,z) coordinates of O into (j,k)
+			i=math.floor(lx[at]/divx)
+			j=math.floor(ly[at]/divy)
+			k=math.floor(lz[at]/divz)
+
+			if n_axis ==0:
+				#Comparison between the distance of O to surf2 with the default thickness
+				#if the O is close to the surface, then we print it
+				if surf2[nb_divz*j+k]-thickness <= lx[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_Os=True
+
+			elif n_axis ==1:
+				if surf2[nb_divz*i+k]-thickness <= ly[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_Os=True
+			else:
+				if surf2[nb_divy*i+j]-thickness <= lz[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_Os=True
+
+			#If the O's close to the surface (good_Os=True)
+			#Therefore, the H close to him are printed too             
+			if good_Os:
+				for at2 in range(nb_atoms):                                    
+					if lsymb[at2].number ==1: 
+						if (lx[at2]-lx[at])**2 + (ly[at2]-ly[at])**2 +(lz[at2]-lz[at])**2 <= max_dist2:                                                                
+							file_o1.write(str(at2+1)+' ')
+							print(at2+1, " ", end=" ")
+file_o1.write('\n')
+print()
+
+file_o1.write('\nbulk:\n')
+print()
+for at in range(nb_atoms):
+	if lsymb[at].number == 8:
+		if at not in list_O1:
+			good_Oss=False   #Test value, to know if the studied O is good 
+			#Conversion of the (y,z) coordinates of O into (j,k)
+			i=math.floor(lx[at]/divx)
+			j=math.floor(ly[at]/divy)
+			k=math.floor(lz[at]/divz)
+	
+			if n_axis ==0:
+				#Comparison between the distance of O to surf1 and surf2 with the default thickness
+				#if the O is far away from the surfaces, then we print it
+				if surf1[nb_divz*j+k]+thickness <= lx[at] and surf2[nb_divz*j+k]-thickness >= lx[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_Oss=True
+
+			elif n_axis ==1:
+				if surf1[nb_divz*i+k]+thickness <= ly[at] and  surf2[nb_divz*i+k]-thickness >= ly[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_Oss=True
+			else:
+				if surf1[nb_divy*i+j]+thickness <= lz[at] and surf2[nb_divy*i+j]-thickness >= lz[at]:
+					file_o1.write(str(at+1)+' ')
+					print (at+1, " ", end="")
+					good_Oss=True
+			#If the O's close to the surface (good_Os=True)
+			#Therefore, the H close to him are printed too             
+			if good_Oss:
+				for at2 in range(nb_atoms): 
+					if lsymb[at2].number ==1: 
+						if (lx[at2]-lx[at])**2 + (ly[at2]-ly[at])**2 +(lz[at2]-lz[at])**2 <= max_dist2:                                                                
+							file_o1.write(str(at2+1)+' ')
+							print(at2+1, " ", end=" ")
+file_o1.write('\n')
+print()
+\end{lstlisting}
+%==========
+%\begin{figure}
+%\includegraphics [width=0.5\textwidth]{./diagrams/result_chandler3_1}   % Here is how to import EPS art
+%\caption{\label{fig:criterion}  The consequence of the criterion in \texttt{chandler3\_1.py} for judging the existence of O-H bond in water molecules. This cirterion can extract the O atoms in water molecules, and are satisfying the position criteria (close surface 1, close to surface 2 or in the bulk). }
+%\end{figure}
+%=========
+
+\paragraph{Reduce the parameters}
+We need to reduce the number of input parameters as possible as we can! 
+%For example,  if we do not care the name of the cube file, we do not need to ask the user to input it. 
+\lstset{language=Python}
+\begin{lstlisting}
+#=================
+#From chandler3.py
+#=================
+name=input("What is the name of the position file? (input)\n")
+file_i = open(name,"r")
+line=input("What are the crystal parameters? (a b c in Ang)\n")
+line_split=line.split(' ')
+a=float(line_split[0])
+b=float(line_split[1])
+c=float(line_split[2])
+
+whish_size=float(input("What is aproximatively the size of a grid division? (in Ang)\n"))
+thickness=float(input("What is the thickness of your surface? (in Ang)\n"))
+n_axis=int(input("What is the normal axis? (0->x, 1->y, 2->z)\n"))
+name_split=name.split('.')
+name0=name_split[0]+'.cube'
+file_o = open(name0, 'w')     #the cube file as output
+name1 = 'surf_'+ name_split[0]+'.dat'
+file_o1 = open(name1, 'w')     #store the atomic indices into file_o1
+#End of questions
+\end{lstlisting}
+%===========
+
+Instead, by using the \texttt{split()} function, we extract information from the position file (one input) and then to construct a name of the cube file automatically! This idea makes the program more efficient.
+
+The following is the function to extract the water molecules close to the instantaneous interface. In this function, the O-N distance criterion (O-H distance criterion, or call it \texttt{max\_dist2\_no} criterion) is used to make sure all the O atoms extracted are O atoms in water and not O atoms in other ions (eg. \nitrate). 
+The basic idea is: if O-H distance satisfys the criterion, print the index of the O atom.
+However, this criterion produces another problem. Because there are two H atoms in a water molecules, it prints atomic indices of O atoms two times.
+To remove the repeated atomic indices coming from the \texttt{max\_dist2\_no} criterion. We introduce the \texttt{if at!=test\_Os} part. Here is the code:
+%===================
+\lstset{language=Python}
+\begin{lstlisting}
+#================================
+#Filename: chandler4_2.py 
+#To run: python3.2 chandler4_2.py
+#================================
+import periodictable
+import math 
+
+#=========
+#CONSTANTS
+#=========
+atob=1.88971616463     #Factor to convert from Ang to bohr
+dim = 3
+xi = 2.4     #Angstrom
+xi2_2 = 2*xi**2
+xi2_9 = 9*xi**2
+norm = (2*math.pi*xi**2)**(-dim/2)
+rho_ref=0.016
+max_dist=1.2#Maximal length of the O-H bond
+max_dist2= max_dist**2
+max_dist_no= 1.4    #Maximal lengh of the O-N bond
+max_dist2_no= max_dist_no**2      #Maximal lengh of the O-N bond
+
+#===========
+#SUBROUTINES
+#===========
+#Calculate the density associated with one O on a grid point
+#Pbc are taken into account
+#If distance higher than 3xi we do not take it into account
+def density(x,y,z,a,b,c,range_x,range_y,range_z): 
+	d=0
+	for i in range(-range_x,range_x+1): 
+		for j in range(-range_y,range_y+1): 
+			for k in range(-range_z,range_z+1):
+
+				r2=(x-a*i)**2+(y-b*j)**2+(z-c*k)**2 
+				#The atoms which are to far away (more than 3*xi) are not taken into account
+				if r2 <xi2_9:
+					d+= math.exp(-r2/xi2_2)     #op
+	return d 
+
+#This subroutine determines the position of rho_ref on the grid and returns it. 
+def pos_surf(start,end,step,rho,itoc):
+	#Fist grid point with rho>rho_ref
+	for i in range(start,end,step):
+		if rho[i] >= rho_ref:
+			break
+	if i==end-1:#Protection if there is a hole in the slab (low density along the normal axis)
+		j=i+step
+	else:
+		#First grid point after the water slab with rho<rho_ref
+		for j in range(i+step,end,step):
+			if rho[j] <= rho_ref:
+				break
+
+	#Linear interpolation of the surface position 
+	#1)Interpolation between i and i-1
+	z1= (rho_ref-rho[i])/(rho[i]-rho[i-step])+i
+	z1= (z1-start)/step*itoc
+	#2)Interpolation between j-1 and j
+	z2= (rho_ref-rho[j])/(rho[j]-rho[j-step])+j
+	z2 =(z2-start)/step*itoc
+	
+	return z1,z2
+
+#===============
+#Basic questions
+#===============
+name=input("What is the name of the position file? (input)\n")
+file_i = open(name,"r")
+line=input("What are the crystal parameters? (a b c in Ang)\n")
+line_split=line.split(' ')
+a=float(line_split[0])
+b=float(line_split[1])
+c=float(line_split[2])
+whish_size=float(input("What is aproximatively the size of a grid division? (in Ang)\n"))
+thickness=float(input("What is the thickness of your surface? (in Ang)\n"))
+n_axis=int(input("What is the normal axis? (0->x, 1->y, 2->z)\n"))
+name_split=name.split('.')
+name0=name_split[0]+'.cube'
+file_o = open(name0, 'w')     #the cube file as output
+name1 = 'surf_'+ name_split[0]+'.dat' 
+file_o1 = open(name1, 'w')     #store the atomic indices into file_o1
+
+#================================================
+#Reading the main information
+nb_atoms=int(file_i.readline())     #Number of atoms
+
+#================================================
+#The first 2 lines of the cube file are written
+file_o.write("cube file for determining the isosurface of a system.\n")
+file_o.write("OUTER LOOP: X, MIDDLE LOOP: Y, INNER LOOP: Z\n")
+
+#=========================================
+#The 3rd line of the cube file are written
+#{0:5d} means: the data number 0 is an integer and will be printed with 5 digits
+#{1:12.6f} means: the data number 1 is float and will be printed with 12 digits whom 6 will be after the .
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_atoms,0,0,0))
+
+
+#=============================
+#the 4th line of the cube file
+#Definition of the grid
+#=============================
+nb_divx=round(a/whish_size) 
+nb_divy=round(b/whish_size) 
+nb_divz=round(c/whish_size) 
+divx=a/nb_divx
+divy=b/nb_divy
+divz=c/nb_divz
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_divx,divx*atob,0        ,0))
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_divy,0        ,divy*atob,0))
+file_o.write("{0:5d} {1:12.6f} {2:12.6f} {3:12.6f}\n".format(nb_divz,0        ,0        ,divz*atob))
+#Calculation of the number of boxes to take into account
+#Depends on:
+#1)the orientation of the normal axis
+#2)the ratio between the cell parameters and 3xi
+if n_axis == 0:
+	range_x=0
+	range_y=math.ceil(3*xi/b)
+	range_z=math.ceil(3*xi/c)
+elif n_axis ==1:
+	range_x=math.ceil(3*xi/a) 
+	range_y=0
+	range_z=math.ceil(3*xi/c)
+else:
+	range_x=math.ceil(3*xi/a)
+	range_y=math.ceil(3*xi/b)
+	range_z=0
+	
+#========================================
+#nb_atoms lines about the atomic position
+#atomic_number   random_float    x   y  z
+#========================================
+#Skip the commentary line of the xyz file
+file_i.readline()
+
+#Read all the atomic positions (and symbol) and calculate the position of the mass center
+lsymb = [None]*nb_atoms
+lx = [None]*nb_atoms
+ly = [None]*nb_atoms
+lz = [None]*nb_atoms
+lx0 = [None]*nb_atoms
+ly0 = [None]*nb_atoms
+lz0 = [None]*nb_atoms
+sum_mass=0
+center_pos=0
+for i in range(nb_atoms):
+	symb,x,y,z=file_i.readline().split()
+
+	#Record the values inside a list with good format
+	lsymb[i]=periodictable.elements.symbol(symb)#lsymb is an object
+	lx[i]=float(x)
+	ly[i]=float(y)
+	lz[i]=float(z)
+	
+	#Calculate the mass center along the normal axis
+	if n_axis==0:
+                center_pos += lx[i]*lsymb[i].mass
+	elif n_axis==1:
+                center_pos += ly[i]*lsymb[i].mass
+	else: 
+		center_pos += lz[i]*lsymb[i].mass
+	sum_mass +=lsymb[i].mass 
+
+center_pos/=sum_mass
+
+#2)Recenter (along the normal axis only) the atoms according to the mass center
+if n_axis==0:
+	for i in range(nb_atoms):
+		lx[i]=lx[i]-center_pos +a/2
+elif n_axis ==1:
+	for i in range(nb_atoms):
+		ly[i]=ly[i]-center_pos +b/2
+else:
+	for i in range(nb_atoms):
+		lz[i]=lz[i]-center_pos +c/2
+
+#3)Recenter all the atoms inside the cell (along all the directions)
+#and write the data
+for i in range(nb_atoms):
+	lx[i]=lx[i]%a ; ly[i]=ly[i]%b ; lz[i]=lz[i]%c
+
+	file_o.write(" {0:5d} {1:12.6f} {2:12.6f} {3:12.6f} {4:12.6f}\n".format(lsymb[i].number,0,lx[i]*atob,ly[i]*atob,lz[i]*atob))
+
+#===============
+#Volumetric data
+#===============
+inc=0
+rho=[0]*nb_divx*nb_divy*nb_divz
+#Loop for the grid
+for i in range (nb_divx):     #The program starts with this line
+	for j in range(nb_divy):
+		for k in range(nb_divz):
+			#Sum over all the O
+			for at in range(nb_atoms):
+				if lsymb[at].number == 8:#Only the O are selected
+					rho[inc]+=density(lx[at]-(i+0.5)*divx, ly[at]-(j+0.5)*divy,lz[at]-(k+0.5)*divz,a,b,c,range_x,range_y,range_z)
+			rho[inc] *= norm
+
+			file_o.write(" {0:12.6f}".format(rho[inc]))
+			inc+=1
+			if k % 6 == 5:
+				file_o.write("\n")
+		if k%6 != 5:
+			file_o.write("\n")
+
+#====================
+#Determine isosurface
+#====================
+inc =0
+if n_axis==0:
+	surf1=[0]*nb_divy*nb_divz#Initialization of the list associated with the perpendicular plane
+	surf2=[0]*nb_divy*nb_divz
+	#For each point of this plane, the point where the reference density is reached is calculated (and stored inside surf1 surf2)
+	for j in range(nb_divy):
+		for k in range(nb_divz):
+			start_inc= k+nb_divz*j
+			step_inc = nb_divz*nb_divy
+			end_inc  = start_inc+step_inc*nb_divx
+			surf1[inc],surf2[inc] =pos_surf(start_inc, end_inc, step_inc, rho,divx)      #The function calculates the position of the reference density
+			#print(start_inc, step_inc, end_inc)
+			#print(surf1[inc])
+			inc += 1
+elif n_axis ==1:
+	surf1=[0]*nb_divx*nb_divz
+	surf2=[0]*nb_divx*nb_divz
+	for i in range(nb_divx):
+		for k in range(nb_divz):
+			start_inc= k+nb_divz*(nb_divy*i)
+			step_inc = nb_divz
+			end_inc  = start_inc+step_inc*nb_divy
+			surf1[inc],surf2[inc] =pos_surf(start_inc, end_inc, step_inc, rho,divy)
+			#print(start_inc, step_inc, end_inc)
+			#print(surf1[inc])
+			inc += 1
+else:
+	surf1=[0]*nb_divx*nb_divy
+	surf2=[0]*nb_divx*nb_divy
+	for i in range(nb_divx):
+		for j in range(nb_divy):
+			start_inc= nb_divz*(j+nb_divy*i)
+			step_inc = 1
+			end_inc  = start_inc+step_inc*nb_divz
+			surf1[inc],surf2[inc]=pos_surf(start_inc, end_inc, step_inc, rho,divz)
+			#print(start_inc, step_inc, end_inc)
+			#print(surf1[inc],surf2[inc])
+			inc += 1
+
+#==================================================
+#Determine the atoms which are close to the surface
+#and print their index
+#==================================================
+file_o1.write('surface 1:\n')
+for at in range(nb_atoms):
+	if lsymb[at].number == 8:
+		good_O=False     #Test value, to know if the studied O is good 
+		test_Os=-1
+		#Conversion of the (y,z) coordinates of O into (j,k)
+		i=math.floor(lx[at]/divx)
+		j=math.floor(ly[at]/divy)
+		k=math.floor(lz[at]/divz)
+
+		if n_axis ==0:
+			#Comparison between the distance of O to surf1 with the default thickness
+			#if the O is close to the surface, then we print it
+			if surf1[nb_divz*j+k]+thickness >= lx[at]:
+				for at1 in range(nb_atoms): 
+					#The following two lines (for... if...) are used to extract O atoms' indices with O-H bond.
+					#the criterion for judging the existence of O-H bond
+					if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+						if at!=test_Os:
+							file_o1.write(str(at+1)+' ')
+							print (at+1, " ", end="")
+							good_O=True
+							test_Os=at
+
+		elif n_axis ==1:
+			if surf1[nb_divz*i+k]+thickness >= ly[at]:
+				for at1 in range(nb_atoms):
+					if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+						if at!=test_Os:
+							file_o1.write(str(at+1)+' ')
+							print (at+1, " ", end="")
+							good_O=True
+							test_Os=at
+		else:
+			if surf1[nb_divy*i+j]+thickness >= lz[at]:
+				for at1 in range(nb_atoms):
+					if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+						if at!=test_Os:
+							file_o1.write(str(at+1)+' ')
+							print (at+1, " ", end="")
+							good_O=True
+							test_Os=at
+
+
+		#If the O is close to the surface (good_O=True)
+		#Therefore, the H close to him are printed too             
+		if good_O:
+			for at2 in range(nb_atoms):                                    
+				if lsymb[at2].number ==1: 
+					if (lx[at2]-lx[at])**2 + (ly[at2]-ly[at])**2 +(lz[at2]-lz[at])**2 <= max_dist2:                                                                
+						file_o1.write(str(at2+1)+' ')
+						print(at2+1, " ", end=" ")
+file_o1.write('\nsurface 2:\n')
+print()
+for at in range(nb_atoms):
+	if lsymb[at].number == 8:
+		good_Os=False     #Test value, to know if the studied O is good 
+		test_Os=-1
+		#Conversion of the (y,z) coordinates of O into (j,k)
+		i=math.floor(lx[at]/divx)
+		j=math.floor(ly[at]/divy)
+		k=math.floor(lz[at]/divz)
+
+		if n_axis ==0:
+			#Comparison between the distance of O to surf2 with the default thickness
+			#if the O is close to the surface, then we print it
+			if surf2[nb_divz*j+k]-thickness <= lx[at]:
+				for at1 in range(nb_atoms):     #The following two lines (for... if...) are used to extract O atoms' indices with O-H bond.
+					if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+						if at!=test_Os:
+							file_o1.write(str(at+1)+' ')
+							print (at+1, " ", end="")
+							good_Os=True
+							test_Os=at
+
+		elif n_axis ==1:
+			if surf2[nb_divz*i+k]-thickness <= ly[at]:
+				for at1 in range(nb_atoms):     #The following two lines (for... if...) are used to extract O atoms' indices with O-H bond.
+					if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+						if at!=test_Os:
+							file_o1.write(str(at+1)+' ')
+							print (at+1, " ", end="")
+							good_Os=True
+							test_Os=at
+		else:
+			if surf2[nb_divy*i+j]-thickness <= lz[at]:
+				for at1 in range(nb_atoms):     #the useness is the same as obove 
+					if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+						if at!=test_Os:
+							file_o1.write(str(at+1)+' ')
+							print (at+1, " ", end="")
+							good_Os=True
+							test_Os=at
+
+		#If the O's close to the surface (good_Os=True)
+		#Therefore, the H close to him are printed too             
+		if good_Os:
+			for at2 in range(nb_atoms):                                    
+				if lsymb[at2].number ==1: 
+					if (lx[at2]-lx[at])**2 + (ly[at2]-ly[at])**2 +(lz[at2]-lz[at])**2 <= max_dist2:                                                                
+						file_o1.write(str(at2+1)+' ')
+						print(at2+1, " ", end=" ")
+file_o1.write('\n')
+print()
+
+file_o1.write('\nbulk:\n')
+print()
+for at in range(nb_atoms):
+		if lsymb[at].number == 8:
+			good_Os=False     #Test value, to know if the studied O is good 
+			test_Os=-1
+			#Conversion of the (y,z) coordinates of O into (j,k)
+			i=math.floor(lx[at]/divx)
+			j=math.floor(ly[at]/divy)
+			k=math.floor(lz[at]/divz)
+	
+			if n_axis ==0:
+				#Comparison between the distance of O to surf1 and surf2 with the default thickness
+				#if the O is far away from the surfaces, then we print it
+				if surf1[nb_divz*j+k]+thickness <= lx[at] and surf2[nb_divz*j+k]-thickness >= lx[at]:
+					for at1 in range(nb_atoms):
+						if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+							if at!=test_Os:     #to remove the repeated atomic indices coming from the max_dist2_no criterion. 
+								file_o1.write(str(at+1)+' ')
+								print (at+1, " ", end="")
+								good_Os=True     #If there exists a H-O bond for an O atom which is far way from any of the surfaces, print the index of the O atom
+								test_Os=at
+
+			elif n_axis ==1:
+				if surf1[nb_divz*i+k]+thickness <= ly[at] and  surf2[nb_divz*i+k]-thickness >= ly[at]:
+					for at1 in range(nb_atoms):
+						if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+							if at!=test_Os:
+								file_o1.write(str(at+1)+' ')
+								print (at+1, " ", end="")
+								good_Os=True
+								test_Os=at
+			else:
+				if surf1[nb_divy*i+j]+thickness <= lz[at] and surf2[nb_divy*i+j]-thickness >= lz[at]:
+					for at1 in range(nb_atoms):
+						if (lx[at1]-lx[at])**2 + (ly[at1]-ly[at])**2 +(lz[at1]-lz[at])**2 <= max_dist2_no and lsymb[at1].number ==1:
+							if at!=test_Os:
+								file_o1.write(str(at+1)+' ')
+								print (at+1, " ", end="")
+								good_Os=True
+								test_Os=at
+
+
+			#If the O's close to the surface (good_Os=True)
+			#Therefore, the H close to him are printed too             
+			if good_Os:
+				for at2 in range(nb_atoms): 
+					if lsymb[at2].number ==1: 
+						if (lx[at2]-lx[at])**2 + (ly[at2]-ly[at])**2 +(lz[at2]-lz[at])**2 <= max_dist2:                                                                
+							file_o1.write(str(at2+1)+' ')
+							print(at2+1, " ", end=" ")
+file_o1.write('\n')
+print()
+ \end{lstlisting}

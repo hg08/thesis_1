@@ -1,0 +1,539 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.5 (27/8/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+%consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{mathpazo} % Use the Palatino font by default
+
+\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\addbibresource{example.bib} % The filename of the bibliography
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+% add from other template
+\usepackage{amsmath, amssymb}
+%\usepackage{graphics} 
+\usepackage{wrapfig,lipsum,booktabs}
+\usepackage{setspace}
+\usepackage{enumerate}
+\usepackage{subfigure}
+%\usepackage{fancyhdr}
+\usepackage{eucal}
+\usepackage[below]{placeins}
+\usepackage[english]{babel}
+%\usepackage[usenames, dvipsnames]{color}
+%\usepackage[perpage]{footmisc}
+%\usepackage{multirow}
+%\usepackage{ifthen}
+%\usepackage[square,sort,comma,numbers]{natbib} % Gang
+\usepackage{mathrsfs} % Curlicue characters %Gang
+%\usepackage{dcolumn}% Align table columns on decimal point %Gang
+\usepackage{bm}% bold math %Gang
+\usepackage{sidecap} %Gang
+% Nomenclature
+\usepackage{nomencl}
+\usepackage{graphicx} % Include figure files
+\usepackage{epstopdf} % PDFLATEX is not able to handle EPS graphic files, but converters epstopdf will help. The best way is to include epstopdf, which must follow the graphicx package
+\usepackage{float}  %introduces a placement option H enforcing the placement exactly at that point.
+\usepackage{placeins} %provides the command \FloatBarrier to limit the floating of figures or tables. You could place such a barrier before and after a listing.
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{soul}
+\usepackage{xspace} %In order to have space after "\newcommands" 
+\usepackage{listings}  %use for listing source codes
+%\usepackage[all,cmtip]{xy}  %xypic
+\lstset{ 
+    language=python, % choose the language of the code
+    basicstyle=\fontfamily{pcr}\selectfont\footnotesize\color{black},
+    keywordstyle=\color{red}\bfseries, % style for keywords
+    numbers=none, % where to put the line-numbers
+    numberstyle=\tiny, % the size of the fonts that are used for the line-numbers     
+    backgroundcolor=\color{white}, % we can also choose: darkgray
+    showspaces=false, % show spaces adding particular underscores
+    showstringspaces=false, % underline spaces within strings
+    showtabs=false, % show tabs within strings adding particular underscores
+    frame=single, % adds a frame around the code
+    tabsize=2, % sets default tabsize to 2 spaces
+    rulesepcolor=\color{gray},
+    rulecolor=\color{black},
+    captionpos=b, % sets the caption-position to bottom
+    breaklines=true, % sets automatic line breaking
+    breakatwhitespace=false, 
+}
+%\usepackage[toc,page]{appendix} %For adding appendices
+\usepackage{pgfplots} % a plotting package in latex
+\usepackage[export]{adjustbox}[2011/08/13]
+
+%=================================================
+%(Re-)New commands
+%=================================================
+%\renewcommand{\nomname}{List of Symbols and Abbreviations}
+\newcommand{\etal}{\textit{et al.}}
+\newcommand{\abinitio}{\textit{ab initio}\xspace}
+\newcommand{\Li}{Li$^{+}$\xspace}
+\newcommand{\Na}{Na$^{+}$\xspace}
+\newcommand{\K}{K$^{+}$\xspace}
+\newcommand{\Cl}{Cl$^{-}$\xspace}
+\newcommand{\Br}{Br$^{-}$\xspace}
+\newcommand{\I}{I$^{-}$\xspace}
+\newcommand{\li}{Li$^{+}$}
+\newcommand{\na}{Na$^{+}$}
+\newcommand{\pot}{K$^{+}$}
+\newcommand{\cl}{Cl$^{-}$}
+\newcommand{\br}{Br$^{-}$}
+\newcommand{\Iodine}{I$^{-}$}
+\newcommand{\COO}{COO$^{-}$\xspace}
+\newcommand{\sfg}{Sum Frequency Generation\xspace}
+\newcommand{\cm}{cm$^{-1}$~\xspace}
+\newcommand{\centimeter}{cm$^{-1}$}
+\newcommand{\nm}{nm$^{-2}$\xspace}
+\newcommand{\z}{\textit{z}-axis\xspace}
+\newcommand{\water}{H$_2$O\xspace}
+\newcommand{\wat}{H$_2$O}
+\newcommand{\NVT}{\textit{NVT}\xspace}
+\newcommand{\T}{\textit{T}\xspace}
+\newcommand{\nitrate}{NO$_3^-$\xspace}
+\newcommand{\nit}{NO$_3^-$}
+\newcommand{\LiN}{LiNO$_3$\xspace}
+\newcommand{\X}{$x$\xspace}
+\newcommand{\Y}{$y$\xspace}
+\newcommand{\Z}{$z$\xspace}
+
+%
+\newcommand{\CHB}{$C_{\text{HB}}(t)$\xspace}
+\newcommand{\SHB}{$S_{\text{HB}}(t)$\xspace}
+
+%Renew the \AA command in order to have a space when we want
+\let\oldAA\AA
+\renewcommand{\AA}{\oldAA\xspace}
+\newcommand{\A}{\oldAA}
+%=================================================
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=3.8cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{Structure, Dynamics and Vibrational Spectroscopy of Interfacial 
+Alkali Nitrate Aqueous Solutions from \abinitio Molecular Dynamics} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Apl. Prof. Dr. Marialore \textsc{Sulpizi}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{Doctor of Philosophy} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Gang \textsc{Huang}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{Statistical Physics and Soft Matter} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{sum-frequency generation, hydrogen bond dynamics, water/vapor interfaces} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{\href{https://www.uni-mainz.de}{Johannes Gutenberg Universit\"at Mainz}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{\href{https://www.iph.uni-mainz.de}{Institute for Physics }} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{\href{https://www.komet1.physik.uni-mainz.de}{Condensed Matter Theory Group}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{\href{https://www.komet1.physik.uni-mainz.de}{Condensed Matter Theory}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{.06\textheight}
+{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+\textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
+
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+ 
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+\href{http://www.johnsmith.com}{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+\href{https://www.staff.uni-mainz.de/sulpizi}{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\end{flushright}
+\end{minipage}\\[3cm]
+ 
+\vfill
+
+\large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+\textit{in the}\\[0.4cm]
+\groupname\\\deptname\\[2cm] % Research group name and department name
+ 
+\vfill
+
+{\large \today}\\[4cm] % Date
+%\includegraphics{Logo} % University/department logo - uncomment to place it
+ 
+\vfill
+\end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{declaration}
+\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+\noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
+
+\begin{itemize} 
+\item This work was done wholly or mainly while in candidature for a research degree at this University.
+\item Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
+\item Where I have consulted the published work of others, this is always clearly attributed.
+\item Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
+\item I have acknowledged all main sources of help.
+\item Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
+\end{itemize}
+ 
+\noindent Signed:\\
+\rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
+ 
+\noindent Date:\\
+\rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
+\end{declaration}
+
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace*{0.2\textheight}
+
+\noindent\enquote{\itshape The accurate description of water has been and continues to be a challenge for both
+experiment and simulations due to the directional nature and the weakness of the hydrogen bonds in conjunction 
+with its autodissociation properties.}\bigbreak
+
+\hfill Dominik Marx  and J\"urg Hutter 
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+I have analyzed the interfacial structure and dynamics of solutions containing alkali nitrates by Density Functional Theory-based 
+Molecular Dynamics (DFTMD) simulations. In particular I have presented a detailed analysis of the Hydrogen Bond (HB) structure at the interface and 
+have calculated the interface vibrational spectra in order to provide a molecular interpretation of available experimental data.
+%
+As a first system I have analyzed the behaviour of a salty water/vapor interface containing LiNO$_3$.
+Both the measured and calculated Vibrational Sum-Frequency Generation (VSFG) spectra shows a reduced intensity of the lower frequency portion region,
+when compared to the pure water/vapor interface.
+This reduction is attributed to the H-bonds established between the \nitrate and the surrounding water molecules at the interface.
+This effects is only related to the presence of \nitrate at the water surface and is not affected by the presence of alkali metal ions.
+I have shown that although the \Li can reside relative close to the water surface, also forming a water mediated
+ion pair with \nit, its effect on the VSFG spectrum is not visible. The water molecule which mediate the interaction
+between the \nitrate and the \Li would produce a red-shifted peak in small water cluster, but its influence is not visible
+neither in the VSFG spectra.
+I have shown that the use of simple models, such as small cluster is not suitable to reproduce the experimental spectra 
+and cannot provide a microscopic interpretation of the spectra.
+Realistic models of the interface are required to address the perturbation of the ion on the water surface.
+%
+The difference between the HB dynamics outside the first shell of the \Li and that of nitrate-water Hydrogen (H-) bonds
+at interfaces is not visible from the values of the HB relaxation time. They reflect the difference 
+between HB dynamics in bulk water and that at the water/vapor interfaces.
+For the water/vapor interface of alkaline iodine solutions, I find that the cations does not alter the H-bonding network outside the first hydration shell of cations.
+It is concluded that no long-range structural-changing effects for alkali metal cations.
+%
+From the results of nonlinear susceptibilities, I conclude that these water molecules at the water/vapor interfaces of LiI, NaI, and KI solutions are participating
+in weaker H-bonds, compared with those at the pure water surface.
+The origin of the characteristics may come from a unique distribution of \I ions and alkali metal cations,
+which form a double layer over the thickness on the order of 5--10 \A.
+%
+Finally, I obtain that faster rotational anisotropy decay exists for water molecules at the interface of aqueous alkali-iodine solutions, 
+which is the result of a different HB types from the usual HB type in pure bulk water. 
+This effect on anisotropy decay is due to the H--I bond at the interface.
+This difference of HB structure from pure water/vapor interface changed the Im$\chi^{(2),\text{R}}$ spectrum
+and the HB dynamics of the interface of alkali-iodine solution.
+\end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+I wish to express my sincere gratitude to my supervisor,
+Prof. Dr. Marilore Sulpizi for her excellent guidance during my research, and her detailed and valuable advice for my writing.
+I thank her for bringing me into interesting and novel areas of density functional theory-based molecular dynamics simulation 
+and interface physics and chemistry. By communicating with her, I was implicitly and positively affected. 
+She is rigorous in academic studies, optimistic and active, and has a wide range of interests. 
+All these have kept in my heart and gave me greater confidence in future scientific research work.
+
+I wish to thank Prof. Dr. Thomas Kühner, Dr. Giovanni Settanni, Dr. Peter
+Virnau, Dr. Hans Behringer, Prof. Dr. Thomas Speck and in the Institute for
+Physics for leading me to the fundamental statistical physics and excellent lectures
+and discussions. I am grateful to Prof. Dr. Friederike Schmid and Prof. Dr. Kurt
+Binder for their talks and guidance.
+
+I am grateful to Dr. R\'emi Khatib for programing skills and helpful guidance on
+the programs for calculating the VSFG spectra. I also thank Dr. Shuanhu Qi, Dr. Jiajia Zhou and Dr. Fei Yu for useful discussions 
+on the the calculation of response functions. I would like to
+thank my colleagues Leila Salimi, Isidro Lorenzo Geada, Santosh Kumar Meena and Anusha Lalitha, 
+at the Institute for Physics, for their encouragement and assistance.
+
+I am grateful to my parents Dehuai Huang and Yuhua Diao and my brother Jialiang Huang for being there for me during the
+last years.
+
+The financial supports of the China Scholarship Council and TRR146 are gratefully acknowledged.
+\end{acknowledgements}
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+
+\listoftables % Prints the list of tables
+
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+
+\textbf{ACF} & \textbf{A}uto-\textbf{C}orrelation \textbf{F}unction\\
+\textbf{AIMD} & \abinitio \textbf{M}olecular \textbf{D}ynamics\\
+\textbf{BLYP} & \textbf{B}eck-\textbf{L}ee-\textbf{Y}ang-\textbf{P}arr\\
+\textbf{BOMD} & \textbf{B}orn-\textbf{O}ppenheimer \textbf{M}olecular \textbf{D}ynamics\\
+\textbf{CPMD} & \textbf{C}ar-\textbf{P}arrinello \textbf{M}olecular \textbf{D}ynamics\\
+\textbf{DFT} & \textbf{D}ensity \textbf{F}unctional \textbf{T}heory\\
+\textbf{DFTMD} & \textbf{D}ensity \textbf{F}unctional \textbf{T}heory-based \textbf{M}olecular \textbf{D}ynamics\\
+\textbf{GGA} & \textbf{G}eneralised \textbf{G}radient \textbf{A}pproximation\\
+\textbf{HB} & \textbf{H}ydrogen \textbf{B}ond\\
+\textbf{HK} & \textbf{H}ohenberg-\textbf{K}ohn\\
+\textbf{KS} & \textbf{K}ohn-\textbf{S}ham\\
+\textbf{LDA} & \textbf{L}ocal \textbf{D}ensity \textbf{A}pproximation\\
+\textbf{MD} & \textbf{M}olecular \textbf{D}ynamics\\
+\textbf{MP2} & \textbf{M}oller-\textbf{P}lesset \textbf{P}erturbation\\
+\textbf{PBE} & \textbf{P}erdew-\textbf{B}urke-\textbf{E}rnzherhof\\
+\textbf{PS} & \textbf{P}hase-\textbf{S}ensitive\\
+\textbf{RDF} & \textbf{R}adial \textbf{D}istribution \textbf{F}unction\\
+\textbf{SCF} & \textbf{S}elf \textbf{C}onsistent \textbf{F}ield\\
+\textbf{VDOS} & \textbf{V}ibrational \textbf{D}ensity \textbf{O}f \textbf{S}tates\\
+\textbf{VSFG} & \textbf{V}ibrational \textbf{S}um-\textbf{F}requency \textbf{G}eneration\\
+\textbf{XC} & e\textbf{X}change  and \textbf{C}orrelation\\
+
+\end{abbreviations}
+
+%----------------------------------------------------------------------------------------
+%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+\begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
+
+% The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
+
+speed of light in vacuum  & $c$ & \SI{299 792 458}{\meter\per\second} (exact)\\
+%Constant Name & $Symbol$ & $Constant Value$ with units\\
+Boltzmann constant & $k_{\text{B}}$ & 1.380 650 3(24)$\times 10^{23}$ \si{\joule\per\kelvin} \\
+elementary charge & $e$  & 1.602 176 462(63)$\times 10^{-19}$ C \\
+electron mass & $m_{\text{e}}$ & 9.109 381 88(72) $\times 10^{-31}$ kg \\
+proton mass & $m_{\text{p}}$ & 1.672 621 58(13) $\times 10^{-27}$ kg \\
+Avogadro constant & $N_{\text{A}}$ & 6.022 141 99(47) $\times 10^{23}$ mol \\
+Planck constant & $h$ & 6.626 068 76(52) $\times 10^{-34}$ J s \\
+molar gas constant & $R$ & 8.314 472(15) J mol$^{-1}$ K$^{-1}$
+\end{constants}
+
+%----------------------------------------------------------------------------------------
+%	SYMBOLS
+%----------------------------------------------------------------------------------------
+
+\begin{symbols}{lll} % Include a list of Symbols (a three column table)
+
+% $a$ & distance & \si{\meter} \\
+% $P$ & power & \si{\watt} (\si{\joule\per\second}) \\
+% $\omega$ & angular frequency & \si{\radian} \\
+%Symbol & Name & Unit \\
+
+\addlinespace % Gap to separate the Roman symbols from the Greek
+
+$Z_{\text{X}}$ & atomic number of atom X & \\
+$\tau_{\text{HB}}$ & average lifetime of H-bonds & \\
+$\kappa_i$ & decay rate of $C_2(t)$ & \\
+$n_{\text{X}}$ & coordination number of ion X & \\
+${\bf M}$ & dipole moment & \\
+$\mu^{i,l,\epsilon}$ & dipole moment of the bond $\epsilon$ of the $i$-th water molecule in the lab frame & \\
+$A$ & dipole polarizability (tensor) & \\
+$D$ & direction cosine matrix  & \\
+$r$ & distance & \\
+${\mu}$ & electric dipole vector & \\
+${\bf E}$ & electric field strength &  \\
+$V_{\text{ee}}$ & electron-electron repulsion energy & \\
+$E_{\text{disp}}^{(2)}$ & empirical two-body dispersion correction of energy & \\
+$E_{\text{disp}}^{(3)}$ & empirical three-body nonadditivity dispersion correction of energy & \\
+$\Delta F_{AB}$ & free energy difference between configuration A and B &  \\
+$F_A$ & free energy of configuration A &  \\
+$L_{\eta\kappa}$ & Fresnel coefficients & \\
+$\omega_{\text{SFG}}$ & frequency of the sum-frequency generation beam & \\
+$\omega_{\text{vis}}$ & frequency of the incident visible beam &  \\
+$\omega_{\text{IR}}$ & frequency of the incident infrared beam &  \\
+$h(t), H(t)$ & HB population operators & \\
+$C_{\text{HB}}$ & HB population operator correlation function & \\
+$\omega_{\text{I}}$ & highest nuclear phonon frequency & \\
+$\theta$ & H-O-H angle in a water molecule&  \\
+$\beta$ & hyperpolarizability; reciprocal temperature & \\
+$j(t)$ & integrated flux departing the HB configuration space at time t & \\
+$I_{\text{SFG}}$ & intensity of the sum-frequency generation beam & \\
+$I_{\text{vis}}$ & intensity of the incident visible beam & \\
+$I_{\text{IR}}$ & intensity of the incident infrared beam & \\
+$r_{\text{OO}}$ & interoxygen distance & \\
+$\omega_{\text{e}}$ & the lowest electronic frequency &  \\
+$r_{\text{OO}}^{\text{c}}$ & the maximum value of the interoxygen distance in the definition of HB & \\
+$\phi^{\text{c}}$ & the maximum value of the angle between the O--O axis and one of the O--H bonds in the &  \\
+                  & definition of HB & \\
+$N$ & number of water molecules & \\
+$R_{\text{OH}}$ & O-H length in water molecule & \\
+$C_2(t)$ & orientational anisotropy decay & \\
+$Z$ & partition function & \\
+$\alpha$ & polarizability tensor & \\
+$\alpha^{i,l,\epsilon}$ & polarizability of the bond $\epsilon$ of the $i$-th water molecule in the lab frame & \\
+$P(t)$ & probability distribution of HB lifetime & \\
+$C_z(t)$ & projected velocity auto-correlation function along $z$-axis & \\
+$x^{\text{l}},y^{\text{l}},z^{\text{l}}$ & position coordinates in the lab frame  & \\
+$x^{\text{m}},y^{\text{m}},z^{\text{m}}$ & position coordinates in the molecular frame  & \\
+$x^{\text{b}},y^{\text{b}},z^{\text{b}}$ & position coordinates in the bond frame  & \\
+$g_z(\nu)$ & projected VDOS for selected atoms along $z$-axis &  \\
+$g_{\text{A--B}}$ & radial distribution function & \\
+$k$ & rate constant of breaking an HB & \\
+$\theta_{\text{SFG}}$ & reflected angle of SFG beam with respect to the normal direction in the medium  & \\ 
+$k(t)$ & reactive flux & \\
+$\tau_{\text{R}}$ & relaxation time of HB population operator correlation function & \\
+$P_2(x)$ & the second Legendre polynomial &  \\
+$\chi^{(2),\text{R}}$ & second-order resonant susceptibility & \\
+$\chi^{(2),\text{NR}}$ & second-order nonresonant susceptibility & \\
+$E_{\text{KSDFT}}$ & self consistent KS energy & \\
+$\Delta \nu'$  & shift of vibrational frequency & \\
+$K_{\text{p,X}}$ & surface/bulk molar concentration ratio of ion X &  \\
+$S_{\text{HB}}$ & survival probability of HB & \\
+$t_t$ & temporal resolutions for calculating HB dynamics & \\
+$d$ & thickness of layer of interface (model) & \\
+$\hat{\mu}(t)$ & unit vector of the transition dipole & \\
+$g(\nu)$ & VDOS for selected atoms &  \\
+${\bf v}$ & velocity of an atom & \\
+$C(t)$ & velocity auto-correlation function & \\
+$\nu$ & vibrational frequency & \\
+\end{symbols}
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+\dedicatory{To my parents Dehuai Huang and Yuhua Diao, and my brother Jack Huang.} 
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\include{Chapters/chap1/chap1}
+\include{Chapters/chap2/chap2} 
+\include{Chapters/chap3/chap3}
+\include{Chapters/chap4/chap4} 
+\include{Chapters/chap5/chap5} 
+\include{Chapters/chap6/chap6} 
+\include{Chapters/chap7/chap7} 
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+%\include{Appendices/AppendixA}
+\include{Chapters/chap_formula/chap_formula}
+\include{Chapters/chap_derivatives/chap_derivatives}
+\include{Chapters/chap_parameters/chap_parameters}
+\include{Chapters/chap_free_energy/chap_free_energy}
+\include{Chapters/chap_thickness/chap_thickness}
+\include{Chapters/chap_fitting_c2/chap_fitting_c2}
+%\include{Appendices/AppendixB}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc]
+
+%----------------------------------------------------------------------------------------
+
+\end{document}  

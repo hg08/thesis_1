@@ -1,0 +1,60 @@
+\chapter{Thickness of the Interface of the Aqueous Solutions} \label{thickness_interface}
+To determine the thickness of the water/vapor interface of alkali solutions,
+we chose several different thickness values of slab of the interface and calculate 
+the corresponding susceptibility for these slabs, respectively.
+Take the water/vapor interface of LiNO$_3$ solution as an example. We chose seven different thickness 
+values---from 2 to 8 \A, and calculate VSFG intensities $I_{SSP} \propto |\chi^{(2),\text{R}}_{SSP}|^2$ 
+for the water/vapor interface with a thickness of each of these values. 
+The result is given in Fig.~\ref{fig:117_2LiNO3_30ps_2-6A_150_Im_150720} (a) and (b).
+It shows that $|\chi^{(2),\text{R}}_{SSP}|^2$ converges as the thickness increases to 8 \A. 
+%
+\begin{figure}[!ht]
+\centering
+\includegraphics [width= \textwidth] {./diagrams/117_2LiNO3_30ps_2-6A_150_Im_150720}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:117_2LiNO3_30ps_2-6A_150_Im_150720} The calculated $|\chi^{(2),\text{R}}_{SSP}|^2$, 
+of water molecules at the aqueous/vapor interfaces with different thickness. This calculation is done for a model 
+ for the water/vapor interface where a slab of 117 water molecules containing one \Li and one \nitrate is included 
+ in a period simulation box of 15.6 \AA$\times$15.6 \AA$\times$31.0 \AA at 300 K.}
+\end{figure}
+%
+%As the limitation of the box scale, we chose 4 different thickness values---$d=2,3,4,5$ \A, for checking. The VSFG intensities $I_{SSP} \propto |\chi^{(2),R}_{SSP}|^2$ for the water/vapor interface of the LiI solution are given in Fig.~\ref{fig:124_2LiI_30ps_2-5A_150_Im_150720} (a) and (b). The results show that $|\chi^{(2),R}_{SSP}|^2$ increases as the thickness increase from 2 \AA to 5 \A. 
+%\begin{figure}[!h]
+%\centering
+%  \includegraphics [width=0.8 \textwidth] {./diagrams/124_2LiI_30ps_2-5A_150_Im_150720}
+%\setlength{\abovecaptionskip}{0pt}
+%\caption{\label{fig:124_2LiI_30ps_2-5A_150_Im_150720} The calculated $|\chi^{(2),R}_{SSP}|^2$, 
+%  of water molecules at water/vapor interfaces with different thickness. This calculation is done for a model 
+%  for water/vapor interface where a slab of 118 water molecules containing one \Li and one \I is included 
+%  in a period simulation box of 15.6 \AA $\times$ 15.6 \AA $\times$ 15.6 \AA.}
+%\end{figure}
+%%
+
+The thickness of the water/vapor interface of solutions can also be seen from the calculated RDF. 
+For example, the RDFs of interface of the NaI solution is shown in Fig.\space\ref{fig:2NaI-124w_gdr_OH_s2_150122}.
+It indicates that the thickness of the water/vapor interface is about 8 \A.
+
+\begin{figure}[H] %[!hb]
+\centering
+\includegraphics [width=0.5\textwidth] {./diagrams/2NaI-124w_gdr_OH_s2_150122}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:2NaI-124w_gdr_OH_s2_150122}The RDF $g_{\text{OH}}(r)$  in the NaI solution/vapor interface. 
+The simulation system includes one \Na ion, one \I ion, and 124 water molecules in 15.6 \AA $\times$ 15.6 \AA $\times$ 31.0 \AA 
+  simulation box. The solid and dashed lines are corresponding to one of the two interfaces in our simulation, respectively. 
+  The simulation time is 22.5 ps.}
+\end{figure}
+%
+
+%
+Furthermore, we also estimated the thickness of a water/vapor interface by calculating the HB dynamics for it. 
+Fig.\space\ref{fig:2LiI-124w_S_layers} shows the dependence of the logarithm of survival probability on the thickness of the water/vapor interface 
+of the LiI solution. We see that when $d = 8$ \AA the $\ln S_{\text{HB}}$ of the interface 
+does not change as the thickness increases, indicating the thickness of the interface. 
+\begin{figure}[H]%[!ht]
+\centering
+\includegraphics [width=0.5\textwidth] {./diagrams/2LiI-124w_S_layers} %fig.5.9
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:2LiI-124w_S_layers}The logarithms of the function \SHB for water-water H-bonds at interfaces with different thickness
+in 0.9 M LiI solution.}
+\end{figure}
+
