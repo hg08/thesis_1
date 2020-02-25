@@ -372,6 +372,7 @@ The financial supports of the China Scholarship Council and TRR146 are gratefull
 \textbf{DFT} & \textbf{D}ensity \textbf{F}unctional \textbf{T}heory\\
 \textbf{DFTMD} & \textbf{D}ensity \textbf{F}unctional \textbf{T}heory-based \textbf{M}olecular \textbf{D}ynamics\\
 \textbf{GGA} & \textbf{G}eneralised \textbf{G}radient \textbf{A}pproximation\\
+\textbf{H-} & \textbf{H}ydrogen\\
 \textbf{HB} & \textbf{H}ydrogen \textbf{B}ond\\
 \textbf{HK} & \textbf{H}ohenberg-\textbf{K}ohn\\
 \textbf{KS} & \textbf{K}ohn-\textbf{S}ham\\
@@ -421,9 +422,11 @@ molar gas constant & $R$ & 8.314 472(15) J mol$^{-1}$ K$^{-1}$
 \addlinespace % Gap to separate the Roman symbols from the Greek
 
 $Z_{\text{X}}$ & atomic number of atom X & \\
+${\bf R}$ & atomic coordinates & \\
 $\tau_{\text{HB}}$ & average lifetime of H-bonds & \\
 $\kappa_i$ & decay rate of $C_2(t)$ & \\
 $n_{\text{X}}$ & coordination number of ion X & \\
+$\delta_1$ & difference between the first peaks' positions of the RDFs $g_{X-O}$ and $g_{X-H}$ & \\
 ${\bf M}$ & dipole moment & \\
 $\mu^{i,l,\epsilon}$ & dipole moment of the bond $\epsilon$ of the $i$-th water molecule in the lab frame & \\
 $A$ & dipole polarizability (tensor) & \\
@@ -431,7 +434,11 @@ $D$ & direction cosine matrix  & \\
 $r$ & distance & \\
 ${\mu}$ & electric dipole vector & \\
 ${\bf E}$ & electric field strength &  \\
+$n({\bf r})$ & electron density & \\
+$H_\text{e}$ & electronic many-body Hamiltonian & \\
+$V({\bf r})$ & external potential & \\
 $V_{\text{ee}}$ & electron-electron repulsion energy & \\
+$T[n]$ & electronic kinetic energy & \\
 $E_{\text{disp}}^{(2)}$ & empirical two-body dispersion correction of energy & \\
 $E_{\text{disp}}^{(3)}$ & empirical three-body nonadditivity dispersion correction of energy & \\
 $\Delta F_{AB}$ & free energy difference between configuration A and B &  \\
@@ -440,8 +447,10 @@ $L_{\eta\kappa}$ & Fresnel coefficients & \\
 $\omega_{\text{SFG}}$ & frequency of the sum-frequency generation beam & \\
 $\omega_{\text{vis}}$ & frequency of the incident visible beam &  \\
 $\omega_{\text{IR}}$ & frequency of the incident infrared beam &  \\
-$h(t), H(t)$ & HB population operators & \\
-$C_{\text{HB}}$ & HB population operator correlation function & \\
+$h(t)$ & HB population operator & \\
+$h^{(d)}(t)$ & HB population operator (it is 1 if the tagged molecule pair are closer than $r_{\text{OO}}^{\text{c}}$)& \\
+$H(t)$ & HB population operator (continuously)& \\
+$C_{\text{HB}}(t)$ (or $c(t)$) & HB population operator correlation function & \\
 $\omega_{\text{I}}$ & highest nuclear phonon frequency & \\
 $\theta$ & H-O-H angle in a water molecule&  \\
 $\beta$ & hyperpolarizability; reciprocal temperature & \\
@@ -452,8 +461,8 @@ $I_{\text{IR}}$ & intensity of the incident infrared beam & \\
 $r_{\text{OO}}$ & interoxygen distance & \\
 $\omega_{\text{e}}$ & the lowest electronic frequency &  \\
 $r_{\text{OO}}^{\text{c}}$ & the maximum value of the interoxygen distance in the definition of HB & \\
-$\phi^{\text{c}}$ & the maximum value of the angle between the O--O axis and one of the O--H bonds in the &  \\
-                  & definition of HB & \\
+$\phi^{\text{c}}$ & the maximum value of the angle between the O--O axis and one of the & \\
+                  & O--H bonds in the definition of HB & \\
 $N$ & number of water molecules & \\
 $R_{\text{OH}}$ & O-H length in water molecule & \\
 $C_2(t)$ & orientational anisotropy decay & \\
@@ -467,7 +476,8 @@ $x^{\text{m}},y^{\text{m}},z^{\text{m}}$ & position coordinates in the molecular
 $x^{\text{b}},y^{\text{b}},z^{\text{b}}$ & position coordinates in the bond frame  & \\
 $g_z(\nu)$ & projected VDOS for selected atoms along $z$-axis &  \\
 $g_{\text{A--B}}$ & radial distribution function & \\
-$k$ & rate constant of breaking an HB & \\
+$k$ & rate constant of breaking a HB & \\
+$k'$ & rate constant of reforming a HB & \\
 $\theta_{\text{SFG}}$ & reflected angle of SFG beam with respect to the normal direction in the medium  & \\ 
 $k(t)$ & reactive flux & \\
 $\tau_{\text{R}}$ & relaxation time of HB population operator correlation function & \\
@@ -477,7 +487,7 @@ $\chi^{(2),\text{NR}}$ & second-order nonresonant susceptibility & \\
 $E_{\text{KSDFT}}$ & self consistent KS energy & \\
 $\Delta \nu'$  & shift of vibrational frequency & \\
 $K_{\text{p,X}}$ & surface/bulk molar concentration ratio of ion X &  \\
-$S_{\text{HB}}$ & survival probability of HB & \\
+$S_{\text{HB}}(t)$ & survival probability of HB & \\
 $t_t$ & temporal resolutions for calculating HB dynamics & \\
 $d$ & thickness of layer of interface (model) & \\
 $\hat{\mu}(t)$ & unit vector of the transition dipole & \\
@@ -491,7 +501,7 @@ $\nu$ & vibrational frequency & \\
 %	DEDICATION
 %----------------------------------------------------------------------------------------
 
-\dedicatory{To my parents Dehuai Huang and Yuhua Diao, and my brother Jack Huang.} 
+\dedicatory{To my parents Dehuai Huang and Yuhua Diao, and my brother Jialiang Huang.} 
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
