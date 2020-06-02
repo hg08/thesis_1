@@ -58,3 +58,18 @@ does not change as the thickness increases, indicating the thickness of the inte
 in 0.9 M LiI solution.}
 \end{figure}
 
+In addition, the survival probability \SHB is dependent on the temporal resolution $t_t$,
+which is the time interval between two adjacent states in time used to calculate the survival probability.
+As an example, the $t_t$ dependence of the $\tau_{\text{HB}}$ of the three alkali-iodine solution interfaces in our AIMD simulations is reported in Fig.\ref{fig:hb_lifetime_124_2LiI-2NaI-2KI}. 
+It shows that, if we take the $t_t$ as small as possible, the number of times that H-bonds break and form again in this period of time ($t_t$) will be reduced.
+Thus, we can obtain the continuum HB lifetime independent of the $t_t$. As shown in Fig.\ref{fig:hb_lifetime_124_2LiI-2NaI-2KI}, 
+the value of $\tau_{\text{HB}}$ corresponding to the intersections of the $\tau_{\text{HB}}(t_t)$ functions and the line $t_t = 5$ fs approximately give the continuum HB lifetimes.
+\begin{figure}[H]
+ \centering
+ \includegraphics [width=0.6\textwidth] {./diagrams/hb_lifetime_124_2LiI-2NaI-2KI} %fig5.16
+ \setlength{\abovecaptionskip}{0pt}
+ \caption{\label{fig:hb_lifetime_124_2LiI-2NaI-2KI} The resolution dependence of the continuum lifetime $\tau_{\text{HB}}$ of water--water H-bonds at interfaces of
+    different 0.9 M alkali-iodine solutions at 330 K, calculated for six temporal resolutions ($t_t$). [\cite{Ferrario1990,Mountain1995,Root1997}]
+    For $t_t = 5$ fs, the calculated continuum HB lifetime is 0.30 ps, 0.31 ps and 0.23 ps, for the interface of LiI, NaI and KI solution, respectively.}
+\end{figure} 
+
