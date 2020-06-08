@@ -104,8 +104,8 @@ ground state the density $n$ determines the energy).
 HK theorem says that there exists a valid functional $Q[n]$ that delivers the sum of the electronic kinetic energy $T[n]$ 
 and electron-electron repulsion energy $V_{ee}[n]$ of each trial electron density $n$. [\cite{Levy1979}]
 
-The electronic density $n(\bf r)$ which depends on just 3 electronic degrees of freedom, become the Central quantity in DFT 
-in place of the more complex $3N_{\text{e}}$-dimensional many-body wave-function.
+The electronic density $n(\bf r)$ which depends on just 3 electronic degrees of freedom, become the central quantity in DFT 
+in place of the complex $3N_{\text{e}}$-dimensional many-body wave-function.
 
 The second HK theorem states that the total energy in the electronic density space satisfies
 \begin{equation}
@@ -170,7 +170,7 @@ This definition of XC energy functional shows that a significant of part $E_{\te
 of the kinetic energy, that is expressed explicitly only with the reduced 2-particle density matrix.
 
 Directly minimizing Eq.\thinspace(\ref{eq:T_s}) is not straightforward because $T_\text{s}[\{\psi_i[n({\bf r})]\}]$ 
-is an explicit orbital functional. However, it is much more appropriate to
+is an explicit orbital functional. However, it is more appropriate to
 make $E_{\text{KS}} [\{\psi_i [n({\bf r})]\}]$ stationary by the following Euler-Lagrange equation.
 It is possible to use the variational principle to derive the corresponding Euler-Lagrange equation of
 the non- interacting system within the potential $v_{\text{ext}}$.
@@ -198,7 +198,7 @@ and the exchange and correlation potential
  \end{align}
 Given the explicit form of the exchange and correlation functional $E_{\text{XC}}$, the exchange and correlation potential $V_{\text {XC}}$ can be determined, and thus electron density $n({\bf r})$. Thus the KS equation must be solved self-consistently.
 
-The simplest Density Functional approximation is the Local Density Approximation (LDA). 
+The simplest density functional approximation is the Local Density Approximation (LDA). 
 In LDA, the exchange and correlation energy of an electronic system is
 \begin{equation}
 E_{\text{XC}}[n({\bf r})]= \int\varepsilon_{\text{XC}}({\bf r}){n({\bf r})}d{\bf r},
@@ -449,7 +449,7 @@ The molecular information is contained in the resonant signal. The resonant susc
 \label{eq:chi_R}
 \end{equation}
 where the index $\eta$, $\xi$ and $\kappa$ are one of $x, y$ and $z$ labels of the laboratory coordinate frame.
-In Eq.\thinspace(\ref{eq:chi_R}) $\rho=e^{-\beta H/Z}$ for a system with Hamiltonian $H$ and partition function $Z$ at reciprocal temperature $\beta=1/kT$;
+In Eq.\thinspace(\ref{eq:chi_R}) $\rho=e^{-\beta H/Z}$ for a system with Hamiltonian $H$ and partition function $Z$ at reciprocal temperature $\beta=1/k_BT$;
 $\mu_\kappa$ is the $\kappa$-th component of the system electric dipole and ${\alpha_{\eta\xi}}$ is the $\eta\xi$-th component of the polarizabiltiy tensor. [\cite{1995SM}]
 Besides the vibrational resonance, $\chi^{\text{(2),R}}$, which reflects the vibrational and orientational characteristics of the surface species, 
 the VSFG signal also includes the contribution from the non-resonant signal background $\chi^{\text{(2),NR}}$, 
@@ -666,11 +666,11 @@ trajectory, and $\frac{d\mu_i}{dr_z}$ and $\frac{d\alpha_{ij}}{dr_z}$ can be par
 \draw (3.06, 2.7) node [anchor=south] {H};
 %\draw (4.06, 2.61) node {\chemfig{[:-37]H-O-[:37]H}};
 \end{tikzpicture}
-  \caption{\label{fig:frameworks} The representation of the bond (a) and the molecular (b) frameworks. [\cite{Khatib2017}]}
+  \caption{\label{fig:frameworks} The representation of the bond (a) and the molecular (b) frameworks.}
 \end{figure}
 %
 We used three different frameworks: the lab framework ($x^{\text{l}},y^{\text{l}},z^{\text{l}}$), the molecular framework 
-($x^{\text{m}},y^{\text{m}},z^{\text{m}}$) and the bond framework ($x^{\text{b}},y^{\text{b}},z^{\text{b}}$) (see Fig.\thinspace\ref{fig:frameworks}).
+($x^{\text{m}},y^{\text{m}},z^{\text{m}}$) and the bond framework ($x^{\text{b}},y^{\text{b}},z^{\text{b}}$) (see Fig.\thinspace\ref{fig:frameworks} [\cite{Khatib2017}]).
 In the lab framework, the $z^{\text{l}}$-axis is perpendicular to the interface. 
 The molecular frame will be used to decompose the signal into normal modes of water monomers. 
 For the $j$-th molecule, the $z^{\text m}$ axis is along the bisector of the H-O-H angle, the $x^{\text m}$ axis is in the molecular plane, 
