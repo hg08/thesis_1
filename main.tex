@@ -49,6 +49,21 @@ headsepline, % Uncomment to get a line under the header
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
+%====================
+% To strike out sth
+\usepackage{calc}
+\newsavebox\CBox
+\newcommand\hcancel[2][0.5pt]{%
+  \ifmmode\sbox\CBox{$#2$}\else\sbox\CBox{#2}\fi%
+  \makebox[0pt][l]{\usebox\CBox}%  
+  \rule[0.5\ht\CBox-#1/2]{\wd\CBox}{#1}}
+% Example: \hcancel[2pt]{xxx}
+%====================
+\usepackage[normalem]{ulem}
+%\usepackage{amsmath} 
+\newcommand{\stkout}[1]{\ifmmode\text{\sout{\ensuremath{#1}}}\else\sout{#1}\fi}
+%====================
+
 % add from other template
 \usepackage{amsmath, amssymb}
 %\usepackage{graphics} 
@@ -423,7 +438,7 @@ molar gas constant & $R$ & 8.314 472(15) J mol$^{-1}$ K$^{-1}$
 
 $Z_{\text{X}}$ & atomic number of atom X & \\
 ${\bf R}$ & atomic coordinates & \\
-$\tau_{\text{HB}}$ & average lifetime of H-bonds & \\
+$\tau_{\mathrm{a}}$ & average lifetime of H-bonds: $\langle\tau_{\mathrm{a}}\rangle = \int_0^\infty tP_{\mathrm{a}}(t) d t $ & \\
 $\kappa_i$ & decay rate of $C_2(t)$ & \\
 $n_{\text{X}}$ & coordination number of ion X & \\
 $\delta_1$ & difference between the first peaks' positions of the RDFs $g_{X-O}$ and $g_{X-H}$ & \\
@@ -469,7 +484,7 @@ $C_2(t)$ & orientational anisotropy decay & \\
 $Z$ & partition function & \\
 $\alpha$ & polarizability tensor & \\
 $\alpha^{i,l,\epsilon}$ & polarizability of the bond $\epsilon$ of the $i$-th water molecule in the lab frame & \\
-$P(t)$ & probability distribution of HB lifetime & \\
+$P_a(t)$ & probability distribution of the first HB breaking in time $t$ & \\
 $C_z(t)$ & projected velocity auto-correlation function along $z$-axis & \\
 $x^{\text{l}},y^{\text{l}},z^{\text{l}}$ & position coordinates in the lab frame  & \\
 $x^{\text{m}},y^{\text{m}},z^{\text{m}}$ & position coordinates in the molecular frame  & \\
@@ -487,7 +502,7 @@ $\chi^{(2),\text{NR}}$ & second-order nonresonant susceptibility & \\
 $E_{\text{KSDFT}}$ & self consistent KS energy & \\
 $\Delta \nu'$  & shift of vibrational frequency & \\
 $K_{\text{p,X}}$ & surface/bulk molar concentration ratio of ion X &  \\
-$S_{\text{HB}}(t)$ & survival probability of HB & \\
+$S_{\text{HB}}(t)$ (or $s(t)$)& survival probability of HB & \\
 $t_t$ & temporal resolutions for calculating HB dynamics & \\
 $d$ & thickness of layer of interface (model) & \\
 $\tau$ & time for switching allegiance of a HB & \\
@@ -502,7 +517,7 @@ $\nu$ & vibrational frequency & \\
 %	DEDICATION
 %----------------------------------------------------------------------------------------
 
-\dedicatory{To my parents Dehuai Huang and Yuhua Diao, and my brother Jialiang Huang.} 
+\dedicatory{To my parents, and my brother.} 
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
@@ -515,13 +530,14 @@ $\nu$ & vibrational frequency & \\
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
 
-\include{Chapters/chap1/chap1}
-\include{Chapters/chap2/chap2} 
-\include{Chapters/chap3/chap3}
-\include{Chapters/chap4/chap4} 
-\include{Chapters/chap5/chap5} 
+%\include{Chapters/chap1/chap1}
+%\include{Chapters/chap2/chap2} 
+%\include{Chapters/chap3/chap3}
+%\include{Chapters/chap4/chap4} 
+%\include{Chapters/chap5/chap5} 
 \include{Chapters/chap6/chap6} 
-\include{Chapters/chap7/chap7} 
+%\include{Chapters/chap7/chap7} 
+\include{Chapters/chap8/chap8} 
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
@@ -538,7 +554,7 @@ $\nu$ & vibrational frequency & \\
 \include{Chapters/chap_parameters/chap_parameters}
 \include{Chapters/chap_free_energy/chap_free_energy}
 \include{Chapters/chap_thickness/chap_thickness}
-\include{Chapters/chap_fitting_c2/chap_fitting_c2}
+\include{Chapters/chap_hbd_more/chap_hbd_more}
 %\include{Appendices/AppendixB}
 
 %----------------------------------------------------------------------------------------

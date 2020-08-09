@@ -18,7 +18,7 @@ a system are solved numerically starting from a prespecified initial state, and 
 boundary conditions appropriate to the problem. The MD methodology allows both equilibrium
 thermodynamic and dynamical properties of a system at finite temperature to be computed,
 while simultaneously providing a view of the microscopic motion of individual atoms
-in the system. [\cite{Tuckerman2010}]
+in the system. \cite{Tuckerman2010}
 
 %[The reason to use  AIMD to simulate the water/vapor interface]
 Despite the success of classical molecular dynamics simulations, they  have some limitations. First, charges
@@ -89,7 +89,7 @@ H_{\text{e}} |\Psi_0 \rangle = \epsilon_0({\bf R})|\Psi_0 \rangle,
 where $E_I({\bf R})$ is the energy of the nuclei.
 This is a high-dimensional eigenvalue problem, and it is still time consuming. 
 One great solution to the electronic structure problem (to solve the electronic, non-relativistic, time independent many-body 
-Sch\"{o}dinger equation) is the Density Functional Theory (DFT). [\cite{HK64,KS65}]
+Sch\"{o}dinger equation) is the DFT. [\cite{HK64,KS65}]
 
 DFT can be used to map the problem of a interacting electron gas onto that of a single particle in an effective non-local 
 potential. [\cite{MCP92}] It provides a favorable compromise between computational cost and accuracy.
@@ -364,7 +364,7 @@ is ensured by a proper choice of the fictitious mass $\mu$. The fictitious mass 
 
 %BOMD or CPMD? 
 Which method is to favor depends largely on the definition of accuracy, as well as on the particular application.
-In the applications in this thesis, we use the BOMD method, as implemented in CP2K package. [\cite{Vandevondele2005}] 
+In the applications in this thesis, we use the BOMD method, as implemented in CP2K package. \cite{CP2K} 
 In the BOMD  
 (1) the nuclear positions are propagated in time followed Newton's equations of motion with the electronic ground state energy as the potential energy surface; 
 (2) the time evolution of the atomic coordinates is performed with the velocity Verlet algorithm. [\cite{FS2002}]
@@ -427,18 +427,30 @@ The sum frequency generation is a coherent nonlinear optical process in which in
 ($\omega_1+\omega_2, {\bf k}_1+{\bf k}_2$ ) (Fig.\thinspace\ref{fig:sfg_1a}). 
 In this process, the  fields arise from the polarization induced over a macroscopically large volume superposition coherently.
 %
-\begin{figure}[h]                                                                                                                                   
-\centering
-\includegraphics[width=0.4\textwidth]{./diagrams/sfg_1a}
-\setlength{\abovecaptionskip}{0pt}
-\caption{The schematic of the VSFG process which involves IR and Raman transitions. The dashed line denotes a virtual level in the Raman transition.}\label{fig:sfg_1a}
-\end{figure}
 %\paragraph{Vibrational Resonances and Non-resonances}
 The VSFG signal intensity is proportional to the square of the resonant and non-resonant terms:
 \begin{equation}
   I_{\text{SFG}}(\omega) \varpropto |\chi^{(2),\text{R}}(\omega)+\chi^{(2),\text{NR}}(\omega)|^2.
 \label{eq:I_SFG}
 \end{equation}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[help lines/.style={thin,draw=black!50}]
+%%\draw[help lines] (0,0) grid (4,4);
+\draw [-, thick] (0,0) -- (5,0) node [anchor = west] {$\nu =0$};
+\draw (0.5,0.75) node [anchor = east] {$\hbar\omega$};
+\draw [-, thick] (0,1.5) -- (5,1.5) node [anchor = west] {$\nu = 1$};
+\draw (0.5,2.5) node [anchor = east] {$\hbar\omega_{\text{vis}}$};
+\draw [-, thick,dashed] (0,5) -- (5,5) node [anchor = west] {virtual level};
+\draw (4.0,2.5) node [anchor = west] {$\hbar\omega_{\text{SFG}}$};
+\draw [->, thick] (1.2,0) -- (1.2,1.5);
+\draw [->, thick] (1.2,1.5) -- (1.2,5);
+\draw [->, thick] (3.5,5) -- (3.5,0);
+\end{tikzpicture}
+\caption{The schematic of the VSFG process which involves IR and Raman transitions. The $\nu =0$, $\nu=1$ levels denote the ground and the first excited state of the oscillator, respectively.
+ The dashed line denotes a virtual electronic state in the Raman transition.}\label{fig:sfg_1a}
+\end{figure}
+
 Because experiments usually employed visible and SFG frequencies are far from resonant 
 conditions, $\chi^{(2),\text{NR}}$ can be considered totally off-resonant and therefore 
 insensitive to the laser beams' frequencies involved. Therefore, we can neglect the 
@@ -628,7 +640,7 @@ Similarly, for the dipole polarizability, we have
   \label{eq:dot_alpha}
  \end{align}
 The Eq.\thinspace(\ref{eq:dot_mu}) and Eq.\thinspace(\ref{eq:dot_alpha}) simplify the calculation of the  
-$\left\langle \dot{\bf{A}}_{\eta\xi}(t) \dot{\bf{M}}_{\kappa}(0)\right\rangle$ in Eq.\thinspace(\ref{eq:chi}), because $v_z(t)$
+$\left\langle \dot{A}_{\eta\xi}(t) \dot{\bf{M}}_{\kappa}(0)\right\rangle$ in Eq.\thinspace(\ref{eq:chi}), because $v_z(t)$
 and ${\bf{D}}(t)$ can be readily determined from the DFTMD
 trajectory, and $\frac{d\mu_i}{dr_z}$ and $\frac{d\alpha_{ij}}{dr_z}$ can be parameterized. [\cite{Corcelli05,Khatib16}]
 %
@@ -668,6 +680,37 @@ trajectory, and $\frac{d\mu_i}{dr_z}$ and $\frac{d\alpha_{ij}}{dr_z}$ can be par
 \end{tikzpicture}
   \caption{\label{fig:frameworks} The representation of the bond (a) and the molecular (b) frameworks.}
 \end{figure}
+
+% Testing picture
+%
+\begin{figure}
+\centering
+\begin{tikzpicture}[help lines/.style={thin,draw=black!50}]
+%\draw[help lines] (0,0) grid (4,4);
+%a
+\draw (0.2, -0.8) node [anchor=west] {(a)};
+\draw[gray,thick] (-0.02, 2.2) coordinate (a_1) -- (-0.15, 3) coordinate (a_2);
+\draw[thick] (0.23, 2) coordinate (b_1) -- (1.02, 2) coordinate (b_2);
+\draw (0.31, 2) node [anchor=east] {O};
+\draw (0.9, 2) node [anchor=west] {H};
+\draw[gray] (-0.12, 2.95) node [anchor=south] {H};
+%\draw (0.56, 2.61) node {\chemfig{[:-84]H-O-[:0]H}};
+%b
+\draw (3.7, -0.8) node [anchor=west] {(b)};
+% H2O
+\draw[thick] (3.85, 2.4) coordinate (a_1) -- (3.28, 2.82) coordinate (a_2);
+\draw[thick] (4.26, 2.4) coordinate (b_1) -- (4.82, 2.82) coordinate (b_2);
+\draw[thick] (3.7,2.55) to [out=30,in=150] (4.4,2.55);
+\draw (4.03, 2.7) node [anchor=south] {$\theta$};
+\draw (4.37, 2.23) node [anchor=east] {O};
+\draw (5.04, 2.7) node [anchor=south] {H};
+\draw (3.06, 2.7) node [anchor=south] {H};
+\end{tikzpicture}
+  \caption{\label{fig:frameworks} The representation of the HB definitions.}
+\end{figure}
+%
+
+
 %
 We used three different frameworks: the lab framework ($x^{\text{l}},y^{\text{l}},z^{\text{l}}$), the molecular framework 
 ($x^{\text{m}},y^{\text{m}},z^{\text{m}}$) and the bond framework ($x^{\text{b}},y^{\text{b}},z^{\text{b}}$) (see Fig.\thinspace\ref{fig:frameworks} [\cite{Khatib2017}]).

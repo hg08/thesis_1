@@ -1,10 +1,10 @@
 \chapter{Hydrogen Bond Dynamics of Water/Vapor Interfaces }\label{CHAPTER_HB}
-%The influence of ions propensity for the aqueous surface on the water's HB network are also of special interest to the atmospheric chemistry community.
-In this chapter, we explore the effects of nitrate ions, iodide ions and alkali metal cations 
-on the HB dynamics at the water/vapor interface of alkali nitrate solutions and alkali
-iodine solutions, by DFTMD 
-and we provide a microscopic interpretation of recent experimental results. [\cite{HuaWei2014}]
-%\cite{TianCS09, TianCS11,DV13}
+There are two types of bonds in water: the stronger covalent bonds (molecular $\sigma$ bonds) within a single water molecule and 
+the much weaker H-bonds between water molecules.
+H-bonds play a critical role in the behaviour of bulk water,\cite{Eisenberg1969,Luzar1996,Cabane2005} water near interfaces,[] 
+and aqueous solutions. \cite{Naslund2005} 
+In this chapter, we will introduce the general concepts and methods of HB Dynamics (HBD)\cite{AL96,Luzar1996,DC87} used to analyze the structure 
+and dynamic properties of bulk solutions and gas-liquid interfaces. 
 
 \section{Definitions of Hydrogen Bond Population and Correlation Functions}
 Luzar and Chandler [\cite{AL96}] have elucidated the HB dynamics of pure water, and
@@ -12,13 +12,19 @@ subsequently such analysis has been also extended to explore the HB dynamics
 in complex situations, e.g., electrolytes, [\cite{AC00}] protein and  micellar surfaces. [\cite{SP05}]
 There are temporal, geometric and energetic criteria to define HB. Here we use the geometric one.
 Two water molecules are H-bonded only if their interoxygen distance between of specific tagged pair of water molecules 
-is less than $r^{\text{c}}_{\text{OO}}=3.5$ \A, OH intermolecular distance less than $R^{\text{c}}_{\text{OH}}=2.45$ \AA and 
+is less than $r^{\text{c}}_{\text{OO}}=3.5$ \A \ and
 the O-H$\cdots$O angle is less than $\phi^{\text{c}}=\pi/6$. [\cite{AKS86,JT90,SB02}] 
 The value 3.5 \AA corresponds to the first-minimum position of the O--O RDF of water. [\cite{Sciortino1989}]   
-The distance criteria of $R_{\text{OH}}$  was determined from the first minimum in the O--H RDF for SPC water. [\cite{HJCB81}]
+The choice for the cutoff angle $\phi^{\text{c}}$ for water-water molecules is obtained by studying the average number of H-bonds,
+as a function of $\phi^{\text{c}}$. \cite{Luzar1993} We call this definition of HB the ADH criterion. 
+In order to compare the impact of different HB definitions on HB dynamics, we will also use another definition of HB in our analysis. 
+When the distance between the oxygen atoms of two water molecules is less than 3.5 \AA, 
+and the oxygen-hydrogen-oxygen included angle is greater than $2\pi/3$, then we say that there is a HB between the two molecules. 
+We denote this definition as the AHD definition of H bonds.
+%The distance criteria of $R_{\text{OH}}$  was determined from the first minimum in the O--H RDF for SPC water. [\cite{HJCB81}]
 
 % introduce h(t)
-The configuration criterion above allows us to define a dynamical variable $h[r(t)] = h(t)$, hydrogen bond population. 
+The configuration criterion above allows us to define a variable $h[r(t)] = h(t)$, HB population. 
 The $h(t)$ has a value 1 when the particular tagged pair of molecules are bonded, and 0 otherwise. 
 %=================
 % added 2020-5-27: to show that h(t) is actually the fluctuation of itself (\delta h).
@@ -30,15 +36,15 @@ $$
 For the $h(t)$, since the probability that a specific pair of molecules is bonded in a large system is extremely small, i.e., 
 the time average of $h$ is zero, or  
 $\langle h \rangle = 0$,
-then 
+then
 $$
 \delta h(t) = h(t).
 $$
-Therefore, the $h(t)$ describe the instantaneous fluctuation $\delta h(t)$  of hydrogen bond population.  
-The behaviour of $h(t)$  is depicted in Fig.\ref{fig:Ex30ps_hb}. We find that in the equilibrium system, $h(t)$ looks chaotic.
+Therefore, the $h(t)$ describe the instantaneous fluctuation $\delta h(t)$  of the HB population.  
+%The behaviour of $r_{OO}(t)$  is depicted in Fig.\ref{fig:Ex30ps_hb}(a). We find that in the equilibrium system, $r_{OO}(t)$ looks chaotic.
 %=================
 
-While the equilibrium average of the $\delta h(t)$ is zero, but we can obtain some useful information by considering the equilibrium 
+While the equilibrium average of the $\delta h(t)$ is zero, but we can obtain useful information by considering the equilibrium 
 correlations between fluctuations at different times. The correlation between the $\delta h(t)$ and the $\delta h(0)$ can be written as 
 $$
 \langle \delta h(0) \delta h(t)\rangle = \langle h(0)h(t)\rangle-\langle h \rangle^2 = \langle h(0)h(t)\rangle,
@@ -49,15 +55,31 @@ where the averaging $\langle\cdots\rangle$ is to be performed over the ensemble 
 In this section, we will use three correlation functions to describe the HB dynamics of water/vapor interfaces of solutions,
 the HB population correlation function \CHB, the survival probability \SHB and the reactive flux $k(t)$. [\cite{DCR83}]
 
+\paragraph{Structure of HB Network}
+One of the importrant characteristics of HB network is the average number of H-bonds per molecule. 
+At room temperature and atmospheric pressure, this quantity is close to four or slightly higher. \cite{Malenkov2006} 
+
+Furthermore, one can consider a more detailed distribution function. A molecule can form multiple H-bonds with other molecules at the same time.
+ Among these H-bonds, the molecule has $i$ times in the form of donors and $j$ times in the form of acceptors, 
+that is, the total number of H-bonds formed by the molecule at a certain time is $i+j$.
+Regarding the H-bonding of pure bulk water, people have obtained rich results with this analysis method and MD simulations. \cite{Malenkov1990,Malenkov2006}
+
 \paragraph{HB Population Auto-Correlation Function}
-We use the correlation function \CHB to describe the structural relaxation of H-bonds: [\cite{Luzar1994,AL96,AC00}]
+We use the correlation function \CHB to describe the structural relaxation of H-bonds: 
 \begin{eqnarray}
 C_{\text{HB}}(t)=\langle h(0)h(t) \rangle/\langle h\rangle
 \label{eq:C_HB}.
 \end{eqnarray}
 With the aid of the ergodic principle, the ensemble average $\langle \cdots\rangle$ is implemented by time average.
 The $\langle h\rangle$ is the probability that a pair of randomly chosen water molecules in the system is
-H-bonded at any time $t$. As examples, the dynamics of the interoxygen distance $r_{\text{OO}}(t)$, 
+H-bonded in a certain form at any time $t$. 
+Here is an explanation of the specific meaning of the word "form". 
+Each water molecule has two H atoms and one O atom. Therefore, when a pair of water molecules $a$ and $b$ are bonded by a H-bond, 
+the oxygen atom in each water molecule can act as both a donor and an acceptor. When water molecules $a$ and $b$ are used as donors, 
+any one of its two H atoms can participate in the formation of H-bonds. Therefore, a pair of water molecules can form 4 different forms of H-bonds. 
+In other words, if the role of H atoms between the pair of water molecules changes, but they still form H-bonds, 
+we think that an old H-bond is broken and a new H-bond is formed.
+ As examples, the dynamics of the interoxygen distance $r_{\text{OO}}(t)$, 
 the cosine of O$-$H$\cdots$O angle cos$\phi(t)$  
 and the $h(t)$ for a HB in a water cluster is displayed in Fig.\space\ref{fig:Ex30ps_hb}, respectively.
 %-------------------
@@ -70,24 +92,42 @@ and the $h(t)$ for a HB in a water cluster is displayed in Fig.\space\ref{fig:Ex
   boundary $r^{\text{c}}_{\text{OO}}$=3.5 \AA (top) and criterion of cosine of O$-$H$\cdots$O angle cos$\phi^{\text{c}}$ 
   with $\phi^{\text{c}}$=$\pi/6$, respectively.}
 \end{figure} 
-%-------------------
 
-The function \CHB is interpreted as the probability that the specific HB is intact at time  $t$, 
+The function \CHB is interpreted as the probability that the specific HB formed by a fixed A-D-H (or A-H-D) combination is intact at time  $t$, 
 if it was intact at time zero. 
 In a large system that consist of many water molecules, the probability that a specific pair of water molecules are H-bonded is extremely small. 
-Therefore, the \CHB relaxes to zero, when $t$ is large enough. 
+Therefore, the \CHB also relaxes to zero, when $t$ is large enough. 
 The \CHB measures correlation in $h(t)$ independent of any possible bond breaking events. 
-It is one of the intermittent HB correlation functions, introduced by Rapaport, [\cite{DCR83}] 
+This function is similar to one of the intermittent HB correlation functions, introduced by Rapaport,
 and can be studied by a continuous function, probability densities.
-From the \CHB, the HB relaxation time is computed as [\cite{Lee2007}]
+From the \CHB, the HB relaxation time can also be computed.
+%--------------
 \begin{eqnarray}
   \tau_{\text{R}} &=& \frac{\int t C_{\text{HB}}(t)\text{d}t}{\int C_{\text{HB}}(t)\text{d}t}.
 \label{eq:tau_relaxation}
 \end{eqnarray}
+The \CHB for the DFTMD simulated bulk water is shown in Fig. \ref{fig:128w_c_itp_bk_ns40}.
+Therefore, we can obtain the relaxation time from Eq.\ref{eq:tau_relaxation}: $\tau_r = 14.01$ ps for ADH definition of H-bonds, 
+and $\tau_r = 14.16$ ps for AHD definition.
+%-------------------
+\begin{figure}[hbtp]
+\centering
+\includegraphics [width=0.6\textwidth] {./diagrams/128w_bk_2delta_t_60ps_c}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:128w_bk_2delta_t_60ps_c} The correlation function \CHB ($c(t)$ for short) from the trajectory of a DFTMD simulation with ADH (solid line) and AHD (dashed line) definition of H-bonds. 
+The length of the trajectory coincided with 60 ps of physical time. The simulation is for bulk water at the temperature $300$ K and with a density $1.00$ g/cm$^3$.}
+\end{figure} 
 
+\begin{figure}[hbtp]
+\centering
+\includegraphics [width=0.6\textwidth] {./diagrams/128w_c_itp_bk_ns40}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:128w_c_itp_bk_ns40} The time dependence of \CHB ($c(t)$ for short)for the DFTMD simulated interfacial (solid line) and bulk water (dashed line). 
+The parameters: the length of trajectory is 35 ps, $T=300$ K, density $\rho =1.00$ g/cm$^3$.}
+\end{figure} 
 %
 Because the thermal motion can cause distortions of H-bonds from the perfectly tetrahedral configuration,
-water molecules show a librational motion on a time scale of $\sim$ 0.1 ps superimposed to rotational and diffusional motions ($\sim$ 1--10 ps), 
+water molecules show a librational motion on a time scale of $\sim$ 0.1 ps superimposed to rotational and diffusional motions ($> 1$ ps), 
 which causes a time variation of interaction parameters.
 A new HB population $h^{(d)}(t)$ was also defined to obviate the distortion of real HB dynamics
 due to the above geometric definition. [\cite{Sciortino1989,AC00}]
@@ -100,7 +140,7 @@ The function
 \label{eq:C_HB_d}
 \end{eqnarray}
 is the probability that the specific two water molecules are located in reformable region ($r_{\text{OO}} < r^{\text{c}}_{\text{OO}}$) at time $t$,
-if they were H-Bonded at time zero. 
+if they were H-bonded at time zero. 
 The correlation function 
 %
 \begin{eqnarray}
@@ -124,52 +164,45 @@ S_{\text{HB}}(t)=\langle h(0)H(t) \rangle/\langle h\rangle
 where $H(t)=1$ if the tagged pair of molecules, remains \emph{continuously} H-bonded till time $t$ 
 and 0 otherwise.  It describes the probability that an initially H-bonded molecular pair 
 remains bonded at all times up to $t$. [\cite{Chowdhuri2006}]
+The \SHB for the DFTMD simulated interfacial and bulk water is shown in Fig. \ref{fig:128w_s_itp_bk_ns40}.
+%-------------------
+\begin{figure}[hbtp]
+\centering
+\includegraphics [width=0.6\textwidth] {./diagrams/128w_s_itp_bk_ns40}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:128w_s_itp_bk_ns40} The time dependence of \SHB (denoted by $s(t)$ for short) for the DFTMD simulated interfacial (solid line) and bulk water (dashed line). 
+The parameters: the length of trajectory is 35 ps, $T=300$ K, density $\rho =1.000$ g/cm$^3$.}
+\end{figure} 
 
-The average continuum HB lifetime $\tau_{\text{HB}}$ is calculated by the integration of \SHB over $t$):  
+The average continuum HB lifetime $\langle \tau_{\mathrm{a}} \rangle$ is calculated by the integration of \SHB over $t$ (see Appendix \ref{diff_distr}) :  
 \begin{eqnarray}
-  \tau_{\text{HB}} &=& \int_0^\infty dt S_{\text{HB}}(t).
+  \langle\tau_{\mathrm{a}}\rangle = \int_0^\infty dt S_{\text{HB}}(t).
 \label{eq:calculate_hb_lifetime}
 \end{eqnarray}
 %
 The time derivative of \SHB
 \begin{eqnarray}
-P(t) &=& -\text{d}S_{\text{HB}}/\text{d}t
+P_a(t) = -\text{d}S_{\text{HB}}/\text{d}t
 \label{eq:P_1}
 \end{eqnarray}
-is called probability distribution of HB lifetime in Ref.\cite{Sciortino1990prl,FWS99}. 
-It also denotes the probability of the first HB breaking in time $t$ after it has been detected at $t=0$, i.e.,
+represents the first passage time probability density of H bonds. $P_a(t)$ is also called probability distribution of HB lifetimes, \cite{Sciortino1990prl,Krausche1992,FWS99,VPV09} or histogram of HB lifetimes.\cite{Geiger1984,Stanley2000}
+It denotes the probability of the first HB breaking in time $t$ after it has been detected at $t=0$, i.e.,
 \begin{eqnarray}
-S_{\text{HB}}(t)= \int_t^\infty P(t')dt'.
+S_{\text{HB}}(t)= \int_t^\infty P_a(t')dt'.
 \label{eq:P_2}
 \end{eqnarray}
 %
-In terms of $h$, the probability distribution can be expressed as
-\begin{eqnarray}
-P(t) &=& \frac{\langle [1-h(0)]\delta [t-\int_0^t h(t')dt'][1-h(t)]\rangle}{\langle 1-h(0)\rangle},
-\label{eq:P_3}
-\end{eqnarray}
-where $\langle \rangle$ denotes the average over all molecular pairs which are starting to H-bonded at time $t$.
+%In terms of $h$, the probability distribution can be expressed as
+%\begin{eqnarray}
+%P_a(t) = \frac{\langle [1-h(0)]\delta [t-\int_0^t h(t')dt'][1-h(t)]\rangle}{\langle 1-h(0)\rangle},
+%\label{eq:P_3}
+%\end{eqnarray}
+%where $\langle \rangle$ denotes the average over all molecular pairs which are starting to H-bonded at time $t$.
+
 %\paragraph{Average HB Lifetime $\tau_{\text{HB}}$} %\cite{HAK08}
 %Like in water, librational motions of water molecules cause an rupturing and reforming of a H bond on a time scale of 60 fs.\cite{SHC86}
 
-\paragraph{Probability Distribution of HB Lifetime in a Configuration}
-Now we focus on a time $t$ in a system. Suppose there are $n$ H-bonds in the system at this moment, and we can distinguish a part of H-bonds from these H-bonds. 
-The lifetime of this part of H-bonds is equal to a certain value $\tau$. We can assume that their number is $n_\tau$. 
-Obviously, $n>n_\tau$. If we observe this part of H-bonds in the next time period $[t, t+\tau]$, then they will be broken once. 
-That is to say, within $[t,t+\tau]$, we will detect the breaking of all H-bonds with lifetime $\tau$. 
-Therefore, in a very short period of time $d\tau$, the probability of detecting these H-bonds is $(1/\tau)d\tau$.
-Since the probability for the HB to have the lifetime $\tau$ is $P_t(\tau)$. Therefore, the relation between $P(t)$ and $P_t(t)$ is
-\begin{eqnarray}
-P(t) = \int_t^\infty P_t(\tau)\frac{d\tau}{\tau},
-\label{eq:Pt_and_P}
-\end{eqnarray}
-i.e., the probability of the HB breaking for the first time in the time $t$ after detection at the initial moment depends on 
-the number of those H-bonds whose lifetime exceeds the given time $t$. \cite{VPV09}
-
-%\paragraph{Relation Between HB Dynamics and Anisotropy Decay}
-%It is interesting to relate the HB kinetics with rotational dynamics (anisotropy decay) of single water molecules.\cite{HX01}
-%
-\paragraph{Reactive Flux $k(t)$} 
+\section{Reactive Flux $k(t)$} 
 Calculating the reactive flux HB correlation functions and determine the rate constant ($1/\tau_{\text{HB}}$),
 is a more rigorous way to obtain the nature of H-bonds at water/vapor interfaces. [\cite{AL00}]
 The rate of relaxation to equilibrium is characterized by the reactive flux correlation function, 
@@ -180,7 +213,7 @@ k(t) = -\text{d}C_{\text{HB}}/\text{d}t,
 i.e., $\langle j(0)[1-h(t)]\rangle/\langle h\rangle$,
 where 
 $j(0)=-\text{d}h/\text{d}t|_{t=0}$ 
-is the integrated flux departing the HB configuration space at time $t=0$.
+is the integrated flux departing the HB configuration space at time $t=0$ (see Appendix \ref{calc_rf}).
 The reactive flux $k(t)$ quantifies the rate that an initially present HB breaks at time $t$, 
 independent of possible breaking and reforming events in the interval from 0 to $t$.
 Therefore, the $k(t)$ measures the effective decay rate of an 
@@ -189,7 +222,13 @@ initial set of H-bonds. [\cite{DC87,FWS00}]
 For bulk neat water, there exists a $\sim 0.2$-ps transient period,
 during which the $k(t)$ quickly changes from its initial value. [\cite{FWS00}]
 However, at longer times, the $k(t)$ is independent of the HB definitions.
-Therefore, the long time decay reflects the general properties of H-bonds (in water solutions).
+In order to verify this point of view and also to verify the reliability of our simulation method, 
+we performed a DFTMD simulation of the bulk water system with a total time of 60 ps, 
+and used the two different HB definitions --- ADH definition and AHD definition to calculate the $k(t)$. 
+The calculation results in Fig. \ref{fig:128w_bk_2delta_t_60ps_k_log} show that when $t$ is large enough, 
+the difference in $k(t)$ caused by different HB definitions is relatively small.
+Therefore, the long time decay of the $k(t)$ reflects the general properties of H-bonds.
+
 We assume that each HB acts independently of other H-bonds, [\cite{AL96,AL00}] 
 and due to detailed balance condition, we can obtain 
 \begin{eqnarray}
@@ -197,7 +236,7 @@ and due to detailed balance condition, we can obtain
 \label{eq:rate}
 \end{eqnarray}
 where $k$ is the rate constant of breaking an H bond (forward rate constant). [\cite{Chandler1986,Chandler1978}] 
-For an aqueous interface, the probability of exactly a tagged molecule pair forming a HB is very low, that is, $\langle h\rangle << 1$. Therefore,
+For an aqueous interface, the probability of exactly a tagged molecule pair forming a HB is very low, that is, $\langle h\rangle \ll 1$. Therefore,
 the $k$ is related to the average HB lifetime by $\tau_{\text{HB}}=1/k$.
 We use $k'$ to represent the backward rate constant, that is, the rate constant from the HB \emph{on} state to the HB \emph{off} state for a tagged pair of molecules.
 Therefore, the reaction time constant $\tau$ is 
@@ -205,145 +244,117 @@ Therefore, the reaction time constant $\tau$ is
   \tau &=& \frac{1}{k+k'}.
 \label{eq:reaction_rate_tau}
 \end{eqnarray}
+%
+\begin{figure}[htpb]
+\centering
+\includegraphics [width=0.5\textwidth] {./diagrams/128w_bk_2delta_t_60ps_k_log}
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:128w_bk_2delta_t_60ps_k_log}The rate function $k(t)$, calculated from the trajectory of a DFTMD simulation. 
+The simulation was for bulk water at $T=300$ K, and with a density of 1.000 g cm$^{-3}$. The length of the trajectory is 60 ps of physical time.}
+\end{figure}
 
-% This paragraph is just an approximation:
-%For dynamical trajectories which are longer than the initial time decay ($t > t_{\text{trans}}\sim 0.2$ ps),
-%we have
-%\begin{eqnarray}
-%k(t)&=&\langle j(0)[1-h(t)]\rangle/\langle h\rangle \sim ke^{-k t}.
-%\label{eq:k_2}
-%\end{eqnarray}
-
-%\paragraph{Mean First Passage Time Probability Densities}
-%From Fig.\space\ref{fig:124_2NaI_hbacf_testing}, we can see that the calculation of \SHB converges very well in the time scale of 5 ps. 
-%\begin{figure}[H]
+%For neat bulk water and water/vapor interface.
+%
+%For the water/vapor interface of neat water, we focus on the reactive flux $k(t)$, 
+%which had been used in the study of HB dynamics of liquid water. [\cite{AL96,Khaliullin2013}]
+%The $k(t)$ calculated from the positional trajectory of water molecules in DFTMD simulations, is reported in Fig.\space\ref{fig:128w_bk_2delta_t_60ps_k_log}. 
+%
+%[In the case of water/vapor interface, the $k(t)$ quickly changes from its initial value on a time scale of less than 0.2 ps 
+%(see the inset of Fig.\space\ref{fig:121}). 
+%For the times beyond the transient period, the $k(t)$ decays to zero monotonically, and the slop of the $\ln{k(t)}$ increases monotonically with $t$ (see Fig.\space\ref{fig:121_log_rf}). 
+%These two properties were also found for bulk water using the SPC water model by Luzar and Chandler. [\cite{AL96}] 
+%This log-log plot of the $k(t)$ shows that, as in the case of liquid water, this decay behaviour does not coincide with a power-law decay for water/vapor interface of neat water.
+%This result is also the same as that of the classical molecular simulation of pure water. \cite{AL96b,Luzar1996}]
+%%
+%\begin{figure}[htpb]
 %\centering
-%\includegraphics [width=0.5\textwidth] {./diagrams/124_2NaI_hbacf_testing}
-%\setlength{\abovecaptionskip}{20pt}
-%\caption{\label{fig:124_2NaI_hbacf_testing} The function \SHB of water--water H-bonds at interface of 0.9 M NaI solution at 330 K, for different pieces of 5-ps trajectories. It shows that the results are consistent to each other pretty well. }
+%\includegraphics [width=0.5\textwidth] {./diagrams/121}
+%\setlength{\abovecaptionskip}{0pt}
+%  \caption{\label{fig:121}The time dependence of the $k(t)$ for the water/vapor interface of neat water, calculated by DFTMD simulations.
+%  The inset shows the log-log plot of the $k(t)$.}
 %\end{figure}
-%\begin{figure}[H]
-%\centering
-%\includegraphics [width=0.5\textwidth] {./diagrams/LiI_hbacf_s_m_330K} %fig.5.7
-%\setlength{\abovecaptionskip}{20pt}
-%\caption{\label{fig:LiI_hbacf_s_m_330K}The functions \SHB of water--water H-bonds at interface of LiI solution at 330 K. 
-%It showns that the lifetime of H-bonds decrease as the concentration of LiI solution increase.
-%Inset represents the short time behavior of the logarithm of the correlation function.}
-%\end{figure}
+%
 \FloatBarrier
-\section{Environment Effects on Hydrogen Bond Dynamics}
-For the water/vapor interface of neat water, we focus on the reactive flux $k(t)$, 
-which had been used in the study of HB dynamics of liquid water. [\cite{AL96,Khaliullin2013}]
-The $k(t)$ calculated from the positional trajectory of water molecules in DFTMD simulations, is reported in Fig.\space\ref{fig:121}. 
-In the case of water/vapor interface, the $k(t)$ quickly changes from its initial value on a time scale of less than 0.2 ps 
-(see the inset of Fig.\space\ref{fig:121}). 
-Beyond this transient period, the $k(t)$ decays to zero monotonically, and the slop of the $\ln{k(t)}$ increases monotonically with $t$ (see Fig.\space\ref{fig:121_log_rf}). 
-These two properties were also found for bulk water using the SPC water model by Luzar and Chandler. [\cite{AL96}] 
-This log-log plot of the $k(t)$ shows that, as in the case of liquid water, this decay behaviour does not coincide with a power-law decay for water/vapor interface of neat water.
-This result is also the same as that of the classical molecular simulation of pure water. [\cite{AL96b,Luzar1996}]
-%
-\begin{figure}[htpb]
+\section{Distribution of Hydrogen Bond Lifetimes}
+\paragraph{Probability Distribution of HB Lifetimes in a Configuration}
+Now we focus on a time $t$ in a system. Suppose there are $n_{tot}$ H-bonds in the system at this moment, and we can distinguish a part of H-bonds from these H-bonds. 
+The lifetime of this part of H-bonds is equal to a certain value $\tau$. We can assume that their number is $n_\tau$. 
+Obviously, $n_{tot}>n_\tau$. If we observe this part of H-bonds in the next time period $[t, t+\tau]$, then they will be broken once. 
+That is to say, within $[t,t+\tau]$, we will detect the breaking of all H-bonds with lifetime $\tau$ (see Fig.~\ref{fig:P_tc}).  
+Therefore, in a very short period of time $d\tau$, the probability of detecting these H-bonds is $(1/\tau)d\tau$.
+Since the probability for the HB to have the lifetime $\tau$ is $P_t(\tau)$. Therefore, the relation between $P_a(t)$ and $P_t(t)$ is
+\begin{eqnarray}
+P_a(t) = \int_t^\infty P_t(\tau)\frac{d\tau}{\tau},
+\label{eq:Pt_and_P}
+\end{eqnarray}
+i.e., the probability of the HB breaking for the first time in the time $t$ after detection at the initial moment depends on 
+the number of those H-bonds whose lifetime exceeds the given time $t$. \cite{VPV09}
+\begin{figure}
 \centering
-\includegraphics [width=0.5\textwidth] {./diagrams/121}
-\setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:121}The time dependence of the $k(t)$ for the water/vapor interface of neat water, calculated by DFTMD simulations.
-  The inset shows the log-log plot of the $k(t)$.}
+\begin{tikzpicture}[help lines/.style={thin,draw=black!50}]
+%%\draw[help lines] (0,0) grid (4,4);
+\draw [<->, thick] (0.4,0) node [anchor = north] {$t_1$} -- (3.4,0) node [anchor = north] {$t_1 + \tau$};
+\draw (0.2,0) node [anchor = east] {bond $1$};
+\draw [<->, thick] (0.2,1) node [anchor = north] {$t_2$} -- (3.2,1) node [anchor = north] {$t_2 + \tau$};
+\draw (0,1) node [anchor = east] {bond $2$};
+\draw [<->, thick] (0.5,3) node [anchor = north] {$t_n $} -- (3.5,3) node [anchor = north] {$t_n + \tau$};
+\draw (0.3,3) node [anchor = east] {bond $n_{\tau}$};
+\draw [gray,<->, thick] (1.2,2.5) -- (5.0,2.5);
+\draw [gray,<->, thick] (0.3,2) -- (1.3,2);
+\draw [gray,<->, thick] (2.2,1.5) -- (4.5,1.5);
+\draw [gray,<->, thick] (0.5,4) -- (2.3,4) ;
+\draw [thick] (1.0,4.2) -- (1.0,-0.5) node [anchor = north] {time $t$};
+\draw [thick] (4.0,4.2) -- (4.0,-0.5) node [anchor = north] {time $t+\tau$};
+\end{tikzpicture}
+  \caption{\label{fig:P_tc} The H-bonds with lifetime $\tau$ in a certain configuration. 
+At time $t$, we assume that there are totally $n_{tot}$ H-bonds can be detected, and $n_{\tau}$ H-bonds are of lifetime $\tau$, therefore,  the fraction of H-bonds that 
+have the lifetime $\tau$ in the configuration at time $t$ is $P_{tc}(\tau) =  n_{\tau} /n_{tot}$.
+Let $\tau$ take all the values in the interval $[0,\infty]$, we can get the HB lifetime distribution $P_{tc}(t)$.
+}
 \end{figure}
+%\paragraph{Relation Between HB Dynamics and Anisotropy Decay}
+%It is interesting to relate the HB kinetics with rotational dynamics (anisotropy decay) of single water molecules.\cite{HX01}
 %
+\paragraph{Mean First Passage Time Probability Densities}
 
-We focus on the value of the $k(t)$ when $t$ is sufficiently large ($t \in [1, 10]$ ps). 
-The $k(t)$ in Fig. \ref{fig:hbrf_4pl} are calculated by the interface 
-under the same condition. The difference is that Fig.\thinspace\ref{fig:hbrf_4pl} (a) is the result of the interface of pure water,
-and Fig. \ref{fig:hbrf_4pl} (b), (c) and (d) are the result of the interface of the LiI, NaI and KI solutions, respectively. 
-%
-\begin{figure}[htpb]
-\centering
-\includegraphics [width=0.5\textwidth] {./diagrams/121_pure_ns20_log_rf}
-\setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:121_log_rf}The time dependence of the $\ln{k(t)}$ for the water/vapor interface of neat water, calculated by DFTMD simulations.}
-\end{figure}
-\begin{figure}[H]
-\centering
-\includegraphics [width=1.0\textwidth] {./diagrams/hbrf_4pl}
-\setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:hbrf_4pl}The time dependence of the $k(t)$ for the water/vapor interfaces 
-  with different thickness $d$ ($d$= 2, 3, 4 and 5 \AA) of four interface models calculated by DFTMD simulations. 
-  The value of $h(t)$ is calculated every 0.1 ps. 
-  (a): neat water; (b): 0.9 M LiI solution; (c): 0.9 M NaI solution; (d): 0.9 M KI solution.} 
-\end{figure} 
-%
-\begin{table}[htbp]
-\centering
-\caption{\label{tab:hbrf_neat} 
-   The average value of $k(t)$ (unit: ps$^{-1}$) over different time periods of 2 ps for layers of the water/vapor interface of neat water.  
-   $\overline{k(t)}_{\Delta t}$ denotes the average value of $k(t)$ over the time period $\Delta t$.} 
-\begin{tabular}{cccc}
-  Thickness($d$) & $\overline{k(t)}_{\text{2--4 ps}}$ & $\overline{k(t)}_{\text{4--6 ps}}$ & $\overline{k(t)}_{\text{6--8 ps}}$\\
-\hline
-  2\AA & 0.027 & 0.019 & 0.019\\
-  3\AA & 0.028 & 0.021 & 0.020 \\
-  4\AA & 0.031 & 0.025 & 0.022 \\
-  5\AA & 0.028 & 0.019 & 0.014 
-\end{tabular}
-\end{table}
-%
-%For the water/vapor interface of alkali-iodine solutions, the $k(t)$ is also calculated.  The result for the interface of 0.9 M LiI solution is shown in Fig.\thinspace\ref{fig:hbrf_4pl} (b). The log-log plot of $k(t)$ is not a straight line, indicating that, for water/vapor interface of the LiI solution, this decay does not coincide with a power-law decay, neither.
-
-
-As can be seen from Fig. \ref{fig:hbrf_4pl}, the fluctuations of the $k (t)$ for $d = 2$ \AA (blue solid line) are significantly larger 
-than that of other cases with larger $d$. 
-This phenomenon is due to the relatively small number of water molecules in the thin layer 
-and the insufficient sampling, resulting in large fluctuations in $k(t)$.
-For these four models, as the thickness $d$ of the interface increases, the $k(t)$ gradually converges to a function with smaller fluctuations.
-%
-This conclusion is consistent with the two conclusions we obtained earlier (see Section \ref{sfg_alkali_iodide_interface}): 
-(1) \I is a strong structure-breaking anion; %[\cite{Trevani2000}] 
-(2) compared to pure water, the OH stretching peak at the interface of a solution containing iodide ions will blue shift. [\cite{Tongraar2010}] 
-Comparing these black solid curves, we can see that the interface of the solution containing ions has lower $k(t)$.
-In other words, compared to the pure water interface, 
-the ratio of H-bonds that were initially bonded at the solution interface and broken at time $t$ is lower.
-Because the effect of iodide ions is to increase the $k(t)$ of the interface, the decrease of $k (t)$ of the interface with a larger thickness
-may only be due to the contribution of cations located under the first layer of water molecules at the interface. 
-Therefore, although the iodide ion increases the HB rupture rate at the top layer of the interface, 
-in general, the HB rupture rate of the entire solution interface is reduced due to the presence of cations under the first layer of water molecules. 
-To verify this conclusion, we calculated the $k(t)$ at the interface of NaI (Fig. \ref{fig:hbrf_4pl} (c)) and KI (Fig. \ref{fig:hbrf_4pl} (d)) aqueous solution. 
-The results for both interface systems support our conclusions above.
-
-What is the differences between bulk and interface? 
-Let us examine the difference in the $k(t)$ between interface water and bulk water. 
-No matter from pure water (Fig. \ref{fig:hbrf_4pl} (a)) 
-or solution (Fig. \ref{fig:hbrf_4pl} (b), (c) or (d)), we find that when the interface thickness is thin, the fluctuation of $k(t)$ is larger.
-Because the thinner the interface, the fewer pairs of water molecules that can form hydrogen bonds. 
-In our calculations, the fewer samples are used to average, so the fluctuation of $k (t)$ is greater. 
-We can find that at the interface of pure water, when $t> 0.2$ ps, the $k(t)$ value of the interface with different thickness is almost equal 
-at any time period $\Delta t$. For example, $\Delta t$ is selected as $\sim$ 2 ps, 
-and its average value is shown in Table \ref{tab:hbrf_neat}. In each time period of 2 ps, the values of $k(t)$ for different layers are approximately equal
-($\pm 0.004$ ps$^{-1}$). Therefore, as far as the nature of HB reactive flux is concerned, the difference between interface and bulk phase of neat water is not obvious. 
-
-
+\paragraph{$k$ and $k'$: Least Squares Fit}
 In order to show the effect of water molecule diffusion on the HB dynamics, we can calculate the sum of the functions $c(t)$ and $n(t)$, i.e., $c(t)+n(t)$.
-%Here, we take the LiI solution as an example.
-Fig.\space\ref{fig:124_2LiI_ns20_c_plus_n} shows the time dependence of the correlation functions $c(t)$, $n(t)$ and $c(t)+n(t)$ of the interface of 
-the LiI solution at a concentration of 0.9 M in the AIMD simulation.
-As can be seen, although the change in the total population, $c(t)+n(t)$, is very small in the range of 0--10 ps, it is not a constant.
-Therefore, the $n(t)$ relaxes not only by conversion back to HB \emph{on} state, 
-but is also depleted due to the diffusion process. We can estimate the time scale of water molecule diffusion at the interface of the aqueous solution by $c(t)+n(t) = 1/e$, 
-which is much larger than 10 ps. Therefore, when we analyze the HB dynamics of the solution interfaces, we do not consider the effect of water molecule diffusion.
 %
 \begin{figure}[H]
 \centering
-\includegraphics [width=0.5\textwidth] {./diagrams/124_2LiI_ns20_c_plus_n}
+\includegraphics [width=0.5\textwidth] {./diagrams/128w_bk_2delta_t_60ps_n}
 \setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:124_2LiI_ns20_c_plus_n} 
-The time dependence of the functions $c(t)$, $n(t)$ and $c(t)+n(t)$, where $c(t)$ represents the $C_{\text{HB}}(t)$, 
-for the interfaces of 0.9 M LiI solution.} 
+\caption{\label{fig:128w_bk_2delta_t_60ps_n} 
+The time dependence of the population functions $n(t)$ for bulk water, as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds.} 
 \end{figure}
 
+The probability at time $t$ that a pair of water molecules bonded by H-bonds at the initial moment does not be bonded 
+but the distance between their oxygen atoms is still less than $R_{OO}^c$ is 
+\begin{eqnarray}
+n(t) = \int_0^t dt'k_{in}(t'),
+\label{eq:n_from_k_in}
+\end{eqnarray}
+where $k_{in}(t) = -\langle \dot h(0)[1-h(t)]h^d(t) \rangle/\langle h\rangle$ is the restricted rate function. 
+Both Fig. \ref{fig:128w_bk_2delta_t_60ps_n} and Fig.\ref{fig:128w_bk_2delta_t_60ps_n_from_k_in} show the same function $n(t)$. They are calculated from 
+$n(t) = \langle h(0)[1-h(t)]h^d(t) \rangle/\langle h\rangle$ and $n(t) = \int_0^t dt'k_{in}(t')$, respectively. 
+In each figure, we have drawn the $n(t)$ function corresponding to the two different HB definitions. 
+It can be found that neither the calculation method of $n(t)$ nor the definition of HB affects the change trend of $n(t)$, that is, 
+as $t$ increases, $n(t)$ increases rapidly from 0, and it reaches the maximum value at $t=10$ ps, and then gradually decreases slowly. [EXPLAIN THE RESULTs]
+
+%
+\begin{figure}[H]
+\centering
+\includegraphics [width=0.5\textwidth] {./diagrams/128w_bk_2delta_t_60ps_n_from_k_in}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:128w_bk_2delta_t_60ps_n_from_k_in} 
+The population functions $n(t)$ for bulk water, as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds with the definition 
+$n(t) = \int_0^t dt'k_{in}(t')$.} 
+\end{figure}
 Khaliullin and K\"uhne have studied the H-bonding kinetics of pure water using AIMD simulations. [\cite{Khaliullin2013}]
 Based on the concepts of $h(t)$, $h^{(d)}(t)$, $n(t)$ and $k(t)$, they have used the simulation data 
 obtained by the AIMD simulation method to obtain the ratio $k/k'$ in the bulk water, and then the lifetime and relaxation time 
 of the HB.  Here, we also use the AIMD simulation method to study the HB dynamics at the interface of LiI, NaI, and KI aqueous 
-solutions. We use the least squares fitting method to obtain the optimal solution range of $k$ and $k'$ from the relationship 
+solutions. We can obtain the optimal solution range of $k$ and $k'$ from the relationship 
 between the reactive flux and the HB population correlation function $c(t)$ and $n(t)$, and the parameters $k$ and $k'$, i.e.,
 \begin{eqnarray}
   k(t) = kc(t)-k'n(t).
@@ -352,243 +363,68 @@ between the reactive flux and the HB population correlation function $c(t)$ and 
 %
 %[Answer Q3]
 We can find the optimal value of the parameters, $k$ and $k'$, 
-by minimizing the function $\Delta(k,k') = \int_{t_1}^{t_2} \big|\ln[kc(t)-k'n(t)] - \ln[k(t)]\big|dt$. 
-In order to study the HB dynamics after the transition phase, which is roughly at 0.1 ps (see Fig.\thinspace\ref{fig:121}) and lasts for hundreds of picoseconds, 
-we set $t_1 = 1$ ps and $t_2 = 10$ ps in the fitting.
-For water/vpaor interfaces of neat water and the aqueous solution interfaces, the fitting results we obtained are plotted in 
-Fig.\thinspace\ref{fig:121_pure_ns20_fit_map}--\ref{fig:124_2KI_ns20_fit_map}, 
-and the optimal values of $k$ and $k'$ given by these results have been listed in Table \ref{tab:k_k_prime_pure_and_solutions}. 
+by a least squares fit of the calculated data $k(t)$, $c(t)$ and $n(t)$ beyond the transition phase.  
+%In order to study the HB dynamics after the transition phase, which is roughly at 0.1 ps (see Fig.\thinspace\ref{fig:121}) and lasts for hundreds of picoseconds. 
+For water/vpaor interfaces of neat water and the aqueous solution interfaces, 
+the optimal $k$ and $k'$ given by these results have been listed in Table \ref{tab:k_k_prime_pure_and_solutions}. 
 These values are comparable in magnitude to those obtained by Ref.\thinspace[{\cite{Khaliullin2013}}] 
-% pure water fitting map
-\begin{figure}[htbp]
-\centering
-\includegraphics [width=0.5\textwidth] {./diagrams/121_pure_ns20_fit_map}
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:121_pure_ns20_fit_map} 
-The contour plot of the function $\Delta(k,k')$ for the interfaces of neat water.} 
-\end{figure}
 % 
-\begin{figure}[htbp]
-\centering
-\includegraphics [width=0.5\textwidth] {./diagrams/124_2LiI_ns20_fit_map}
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:124_2LiI_ns20_fit_map} 
-The contour plot of the function $\Delta(k,k')$ for the interfaces of 0.9 M LiI solution.} 
-\end{figure}
-%
-\begin{figure}[htbp]
-\centering
-\includegraphics [width=0.5\textwidth] {./diagrams/124_2NaI_ns20_fit_map}
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:124_2NaI_ns20_fit_map}
-The contour plot of the function $\Delta(k,k')$ for the interfaces of 0.9 M NaI solution.} 
-\end{figure}
-%
-\begin{figure}[htbp]
-\centering
-\includegraphics [width=0.5\textwidth] {./diagrams/124_2KI_ns20_fit_map}
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:124_2KI_ns20_fit_map}
-The contour plot of the function $\Delta(k,k')$ for the interfaces of 0.9 M KI solution.} 
-\end{figure}
-%
 \begin{table}[htbp]
 \centering
 \caption{\label{tab:k_k_prime_pure_and_solutions} 
     The $k$ and $k'$ for the water/vapor interface of the aqueous solution interfaces.} 
 \begin{tabular}{cccc}
- Interface & $k$ (ps$^{-1}$) & $k'$ (ps$^{-1}$) & $\tau_{\text{R}}$ (ps) \\
+ Criterion & $k$ (ps$^{-1}$) & $k'$ (ps$^{-1}$) & $\tau_{\text{R}}$ (ps) \\
 \hline
-  Neat Water & 0.10 $\pm$ 0.02 & 0.20 $\pm$ 0.02 & 11.50 \\
-  LiI & 0.10 $\pm$ 0.04 & 0.30 $\pm$ 0.05 & 5.33 \\
-  NaI & 0.20 $\pm$ 0.10 & 0.30 $\pm$ 0.05 & 5.77 \\
-  KI  & 0.10 $\pm$ 0.04 & 0.40 $\pm$ 0.10 & 6.96 
-\end{tabular}
-\end{table}
-It can be seen from Table \ref{tab:k_k_prime_pure_and_solutions} that the HB breaking reaction rate ($k$) at the interface of pure water is basically equivalent to 
-that at the solution interface, but the HB reforming rate ($k'$) is smaller than that at the solution interface by 30\% to 50\%.
-Correspondingly, we can find the HB relaxation times of the three solution interfaces are: $\tau=\frac{1}{k+k'} \sim $2.0--2.5 ps. 
-For pure water interface, the relaxation time is $\tau \sim $ 3.3 ps. 
-Our conclusion is that the difference between the relaxation time of H-bonds at the interface of solutions such as LiI, NaI, KI 
-and the interface of pure water is mainly due to the difference in the reforming rate $k'$ of H-bonds caused by the presence of ions,
-rather than the difference in the breaking rate $k$ of H-bonds.
-
-As for the effect of water/vapor interface on the HB dynamics in alkali-iodine solutions,
-we also calculate the survival probability for interfaces with different sizes of thickness. 
-The result for the interface of the LiI solution exhibits that H-bonds at water/vapor 
-interface decay faster than that in bulk water.
-The result for the logarithm of \SHB is displayed in Fig.\space\ref{fig:2LiI-124w_S_layers} in Appendix \ref{thickness_interface}, 
-in which the thickness of the alkali-iodine solutions can be determined.
-Therefore, as the interface thickness increases, the \SHB converges to a curve, 
-which characterizes the HB dynamics of bulk solutions. 
-In particular, it gives the average continuum HB lifetime in bulk solutions.
-\FloatBarrier
-\paragraph{Effects of the Ions Concentration}
-Effects of ions' concentration on HB dynamics have been studied extensively by Chandra. [\cite{AC00}]
-%Pal and coworkers provided details on the structure of water around the micellar surface.\cite{SP05} 
-We calculated the \CHB for the water/vapor interfaces of the alkali-iodine solutions, 
-and the relaxation time $\tau_{\text{R}}$ for each of them can be determined. 
-%\begin{eqnarray}
-%    C_{\text{HB}}(\tau_\text{{R}})=1/e. \nonumber
-%\label{eq:relaxation_time}
-%\end{eqnarray}
-Here, the \emph{interface} means \emph{all} the water molecules in each model. 
-The $\tau_{\text{R}}$ for the water/vapor interfaces of the LiI (NaI) solutions are displayed in 
-Table \ref{tab:tau_hb}. Generally, they are in the range 1--10 ps. 
-The values of $\tau_{\text{R}}$ decrease as the concentration of the solutions increases.
-\begin{table}[htbp]
-\centering
-\caption{\label{tab:tau_hb} 
-  The relaxation time $\tau_{\text{R}}$ (unit: ps) of the correlation function \CHB  for the water/vapor interface of the LiI (NaI) solutions, calculated by DFTMD simulations.}
-\begin{tabular}{ccc}
-  concentration  & $\tau_{\text{R}}$ (LiI) & $\tau_{\text{R}}$ (NaI) \\
-\hline
-  0 & 11.50 & 11.50 \\
-  0.9 M & 7.04 & 10.60 \\
-  1.8 M & 4.40 & 1.96 
+  ADH & 0.12 & 0.03 & 8.35 \\
+  ADH(from $k_{in}$) & 0.12  & 0.04 & 8.35 \\
+  AHD & 0.14 & 0.07 & 14.5 \\
+  AHD(from $k_{in}$) & 0.12  & 0.04 & 8.35 \\
 \end{tabular}
 \end{table}
 
-The concentration dependence of the HB dynamics can be also found in the \SHB. 
-Fig.\space\ref{fig:124_2LiI-2NaI_hbacf_S}(a) gives the \SHB 
-for the water/vapor interfaces of 0.9 M and 1.8 M LiI solutions.
-The same quantity for NaI solutions is displayed in Fig.\space\ref{fig:124_2LiI-2NaI_hbacf_S}(b).
-This result indicates that, for the interface of alkali-iodine solution, the continuum HB lifetime  
-decrease as the concentration of LiI (or NaI) solution increase.
-\begin{figure}
+\section{Water-water pair based Hydrogen Bond Dynamics}
+The method described in this paragraph is used more in the literature. 
+The basis is the population operator $h(t)$ of the HB formed between two water molecules. 
+We use the correlation function \CHB to describe the relaxation of H-bonds between two water molecules: [\cite{Luzar1994,AL96,AC00}]
+\begin{eqnarray}
+C_{\text{HB}}(t)=\langle h(0)h(t) \rangle/\langle h\rangle
+\label{eq:C_HB}.
+\end{eqnarray}
+Similarly, with the aid of the ergodic principle, the ensemble average $\langle \cdots\rangle$ is implemented by time average.
+The $\langle h\rangle$ is the probability that a pair of randomly chosen water molecules in the system is
+H-bonded at any time $t$. As examples, the dynamics of the interoxygen distance $r_{\text{OO}}(t)$, 
+the cosine of O$-$H$\cdots$O angle cos$\phi(t)$  
+and the $h(t)$ for a HB in a water cluster is displayed in Fig.\space\ref{fig:Ex30ps_hb}, respectively.
+%-------------------
+\begin{figure}[hbtp]
 \centering
-\includegraphics [width=1.1\textwidth, center] {./diagrams/124_2LiI-2NaI_hbacf_S} 
+\includegraphics [width=0.6\textwidth] {./diagrams/Ex30ps_hb}
 \setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:124_2LiI-2NaI_hbacf_S} The time dependence of the \SHB  of 
-  H-bonds at the water/vapor interfaces of (a) LiI and (b) NaI solutions at 330 K.
-	The insets show the plots of ln$S_{\text{HB}}(t)$.} 
-\end{figure}
-%%
-\FloatBarrier
-\paragraph{Effect of Nitrate ions}
-%I simulate the alkali nitrate solution/vapor interface to find how the nitrate affect the structure of the interface.
-\begin{figure}[htbp] % or \begin{SCfigure}
-\centering
-\includegraphics [width=0.6\textwidth] {./diagrams/256_LiNO3_hbacf_sh_no3} %fig.5.10
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:256_LiNO3_hbacf_sh_no3} The \SHB of water--water (W--W) and nitrate--water (N--W) H-bonds at the water/vapor
-  interface of the \LiN solution. The inset is the plot of ln\SHB. 
-  These results are calculated for the temporal resolution $t_t=1$ fs. For the definition of $t_t$, please refer to the Appendix \ref{thickness_interface}. }
-\end{figure}
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics [width=0.4\textwidth] {./diagrams/256_LiNO3_hbacf_hh_all_traj_sh_no3}
-%\setlength{\abovecaptionskip}{20pt}
-%\caption{\label{fig:256_LiNO3_hbacf_hh_all_traj_sh_no3}The functions ln\SHB of water--water H-bonds (black) and Nitrate -water H-bonds (red) in the the \LiN solution-vapor interface at 300 K. The lifetime of H-bonds $\tau_{\text{HB}}$ is calculated by the integration of \SHB over t$\in$(0,$\infty$), which give 0.42  and 0.20 ps, for water--water H-bonds and Nitrate -water H-bonds, respectively.}
-%\end{figure}
-%The density profile is a indicator of a table interfacial system (see Fig.\space\ref{fig:density_4MPlus_alkali-I}).
-%\begin{figure}[htbp]
-%\centering
-% \includegraphics [width=0.6\textwidth] {./diagrams/density_4MPlus_alkali-I} %fig5.11
-%\setlength{\abovecaptionskip}{20pt}
-%\caption{\label{fig:density_4MPlus_alkali-I}The density as a function of the slab coordinate \Z. The result is calculated by MD with SPC water model.}
-%\end{figure}
+\caption{\label{fig:Ex30ps_hb}The dynamics of $r_{\text{OO}}(t)$ (top), cos$\phi(t)$ (middle), 
+  and $h(t)$ (bottom) for a HB in a water cluster. The dashed lines show the interoxygen distance 
+  boundary $r^{\text{c}}_{\text{OO}}$=3.5 \AA (top) and criterion of cosine of O$-$H$\cdots$O angle cos$\phi^{\text{c}}$ 
+  with $\phi^{\text{c}}$=$\pi/6$, respectively.}
+\end{figure} 
 
-As shown in Fig.\space\ref{fig:vdos_LiNO3-256w_w_near_nitrate} in chapter ~\ref{CHAPTER_SFG_Calculation}, 
-from the VDOS, the water molecules bound to \nitrate have higher OH stretching frequency (55 cm$^{-1}$ larger) 
-than those H-bonded to other water molecules. 
-%
-Now, the difference between nitrate--water and water--water H-bonds 
-can be also analyzed in terms of the survival probability $S_{\text{HB}}(t)$, [\cite{AKS86,JT90,AL96}] 
-reported in Fig.\thinspace\ref {fig:256_LiNO3_hbacf_sh_no3}.
-The integration of \SHB from 0 to $t_{\max}=5.0$ ps, [\cite{Steinel2004}] gives the relaxation time $\tau_\text{HB}$, which can be interpreted as 
-the average HB lifetime. [\cite{SC02}] 
-The values of $\tau_{\text{HB}}$ is dependent on a temporal resolution $t_t$, during which the H-bonds that break and reform are treated as intact. [\cite{AL00}] 
-%
-Here, we choose the temporal resolution as $t_t=1$ fs. 
-Then, Fig.\thinspace\ref {fig:256_LiNO3_hbacf_sh_no3} gives $\tau_\text{HB}=0.20$ ps for nitrate--water H-bonds at interfaces, and $\tau_\text{HB}=0.42$ ps for water--water H-bonds.
-This result of $\tau_\text{HB}$ is consistent with the experimental result of Kropman and Bakker ($\tau_\text{HB}=0.5\pm0.2$ ps). [\cite{MFK01}]
-The smaller value of $\tau_\text{HB}$ for nitrate--water H-bonds implies that the nitrate--water H-bonds are weaker than bonds between water molecules. 
-This is also consistent with the VDOS analysis and the blue-shifted frequency of the OH stretching in the nitrate-water HB. 
-%[DELETED From both the VDOS and HB dynamics calculations, we conclude that it is the weak HBs between nitrate and water make the higher surface propensity 
-%of nitrate anions, and then induce the depletion of SFG intensity at 3200 \cm for the alkali nitrate salty interfaces.]
+The function \CHB is interpreted as the probability that the HB between a certain pair of water molecules is intact at time  $t$, 
+if the pair of water molecules are H-bonded at time zero. 
+In a large system that consist of many water molecules, the probability that a specific pair of water molecules are H-bonded is extremely small. 
+Therefore, the \CHB relaxes to zero, when $t$ is large enough. 
+The \CHB measures correlation in $h(t)$ independent of any possible bond breaking events. 
+It is one of the intermittent HB correlation functions, introduced by Rapaport, [\cite{DCR83}] 
+and can be studied by a continuous function, probability densities.
+From the \CHB, the HB relaxation time is computed as [\cite{Lee2007}]
 
-%Fig. ~\ref{fig:256_LiNO3_hbacf_Nitrate_effect} shows that the nitrate ions accelerate the HB dynamics at the vapor/water interface of alkali nitrate solution.
-%\begin{figure}[H]
-%\centering 
-% \includegraphics [width=0.6\textwidth] {./diagrams/256_LiNO3_hbacf_Nitrate_effect} %fig5.12
-%\setlength{\abovecaptionskip}{20pt}
-%\caption{\label{fig:256_LiNO3_hbacf_Nitrate_effect}The functions \CHB of bulk water--water H-bonds (W-W (Bulk)) and nitrate--water H-bonds (N-W) 
-%at interfaces of alkali nitrate solution  (LiNO$_3$(H$_2$O$_{256}$)  at 300 K. }
-%\end{figure} 
-%NOT CLEAR, TO EXPLAIN BETTER The HB relaxation time is about $2.5$ ps, which is the same as that
-%for nitrate--water H-bonds at interfaces of alkali nitrate solution.
-%[NOT CLEAR: For bulk water, the HB relaxation time $\tau$ is $3.7$ ps. The difference between the HB dynamics of H-bonds outside the first shell of \Li and HB dynamics for nitrate--water H-bonds at interfaces
-%is not visible from the values of the HB relaxation time. They reflect the difference between HB
-%dynamics between bulk water and water/vapor interfaces.]
-\FloatBarrier
-\paragraph{Effects of Alkali Metal Ions and \I on HB Dynamics}
-%\begin{figure}[!ht]
-%\centering
-%\includegraphics [width=\textwidth] {./diagrams/C_S_HB_124_2LiI-2NaI-2KI} %fig5.15
-%\setlength{\abovecaptionskip}{0pt}
-%  \caption{\label{fig:C_S_HB_124_2LiI-2NaI-2KI} The time dependence of functions (a) \CHB and (b) \SHB of water--water H-bonds at water/vapor interfaces of 0.9 M alkali-iodine solutions.} 
-%\end{figure}
-%
-\begin{table}[hbtp]
-\centering
-\caption{\label{tab:tau_hb_alkali_iodine} 
-The continuum HB lifetime $\tau_{\text{HB}}$ (unit: ps) in the first hydration shell of I$^-$ ion and of alkali metal ion at the water/vapor interface of 0.9 M LiI (NaI, KI) solution.}
-\begin{tabular}{cccc}
-  &\I-shell &cation-shell& interface \\
-\hline
- LiI & 0.22 & 0.24 & 0.23\\
- NaI & 0.24 & 0.28 & 0.26\\
- KI  & 0.20 & 0.23 & 0.20\\
-\end{tabular}
-\end{table} 
-%Water/Vapor & -&-&
-Table \ref{tab:tau_hb_alkali_iodine} lists the continuum HB lifetime in the first hydration shell of I$^-$ ion and of alkali metal ion
-at the  interfaces of the three alkali-iodine solutions. It shows that, for all three alkali-iodine solutions, the continuum HB lifetime $\tau_{\text{HB}}$ in the 
-solvation shell of alkali metal (iodine) ions is larger (smaller) than 
-that of H-bonds at the water/vapor interfaces of the same solutions, 
-respectively. For LiI solution, the water molecules bound to the cation ion
-\Li, on average, have a continuum HB lifetime $\tau_{\text{HB}} \sim 0.24$ ps. This
- continuum HB lifetime is longer than that of molecules bound to \I or at the interface of the LiI solution. 
-%
+
+Fig.\ref{fig:128w_bk_2delta_t_60ps_water_pair_c_ns40} shows the correlation function $C_{HB}(t)$ defined by $C_{HB}(t) = \langle h(0)h(t)\rangle/\langle h \rangle$ for bulk water over time. The result is calculated by DFTMD simulation, and the temperature is 300 K. 
 \begin{figure}[H]
 \centering
-\includegraphics [width=\textwidth] {./diagrams/hbacf_C_sh2_2p}
+\includegraphics [width=0.5\textwidth] {./diagrams/128w_bk_2delta_t_60ps_water_pair_c_ns40}
 \setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:hbacf_C_sh2_2p}The \CHB of water--water H-bonds in the ion solvation shell 
-  of (a) cations and (b) I$^-$ at the interfaces of 0.9 M LiI, NaI and KI solutions, respectively.
-  The dashed line shows \CHB for the interface (the thickness $d = 8$ \A) of the LiI solution.  
-  This interface contains H-bonds between water molecules similar to those in pure bulk water, that is,
-  water molecules participating in these H-bonds are not in the solvation shell of ions.} 
+\caption{\label{fig:128w_bk_2delta_t_60ps_water_pair_c_ns40} 
+The correlation functions $C_{HB}(t)$ for bulk water, based on water-water pair hydrogen bond population operator $h(t)$, as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds. [DESCRIBE THE FIGURE][COMPARE THE RESULTs TO hbond-based CORRELATION FUNCTION]} 
 \end{figure}
-%Fecko and co-workers' study of liquid D$_2$O by IR spectroscopy reveals that the vibrational dynamics observed are dominated by underdamped displacement of the hydrogen-bond coordinate at very short times ( less than 200 fs).\cite{CJF03,CJF05} 
-Fig.\space\ref{fig:hbacf_C_sh2_2p} (a) and (b) show that the \CHB of H-bonds within the alkali cations and \I decay faster than those in bulk water and at the surface of LiI solution.
-From Fig.\space\ref{fig:hbacf_C_sh2_2p} (b), we find that, for all three alkali-iodine solutions, the \CHB for hydration shell water molecules of \I decays faster than that for molecules at the water/vapor interface.
-%The simulation produces similar result as Omta and coworker's experiments of femtosecond pump-probe spectroscopy, which demonstrate that anions ( $\text{SO}^{2-}_4$, $\text{ClO}^-_4$, etc) have no influence on the dynamics of bulk water, even at high concentration up to 6 M.\cite{AWO03} 
-%Here, we find that the cations \Li and \Na does not alter the H-bonding network outside the first hydration shell of cations. It is concluded that no long-range structural-changing effects for alkali metal cations.
-The radii of hydration shells are 5.0 \AA for \li, 5.38 \AA for \na,
-5.70 \AA for \pot, and 6.0 \AA for \I ions, which are obtained from the RDFs.
-The RDFs $g_{\text{ion-O}}$ (ion=\li, \na) for the interfaces 
-of LiI (NaI) solutions are shown in Fig.\space\ref{fig:124_2NaI-2LiI_gdr_Li-O_Na-O_1501}(a),
-and the coordination numbers are in Fig.\space\ref{fig:124_2NaI-2LiI_gdr_Li-O_Na-O_1501}(b).
-\begin{figure}[H]
-\centering
-\includegraphics [width=0.5 \textwidth]{./diagrams/124_2NaI-2LiI_gdr_Li-O_Na-O_1501}%fig.6.1 
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:124_2NaI-2LiI_gdr_Li-O_Na-O_1501}
-  (a) The RDF $g_{\text{ion-O}}(r)$(ion=\li, \na) and (b) the coordination number of \Li (\na) ions at the interfaces of LiI (NaI) solution. 
-	For \Na, the coordination number $n_\text{Na}$=5; while for \Li, $n_\text{Li}$=4.} 
-\end{figure} % There is a first shell exist for both \Li and \Na cations.
-%\section{Hydrogen Bond Dynamics by Classical Molecular Dynamics Simulations}
-%\begin{figure}[H]
-%\centering
-% \includegraphics [width=0.5\textwidth] {./diagrams/4MPlus-alkali-I_hbacf_C1603}
-%\setlength{\abovecaptionskip}{20pt}
-%\caption{\label{fig:4MPlus-alkali-I_hbacf_C1603}The function \CHB of water--water H-bonds at interfaces with different alkali metal ions in 4.0 M water solution at 300 K.}
-%\end{figure}
-%The HB dynamics obtained from classical MD simulations can not catch the fast HB relaxation, and it give a totally different HB dynamics for the water molecules in these alkali halide solution/vapor interfaces.
-
 
 
 \FloatBarrier
@@ -763,85 +599,3 @@ $n_\text{Li-O}(\text{LiI)}$ & 3.0 & 4.0 \\
 $n_\text{Na-O}(\text{NaI)}$ & 3.5 & 6.0 
 \end{tabular}
 \end{table}
-%In the first shell with a radius 3 \A, the entropy difference between the \Li shell and \Na shell,
-%$\Delta S=k_B\text{ln}\frac{\Omega_\text{Na}}{\Omega_\text{Li}}=k_B\text{ln}\frac{n_\text{Na}/V_\text{Na}}{n_\text{Li}/V_\text{Li}} =k_B\text{ln}1.05$.
-
-%\paragraph{The anisotropy decay}
-%
-
-\FloatBarrier
-\paragraph{Classification of Water Molecules Based on H-Bonds}
-We also studied the relation between the anisotropy decay of water molecules and their environment. 
-Following the definition used in Ref.[\cite{TianCS08}], we use the following labels to denote water molecules in solution: 
-$D$ denotes that the water molecule donates a HB, $D'$ donates that the water donates a H-I bond, and $A$ donates that the water accepts a HB. %\cite{2008NJ} 
-$DDAA$ represents a water molecule with two H-Bonds donated to water molecules and two H-Bonds accepted from water molecules (see Fig.\space\ref{fig:Multiple_figs}(a));
-$DD'AA$ represents a water molecule with two HBs donated to a water molecule and \I, and with two H-Bonds accepted from other water molecules (see Fig.\space\ref{fig:Multiple_figs}(c)), 
-$D'AA$ represents a water molecule bonded to \I at the water/vapor interface and other H-Bonds to water molecules (see Fig.\space\ref{fig:Multiple_figs}(d)).
-Clearly, we can see that $D'AA$ molecules are of free OH stretching during the dynamics. All four types of water molecules are displayed in Fig.\space\ref{fig:Multiple_figs}. 
-% 
-\begin{figure}[ht]%[!htbp]
-\centering
-\includegraphics [width=0.4 \textwidth] {./diagrams/Multiple_figs} 
-\caption{\label{fig:Multiple_figs} Four types of water molecules at the water/vapor interfaces of LiI solution, regarding the HB environments: (a) $DDAA$; (b) $DDA$; (c) $DD'AA$; (d) $D'AA$. The cyan balls denote \I ions. }
-\end{figure} 
-
-It is evident, from our calculations (Fig.\space\ref{fig:2LiI-124w_c2_fit_biexp_7wat_2ps_class_150324}), that the $C_2(t)$ for $DDAA$ and $DD'AA$ molecules do not decay exponentially (Table \ref{tab:fitting_c2_for_each_type_of_water}).
-%[BUT Table \ref{tab:fitting_c2_for_each_type_of_water} CAN NOT GIVE THE EVIDENCE. STH. IS MISSING!] 
-This result is similar to the reactive flux HB correlation function $k(t)$, i.e., 
-the escaping rate kinetics of H-bonds in bulk water. [\cite{Luzar1996}] 
-The relaxation of H-bonds in water appears complicated, with no simple characterization in terms of a few relaxation rate constants. 
-Most of the authors believe that the cooperativity between neighbouring H-bonds, [\cite{Sciortino1989, Ohmine1995}] or 
-self evident coupling between translational diffusion and HB dynamics is the source of the complexity. [\cite{Luzar1996}] 
-However, for $D'AA$ molecules at the interface of the LiI solution,
-the $C_2(t)$ decays exponentially, i.e.
-\begin{eqnarray}
-  C_2(t) &=& C e^{-{\kappa}t},
-\label{eq:C_2_D_prime_AA}
-\end{eqnarray}
-where the amplitude is $C=0.76$, and the reorientation rate is $\kappa = 0.99$ ps$^{-1}$.
-The single exponential decay of $C_2(t)$ for $D'AA$ molecules, indicates that each $D'AA$  molecule reorientate independently to each other. 
-
-Furthermore, the $C_2(t)$ for $D'AA$ molecules decays much faster than that for $DDAA$ or $DD'AA$ molecules.
-From the definitions, the $D'AA$ water molecule owns only three H-bonds, while both $DDAA$ and $DD'AA$ water molecules own four H-bonds.
-Therefore, the correlation between H-bonds around the $D'AA$ molecule is weaker than those around the $DDAA$ or $DD'AA$ molecule. 
-Faster decay of $C_2(t)$ for $D'AA$ molecules shows that the reorientation process of $D'AA$
-molecules is much smaller than those water molecules in bulk phase, e.g., the $DDAA$, and $DD'AA$ molecules.
-
-Finally, for $D'AA$ molecules, the inertial-librational motion can not be seen (Fig.\space\ref{fig:2LiI-124w_c2_fit_biexp_7wat_2ps_class_150324}). 
-This result implies that the rotational anisotropy decay of $D'AA$ molecules
-are of the same time scale of the inertial libration, i.e., $\sim$ 0.2 ps.
-
-Rotational anisotropy decay of water molecules is found at the interface of LiI solution. 
-The result comes from a different HB types from the usual $DDAA$ HB type in pure bulk water.
-The faster anisotropy decay for $D'AA$ molecules reflects the less correlation between different H-bonds for $D'AA$ molecules, which comes from Hydrogen--Iodide bond at the interfaces, the existence of free OH stretching.
-From Fig.\space\ref{fig:prob_124_LiI_double_axis}, we have known that in the LiI solution, 
-\I ions prefer to locate at the water/vapor interface.  
-Therefore, we infer that the reduction of the inter-correlations between H-bonds occurs at the water/vapor interfaces. 
-
-%
-In conclusion, single exponential type rotational anisotropy decay exists for water molecules at the water/vapor interface of the alkali-iodine solutions,
-and this faster anisotropy decay of water molecules at the water/vapor interface is the effects of Hydrogen--Iodide (H--I) bond at the interface. 
-Since the iodide's surface propensity is high, this difference of HB structure 
-from neat water/vapor interface is the source of 
-the HB dynamics as well as the Im$\chi^{(2)}$ spectrum of the interface of alkali-iodine solutions.  
-%-------
-%deleted
-%\st{The effects of H--I bond on the HB dynamics at the interfaces, and the relation between the interfacial HB
-%dynamics and rotational anisotropy decay can also be studied in the future.}{\color{red}[Question: This i don't understand ... is not what you have discussed so far?? Answer: It was a plan.]}
-%-------
-%图
-\begin{figure}[H] %[!htbp]
-\centering
-\includegraphics [width=0.6 \textwidth] {./diagrams/2LiI-124w_c2_fit_biexp_7wat_2ps_class_150324} 
-\caption{\label{fig:2LiI-124w_c2_fit_biexp_7wat_2ps_class_150324} The time dependence of the $C_2(t)$ for water molecules in different HB environments at the water/vapor interface of LiI solution.}
-\end{figure}  
-
-%\subsection{\LiN Solution/vapor Interface}
-%The anisotropy decay of OH bonds in water molecules in 0.4 M LiNO3 solution/vapor interface is shown in Fig.\space\ref{fig:c2_LiNO3_inset}.  In the model of the interface, there is one \Li and one \nitrate in the 15.6 \AA$\times$15.6 \AA$\times$31.0 \AA simulation box. 
-%The larger decay rate consistent to the conclusion infered from the VDOS for the interfaces, although the concentration of \LiN is lower. This result obtained from another DFTMD trajectory consistent with the previous one, and it reflects that the \nitrate on the surface of the alkali nitrate solution weaken the H-bonds and  accelerate the anisotropy decay of water molecules at the interfaces.
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics [width=0.4\textwidth] {./diagrams/c2_LiNO3_inset} 
-%\setlength{\abovecaptionskip}{10pt}
-%\caption{\label{fig:c2_LiNO3_inset} The anisotropy decay of OH chromophores in water molecules in LiNO3 solution/vapor interface.}
-%\end{figure} 
