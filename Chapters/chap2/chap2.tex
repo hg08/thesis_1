@@ -2,12 +2,17 @@
 \chapter{Methods}\label{CHAPTER_Methods}
 In this chapter, we describe the methods we use to study the structure and dynamics of water and aqueous solutions.
 We use DFTMD simulations to calculate the theoretical VSFG spectra. 
-The motivation for using DFTMD simulations are as follows.
-(1) Structure and reactivity are treated in a consistent way;
+Our motivations for adopting DFTMD simulations are manifold.
+In general, by using DFTMD, 
+(1) Structure and reactivity can be treated in a consistent way;
 (2) Efficient treatments of basis sets and long range interactions in the DFT do extend the simulation capabilities to 
 thousands of atoms, i.e. it allows realistic models for interfaces;
-(3) They provide information on the structural organization of the solvent in the interfaces.
-
+(3) They provide information on the structural organization of the solvent in the interfaces. 
+In particular, the interface of the solution contains a large number of water molecules and a HB network composed of H-bonds between them.
+As Stillinger said, "Since hydrogen bonding is the most important interaction in liquid water and since these interactions 
+are cooperative (that is, nonadditive), it is insufficient for the purposes of computer simulation to use the potential energy function for dimers alone."\cite{Stillinger1980}
+Paragraph \ref{section_AIMD} to \ref{section_BOMD} will give an introduction to the basic ideas of AIMD and DFT as well as the BOMD we adopted.
+Paragraph \ref{section_VDOS} and \ref{section_VSFG} will introduce the analysis methods used in this paper, including the method of calculating VDOS from velocity autocorrelation and the method of calculating SFG spectrum from velocity correlation function.
 \section{Modeling Interfaces with \abinitio Molecular Dynamics}\label{section_AIMD}
 Modern theoretical methodology, aided by the advent of high speed computing, has advanced
 to a level where the microscopic details of dynamical processes in condensed phases can be
@@ -307,7 +312,7 @@ C^{\text{ABC}} \approx -\sqrt{C_6^{\text{AB}}C_6^{\text{AC}}C_6^{\text{BC}}},
 \end{equation}
 since the total three-body contribution is typically 5--10\% of $E_{\text{disp}}=E_{\text{disp}}^{(2)}+E_{\text{disp}}^{(3)}$.
 %
-\section{Born-Oppenheimer Molecular Dynamics}
+\section{Born-Oppenheimer Molecular Dynamics}\label{section_BOMD}
 %[Ehrenfest MD, CPMD and BOMD]
 In computational material science, the most popular AIMD simulation methods are the Born-Oppenheimer Molecular Dynamics (BOMD) and Car-Parrinello Molecular Dynamics (CPMD) methods. 
 In the BOMD, the potential energy $E[\{\psi_i\};\bf{R}]$ is minimized at each MD step with respect to $\{\psi_i({\bf r})\}$  under the orthonormality condition
@@ -375,7 +380,7 @@ to nuclear motion, i.e., $\tau_{e}^{\text{BO}}\approx\tau_{\text{n}}$.
 In BOMD, the time step can be even larger if the nuclear dynamics becomes fairly slow. [\cite{GK93}] 
 But in order to resolve vibrations in molecular systems, the time step must be decreased to less than 1 fs in this thesis. [\cite{DM00}]
 %
-\section{Vibrational Density of States}
+\section{Vibrational Density of States}\label{section_VDOS}
 In order to obtain information on the vibrational properties of a molecular systems, it is possible to use the velocities auto-correlation functions (ACFs),
 as calculated from the AIMD trajectories.
 The obtained Vibrational Density Of States (VDOS) can 
@@ -404,7 +409,7 @@ C_z(t)=\frac{\langle\sum^{N}_{i=1}{v_{i,z}(t){v_{i,z}(0)\rangle}}}{\langle\sum^{
 where $v_{i,z}$ is the vertical component of the velocity of the $i$-th atom.
 The VDOS $g_z(\nu)$ for water molecules is used to extract the O-H stretch along the vertical direction to the averaging water/vapor interface. 
 
-\section{Calculation of VSFG Spectroscopy for Water/Vapor Interfaces}
+\section{Calculation of VSFG Spectroscopy for Water/Vapor Interfaces}\label{section_VSFG}
 %SFG calculation and measurement
 %[Introduction of the VSFG spectroscopy]
 As we introduced in Chapter \ref{CHAPETR_1}, the VSFG spectroscopy is a powerful tool for extracting structural and dynamical information

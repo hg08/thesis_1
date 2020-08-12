@@ -13,13 +13,13 @@ in complex situations, e.g., electrolytes, [\cite{AC00}] protein and  micellar s
 There are temporal, geometric and energetic criteria to define HB. Here we use the geometric one.
 Two water molecules are H-bonded only if their interoxygen distance between of specific tagged pair of water molecules 
 is less than $r^{\text{c}}_{\text{OO}}=3.5$ \A \ and
-the O-H$\cdots$O angle is less than $\phi^{\text{c}}=\pi/6$. [\cite{AKS86,JT90,SB02}] 
+the O-H$\cdots$O angle is less than $\phi^{\text{c}}=30^{\circ}$. [\cite{AKS86,JT90,SB02}] 
 The value 3.5 \AA corresponds to the first-minimum position of the O--O RDF of water. [\cite{Sciortino1989}]   
 The choice for the cutoff angle $\phi^{\text{c}}$ for water-water molecules is obtained by studying the average number of H-bonds,
 as a function of $\phi^{\text{c}}$. \cite{Luzar1993} We call this definition of HB the ADH criterion. 
 In order to compare the impact of different HB definitions on HB dynamics, we will also use another definition of HB in our analysis. 
 When the distance between the oxygen atoms of two water molecules is less than 3.5 \AA, 
-and the oxygen-hydrogen-oxygen included angle is greater than $2\pi/3$, then we say that there is a HB between the two molecules. 
+and the oxygen-hydrogen-oxygen included angle is greater than $120^{\circ}$, then we say that there is a HB between the two molecules. 
 We denote this definition as the AHD definition of H bonds.
 %The distance criteria of $R_{\text{OH}}$  was determined from the first minimum in the O--H RDF for SPC water. [\cite{HJCB81}]
 
@@ -599,3 +599,29 @@ $n_\text{Li-O}(\text{LiI)}$ & 3.0 & 4.0 \\
 $n_\text{Na-O}(\text{NaI)}$ & 3.5 & 6.0 
 \end{tabular}
 \end{table}
+
+\section{I$^-$--Water Hydrogen Bonds in Aqueous Solutions}
+In the case of water--water hydrogen bonds, the critical distance of $R_c^{OO}=3.5$ \AA are the position of the first minimum of the oxygen--oxygen RDF.
+For the anion--oxygen hydrogen bonds, we can use the similar criteria. The cutoff values for $X$--oxygen distance are obtained from the positions of the first
+minimum of the $X$--oxygen RDF, i.e., $R_c^{XO}=4.1$, 3.7 \A, for $X$ = I$^-$ and nitrate O. We have still used $30^{\circ}$ for the anglar cutoff.\cite{Chowdhuri2006}
+\begin{figure}[htbp]
+\centering
+\includegraphics [width=0.6 \textwidth] {./diagrams/gdr_127_LiNO3} 
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:gdr_127_LiNO3} (a)Li--water O, Li--water H RDFs; (b) Nitrate O--water O, nitrate O-water H RDFs for LiNO$_3$ solutions at 330 K. The RDFs were computed from DFTMD.}
+\end{figure}
+The function $C_{HB}$ of I$^-$--water and water--water hydrogen bonds describes the structural relaxation of these H- bonds. The results of the $C_{HB}(t)$ are shown in Figure \ref{fig:X-O_c_lii}. 
+\begin{figure}[htbp]
+\centering
+\includegraphics [width=0.6 \textwidth] {./diagrams/X-O_c_lii} 
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:X-O_c_lii} Time dependence of the intermittent correlation functions of I$^-$--water (I$^-$--W) and water--water hydrogen bonds at 300 K.}
+\end{figure}
+The results of the continuous correlation functions for both definitions (ADH and AHD criterions) for the H-bonds are shown in Figure \ref{fig:wat-wat_s_lii} for I$^-$--water hydrogen bonds. The results of water--water hydrogen bonds are included for comparison in both Figure \ref{fig:wat-wat_s_lii} (a) and (b).
+\begin{figure}[htbp]
+\centering
+\includegraphics [width=0.6 \textwidth] {./diagrams/wat-wat_s_lii} 
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:wat-wat_s_lii} Time dependence of the continuous correlation functions of I$^-$--water (I$^-$--W) and water--water hydrogen bonds at 300 K.}
+\end{figure}
+
