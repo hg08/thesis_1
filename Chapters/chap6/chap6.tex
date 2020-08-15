@@ -93,8 +93,6 @@ and the $h(t)$ for a HB in a water cluster is displayed in Fig.\space\ref{fig:Ex
   with $\phi^{\text{c}}$=$\pi/6$, respectively.}
 \end{figure} 
 
-The function \CHB is interpreted as the probability that the specific HB formed by a fixed A-D-H (or A-H-D) combination is intact at time  $t$, 
-if it was intact at time zero. 
 In a large system that consist of many water molecules, the probability that a specific pair of water molecules are H-bonded is extremely small. 
 Therefore, the \CHB also relaxes to zero, when $t$ is large enough. 
 The \CHB measures correlation in $h(t)$ independent of any possible bond breaking events. 
@@ -171,7 +169,7 @@ The \SHB for the DFTMD simulated interfacial and bulk water is shown in Fig. \re
 \includegraphics [width=0.6\textwidth] {./diagrams/128w_s_itp_bk_ns40}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:128w_s_itp_bk_ns40} The time dependence of \SHB (denoted by $s(t)$ for short) for the DFTMD simulated interfacial (solid line) and bulk water (dashed line). 
-The parameters: the length of trajectory is 35 ps, $T=300$ K, density $\rho =1.000$ g/cm$^3$.}
+The parameters: the length of trajectory is 35 ps, $T=300$ K, density $\rho =1.00$ g/cm$^3$.}
 \end{figure} 
 
 The average continuum HB lifetime $\langle \tau_{\mathrm{a}} \rangle$ is calculated by the integration of \SHB over $t$ (see Appendix \ref{diff_distr}) :  
@@ -250,7 +248,7 @@ Therefore, the reaction time constant $\tau$ is
 \includegraphics [width=0.5\textwidth] {./diagrams/128w_bk_2delta_t_60ps_k_log}
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:128w_bk_2delta_t_60ps_k_log}The rate function $k(t)$, calculated from the trajectory of a DFTMD simulation. 
-The simulation was for bulk water at $T=300$ K, and with a density of 1.000 g cm$^{-3}$. The length of the trajectory is 60 ps of physical time.}
+The simulation was for bulk water at $T=300$ K, and with a density of 1.00 g cm$^{-3}$. The length of the trajectory is 60 ps of physical time.}
 \end{figure}
 
 %For neat bulk water and water/vapor interface.
@@ -383,7 +381,7 @@ These values are comparable in magnitude to those obtained by Ref.\thinspace[{\c
 \end{tabular}
 \end{table}
 
-\section{Water-water pair based Hydrogen Bond Dynamics}
+\section{Water-water Pair Based Hydrogen Bond Dynamics}
 The method described in this paragraph is used more in the literature. 
 The basis is the population operator $h(t)$ of the HB formed between two water molecules. 
 We use the correlation function \CHB to describe the relaxation of H-bonds between two water molecules: [\cite{Luzar1994,AL96,AC00}]
@@ -393,19 +391,7 @@ C_{\text{HB}}(t)=\langle h(0)h(t) \rangle/\langle h\rangle
 \end{eqnarray}
 Similarly, with the aid of the ergodic principle, the ensemble average $\langle \cdots\rangle$ is implemented by time average.
 The $\langle h\rangle$ is the probability that a pair of randomly chosen water molecules in the system is
-H-bonded at any time $t$. As examples, the dynamics of the interoxygen distance $r_{\text{OO}}(t)$, 
-the cosine of O$-$H$\cdots$O angle cos$\phi(t)$  
-and the $h(t)$ for a HB in a water cluster is displayed in Fig.\space\ref{fig:Ex30ps_hb}, respectively.
-%-------------------
-\begin{figure}[hbtp]
-\centering
-\includegraphics [width=0.6\textwidth] {./diagrams/Ex30ps_hb}
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:Ex30ps_hb}The dynamics of $r_{\text{OO}}(t)$ (top), cos$\phi(t)$ (middle), 
-  and $h(t)$ (bottom) for a HB in a water cluster. The dashed lines show the interoxygen distance 
-  boundary $r^{\text{c}}_{\text{OO}}$=3.5 \AA (top) and criterion of cosine of O$-$H$\cdots$O angle cos$\phi^{\text{c}}$ 
-  with $\phi^{\text{c}}$=$\pi/6$, respectively.}
-\end{figure} 
+H-bonded at any time $t$. 
 
 The function \CHB is interpreted as the probability that the HB between a certain pair of water molecules is intact at time  $t$, 
 if the pair of water molecules are H-bonded at time zero. 
@@ -427,7 +413,6 @@ The correlation functions $C_{HB}(t)$ for bulk water, based on water-water pair 
 \end{figure}
 
 
-\FloatBarrier
 \section{Rotational Anisotropy Decay of Water at the Interface of Alkali-Iodine Solutions}\label{CHAPETR_AD}
 Using the transition dipole auto-correlation function, 
 we determined the rotational anisotropy decay and therefore the OH-stretch relaxation at water/vapor interface of alkali iodide solutions.
@@ -608,7 +593,7 @@ minimum of the $X$--oxygen RDF, i.e., $R_c^{XO}=4.1$, 3.7 \A, for $X$ = I$^-$ an
 \centering
 \includegraphics [width=0.6 \textwidth] {./diagrams/gdr_127_LiNO3} 
 \setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:gdr_127_LiNO3} (a)Li--water O, Li--water H RDFs; (b) Nitrate O--water O, nitrate O-water H RDFs for LiNO$_3$ solutions at 330 K. The RDFs were computed from DFTMD.}
+  \caption{\label{fig:gdr_127_LiNO3} (a)Li--water O, Li--water H RDFs; (b) Nitrate O--water O, nitrate O-water H RDFs for LiNO$_3$ solutions at 300 K. The RDFs were computed from DFTMD.}
 \end{figure}
 The function $C_{HB}$ of I$^-$--water and water--water hydrogen bonds describes the structural relaxation of these H- bonds. The results of the $C_{HB}(t)$ are shown in Figure \ref{fig:X-O_c_lii}. 
 \begin{figure}[htbp]
@@ -617,11 +602,41 @@ The function $C_{HB}$ of I$^-$--water and water--water hydrogen bonds describes 
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:X-O_c_lii} Time dependence of the intermittent correlation functions of I$^-$--water (I$^-$--W) and water--water hydrogen bonds at 300 K.}
 \end{figure}
-The results of the continuous correlation functions for both definitions (ADH and AHD criterions) for the H-bonds are shown in Figure \ref{fig:wat-wat_s_lii} for I$^-$--water hydrogen bonds. The results of water--water hydrogen bonds are included for comparison in both Figure \ref{fig:wat-wat_s_lii} (a) and (b).
+The results of the continuous correlation functions for both definitions (ADH and AHD criterions) for the H-bonds are shown in Figure \ref{fig:wat-wat_s_lii} 
+for I$^-$--water hydrogen bonds. The results of water--water hydrogen bonds are also included for comparison in both Figure \ref{fig:wat-wat_s_lii} (a) and (b).
 \begin{figure}[htbp]
 \centering
 \includegraphics [width=0.6 \textwidth] {./diagrams/wat-wat_s_lii} 
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:wat-wat_s_lii} Time dependence of the continuous correlation functions of I$^-$--water (I$^-$--W) and water--water hydrogen bonds at 300 K.}
+\end{figure}
+For both definitions for the H-bonds, it is found that the I$^-$--water hydrogen bonds show faster dynamics than water--water hydrogen bonds. 
+(consistent to the previous MD results.) Therefore, the time scales of the relaxation of these H-bonds can be obtained for both definitions. 
+In Table \ref{tab:properties_anion-water_hbs}, we have included the average lifetimes $\langle\tau_{a}\rangle$, which can be cumputed from Eq.\ref{eq:calculate_hb_lifetime}, 
+for both water--water and I$^-$--water hydrogen bonds. We performing the fitting in the time region 0.2 ps < $t$ < 12 ps to calculate the forward and backward rate constants
+for HB breaking.
+%
+\begin{table}[htbp]
+\centering
+\caption{\label{tab:k_k_prime_pure_and_solutions} 
+    The Dynamical properties of anion--water and water--water hydrogen bonds at 300 K. Data are from DFTMD for the aqueous solutions. The values are expressed in ps.} 
+\begin{tabular}{ccccc}
+\label{tab:properties_anion-water_hbs}
+ Quantity & Criterion & W--W & I$^-$--W & NO$_3^-$--W  \\
+\hline
+  $\langle\tau_a\rangle$  & ADH & 190.3 & 0.10 & 4.35 \\
+  $\langle\tau_a\rangle$ & AHD & 186.8  & 0.11 & 7.91 \\
+  $1/k$ & ADH & 9.82 & 2.80 & 4.15 \\
+  $1/k$ & AHD & 8.97 & 2.40 & 6.02\\
+\end{tabular}
+%
+% Data from: LiI solution:  gang@XPS /home/gang/Github/water_pair_HB_dynamics/src/least_square_fit
+% Data from: LiNO3 solution:  /home/gang/Github/water_pair_HB_dynamics/src/least_square_fit/LiNO3 
+\end{table}
+\begin{figure}[htbp]
+\centering
+\includegraphics [width=0.6 \textwidth] {./diagrams/I--wat_n_lii} 
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:I--wat_n_lii} Time dependence of the correlation functions $n_{HB}(t)$ of I$^-$--water (I$^-$--W) and water--water hydrogen bonds at 300 K.}
 \end{figure}
 
