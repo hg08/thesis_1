@@ -90,7 +90,7 @@ and the $h(t)$ for a HB in a water cluster is displayed in Fig.\space\ref{fig:Ex
 \caption{\label{fig:Ex30ps_hb}The dynamics of $r_{\text{OO}}(t)$ (top), cos$\phi(t)$ (middle), 
   and $h(t)$ (bottom) for a HB in a water cluster. The dashed lines show the interoxygen distance 
   boundary $r^{\text{c}}_{\text{OO}}$=3.5 \AA (top) and criterion of cosine of O$-$H$\cdots$O angle cos$\phi^{\text{c}}$ 
-  with $\phi^{\text{c}}$=$\pi/6$, respectively.}
+  with $\phi^{\text{c}}$=30$^{\circ}$, respectively.}
 \end{figure} 
 
 In a large system that consist of many water molecules, the probability that a specific pair of water molecules are H-bonded is extremely small. 
@@ -108,13 +108,13 @@ The \CHB for the DFTMD simulated bulk water is shown in Fig. \ref{fig:128w_c_itp
 Therefore, we can obtain the relaxation time from Eq.\ref{eq:tau_relaxation}: $\tau_r = 14.01$ ps for ADH definition of H-bonds, 
 and $\tau_r = 14.16$ ps for AHD definition.
 %-------------------
-\begin{figure}[hbtp]
-\centering
-\includegraphics [width=0.6\textwidth] {./diagrams/128w_bk_2delta_t_60ps_c}
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:128w_bk_2delta_t_60ps_c} The correlation function \CHB ($c(t)$ for short) from the trajectory of a DFTMD simulation with ADH (solid line) and AHD (dashed line) definition of H-bonds. 
-The length of the trajectory coincided with 60 ps of physical time. The simulation is for bulk water at the temperature $300$ K and with a density $1.00$ g/cm$^3$.}
-\end{figure} 
+%\begin{figure}[hbtp]
+%\centering
+%\includegraphics [width=0.6\textwidth] {./diagrams/128w_bk_2delta_t_60ps_c}
+%\setlength{\abovecaptionskip}{0pt}
+%\caption{\label{fig:128w_bk_2delta_t_60ps_c} The correlation function \CHB ($c(t)$ for short) from the trajectory of a DFTMD simulation with ADH (solid line) and AHD (dashed line) definition of H-bonds. 
+%The length of the trajectory coincided with 60 ps of physical time. The simulation is for bulk water at the temperature $300$ K and with a density $1.00$ g/cm$^3$.}
+%\end{figure} 
 
 \begin{figure}[hbtp]
 \centering
@@ -223,7 +223,7 @@ However, at longer times, the $k(t)$ is independent of the HB definitions.
 In order to verify this point of view and also to verify the reliability of our simulation method, 
 we performed a DFTMD simulation of the bulk water system with a total time of 60 ps, 
 and used the two different HB definitions --- ADH definition and AHD definition to calculate the $k(t)$. 
-The calculation results in Fig. \ref{fig:128w_bk_2delta_t_60ps_k_log} show that when $t$ is large enough, 
+The calculation results in Fig. \ref{fig:pure_bk_c_n_k}(b) show that when $t$ is large enough, 
 the difference in $k(t)$ caused by different HB definitions is relatively small.
 Therefore, the long time decay of the $k(t)$ reflects the general properties of H-bonds.
 
@@ -243,15 +243,8 @@ Therefore, the reaction time constant $\tau$ is
 \label{eq:reaction_rate_tau}
 \end{eqnarray}
 %
-\begin{figure}[htpb]
-\centering
-\includegraphics [width=0.5\textwidth] {./diagrams/128w_bk_2delta_t_60ps_k_log}
-\setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:128w_bk_2delta_t_60ps_k_log}The rate function $k(t)$, calculated from the trajectory of a DFTMD simulation. 
-The simulation was for bulk water at $T=300$ K, and with a density of 1.00 g cm$^{-3}$. The length of the trajectory is 60 ps of physical time.}
-\end{figure}
 
-\paragraph{Structural Properties}
+\paragraph{Structural Properties of Bulk Water}
 The oxygen-oxygen radial distribution functions $g_{OO}(r)$ and $g_{OH}(r)$ for the bulk water system are 
 shown in Fig. \ref{fig:rdf_bk_pure_and_interf_pure} (a).
 \begin{figure}[htbp]
@@ -259,16 +252,39 @@ shown in Fig. \ref{fig:rdf_bk_pure_and_interf_pure} (a).
 \includegraphics [width=0.6 \textwidth] {./diagrams/rdf_bk_pure_and_interf_pure} 
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:rdf_bk_pure_and_interf_pure}The partial RDFs of liquid water at ambient conditions.
-(a) Bulk water (Box size: 15.64 $\times$ 15.64 $\times$ 15.64 \AA$^3$; $T = 300$ K); (b) Water/vapor interface.}
+(a) Bulk water (Box size: 15.6404 $\times$ 15.6404 $\times$ 15.6404 \AA$^3$; $T = 300$ K); (b) Water/vapor interface.}
 \end{figure}
+\begin{figure}[htbp]
+\centering
+\includegraphics [width=0.6 \textwidth] {./diagrams/pure_bk_c_n_k} 
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:pure_bk_c_n_k} Time dependence of the correlation functions (a) $n(t)$, $c(t)$ and (b) the rate function $k(t)$ 
+of water--water hydrogen bonds for bulk water at 300 K, calculated from the trajectory of a DFTMD simulation.
+ The definition of $h(t)$ is based on specific H--O bond, instead of water-water pairs.
+The simulation was for bulk water at $T=300$ K, and with a density of 1.00 g cm$^{-3}$. The length of the trajectory is 50 ps of physical time.}
+\end{figure}
+\begin{figure}[htbp]
+\centering
+\includegraphics [width=0.6 \textwidth] {./diagrams/128w_itp_c_n_k} 
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:128w_itp_c_n_k} Time dependence of the correlation functions (a) $n(t)$, $c(t)$ and (b) the $k(t)$ 
+of water--water hydrogen bonds for water/vapor interface at 300 K, calculated from the trajectory of a DFTMD simulation.
+ The definition of $h(t)$ is based on specific H--O bond, instead of water-water pairs.
+The simulation was for bulk water at $T=300$ K. The length of the trajectory is 50 ps of physical time.}
+\end{figure}
+The correlation function \CHB ($c(t)$ for short) from the trajectory of a DFTMD simulation with ADH (solid line) and AHD (dashed line) definition of H-bonds is 
+shown in Fig. \ref{fig:pure_bk_c_n_k} (a). 
+The length of the trajectory coincided with 60 ps of physical time. The simulation is for bulk water at the temperature $300$ K and with a density $1.00$ g/cm$^3$.
 
-%For neat bulk water and water/vapor interface.
-%
-%For the water/vapor interface of neat water, we focus on the reactive flux $k(t)$, 
+The reactive flux $k(t)$ we calculated here is very consistent with the result in \cite{AL96b}.
+
+For the water/vapor interface of neat water, we reported the result of the correlation fucntion  $c(t)$, $n(t)$
+in Figure \ref{fig:128w_itp_c_n_k}(a) and the reactive flux $k(t)$ in Figure \ref{fig:128w_itp_c_n_k}(b).
+ 
 %which had been used in the study of HB dynamics of liquid water. [\cite{AL96,Khaliullin2013}]
 %The $k(t)$ calculated from the positional trajectory of water molecules in DFTMD simulations, is reported in Fig.\space\ref{fig:128w_bk_2delta_t_60ps_k_log}. 
 %
-%[In the case of water/vapor interface, the $k(t)$ quickly changes from its initial value on a time scale of less than 0.2 ps 
+In the case of water/vapor interface, the $k(t)$ quickly changes from its initial value on a time scale of less than 0.2 ps.
 %(see the inset of Fig.\space\ref{fig:121}). 
 %For the times beyond the transient period, the $k(t)$ decays to zero monotonically, and the slop of the $\ln{k(t)}$ increases monotonically with $t$ (see Fig.\space\ref{fig:121_log_rf}). 
 %These two properties were also found for bulk water using the SPC water model by Luzar and Chandler. [\cite{AL96}] 
@@ -329,13 +345,6 @@ Let $\tau$ take all the values in the interval $[0,\infty]$, we can get the HB l
 \paragraph{$k$ and $k'$: Least Squares Fit}
 In order to show the effect of water molecule diffusion on the HB dynamics, we can calculate the sum of the functions $c(t)$ and $n(t)$, i.e., $c(t)+n(t)$.
 %
-\begin{figure}[H]
-\centering
-\includegraphics [width=0.5\textwidth] {./diagrams/128w_bk_2delta_t_60ps_n}
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:128w_bk_2delta_t_60ps_n} 
-The time dependence of the population functions $n(t)$ for bulk water, as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds.} 
-\end{figure}
 
 The probability at time $t$ that a pair of water molecules bonded by H-bonds at the initial moment does not be bonded 
 but the distance between their oxygen atoms is still less than $R_{OO}^c$ is 
@@ -344,21 +353,22 @@ n(t) = \int_0^t dt'k_{in}(t'),
 \label{eq:n_from_k_in}
 \end{eqnarray}
 where $k_{in}(t) = -\langle \dot h(0)[1-h(t)]h^d(t) \rangle/\langle h\rangle$ is the restricted rate function. 
-Both Fig. \ref{fig:128w_bk_2delta_t_60ps_n} and Fig.\ref{fig:128w_bk_2delta_t_60ps_n_from_k_in} show the same function $n(t)$. They are calculated from 
+Both Fig. \ref{fig:128w_bk_2delta_t_60ps_n_from_k_in}(a) and Fig.\ref{fig:128w_bk_2delta_t_60ps_n_from_k_in}(b) show the same function $n(t)$. They are calculated from 
 $n(t) = \langle h(0)[1-h(t)]h^d(t) \rangle/\langle h\rangle$ and $n(t) = \int_0^t dt'k_{in}(t')$, respectively. 
 In each figure, we have drawn the $n(t)$ function corresponding to the two different HB definitions. 
 It can be found that neither the calculation method of $n(t)$ nor the definition of HB affects the change trend of $n(t)$, that is, 
-as $t$ increases, $n(t)$ increases rapidly from 0, and it reaches the maximum value at $t=10$ ps, and then gradually decreases slowly. [EXPLAIN THE RESULTs]
+as $t$ increases, $n(t)$ increases rapidly from 0, and it reaches a maximum value at $t \approx 10$ ps, and then gradually decreases. [EXPLAIN THE RESULTs]
 
 %
 \begin{figure}[H]
 \centering
-\includegraphics [width=0.5\textwidth] {./diagrams/128w_bk_2delta_t_60ps_n_from_k_in}
+\includegraphics [width=0.6\textwidth] {./diagrams/128w_bk_2delta_t_60ps_n_from_2_methods_and_2_hb_def}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:128w_bk_2delta_t_60ps_n_from_k_in} 
-The population functions $n(t)$ for bulk water, as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds with the definition 
-$n(t) = \int_0^t dt'k_{in}(t')$.} 
+The time dependence of the population functions $n(t)$ for bulk water, as computed from the ADH (solid line) and AHD (dashed line) 
+criterion of H-bonds with the expression (a) $n(t) = \int_0^t dt'k_{in}(t')$ and (b) $n(t) = \langle h(0)[1-h(t)]h^d(t) \rangle/\langle h\rangle$, respectively.} 
 \end{figure}
+
 Khaliullin and K\"uhne have studied the H-bonding kinetics of pure water using AIMD simulations. [\cite{Khaliullin2013}]
 Based on the concepts of $h(t)$, $h^{(d)}(t)$, $n(t)$ and $k(t)$, they have used the simulation data 
 obtained by the AIMD simulation method to obtain the ratio $k/k'$ in the bulk water, and then the lifetime and relaxation time 
@@ -373,25 +383,104 @@ between the reactive flux and the HB population correlation function $c(t)$ and 
 %[Answer Q3]
 We can find the optimal value of the parameters, $k$ and $k'$, 
 by a least squares fit of the calculated data $k(t)$, $c(t)$ and $n(t)$ beyond the transition phase.  
-%In order to study the HB dynamics after the transition phase, which is roughly at 0.1 ps (see Fig.\thinspace\ref{fig:121}) and lasts for hundreds of picoseconds. 
-For water/vpaor interfaces of neat water and the aqueous solution interfaces, 
-the optimal $k$ and $k'$ given by these results have been listed in Table \ref{tab:k_k_prime_pure_and_solutions}. 
-These values are comparable in magnitude to those obtained by Ref.\thinspace[{\cite{Khaliullin2013}}] 
+The functions $c(t)$, $n(t)$ and $k(t)$ can be regarded as column vectors, and denoted as ${\bf c}$, ${\bf n}$ and ${\bf k}$, respectively. 
+The $k$ and $k'$ can be determined from the matrix $A = \begin{bmatrix} {\bf c} & {\bf n} \end{bmatrix}$, i.e., 
+\begin{equation}
+\begin{bmatrix} k\\ -k' \end{bmatrix} = (A^T A)^{-1} A^T {\bf k}. 
+\end{equation}
+For bulk water and the water/vapor interface, the optimal $k$ and $k'$ given by these results are reported in Table 
+\ref{tab:k_k_prime_128w_pure_1} to Table \ref{tab:k_k_prime_128w_pure_5}. 
+These values of the $k$ are comparable in magnitude to that obtained by Ref.\thinspace[{\cite{Khaliullin2013}}] 
 % 
 \begin{table}[htbp]
 \centering
-\caption{\label{tab:k_k_prime_pure_and_solutions} 
-    The $k$ and $k'$ for the water/vapor interface of the aqueous solution interfaces.} 
-\begin{tabular}{cccc}
- Criterion & $k$ (ps$^{-1}$) & $k'$ (ps$^{-1}$) & $\tau_{\text{R}}$ (ps) \\
+\caption{\label{tab:k_k_prime_128w_pure_1} 
+    The $k$ and $k'$ for the bulk water and the water/vapor interface. We carried on the time region 0.2 ps $< t <$ 60 ps. 
+The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{R}}$ ($=1/k$) is ps.} 
+\begin{tabular}{ccccccc}
+ Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{R}}$ (bulk) & $k$  (interf.) & $k'$ (interf.) & $\tau_{\text{R}}$ (interf.)\\
 \hline
-  ADH & 0.12 & 0.03 & 8.35 \\
-  ADH(from $k_{in}$) & 0.12  & 0.04 & 8.35 \\
-  AHD & 0.14 & 0.07 & 14.5 \\
-  AHD(from $k_{in}$) & 0.12  & 0.04 & 8.35 \\
+  ADH & 0.136 & 0.040 & 7.35 & 0.180 & 0.064 & 5.57  \\
+  ADH(from $k_{in}$) & 0.138  & 0.058 & 7.24  & 0.184 & 0.092 & 5.43 \\
+  AHD & 0.127 & 0.051 & 7.86 & 0.179  & 0.084 & 5.60\\
+  AHD(from $k_{in}$) & 0.127  & 0.061 & 7.90 & 0.183  & 0.120 & 5.45 \\
 \end{tabular}
 \end{table}
 
+
+\begin{table}[htbp]
+\centering
+\caption{\label{tab:k_k_prime_128w_pure_2} 
+    The $k$ and $k'$ for the bulk water and the water/vapor interface. We carried on the time region 0.4 ps $< t <$ 60 ps. 
+The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{R}}$ ($=1/k$) is ps.} 
+\begin{tabular}{ccccccc}
+ Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{R}}$ (bulk) & $k$  (interf.) & $k'$ (interf.) & $\tau_{\text{R}}$ (interf.)\\
+\hline
+  ADH & 0.127 & 0.033 & 7.87 & 0.168 & 0.055 & 5.96 \\
+  ADH(from $k_{in}$) & 0.128  & 0.046 & 7.78 & 0.172  & 0.079 & 5.82\\
+  AHD & 0.117 & 0.041 & 8.53  & 0.166 & 0.074 & 6.02 \\
+  AHD(from $k_{in}$) & 0.117  & 0.049 & 8.57 & 0.170  & 0.104 & 5.87 \\
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{\label{tab:k_k_prime_128w_pure_3} 
+    The $k$ and $k'$ for the bulk water and the water/vapor interface. We carried on the time region 0.8 ps $< t <$ 60 ps. 
+The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{R}}$ ($=1/k$) is ps.} 
+\begin{tabular}{ccccccc}
+ Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{R}}$ (bulk) & $k$  (interf.) & $k'$ (interf.) & $\tau_{\text{R}}$ (interf.)\\
+\hline
+  ADH & 0.119 & 0.026 & 8.41 & 0.158 & 0.048 & 6.32 \\
+  ADH(from $k_{in}$) & 0.120  & 0.036 & 8.35 & 0.162  & 0.069 & 6.16 \\
+  AHD & 0.109 & 0.033 & 9.15 & 0.157 & 0.067 & 6.37 \\
+  AHD(from $k_{in}$) & 0.108  & 0.039 & 9.20 & 0.161  & 0.093 & 6.21 \\
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{\label{tab:k_k_prime_128w_pure_4} 
+    The $k$ and $k'$ for the bulk water and the water/vapor interface. We carried on the time region 1.6 ps $< t <$ 60 ps. 
+The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{R}}$ ($=1/k$) is ps.} 
+\begin{tabular}{ccccccc}
+ Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{R}}$ (bulk) & $k$  (interf.) & $k'$ (interf.) & $\tau_{\text{R}}$ (interf.)\\
+\hline
+  ADH & 0.113 & 0.021 & 8.89  & 0.150 & 0.042 & 6.67\\
+  ADH(from $k_{in}$) & 0.113  & 0.028 & 8.86  & 0.155  & 0.061 & 6.45 \\
+  AHD & 0.102 & 0.026 & 9.80 & 0.149 & 0.060 & 6.69\\
+  AHD(from $k_{in}$) & 0.101  & 0.031 & 9.87 & 0.154  & 0.085 & 6.48 \\
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{\label{tab:k_k_prime_128w_pure_5} 
+    The $k$ and $k'$ for the bulk water and the water/vapor interface. We carried on the time region 3.2 ps $< t <$ 60 ps. 
+The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{R}}$ ($=1/k$) is ps.} 
+\begin{tabular}{ccccccc}
+ Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{R}}$ (bulk) & $k$  (interf.) & $k'$ (interf.) & $\tau_{\text{R}}$ (interf.)\\
+\hline
+  ADH & 0.106 & 0.016 & 9.43 & 0.143 & 0.037 & 7.01\\
+  ADH(from $k_{in}$) & 0.106  & 0.021 & 9.46 & 0.150  & 0.057 & 6.65\\
+  AHD & 0.097 & 0.022 & 10.33 & 0.142 & 0.054 & 7.05 \\
+  AHD(from $k_{in}$) & 0.096  & 0.025 & 10.43  & 0.149  & 0.080 & 6.70 \\
+\end{tabular}
+\end{table}
+
+For the water/vapor interface, we also calculated the constants $k$ and $k'$ by least square fit. 
+
+\begin{figure}[H]
+\centering
+\includegraphics [width=0.6\textwidth] {./diagrams/128w_itp_50ps_n_from_2_methods_and_2_hb_def}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:128w_itp_50ps_n_from_2_methods_and_2_hb_def} 
+The time dependence of the population functions $n(t)$ for water/vapor interface, as computed from the ADH (solid line) and AHD (dashed line) 
+criterion of H-bonds with the expression (a) $n(t) = \int_0^t dt'k_{in}(t')$ and (b) $n(t) = \langle h(0)[1-h(t)]h^d(t) \rangle/\langle h\rangle$, respectively.} 
+\end{figure}
+
+\newpage
 \section{Water-water Pair Based Hydrogen Bond Dynamics}
 The method described in this paragraph is used more in the literature. 
 The basis is the population operator $h(t)$ of the HB formed between two water molecules. 
@@ -629,7 +718,7 @@ for HB breaking.
 %
 \begin{table}[htbp]
 \centering
-\caption{\label{tab:k_k_prime_pure_and_solutions} 
+\caption{ 
     The Dynamical properties of anion--water and water--water hydrogen bonds at 300 K. Data are from DFTMD for the aqueous solutions. The values are expressed in ps.} 
 \begin{tabular}{ccccc}
 \label{tab:properties_anion-water_hbs}
