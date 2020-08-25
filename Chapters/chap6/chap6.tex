@@ -107,15 +107,7 @@ From the \CHB, the HB relaxation time can also be computed.
 The \CHB for the DFTMD simulated bulk water is shown in Fig. \ref{fig:128w_c_itp_bk_ns40}.
 Therefore, we can obtain the relaxation time from Eq.\ref{eq:tau_relaxation}: $\tau_r = 14.01$ ps for ADH definition of H-bonds, 
 and $\tau_r = 14.16$ ps for AHD definition.
-%-------------------
-%\begin{figure}[hbtp]
-%\centering
-%\includegraphics [width=0.6\textwidth] {./diagrams/128w_bk_2delta_t_60ps_c}
-%\setlength{\abovecaptionskip}{0pt}
-%\caption{\label{fig:128w_bk_2delta_t_60ps_c} The correlation function \CHB ($c(t)$ for short) from the trajectory of a DFTMD simulation with ADH (solid line) and AHD (dashed line) definition of H-bonds. 
-%The length of the trajectory coincided with 60 ps of physical time. The simulation is for bulk water at the temperature $300$ K and with a density $1.00$ g/cm$^3$.}
-%\end{figure} 
-
+%
 \begin{figure}[hbtp]
 \centering
 \includegraphics [width=0.6\textwidth] {./diagrams/128w_c_itp_bk_ns40}
@@ -244,7 +236,13 @@ Therefore, the reaction time constant $\tau$ is
 \end{eqnarray}
 %
 
-\paragraph{Structural Properties of Bulk Water}
+\paragraph{Structural Properties of Pure Water}
+The pure water system and the interface between pure water and vacuum, i.e., the water/vapor interface, 
+are ideal model systems for testing our algorithms.
+For pure water systems, especially for bulk water, we can compare the results of the current method with the results of 
+previous researchers.\cite{AL96,Kessler2015} On this basis, we will show in the next sections about the pure water interface, 
+the aqueous solution containing ions, and the hydrogen bond dynamics in the interface corresponding to the aqueous solution.
+
 The oxygen-oxygen radial distribution functions $g_{OO}(r)$ and $g_{OH}(r)$ for the bulk water system are 
 shown in Fig. \ref{fig:rdf_bk_pure_and_interf_pure} (a).
 \begin{figure}[htbp]
@@ -252,7 +250,8 @@ shown in Fig. \ref{fig:rdf_bk_pure_and_interf_pure} (a).
 \includegraphics [width=0.6 \textwidth] {./diagrams/rdf_bk_pure_and_interf_pure} 
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:rdf_bk_pure_and_interf_pure}The partial RDFs of liquid water at ambient conditions.
-(a) Bulk water (Box size: 15.6404 $\times$ 15.6404 $\times$ 15.6404 \AA$^3$; $T = 300$ K); (b) Water/vapor interface.}
+(a) Bulk water (box size: 15.6404 $\times$ 15.6404 $\times$ 15.6404 \A$^3$; $T = 300$ K);
+(b) water/vapor interface (box size: 15.6404 $\times$ 15.6404 $\times$ 31.2808 \A$^3$; $T = 300$ K).}
 \end{figure}
 \begin{figure}[htbp]
 \centering
@@ -268,7 +267,7 @@ The simulation was for bulk water at $T=300$ K, and with a density of 1.00 g cm$
 \includegraphics [width=0.6 \textwidth] {./diagrams/128w_itp_c_n_k} 
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:128w_itp_c_n_k} Time dependence of the correlation functions (a) $n(t)$, $c(t)$ and (b) the $k(t)$ 
-of water--water hydrogen bonds for water/vapor interface at 300 K, calculated from the trajectory of a DFTMD simulation.
+of water--water hydrogen bonds for water/vapor \emph{interface} at 300 K, calculated from the trajectory of a DFTMD simulation.
  The definition of $h(t)$ is based on specific H--O bond, instead of water-water pairs.
 The length of the trajectory is 50 ps of physical time.}
 \end{figure}
@@ -279,14 +278,14 @@ The length of the trajectory coincided with 60 ps of physical time. The simulati
 The reactive flux $k(t)$ we calculated here is very consistent with the result in \cite{AL96b}.
 
 For the water/vapor interface of neat water, we reported the result of the correlation fucntion  $c(t)$, $n(t)$
-in Figure \ref{fig:128w_itp_c_n_k}(a) and the reactive flux $k(t)$ in Figure \ref{fig:128w_itp_c_n_k}(b).
+in Fig. \ref{fig:128w_itp_c_n_k}(a) and the reactive flux $k(t)$ in Fig. \ref{fig:128w_itp_c_n_k}(b).
  
 %which had been used in the study of HB dynamics of liquid water. [\cite{AL96,Khaliullin2013}]
 %The $k(t)$ calculated from the positional trajectory of water molecules in DFTMD simulations, is reported in Fig.\space\ref{fig:128w_bk_2delta_t_60ps_k_log}. 
 %
 In both cases, the $k(t)$ quickly changes from its initial value on a time scale of less than 0.2 ps. 
-This value can be roughly seen from Figure \ref{fig:pure_bk_and_itp_k}, which redraws the $k(t)$ in Figure \ref{fig:pure_bk_c_n_k} and 
-Figure \ref{fig:128w_itp_c_n_k} in double logarithmic coordinates and compares them.
+This value can be roughly seen from Fig. \ref{fig:pure_bk_and_itp_k}, which redraws the $k(t)$ in Fig. \ref{fig:pure_bk_c_n_k} and 
+Fig. \ref{fig:128w_itp_c_n_k} in double logarithmic coordinates and compares them.
 %
 \begin{figure}[htbp]
 \centering
@@ -466,26 +465,12 @@ The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{R}}$ ($=1/k$) is
   AHD(from $k_{in}$) & 0.101  & 0.031 & 9.87 & 0.154  & 0.085 & 6.48 \\
 \end{tabular}
 \end{table}
-
-%\begin{table}[htbp]
-%\centering
-%\caption{\label{tab:k_k_prime_128w_pure_5} 
-%    The $k$ and $k'$ for the bulk water and the water/vapor interface. We carried on the time region 3.2 ps $< t <$ 60 ps. 
-%The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{R}}$ ($=1/k$) is ps.} 
-%\begin{tabular}{ccccccc}
-% Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{R}}$ (bulk) & $k$  (interf.) & $k'$ (interf.) & $\tau_{\text{R}}$ (interf.)\\
-%\hline
-%  ADH & 0.106 & 0.016 & 9.43 & 0.143 & 0.037 & 7.01\\
-%  ADH(from $k_{in}$) & 0.106  & 0.021 & 9.46 & 0.150  & 0.057 & 6.65\\
-%  AHD & 0.097 & 0.022 & 10.33 & 0.142 & 0.054 & 7.05 \\
-%  AHD(from $k_{in}$) & 0.096  & 0.025 & 10.43  & 0.149  & 0.080 & 6.70 \\
-%\end{tabular}
-%\end{table}
+%
 In the Table \ref{tab:k_k_prime_128w_pure_1} to \ref{tab:k_k_prime_128w_pure_4}, we performed the fitting in different time region $t_0 < t < 60$ ps
 to obtain the forward and backward rate constants ($k$ and $k'$), where $t_0 = 0.2, 0.4, 0.8, 1.6$ ps, respectively. 
 We note that on the larger time region, i.e., when $t$ is larger, the value of $\tau_R$ is larger than when $t$ is smaller, 
 no matter for the bulk water or the interface. A larger $\tau$ value means that the distance between a water molecule and another water molecule 
-stays within $r_{OO}^c= 3.5$\AA for a longer time. 
+stays within $r_{OO}^c= 3.5$ \AA for a longer time. 
 
 %For the water/vapor interface of pure water, we also calculated the constants $k$ and $k'$ by least square fit. 
 
@@ -499,12 +484,12 @@ The time dependence of the correlation functions $C_{HB}(t)$ and $S_{HB}(t)$ (ln
 as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds. 
 The definition of the correlation function is based on the specific hydrogen bond configuration between molecules.} 
 \end{figure}
-The results of the correlation functions $C_{HB}(t)$ and $S_{HB}(t)$ for both nitrate--water (N--W) and water--water (W--W) hydrogen bonds are shown in Figure \ref{fig:c_and_s_ln_bk_pbc}(a) and (b), respectively.
+The results of the correlation functions $C_{HB}(t)$ and $S_{HB}(t)$ for both nitrate--water (N--W) and water--water (W--W) hydrogen bonds are shown in Fig. \ref{fig:c_and_s_ln_bk_pbc}(a) and (b), respectively.
 For both hydrogen bond definitions, it is found that the decay of the $C_{HB}(t)$ and $S_{HB}(t)$ for nitrate--water hydrogen bonds is much faster 
 than that for water--water hydrogen bonds. From the relation \ref{eq:calculate_hb_lifetime_from_s}, the faster relaxation of $S_{HB}(t)$ implies that 
 the nitrate--water hydrogen bonds have shorter lifetime than the water--water hydrogen bonds in the bulk phase. 
 This result is obtained from a DFTMD simulation of a bulk phase of LiNO$_3$ solution at 300 K. The simulated system consisted of 127 water molecules and a Li$^+$--NO$_3^-$ ion pair
-in a periodic cubic box of length $L=15.7787$\AA, which corresponds to a density of (1.11 TO BE CHECKED) g cm$^{-3}$. 
+in a periodic cubic box of length $L=15.7787$\AA, which corresponds to a density of 1.11 g cm$^{-3}$. (TO CHECK) 
 
 \newpage
 \section{Water-water Pair Based Hydrogen Bond Dynamics}
@@ -529,13 +514,15 @@ and can be studied by a continuous function, probability densities.
 From the \CHB, the HB relaxation time is computed as [\cite{Lee2007}]
 
 
-Fig.\ref{fig:128w_bk_2delta_t_60ps_water_pair_c_ns40} shows the correlation function $C_{HB}(t)$ defined by $C_{HB}(t) = \langle h(0)h(t)\rangle/\langle h \rangle$ for bulk water over time. The result is calculated by DFTMD simulation, and the temperature is 300 K. 
+Fig.\ref{fig:128w_bk_2delta_t_60ps_water_pair_c_ns40} shows the correlation function $C_{HB}(t)$ defined by $C_{HB}(t) = \langle h(0)h(t)\rangle/\langle h \rangle$ 
+for bulk water over time. The result is calculated by DFTMD simulation, and the temperature is 300 K. 
 \begin{figure}[H]
 \centering
 \includegraphics [width=0.5\textwidth] {./diagrams/128w_bk_2delta_t_60ps_water_pair_c_ns40}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:128w_bk_2delta_t_60ps_water_pair_c_ns40} 
-The correlation functions $C_{HB}(t)$ for bulk water, based on water-water pair hydrogen bond population operator $h(t)$, as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds.} %[DESCRIBE THE FIGURE][COMPARE THE RESULTs TO hbond-based CORRELATION FUNCTION]
+The correlation functions $C_{HB}(t)$ for bulk water, based on water-water pair hydrogen bond population operator $h(t)$, 
+as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds.} %[DESCRIBE THE FIGURE][COMPARE THE RESULTs TO hbond-based CORRELATION FUNCTION]
 \end{figure}
 
 
@@ -548,7 +535,8 @@ The anisotropy decay can be determined from experimental signal in two different
         R(t)=\frac{S_{\parallel}(t)-S_{\perp}(t)}{S_{\parallel}(t)+2S_{\perp}(t)}
 \label{eq:ad}
 \end{equation}
-where $t$ is the time between pump and probe laser pulses.  The anisotropy decay can also be obtained by simulations, and calculated by the third-order response functions $R(t)$. [\cite{Jansen10,Jansen06}]
+where $t$ is the time between pump and probe laser pulses.  The anisotropy decay can also be obtained by simulations, 
+and calculated by the third-order response functions $R(t)$. [\cite{Jansen10,Jansen06}]
 %
 %In the first shell with a radius 3 \A, the entropy difference betweem the \Li shell and \Na shell,
 %$\Delta S=k_B\text{ln}\frac{\Omega_\text{Na}}{\Omega_\text{Li}}=k_B\text{ln}\frac{n_\text{Na}/V_\text{Na}}{n_\text{Li}/V_\text{Li}} =k_B\text{ln}1.05$.
@@ -575,7 +563,9 @@ quick change during the first $\sim 0.1$ ps primarily due to librations.
 \centering
 \includegraphics [width=0.6\textwidth] {./diagrams/c2_2LiI_16_inset} 
 \setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:c2_2LiI_16_inset} The time dependence of the $C_2(t)$ of OH bonds at the water/vapor interfaces of 0.9 M LiI solution and of neat water (dashed line) at 330 K, calculated by DFTMD simulations. The water/vapor interface of neat water is modeled with a slab made of 121 water molecules in a simulation box of size $15.6 \times 15.6 \times 31.0$ \A$^3$.}
+  \caption{\label{fig:c2_2LiI_16_inset} The time dependence of the $C_2(t)$ of OH bonds at the water/vapor interfaces of 0.9 M LiI solution 
+    and of neat water (dashed line) at 330 K, calculated by DFTMD simulations. The water/vapor interface of neat water is modeled 
+    with a slab made of 121 water molecules in a simulation box of size $15.6 \times 15.6 \times 31.0$ \A$^3$.}
 \end{figure}
 %
 We also calculated the $C_2(t)$ for the interface of other alkali-iodine solutions LiI and KI. 
@@ -721,15 +711,15 @@ minimum of the $X$--oxygen RDF, i.e., $R_c^{XO}=4.1$, 3.7 \A, for $X$ = I$^-$ an
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:gdr_127_LiNO3} (a)Li--water O, Li--water H RDFs; (b) Nitrate O--water O, nitrate O-water H RDFs for LiNO$_3$ solutions at 300 K. The RDFs were computed from DFTMD.}
 \end{figure}
-The function $C_{HB}$ of I$^-$--water and water--water hydrogen bonds describes the structural relaxation of these H- bonds. The results of the $C_{HB}(t)$ are shown in Figure \ref{fig:X-O_c_lii}. 
+The function $C_{HB}$ of I$^-$--water and water--water hydrogen bonds describes the structural relaxation of these H- bonds. The results of the $C_{HB}(t)$ are shown in Fig. \ref{fig:X-O_c_lii}. 
 \begin{figure}[htbp]
 \centering
 \includegraphics [width=0.6 \textwidth] {./diagrams/X-O_c_lii} 
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:X-O_c_lii} Time dependence of the intermittent correlation functions of I$^-$--water (I$^-$--W) and water--water hydrogen bonds at 300 K.}
 \end{figure}
-The results of the continuous correlation functions for both definitions (ADH and AHD criterions) for the H-bonds are shown in Figure \ref{fig:wat-wat_s_lii} 
-for I$^-$--water hydrogen bonds. The results of water--water hydrogen bonds are also included for comparison in both Figure \ref{fig:wat-wat_s_lii} (a) and (b).
+The results of the continuous correlation functions for both definitions (ADH and AHD criterions) for the H-bonds are shown in Fig. \ref{fig:wat-wat_s_lii} 
+for I$^-$--water hydrogen bonds. The results of water--water hydrogen bonds are also included for comparison in both Fig. \ref{fig:wat-wat_s_lii} (a) and (b).
 \begin{figure}[htbp]
 \centering
 \includegraphics [width=0.6 \textwidth] {./diagrams/wat-wat_s_lii} 
