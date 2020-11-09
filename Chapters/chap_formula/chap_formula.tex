@@ -52,3 +52,246 @@ Proof:
     &=({\bf{b}}\cdot{\bf{c}})({\bf{a}}\cdot{\bf{d}})
 \end{align}
 
+\paragraph{Molecular Dipole Moment and Dipole Polarizibility Derivatives} \label{calculate_derivatives} 
+The polarizability tensor $\boldsymbol{\alpha}$ is defined by the relation
+\begin{equation}
+  \delta \boldsymbol{\mu} = \boldsymbol{\alpha} \boldsymbol{\mathscr{E}}
+  \label{eq:def_alpha}
+\end{equation}
+where $\delta \boldsymbol{\mu}$ is the electric dipole moment (a vector) induced in the molecule by
+the electric field $\boldsymbol{\mathscr{E}}$, with the components $\mathscr{E}_x$,$\mathscr{E}_y$ and $\mathscr{E}_z$.
+Now we describe the main algorithm to implement the parametrization of the molecular dipole moment 
+derivative $\frac{\partial \mu_k}{\partial r}$ and dipole polarizibility derivative $\frac{\partial\alpha_{\eta\xi}}{\partial r}$. 
+This result can be used in the velocity ACF-based method for calculating the VSFG spectroscopy intensity.
+
+Given a DFT MD trajectory of total length $\sim 10^2$ ps for bulk water, sampled with a frequency $\sim 1$ ps$^{-1}$.
+For the $j$-th water molecule in the $n$-th snapshot of the trajectory, 
+we denote the two OH bonds as H$^{n,j,\epsilon=1}$ and H$^{n,j,\epsilon=-1}$. We will calculate statistical average over all time steps and all OH bonds, therefore, 
+we just denote the corresponding OH bonds by ${\epsilon=1}$ and ${\epsilon=-1}$, respectively. 
+The H atoms in a water molecule are denoted by H$^{\epsilon=1}$ and H$^{\epsilon=-1}$, and the O atom by O$^{0}$.
+%For the bond OH$_{\epsilon}$, we alculate vector OH$_{\epsilon}$, and $|\text{OH}_{\epsilon}|$ in the lab framework,
+%then the direction cosines ($\cos\alpha_{\epsilon}$, $\cos\beta_{\epsilon}$, $\cos\gamma_{\epsilon}$) of the vector OH$_{\epsilon}$ in the molecular frame MF$_{n,j}$.
+%The size of the array to store the direction cosines is $ 40\times 32\times 3 \times 3$.
+%Calculate the direction cosine matrix between bond framework and molecular framework. 
+
+We used three different frameworks: the lab framework ($x^{\text{l}},y^{\text{l}},z^{\text{l}}$), the molecular framework
+($x^{\text{m}},y^{\text{m}},z^{\text{m}}$) and the bond framework ($x^{\text{b}},y^{\text{b}},z^{\text{b}}$) (see Fig.\space\ref{fig:frameworks}).
+In the lab framework, the $z^{\text{l}}$-axis is perpendicular to the interface.
+The molecular frame will be used to decompose the signal into normal modes of water monomers.
+For the $j$-th molecule, the $z^{\text m}$ axis is along the bisector of the H-O-H angle, the $x^{\text m}$ axis is in the molecular plane,
+and the $y^{\text m}$ axis is out of the molecular plane. [\cite{Khatib2017}]
+In the bond framework, $z^{\text{b},\epsilon}$ axis is along the bond $\epsilon$ of a molecule, $z^{\text{b},\epsilon}$
+is in the molecular plane and $y^{\text{b},\epsilon}$ is out of the molecular plane.
+
+There are two direction cosine matrices between the bond frameworks and molecular framework,
+we name them as ${\bf D}^{\text{b},\epsilon=-1}$ and  ${\bf D}^{\text{b},\epsilon=1}$, [\cite{Khatib2017}]
+or ${\bf D}^{\text{b},-1}$ and  ${\bf D}^{\text{b},1}$ for short. 
+Then the direction matrix ${\bf D}^{\text{b},\epsilon} $ can be represented by direction cosines between ${\bf x}^{\text{b},\epsilon}$ and ${\bf x}^m$, 
+where $\epsilon=\pm 1$ and $\theta$ denotes the H-O-H angle in the $j$-th water molecule for the $n$-step:
+\begin{subequations}
+\begin{align}
+  &\hat x^{\text{b},\epsilon}_1 = \epsilon \cos\frac{\theta}{2} \hat x^m_1 +  \sin\frac{\theta}{2} \hat x^m_3 \\
+  &\hat x^{\text{b},\epsilon}_2 = \epsilon \hat x^m_2 \\
+  &\hat x^{\text{b},\epsilon}_3 = -\epsilon \sin\frac{\theta}{2} \hat x^m_1 + \cos\frac{\theta}{2} \hat x^m_3
+\end{align}
+\end{subequations}
+i.e., 
+\begin{equation}
+  {\bf D}^{\text{b},\epsilon} =\left(
+  \begin{matrix}
+    \epsilon\text{cos}\frac{\theta}{2} &  0  & \text{sin}\frac{\theta}{2}\\
+    0 & \epsilon & 0\\
+    -\epsilon\text{sin}\frac{\theta}{2} & 0 & \text{cos}\frac{\theta}{2}
+  \end{matrix}
+  \right).
+\end{equation}
+  The molecular framework is given by the direction cosine matrix ${\bf D}^\text{m,l}$ (or ${\bf D}^\text{m}$) between molecular framework  and the lab framework
+  %How to determine  $({\bf D}^\text{m,l})$?  
+%Since we can know the coordinates of $(\hat x^m_3)$ in the lab framework: 
+%\begin{equation}
+%(\hat x^m_3) = (a_{31}) \hat x^l_1 + (a_{32}) \hat x^l_2 + (a_{31})_{nj} \hat x^l_3,
+%\end{equation}
+%Therefore, the realation between the unit vecotor  $(\hat x^m_1)$ and $(\hat x^m_2)$ are
+%
+\begin{subequations}
+\begin{align}
+  \hat {\bf x}^m ={\bf D}^\text{m} \hat{\bf x}^l.
+\end{align}
+\end{subequations}
+%i.e., we obtain  $({\bf D}^\text{m})$.
+
+% 2a1c.
+%\begin{subequations}
+%  \begin{align}\left(
+%  \begin{matrix}
+%  \{\bf D} x^{\epsilon} \\
+%  \Delta y^{\epsilon} \\
+%  \Delta z^{\epsilon} 
+%  \end{matrix}
+%    \right)
+%    =\Delta r \left(
+%  \begin{matrix}
+%  \cos\alpha^{\epsilon}\\
+%  \cos\beta^{\epsilon}\\
+%  \cos\gamma^{\epsilon}
+%  \end{matrix}
+%    \right)
+%\end{align}
+%\end{subequations}
+%i.e., $\Delta {\bf r}^{\epsilon} =(\Delta x^{\epsilon}, \Delta y^{\epsilon} ,\Delta z^{\epsilon} )^\text{T}$.
+%        
+%2a2.
+%\begin{subequations}
+%\begin{align}
+%  &   (x'_H)_{\epsilon} -(x_O)_{0} = (x_H)_{\epsilon} -(x_O)_{0} + \Delta  x_{\epsilon} \\
+%  &   (y'_H)_{\epsilon} -(y_O)_{0} = (y_H)_{\epsilon} -(y_O)_{0} + \Delta  y_{\epsilon} \\
+%  &   (z'_H)_{\epsilon} -(z_O)_{0} = (z_H)_{\epsilon} -(z_O)_{0} + \Delta  z_{\epsilon}
+%\end{align}
+%\end{subequations}
+%
+%2a4.We need to calculate the dipole moment of each molecule for $\Delta r \in [-0.05,0.05]$. 
+The dipole moment of each OH bond with different length is requird to determine the dipole moment derivative. 
+    %(For convionient, we have defined $ \text{inc} =\Delta r/|\Delta r|$.)
+    %We elongate (reduce) the bond OH$_{n, j,\epsilon}$, and keep other bonds still, then we obtain a updated coordinate file ${\text{pos}}nj\epsilon\text{inc}.\text{xyz}$, where $(n, j,\epsilon)$ is the index of the H in OH$_{\epsilon}$.
+Therefore, we elongate (reduce) one bond ${\epsilon}$ by $\Delta r = 0.05$ \AA ($\Delta r = -0.05 $ \A), and keep other 
+bonds in the total system still, then we obtain a updated coordinate.
+Then the MLWF centers for the system can be calculated from the updated coordinate, using force and energy calculation at the DFT level.
+%which is represented by the coordinate file ${\text{pos}}nj\epsilon\text{inc}.\text{xyz}$.
+    %2a5a: before next step, we generated a template input file 1.inp. 
+    %2a5b: From the template input file 1.inp, we generate an input file for the disturbed position represented by ${\text{pos}}nj\epsilon\text{inc}.\text{xyz}$ with the elongated bond OH$_{\epsilon}$: $n j \epsilon\text{inc}.\text{inp}$
+    %2a5c: Using DFTMD, we use the input file $nj\epsilon\text{inc}.\text{inp}$ to calculate and write out the Wannier centers for the system  ${\text{pos}}n j \epsilon\text{inc}.\text{xyz}$. The output: ${\text{HOMO}}n j \epsilon \text{inc}.\text{xyz}$.
+    %2a6: From the Wannier centers of the water molecule (can be found in the output ${\text{HOMO}}nj \epsilon \text{inc}.\text{xyz}$), we can calculate the dipole moment for the elongated (reduced) bond OH$_{\epsilon}$.  The $k$ component of the dipole moment: $(\mu^{b,r+\Delta r}_k)_{\epsilon}$.
+    From the Wannier centers of the $j$-th water molecule, we can calculate the dipole moment for the elongated (reduced) 
+   % MAYBE I DO NOT NEED TO DO BOTH ELONGATING AND REDUCING THE BOND,IE.,I JUST TAKE $\Delta r=0.05$\AA OR $\Delta r=0.05 $\AA IS ENOUGH!) 
+    bond ${\epsilon}$. 
+    %Therefore, the $k$ component of the dipole moment $(\mu^{b,r+\Delta r}_k)_{\epsilon}$ can be obtained.
+    In the bond frame, $|\mu^b| =|\mu^b_z|$. 
+    Therefore, we can calculate the $k=z$ component of the dipole moment for ${\epsilon}$ in water molecule $j$ from the MLWF centers. [\cite{Silvestrelli1999}] 
+      The MLWF centers are computed [\cite{Silvestrelli1999}] and the partial dipole moment for a given molecular species $I$ is defined as [\cite{Salanne08}]
+      %
+      \begin{equation}
+        \mu^I = \sum_{i\in I}(Z_i {\bf R}_i - 2\sum_{n\in i} {\bf r}^w_n).
+      \end{equation}
+       %
+In particular, here it is expressed as 
+%\begin{equation}
+%  \mu^{\text{b},r+\Delta r,\epsilon} = \frac{1}{2}Z_O {\bf R}^{0} +Z_H{\bf R}^{\epsilon} +1\times (-2) \times r^{w,\epsilon} +\frac{1}{2}\times 2\times (-2)\times r^{w,0},
+%\end{equation}
+\begin{equation}
+  \mu^{\text{b},r+\Delta r,\epsilon} = \frac{1}{2}Z_{\text{O}} {\bf R}^{0} +Z_{\text{H}}{\bf R}^{\epsilon} -2r^{w,\epsilon} -2r^{w,0},
+\end{equation}
+where $\epsilon=\pm 1$.
+%3c: 
+In the $\epsilon$ frame, the $k=z$ component dipole moment derivative with respect to bond length [\cite{Wilson1955}] for the single OH bond $\epsilon$ in water molecule $j$ is
+        %
+        \begin{equation}
+          \frac{\partial \mu^{\text{b},\epsilon}}{\partial r} = (\mu^{\text{b},r+\Delta r,\epsilon}-\mu^{\text{b},r,\epsilon})/\Delta r.
+        \end{equation}
+       % for both the case of elongating the OH bond, i.e., $\Delta r > 0$ and reducing the OH bond.
+        %3d
+       % We represent this vector $\frac{\partial \mu^{\text{b},\epsilon}}{\partial r}$ as $( 0, 0, \frac{\partial \mu^{\text{b},\epsilon}}{\partial r} )^\text{T}$.
+        Since the components of the dipole moment in the molecular framework are given by the transformation:
+        \begin{subequations}
+          \begin{align}
+            \left(
+            \begin{matrix}
+              (\frac{\partial \mu^\text{m}}{\partial r})_1\\
+              (\frac{\partial \mu^\text{m}}{\partial r})_2\\
+              (\frac{\partial \mu^\text{m}}{\partial r})_3
+            \end{matrix}
+            \right)
+            = {\bf D}^{\text{b},\epsilon}
+            \left(
+            \begin{matrix}
+              0\\
+              0\\
+              \frac{\partial \mu^{\text{b},\epsilon}}{\partial r}
+            \end{matrix}
+            \right),
+            \end{align}
+        \end{subequations}
+    % END of r-loop 
+    then, to calculate the individual polarizability for a OH bond from Wannier centers, 
+    calculations involving finite electric fields (of 0.0001 au intensity) were performed independently 
+    along $x$, $y$, and $z$ directions at each sampled time step. [\cite{sulpizi2013}]
+        %4a: 
+    For the electric field $\mathscr{E} \in \{\mathscr{E}_x,\mathscr{E}_y, \mathscr{E}_z\}$,
+            %similar to 2a5a, but add an electric filed $ \varepsilon$. %The template input file is: 2.inp.
+            %4a1: from the template input file, generate a input file $nj\epsilon\varepsilon.\text{inp}$, where if extra electric filed $\varepsilon=\varepsilon_x$, that means we add a electric field along $x$ axis. Similar for $\varepsilon_y$ and $\varepsilon_z$.
+            %4a2: similar to 2a5c, for the position file ${\text{pos}}nj\epsilon.\text{xyz}$, the output Wannier centers are in   ${\text{HOMO}}nj\epsilon\varepsilon.\text{xyz}$.
+       like in the case of no external electric field, the MLWF centers are calculated. %in ${\text{HOMO}}nj\epsilon\varepsilon.\text{xyz}$.
+ For a finite $\Delta r$, the dipole moment is given by 
+%\begin{equation}
+%  \mu^{b,r+\Delta r,\epsilon,\varepsilon} = Z_H{\bf R}^{\epsilon,\varepsilon} + 
+%  \frac{1}{2}Z^0 {\bf R}^{0,\varepsilon} + 
+%  1\times (-2) \times {\bf r}^{\text{w},\epsilon,\varepsilon} +\frac{1}{2}\times 2\times (-2)\times ({\bf r}^\text{w})^{0,\varepsilon}
+%\end{equation}
+\begin{equation}
+  \mu^{b,r+\Delta r,\epsilon,\mathscr{E}} = Z_H{\bf R}^{\epsilon,\mathscr{E}} + 
+  \frac{1}{2}Z^0 {\bf R}^{0,\mathscr{E}} -2 {\bf r}^{\text{w},\epsilon,\mathscr{E}} -2{\bf r}^{\text{w},0,\mathscr{E}}.
+\end{equation}
+        %END $ \Delta r$-loop  
+%4a4 the polarizability tensors $\alpha^{b,r+|\Delta r|}$ and $\alpha^{b,|r-\Delta r|}$. 
+From the relation ( obtained from Eq.\space\ref{eq:def_alpha})
+      \begin{subequations}
+          \begin{align}
+            & 0 = \alpha^{b,r+\Delta r}_{11}\mathscr{E}_{1} + \alpha^{b,r+\Delta r}_{12}\mathscr{E}_{2} + \alpha^{b,r+\Delta r}_{13}\mathscr{E}_{3}\\
+            & 0 = \alpha^{b,r+\Delta r}_{21}\mathscr{E}_{1} + \alpha^{b,r+\Delta r}_{22}\mathscr{E}_{2} + \alpha^{b,r+\Delta r}_{23}\mathscr{E}_{3}\\
+            & \delta \mu^{b,r+\Delta r}_{3} = \alpha^{b,r+\Delta r}_{31}\mathscr{E}_{1} + \alpha^{b,r+\Delta r}_{32}\mathscr{E}_{2} + \alpha^{b,r+\Delta r}_{33}\mathscr{E}_{3}.
+          \end{align}
+      \end{subequations}
+%
+where
+\begin{equation}
+  \delta \mu^{b,r+\Delta r}_{3} = \mu^{b,\epsilon,r+\Delta r,\mathscr{E}}_{3} - \mu^{b,\epsilon,r+\Delta r}_{3}.
+\end{equation}
+%
+and the expressions of the electric filed ${\mathscr{E}^\text{b}}$ in a OH framework for the 3 cases of external eletric field 
+which is along $x$, $y$ and $z$ axis in the lab framework, respectively, we obtain 9 equations.
+%
+For
+\begin{equation}
+  {\bf\mathscr{E}}^{\text{l}} = (\mathscr{E}_0, 0,0)^T \nonumber
+\end{equation}  
+where $\mathscr{E}_0 = 0.0001$ au, we can obtain the intensity of the external electric filed in the molecular framework  
+\begin{subequations}
+  \begin{align}
+    &\mathscr{E}^\text{m}_1 = {\bf D}^{\text{m}}_{12} \mathscr{E}^\text{l}_2\\
+    &\mathscr{E}^\text{m}_2 = {\bf D}^{\text{m}}_{22} \mathscr{E}^\text{l}_2\\
+    &\mathscr{E}^\text{m}_3 = {\bf D}^{\text{m}}_{32} \mathscr{E}^\text{l}_2,
+    \end{align}
+\end{subequations}
+where ${\bf D}^{\text{m}}_{pq}$ is the $pq$-component of ${\bf D}^\text{m}$.
+%
+In OH bond framework,  
+\begin{equation}
+  \mathscr{E}^{\text b} = {\bf D}^{\text b} \mathscr{E}^{\text{m}}.
+\end{equation}
+Similarly, we obtain similar (but different) expansions of the intensity of the electric field for the other two cases: 
+when $\mathscr{E}^{\text{l}} = (0,\mathscr{E}_0, 0)^\text{T}$ and when $\mathscr{E}^{\text{l}} = (0,0,\mathscr{E}_0)^\text{T}$, respectively.
+Here, $\mathscr{E}_x$ is the electric field along $x$-axis in the lab frame. 
+    %4a5: 
+    %If we just elongate each single bond, ie., let $\Delta r > 0$,
+    Then the dipole polarizability for the bond ${\epsilon}$ is as follows:
+\begin{subequations}
+  \begin{align}
+    &\frac{\partial \alpha^{b,\epsilon}_{31}}{\partial r} = (\alpha^{b,\epsilon,r+\Delta r}_{31} -\alpha^{b,\epsilon,r}_{31})/\Delta r\\
+    &\frac{\partial \alpha^{b,\epsilon}_{32}}{\partial r} = (\alpha^{b,\epsilon,r+\Delta r}_{32} -\alpha^{b,\epsilon,r}_{32})/\Delta r\\
+    &\frac{\partial \alpha^{b,\epsilon}_{33}}{\partial r} = (\alpha^{b,\epsilon,r+\Delta r}_{33} -\alpha^{b,\epsilon,r}_{33})/\Delta r.
+  \end{align}
+\end{subequations}
+    %If we just reduce each single bond, ie., let $\Delta r < 0$, then the dipole polarizability for the bond ${\epsilon}$ is as follows:
+%\begin{subequations}
+  %\begin{align}
+   % &\frac{\partial \alpha^{b,\epsilon}_{31}}{\partial r} = (\alpha^{b,\epsilon,r}_{31} -\alpha^{b,\epsilon,r+\Delta r}_{31})/|\Delta r|\\
+   % &\frac{\partial \alpha^{b,\epsilon}_{32}}{\partial r} = (\alpha^{b,\epsilon,r}_{32} -\alpha^{b,\epsilon,r+\Delta r}_{32})/|\Delta r|\\
+   % &\frac{\partial \alpha^{b,\epsilon}_{33}}{\partial r} = (\alpha^{b,\epsilon,r}_{33} -\alpha^{b,\epsilon,r+\Delta r}_{33})/|\Delta r|.
+  %\end{align}
+%\end{subequations}
+          %END 4a
+      %END $j$-loop
+%END $n$-loop
+
+Therefore, the average for $(\frac{\partial \mu^{\text{b},\epsilon}}{\partial r})_\kappa$ and $(\frac{\partial \alpha^{\text{b},\epsilon}}{\partial r})_{\eta\xi}$ 
+(The subscripts $\kappa, \eta, \xi = x^m, y^m, z^m$, or $1, 2, 3$) over all OH bonds gives the molecular dipole and polarizability derivatives. 
+

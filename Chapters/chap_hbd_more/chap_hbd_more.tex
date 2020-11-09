@@ -42,7 +42,7 @@ P_{\mathrm{tt}}(t)=\left\langle \tau_{\mathrm{tt}}\right\rangle P_{\mathrm{tc}}(
 \label{eq:relation_P_tt--P_tc}
 \end{eqnarray}
 The difference between the two distribution functions, $P_{\mathrm{tt}}(t)$ and $P_{\mathrm{tc}}(t)$, can be described as follows.
-The $P_{\mathrm{tt}}(t)$ represents the percentage of the number of H-bonds with a given lifetime $t$ to the number of all H-bonds in a trajectory, 
+The $P_{\mathrm{tt}}(t)$ represents the percentage of pairs of molecules that had a continuous H-bonds during time $t$, 
 while the $P_{\mathrm{tc}}(t)$ the percentage of the number of H-bonds with a given lifetime $t$ to the number of all H-bonds in any configuration. 
 \cite{VPV09}
 
@@ -175,7 +175,7 @@ Fig.\space\ref{fig:2LiI-124w_c2_fit_5_single-exp}.
 %
 \begin{figure} [htbp]
 \centering
-	\includegraphics [width=\textwidth] {./diagrams/2LiI-124w_c2_fit_5_single-exp}
+	\includegraphics [width=0.60\textwidth] {./diagrams/2LiI-124w_c2_fit_5_single-exp}
 \setlength{\abovecaptionskip}{0pt}
 	\caption{\label{fig:2LiI-124w_c2_fit_5_single-exp} The anisotropy decay of OH bonds in water molecules at the water/vapor interface of LiI solutions (5 ps).}
 \end{figure} 
@@ -210,3 +210,57 @@ It is evident, from the figure, that $C_2(t)$ for water molecules neither in the
 	surface & 0.78 & 0.12 & 8.34 \\
 \end{tabular}
 \end{table}
+
+\paragraph{Relaxation Time of Hydrogen Bonds in Bulk Water}\label{rate_const_and_tau_R_128w}
+% 
+In addition to the simulation in the main text of this thesis, we also use different methods for the bulk water system with the same temperature,
+volume and number of molecules. The number of water molecules in the system is 128, the temperature is still $T=300$, and the box is a cube with a side length of 15.6404 \A. 
+In this simulation, we relax the value of the target accuracy for the SCF convergence to 10$^{-6}$. 
+Other settings, such as exchange correlation functional, correction of dispersion force, etc. are the same as the text. 
+For the dynamic trajectory of such a system, we also calculated the self-correlation function $c(t)$ of the HB population operator, 
+and the functions $k(t)$ and $n(t)$ derived from it. 
+Table \ref{tab:k_k_prime_128w_1} and \ref{tab:k_k_prime_128w_2} shows the rate constant $k$, $k'$ and 
+the relaxation time $\tau_{HB}$ obtained by the least squares fit method. 
+It can be seen from the tables that the accuracy of the calculation of $k$, $k'$ are accurate to at least two decimal places.
+
+%
+\begin{table}[htbp]
+\centering
+\caption{\label{tab:k_k_prime_128w_1} 
+    The $k$ and $k'$ for the bulk water. We carried on the short time region 0.2 ps $< t <$ 2 ps. 
+The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{HB}}$ ($=1/k$) is ps. The $h(t)$ is bond-based.} 
+\begin{tabular}{cccc}
+ Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{HB}}$ (bulk) \\
+\hline
+  ADH & 0.3346 & 0.9374 & 2.9884  \\
+  ADH(from $k_{in}$) & 0.2988  & 1.0290 & 3.3467   \\
+  AHD & 0.3224 & 1.0059 & 3.1014 \\ 
+  AHD(from $k_{in}$) & 0.2884 & 1.1210 & 3.4679 \\ 
+\end{tabular}
+\end{table}
+%
+\begin{table}[htbp]
+\centering
+\caption{\label{tab:k_k_prime_128w_2} 
+    The $k$ and $k'$ for the bulk water. We carried on the long time region 2 ps $< t <$ 12 ps. 
+The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{HB}}$ ($=1/k$) is ps. The $h(t)$ is bond-based.} 
+\begin{tabular}{cccc}
+ Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{HB}}$ (bulk) \\
+\hline
+  ADH & 0.1032 & 0.0237 & 9.6901 \\
+  ADH(from $k_{in}$) & 0.1028  & 0.0275 & 9.7283 \\
+  AHD & 0.1036 & 0.0339 & 9.6558  \\
+  AHD(from $k_{in}$) & 0.1031  & 0.0401 & 9.7016  \\
+\end{tabular}
+\end{table}
+
+\paragraph{Definitions of the $h(t)$}
+The correlation functions $C_{HB}(t)$ of water molecules in bulk water is shown in Fig. \ref{fig:2LiI-124w_c2_fit_5_single-exp}.
+It shows that there are big differences in the correlation function $C_{HB}(t)$ of the two definitions of $h(t)$,
+because hydrogen exchange is considered in the O--H pair-based definition of $h(t)$, but not in the water--water pair-based definition.
+\begin{figure} [htbp]
+\centering
+	\includegraphics [width=0.36\textwidth] {./diagrams/128w_bk--water-pair-based_and_bond-based_c}
+\setlength{\abovecaptionskip}{0pt}
+	\caption{\label{fig:2LiI-124w_c2_fit_5_single-exp} The correlation functions $C_{HB}(t)$ of water molecules in bulk water. Here $h(t)$ is based on two different definitions, one is based on a pair of water molecules, and the other is based on O--H pairs between water molecules.}
+\end{figure} 
