@@ -41,9 +41,12 @@ headsepline, % Uncomment to get a line under the header
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
-\usepackage{mathpazo} % Use the Palatino font by default
+%\usepackage{mathpazo} % Use the Palatino font by default
+\usepackage{lmodern} % Use the Latin Modern font by default
 
-\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+%\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage[backend=bibtex,style=numeric-comp,natbib=true,sorting=none]{biblatex} % Use the bibtex backend with the numeric-comp citation style (which resembles APA), sorting=none is for sorting reference automatically.
+%\usepackage[square,numbers]{natbib}
 
 \addbibresource{example.bib} % The filename of the bibliography
 
@@ -532,17 +535,17 @@ $\nu$ & vibrational frequency & \\
 
 \pagestyle{thesis} % Return the page headers back to the "thesis" style
 
-% Include the chapters of the thesis as separate files from the Chapters folder
+% Include the chapters of the thesis as separate files from the chapters folder
 % Uncomment the lines as you write the chapters
 
-\include{Chapters/chap1/chap1}
-\include{Chapters/chap2/chap2} 
-\include{Chapters/chap3/chap3}
-\include{Chapters/chap4/chap4} 
-\include{Chapters/chap5/chap5} 
-\include{Chapters/chap6/chap6} 
-%\include{Chapters/chap7/chap7} 
-\include{Chapters/chap8/chap8} 
+\include{chapters/chap1/chap1}
+\include{chapters/chap2/chap2} 
+\include{chapters/chap3/chap3}
+\include{chapters/chap4/chap4} 
+\include{chapters/chap5/chap5} 
+\include{chapters/chap6/chap6} 
+%\include{chapters/chap7/chap7} 
+\include{chapters/chap8/chap8} 
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
@@ -554,14 +557,12 @@ $\nu$ & vibrational frequency & \\
 % Uncomment the lines as you write the Appendices
 
 %\include{Appendices/AppendixA}
-\include{Chapters/chap_formula/chap_formula}
-\include{Chapters/chap_parameters/chap_parameters}
-\include{Chapters/chap_free_energy/chap_free_energy}
-\include{Chapters/chap_thickness/chap_thickness}
-\include{Chapters/chap_hbd_more/chap_hbd_more}
-%\include{Chapters/chap_hkt/chap_hkt}
-\include{Chapters/chap_layering/chap_layering}
-%\include{Appendices/AppendixB}
+\include{chapters/chap_formula/chap_formula}
+\include{chapters/chap_parameters/chap_parameters}
+\include{chapters/chap_propensities/chap_propensities}
+\include{chapters/chap_thickness/chap_thickness}
+\include{chapters/chap_hbd_more/chap_hbd_more}
+%\include{chapters/chap_hkt/chap_hkt}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
