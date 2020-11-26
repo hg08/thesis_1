@@ -1,0 +1,53 @@
+\chapter{Proof of Hohenberg-Kohn Theorem} \label{proof_HK}
+The Hohenberg-Kohn theorem: The density $n({\bf r})$ of a non-degenerate ground state uniquely determines the external potential $V({\bf r})$ up to an arbitrary constant.
+
+Proof:
+Consider the subset $\mathscr{\nu}\subset L^{\frac{3}{2}}+L^{\infty}$ of potential that yields a normalizable non-degenerate ground state. The solution of the Schrodinger equation provides us with a mapping from the external potential to the ground state wave-function
+\begin{equation}
+ v(\vec {\bf r})\rightarrow |\Psi[v]\rangle.
+\end{equation}
+Since non-degenerate ground state, $|\Psi[v]\rangle$ is uniquely determined apart from a trivial phase factor.
+Thus we have established a map $C: \mathscr{\nu}\rightarrow \Phi$, where $\Phi$ is the set of ground states.
+(1) We can prove that $C$ is inevitable. Suppose that $|\Psi_1\rangle$ and $|\Psi_2\rangle$ (They are functions in Sobolev space, i.e.,  $|\Psi_1\rangle, |\Psi_2\rangle \in \mathscr{H}^1(R^{3N})$.) correspond to external potential $v_1$ and $v_2 \in L^{\infty}+L^{\frac{3}{2}}$. Here, $v_1 \neq v_2+\text{C}$. If we assume that $|\Psi_1\rangle=|\Psi_2\rangle=|\Psi\rangle$, by subtraction of Hamiltonian for  $|\Psi_1\rangle$ and $|\Psi_2\rangle$, we find
+\begin{equation}
+ (v_1-v_2)|\Psi\rangle = (E_1-E_2)|\Psi\rangle
+\label{subtraction}
+ \end{equation}
+If $v_1-v_2$ is  not constant in some region then $\Psi$ must vanish in this region for 
+Eq.\thinspace(\ref{subtraction}) to be true. However, if $v_1, v_2 \in L^{\infty}+L^{\frac{3}{2}}$, 
+then $|\Psi\rangle$ cannot vanish on a open set by the unique continuation theorem. 
+Therefore, we obtain a contradiction and hence the assumption we made is wrong. 
+Therefore, $\Psi_1 \neq \Psi_2$ and we obtain the result that different potentials 
+(more than a constant) give different wave-functions.  
+So we find that the map $C: \mathscr{\nu}\rightarrow \Phi$ is inevitable.
+
+Define the set $A$ as the set of densities which come from a non-degenerate ground state (we only consider the ground 
+state densities from potentials in the set $L^{\infty}+L^{\frac{3}{2}}$). The set $A$ is obviously a subset of $S$:
+\begin{equation}
+S=\{n|n({\bf r})\geq0, \sqrt{n}\in H^1(R^3), \int d^3rn({\bf r})=N\} .
+\end{equation}
+
+The electron density $n({\bf r})$ is obtained from the many body rarefaction, which is usually the ground state wave-function of Hamiltonian $H_v={\hat T}+\hat V+ \hat W$, by
+\begin{equation}
+ n({\bf r_1})=\langle\Phi |\hat n({\bf r_1})|\Phi\rangle = N\sum_{\sigma_1...\sigma_N}\int d^3_{r_1}...d^3_{r_N}|\Phi({\bf r}_1\sigma_1,...,{\bf r}_N\sigma_N)|.
+\label{density}
+\end{equation}
+According to Eq.\thinspace(\ref{density}), from a given wave-function in the set of ground states $\Phi$,  we can calculate the density.
+This provides us a second map $D:\Phi \rightarrow A$ from ground state wave-functions to ground state densities. To show this we calculate 
+\begin{eqnarray}
+E[v_1] &=& \langle\Psi[v_1]|\hat T + \hat V_1 +\hat W|\Psi[v_1]\rangle \nonumber\\  
+           &<& \langle\Psi[v_2]|\hat T + \hat V_1 +\hat W|\Psi[v_2]\rangle \nonumber \\
+           &=&  \langle\Psi[v_2]|\hat T + \hat V_2 +\hat W|\Psi[v_2]\rangle +\int n_2({\bf r})(v_1({\bf r})-v_2({\bf r}))d{\bf r} \nonumber\\
+           &=&  E[v_2] +\int n_2({\bf r})(v_1({\bf r})-v_2({\bf r}))d{\bf r} \label{Ev1}.
+\end{eqnarray}
+Likewise, we find
+\begin{equation}
+E[v_2]<  E[v_1] +\int n_1({\bf r})(v_2({\bf r})-v_1({\bf r}))d{\bf r} \label{Ev2}.
+\end{equation}
+ Using Eq.\thinspace(\ref{Ev1}) + Eq.\thinspace(\ref{Ev2}), we have
+ \begin{equation}
+  \int (n_2({\bf r})-n_1({\bf r}))(v_1({\bf r})-v_2({\bf r}))d{\bf r} < 0.
+ \end{equation}
+If we assume $n_2=n_1$, then obtain contradiction $0<0$, and we conclude that: different ground states must yield
+different densities, i.e., $D$ is also inevitable. Therefore, the map $DC: \nu \rightarrow A$ is also inevitable and the density therefore uniquely determines the external potential. The HK theorem is proved.
+

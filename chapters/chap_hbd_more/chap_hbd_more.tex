@@ -1,0 +1,342 @@
+\chapter{HB Lifetime Distributions and Instantaneous Interfaces}
+\section{Relations between HB Lifetime Distributions}\label{relation_hbd}
+\paragraph{Different HB lifetime Distributions}\label{diff_distr}
+From the probability $P_{tc}(t)$ of the total HB lifetime in a configuration, and the probability $P_{a}$ of 
+the first HB breaking in time $t$ after it have been detected at the moment $t$, one can introduce the average time 
+$\langle \tau_{tc}\rangle$ and $\langle \tau_{a}\rangle$ :
+\begin{equation}
+\langle \tau_{tc}\rangle = \int_0^\infty t P_{tc}(t) dt,
+\label{eq:tau_tc}
+\end{equation}
+\begin{equation}
+\langle \tau_{a}\rangle = \int_0^\infty t P_a(t) dt. 
+\label{eq:tau_a}
+\end{equation}
+Since $P_{\mathrm{a}}(t)=\int_{t}^{\infty} P_{\mathrm{tc}}(\tau) \frac{d \tau}{\tau}$, i.e., 
+\begin{equation}
+P_{tc}(t) = -t\frac{dP_a(t)}{dt}, \nonumber
+\label{eq:relation_Ptc--Pa}
+\end{equation}
+integrating by parts, we obtain
+\begin{eqnarray}
+&&\langle \tau_{tc}\rangle = -\int_0^\infty t^2 \frac{dP_a(t)}{dt}dt \nonumber \\
+&&= -\int_0^\infty t^2 dP_a(t) = -[-2\langle \tau_{a}\rangle + 0] \nonumber\\
+&&= 2\langle \tau_{a}\rangle,\nonumber
+\end{eqnarray}
+in which we used $\int_0^\infty d(t^2 P_a)=0$.
+Therefore, there is a relationship between $\langle \tau_{tc} \rangle$ and $\langle \tau_a \rangle$:
+\begin{eqnarray}
+\langle \tau_{tc}\rangle = 2\langle \tau_{a}\rangle.
+\label{eq:relation_tau_tc--t_a}
+\end{eqnarray}
+
+We denote the probability of the total HB lifetime along a trajectory as $P_{\mathrm{tt}}(t)$,
+then the average HB lifetime over the trajectory is
+\begin{eqnarray}
+\left\langle\tau_{\mathrm{tt}}\right\rangle=\int_{0}^{\infty} t P_{\mathrm{tt}}(t) d t.
+\label{eq:relation_tau_tt}
+\end{eqnarray}
+Because $\int_{0}^{\infty} P_{\mathrm{tc}}(t) d t=\frac{1}{\langle \tau_{tt}\rangle} \int_{0}^{\infty} t P_{\mathrm{tt}}(t) d t = 1$, 
+we get 
+\begin{eqnarray}
+P_{\mathrm{tt}}(t)=\left\langle \tau_{\mathrm{tt}}\right\rangle P_{\mathrm{tc}}(t) / t.
+\label{eq:relation_P_tt--P_tc}
+\end{eqnarray}
+The difference between the two distribution functions, $P_{\mathrm{tt}}(t)$ and $P_{\mathrm{tc}}(t)$, can be described as follows.
+The $P_{\mathrm{tt}}(t)$ represents the percentage of pairs of molecules that had a continuous H-bonds during time $t$, 
+while the $P_{\mathrm{tc}}(t)$ the percentage of the number of H-bonds with a given lifetime $t$ to the number of all H-bonds in any configuration. 
+\cite{Voloshin2009}
+
+Since $P_{\mathrm{a}}(t)=\int_{t}^{\infty} P_{\mathrm{tc}}(\tau) \frac{d \tau}{\tau}$,
+we can obtain
+\begin{eqnarray}
+&& P_{\mathrm{a}}(t)=\int_t^\infty \frac{P_{tt}}{\langle\tau_{tt}\rangle} \frac{\tau}{\tau} d\tau \nonumber \\
+&& =  \int_t^\infty \frac{P_{tt}}{\langle\tau_{tt}\rangle}d\tau. \nonumber
+\label{eq:P_a}
+\end{eqnarray}
+Let $t=0$, we obtain
+\begin{eqnarray}
+P_{\mathrm{a}}(0)=1 /\left\langle t_{\mathrm{tt}}\right\rangle = 1 /\left\langle t_{\mathrm{HB}}\right\rangle.
+\label{eq:P_a0}
+\end{eqnarray}
+
+From Eq. \ref{eq:tau_tc} and the relation between \SHB and $P_{\mathrm{a}}(t)$
+\begin{eqnarray}
+S_{\mathrm{HB}}(t)=\int_{t}^{\infty} P_{\mathrm{a}}(\tau) d \tau,
+\label{eq:P_a}
+\end{eqnarray}
+we can obtain
+%
+\begin{eqnarray}
+&&\int_{0}^{\infty} \int_{t}^{\infty} P_{a}(t) d \tau d t = \int_{0}^{\infty} \int_{0}^{\tau} P_{a}(\tau) d t d \tau \nonumber \\
+&& = \int_{0}^{\infty} \tau P_{a}(\tau) d \tau \nonumber \\
+&& = \langle \tau_{\mathrm{a}} \rangle, \nonumber
+\end{eqnarray}
+i.e., 
+\begin{eqnarray}
+\int_{0}^{\infty}  S_{\mathrm{HB}}(t) d t = \langle \tau_{\mathrm{a}} \rangle.
+\label{eq:int_Ca}
+\end{eqnarray}
+\paragraph{Calculation of HB lifetime distributions}
+In this paragraph, we describe the method to calculate the above lifetime distributions $P_{tc}(\tau)$, $P_{a}(\tau)$, and $P_{tt}(\tau)$.
+
+First, we describe the method of calculating $P_{tc}(\tau)$.
+Theoretically speaking, in order to calculate $P_{tc}(\tau)$, our detection time $t$ must meet the following conditions: 
+$t-t_0 > \tau_{hb}^{\max}$, where $t_0$ is the initial time and $\tau_{hb}^{\max}$ is the maximum lifetime value of the H-bonds in the system. 
+However, the value of $\tau_{hb}$ cannot be known in advance. 
+In order to reduce the error, the method we can adopt is to set an empirical value as large as possible for
+ $\tau_{hb}^{\max}$ if conditions permit. Since the value of $\tau_{hb}^{\max}$ is limited, in principle the lifetime value of the HB 
+can always be greater than $\tau_{hb}^{\max}$. 
+Therefore, the average value of the HB lifetime distribution 
+calculated in this approximate way will move to a shorter lifetime than the average value of the true HB lifetime distribution:
+\begin{eqnarray}
+\int_{0}^{\infty} \tau P_{\mathrm{tc}}^{\mathrm{approx}}(\tau) d \tau < \left\langle\tau_{\mathrm{tc}}\right\rangle.
+\label{eq:upper_bound_1_for_tau_tc}
+\end{eqnarray} 
+
+Among the hydrogen bonds detected at time $t$, if there are some H-bonds that have existed at the beginning $t_0$ and 
+remain in existence until time $t$, then we can approximately express the lifetime of these H-bonds as $\delta t^{(j)}=t^{(j)} -t_0$, 
+where $j=1,\cdots, m$ is the labels of the $m$ H-bonds and $t^{(j)}$ is the moment when the $j$-th HB is broken. 
+If we use $\tau^{(j)},j=1,\cdots,m$ to represent the true lifetimes of these $m$ H-bonds,
+then we can find that $\tau^{(j)}-\delta t^{(j)} >0 $.
+Since we cannot judge the true lifetime of these $m$ hydrogen bonds, we can use $\delta t^{(j)}$ to approximate 
+the lifetime of these $m$ H-bonds, that is
+\begin{eqnarray}
+\tau^{(j)} = \delta t^{(j)}.
+\end{eqnarray}
+For those H-bonds that did not exist at the beginning, the method of calculating their lifetime is very straightforward, 
+the lifetime $\tau^{(j)}$ is equal to the time $t^{(j)}$ when the HB is broken minus the moment $t^{{(j)}}_0$ of its formation:
+\begin{eqnarray}
+\tau^{(j)} = t^{(j)} - t^{(j)}_0,
+\end{eqnarray} 
+where the superscript $j = 1, \cdots, m'$, identifies $m'$ H-bonds 
+detected at time $t$, and
+formed after $t_0$ and broken at $t^{(j)}$.
+
+Specifically, for the AIMD simulation results we obtained, we also approximate $P_{tc}$ as follows: 
+We select evenly distributed $n$ time points $t=t_1,...,t_n$, from the trajectory obtained by the simulation, 
+and count the HB lifetimes at each time point $t_i$.
+The distribution function $P_{tc}(\tau)$ 
+can be obtained by the average of the lifetime distribution detected at a certain time $t_i$, $i=1,\cdots, n$, 
+where $t_i-t_{i-1} = \tau_{hb}^{\max}$. 
+
+If only from the perspective of simulation data, we have another way to obtain $P_{tc}(\tau)$: 
+Count the lifetimes of H-bonds that are formed after the initial time $t_0$ and are broken before the end time $t_f$.
+Although the distribution obtained in this method cannot be verified experimentally, 
+it is the true distribution of HB bonds in simulated systems. 
+
+%TODO
+%For $P_a(\tau)$
+%For $P_{tt}(\tau)$
+
+\paragraph{Calculation of the Reactive Flux}\label{calc_rf}
+For dynamical variables $x_i(t)$ and $x_k(t)$, their correlation functions have the following relationship:\cite{Landau1980}
+\begin{equation}
+\langle x_i(t') x_k(t)\rangle = -\langle x_i(t) x_k(t')\rangle,
+\label{eq:correlation_relation}
+\end{equation}
+or 
+\begin{equation}
+\phi_{ik}(t) = -\phi_{ki}(t). \nonumber
+\label{eq:correlation_relation2}
+\end{equation}
+Let $x_i = h$, $x_k = \dot h$,
+then, we obtain
+\begin{equation}
+\langle h(0) \dot{h}(t)\rangle=-\langle\dot{h}(0) h(t)\rangle. 
+\label{eq:h_correl_relation}
+\end{equation}
+From the definition of the reactive flux $k(t) = -dc/dt$, we obtain 
+\begin{equation}
+k(t)=-\langle h(0) \dot{h}(t)\rangle /\langle h\rangle. 
+\label{eq:rf1}
+\end{equation}
+Then from Eq. \ref{eq:h_correl_relation},
+we get 
+\begin{equation}
+k(t) =  \langle \dot{h}(0)h(t)\rangle /\langle h\rangle. \nonumber
+\label{eq:rf2}
+\end{equation}
+Since $\langle\dot{h}(0)\rangle=0$, $k(t)$ can be calculated by
+\begin{equation}
+k(t) = - \langle \dot{h}(0)[1-h(t)]\rangle /\langle h\rangle.
+\label{eq:rf3}
+\end{equation}
+
+%\paragraph{Fitting $C_2(t)$ with a Single Exponential Function}\label{single_exp}
+%We assume that the anisotropy decay $C_2(t)$ is a single exponential given by 
+%\begin{equation}
+%C_2(t) = A e^{-\kappa t},
+%\label{eq:tcf2}
+%\end{equation}
+%where $\kappa$ is a relaxation rate constant of the anisotropy decay. For each value of $\kappa$, we denote the relaxation period as $1/\kappa$.
+%The $C_2(t)$ for water molecules in different environments in LiI solution at 330 K is shown in
+%Fig.\space\ref{fig:2LiI-124w_c2_fit_5_single-exp}.
+%%
+%\begin{figure} [htbp]
+%\centering
+%	\includegraphics [width=0.60\textwidth] {./diagrams/2LiI-124w_c2_fit_5_single-exp}
+%\setlength{\abovecaptionskip}{0pt}
+%	\caption{\label{fig:2LiI-124w_c2_fit_5_single-exp} The anisotropy decay of OH bonds in water molecules at the water/vapor interface of LiI solutions (5 ps).}
+%\end{figure} 
+%It is evident, from the figure, that $C_2(t)$ for water molecules neither in the bulk or at interface of the LiI solution can \emph{not} be described as a single exponential dynamics.  Besides, we also have fitted the $C_2(t)$ for water molecules in NaI solution and the result is the same as above. The fitting parameters for LiI and NaI solution are presented in table \ref{tab:c2_single-exp-fitting_LiI} and \ref{tab:c2_single-exp-fitting_NaI}, respectively.
+%%-- 
+%\begin{table}
+%\centering
+%\caption{\label{tab:c2_single-exp-fitting_LiI}%
+%	The single-exponentially fitted parameters---the amplitude $A$, the decay rate $\kappa$, the relaxation period $1/\kappa$, of anisotropy decay for water molecules 
+%  at the water/vapor interface of 0.9 M LiI solutions, at 330 K.} 
+%\begin{tabular}{lccc}
+%	water molecules &  $A$ & $\kappa$ (THz) & $1/\kappa$ (ps)  \\
+%\hline
+%	I$^-$-shell  & 0.83  & 0.26  & 3.85  \\
+%	Li$^+$-shell & 0.89  & 0.07  & 14.29 \\
+%	bulk & 0.86 & 0.12 & 8.33 \\
+%	surface & 0.75 & 0.29 & 3.45 \\
+%\end{tabular}
+%\end{table}
+%%-- 
+%\begin{table}[H]
+%\centering
+%\caption{\label{tab:c2_single-exp-fitting_NaI}%
+%	The single-exponentially fitted parameters---the amplitude $A$, the decay rate $\kappa$, the relaxation period $1/\kappa$, of anisotropy decay for water molecules 
+%	at the water/vapor interface of 0.9 M NaI solutions, at 330 K.} 
+%\begin{tabular}{lccc}
+%	water molecules &  $A$ & $\kappa$ (THz) & $1/\kappa$ (ps)  \\
+%\hline
+%	I$^-$-shell  & 0.86  & 0.14  & 7.14 \\
+%	Na$^+$-shell & 0.79 & 0.07  & 14.29 \\
+%	bulk & 0.83 & 0.06  & 16.67 \\
+%	surface & 0.78 & 0.12 & 8.34 \\
+%\end{tabular}
+%\end{table}
+
+\paragraph{Relaxation Time of Hydrogen Bonds in Bulk Water}\label{rate_const_and_tau_R_128w}
+% 
+In addition to the simulation in the main text of this thesis, we also use different methods for the bulk water system with the same temperature,
+volume and number of molecules. The number of water molecules in the system is 128, the temperature is still $T=300$ K, and the box is a cube with a side length of 15.6404 \A. 
+In this simulation, we relax the value of the target accuracy for the SCF convergence to 10$^{-6}$. 
+Other settings, such as exchange correlation functional, correction of dispersion force, etc. are the same as the text. 
+For the dynamic trajectory of such a system, we also calculated the self-correlation function $c(t)$ of the HB population operator, 
+and the functions $k(t)$ and $n(t)$ derived from it. 
+Table \ref{tab:k_k_prime_128w_1} and \ref{tab:k_k_prime_128w_2} shows the rate constant $k$, $k'$ and 
+the relaxation time $\tau_{HB}$ obtained by the least squares fit method. 
+It can be seen from the tables that the accuracy of the calculation of $k$, $k'$ are accurate to at least two decimal places.
+
+%
+\begin{table}[htbp]
+\centering
+\caption{\label{tab:k_k_prime_128w_1} 
+    The $k$ and $k'$ for the bulk water. We carried on the short time region 0.2 ps $< t <$ 2 ps. 
+The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{HB}}$ ($=1/k$) is ps. The $h(t)$ is bond-based.} 
+\begin{tabular}{cccc}
+ Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{HB}}$ (bulk) \\
+\hline
+  ADH & 0.3346 & 0.9374 & 2.9884  \\
+  ADH(from $k_{in}$) & 0.2988  & 1.0290 & 3.3467   \\
+  AHD & 0.3224 & 1.0059 & 3.1014 \\ 
+  AHD(from $k_{in}$) & 0.2884 & 1.1210 & 3.4679 \\ 
+\end{tabular}
+\end{table}
+%
+\begin{table}[htbp]
+\centering
+\caption{\label{tab:k_k_prime_128w_2} 
+    The $k$ and $k'$ for the bulk water. We carried on the long time region 2 ps $< t <$ 12 ps. 
+The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{HB}}$ ($=1/k$) is ps. The $h(t)$ is bond-based.} 
+\begin{tabular}{cccc}
+ Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{HB}}$ (bulk) \\
+\hline
+  ADH & 0.1032 & 0.0237 & 9.6901 \\
+  ADH(from $k_{in}$) & 0.1028  & 0.0275 & 9.7283 \\
+  AHD & 0.1036 & 0.0339 & 9.6558  \\
+  AHD(from $k_{in}$) & 0.1031  & 0.0401 & 9.7016  \\
+\end{tabular}
+\end{table}
+
+\paragraph{Definitions of the $h(t)$}
+The correlation functions $C_{HB}(t)$ of water molecules in bulk water is shown in Fig. \ref{fig:2LiI-124w_c2_fit_5_single-exp}.
+It shows that there are big differences in the correlation function $C_{HB}(t)$ of the two definitions of $h(t)$,
+because hydrogen exchange is considered in the O--H pair-based definition of $h(t)$, but not in the water--water pair-based definition.
+\begin{figure} [htbp]
+\centering
+	\includegraphics [width=0.36\textwidth] {./diagrams/128w_bk--water-pair-based_and_bond-based_c}
+\setlength{\abovecaptionskip}{0pt}
+	\caption{\label{fig:2LiI-124w_c2_fit_5_single-exp} The correlation functions $C_{HB}(t)$ of water molecules in bulk water. Here $h(t)$ is based on two different definitions, one is based on a pair of water molecules (solid line), and the other is based on O--H pairs between water molecules (dashed line).}
+\end{figure} 
+
+\section{Dynamics of Interfacial Hydrogen Bonds} \label{ihb_and_selection}
+\paragraph{Instantaneous Surfaces}
+Let us consider the interfacial system of pure water.  At a certain time $t$, the instantaneous surface ${\mathbf s}^0(x(t),y(t))$ can be determined by calculating 
+the coarse-graining density field: we can specify that the coarse-grained density is the reference density $\rho_\text{ref} = 0.016 $ \A$^{-3}$,
+and those grid points constitute the surface ${\mathbf s}^0(x,y)$ of pure water. In our simulated pure water system, there are two such surfaces.
+The code for calculating the instantaneous surfaces of interfacial systems can be found on \url{https://github.com/hg08/interface}. 
+%===================
+\paragraph{Griding and Layering}
+Wee assume that the normal is along the $z$-axis direction. 
+First, we need to discretize the coordinates of the $xy$ plane. 
+We divide the edges along the $x$-axis direction and the edges along the $y$-axis direction of the simulated box into $N$ parts uniformly, 
+and the $xy$ plane can be approximated by $N\times N$ discrete points. 
+Then $N\times N$ ordinates of the surface ${\mathbf s}^0(x(t_0),y(t_0))$ at the initial time $t_0$ can be represented as components of an $N\times N$-vector ${\mathbf z}^0(t_0$). 
+The surface ${\mathbf s}^0(x(t_0),y(t_0))$ is also the upper boundary of the interface.
+Secondly, we define a layering strategy, or define the thickness $d$ of the interface layer. 
+In this way, we then determine the lower boundary ${\mathbf s}^1(x(t_0),y(t_0))$ of the interface. 
+It can be expressed as a $N\times N$-vector ${\mathbf z}^1(t_0)={\mathbf z}^0(t_0)-{\mathbf d}$, and ${\mathbf d}$ is a $N\times N$-dimensional constant 
+vector in which all the entries are $d$. The superscripts 0 and 1 respectively identify the upper and lower boundaries of the interface. 
+Similarly, the other interface can also be determined.
+
+So far, our interfaces are still static, because we only considered the initial moment. 
+But the interfaces defined here can be defined for different moments naturally. 
+Therefore, according to the same method, for the molecular motion trajectory of an interface system, 
+we can obtain the dynamically changing interface layer, i.e., ${\mathbf z}^1(t)={\mathbf z}^0(t)-{\mathbf d}$. 
+When the interfaces are determined, we can answer the question: For an atom with coordinates $(x, y, z)$ at any time $t$, whether it is in the interface?
+To answer this question, we need to map the atom's coordinates $(x, y)$ to an ordered integer pair $(i, j)$, $i,j \in  \{0,\cdots,N\}$, 
+where $i = \text{int}(x /\Delta x), j = \text{int}(y/\Delta y)$, $\Delta x = a/N$, and $\Delta y = b/N$.
+ 
+At a certain time $t$, the ordinate $z$ of an atom can be approximately represented as a function defined on point $(i, j)$, $z=z(i,j)$. 
+Then we compare $z(i,j)$ and $z^l_{i,j}$, $l=0,1$ to determine if the atom is in the interface. 
+That is, if $z^0_{i,j}(t)<z(i,j)<z^1_{ij}(t)$, then we know that at time $t$, the atom at $(x,y,z)$ is located in the interface.
+
+\paragraph{Selcetion of Water Molecules from Instantaneous Interface}
+The first method to extract the interfacial molecules is as follows. 
+1) Determine the instananeous surface of a system;
+2) Define a interface system with a fixed thickness below the instantaneous surface; 
+3) Select the atoms which are near the instananeous surface;
+4) Calculate the HB dynamics for molecules in interface at different time $t$.
+Given the thickness of layer $d$, at any time $t_0$, $t_1$, $t_2$, $\cdots$, $t_n$, the set of molecules in the interface can be determined. 
+Since the molecules are always in motion, generally, the set $S^0(t_i)$ of the molecules in the interface at time $t_i$ 
+and the set $S^0(t_j)$ of the molecules in the interface at a different time $t_j$ is different. 
+Therefore, to calculate the HB dynamics of molecules in the interface, we need to calculate the correlation functions of 
+the HB population $h(t)$ of the molecules in the interface at different times, and average the correlation functions obtained at all times.
+ 
+\paragraph{Interfacial Hydrogen Bond Population Operator $h^s(t)$}
+The second method to extract the interfacial molecules is as follows. 
+1) Determine the instananeous surface of a system;
+2) Define a interface system with a fixed thickness below the instantaneous surface; 
+3) Define the interfacial hydrogen bond population operator $h^s(t)$.
+4) Calculate the autocorrelation function of $h^s(t)$ and then the related observations. 
+
+If we want to calculate only the dynamic characteristics of molecules located in the interface, 
+the above statistical method will have a error in select correct molecules in interface. 
+In chapter \ref{CHAPTER_HB}, we had combined the recognition technology of the instantaneous liquid interfaces \cite{Willard2010} 
+with the definition of H-bonds \cite{AL96b,Luzar1996} to define H-bonds that depend on the environment. 
+With this method, we can have more understanding of the differences and commonalities in the kinetics of the breaking and reconstruction of the hydrogen bonds 
+of the water molecules in the interface system. At the same time, we can compare the HB dynamcis in the interface of different thicknesses 
+with the HB dynamics in bulk water to obtain the thickness of the interface from the perspective of HB dynamics. 
+In addition, for the interface system of different solutions, we can also use the layering technique to study the HB dynamics,
+so that we can understand the particularity of the interface of various solutions relative to pure water. 
+%These results may help us have a better understanding of the physical and chemical processes related to interfaces.
+
+In fact, none of the above-mentioned two methods for obtaining the HB dynamics of the interface water molecules 
+can give the true interface HB dynamics completely and accurately. But they respectively give an extreme case of interface HB dynamics. 
+In the first method, the formation and breaking of intermolecular H-bonds can be truly described, 
+but the selection of interface water molecules is not accurate enough. Since the configuration of the molecule will change over time, 
+the contribution of the H-bonds in the bulk phase will be included. 
+In the second method, we are very accurate in choosing the interface water molecules and the H-bonds in the interface, 
+but we may artificially destroy some H-bonds in the interface that were not broken. 
+To a certain extent, the HB dynamics obtained by the second method is \emph{accelerated}. 
+Therefore, the comparison of the results obtained by these two methods may give a true picture of the interface HB dynamics.
+
+The code for calculating the HB dynamics for instantaneous interfaces can be found on \url{https://github.com/hg08/hb_in_interface}. 
+%===================
+

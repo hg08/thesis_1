@@ -321,23 +321,28 @@ This effects is only related to the presence of \nitrate at the water surface an
 I have shown that the use of simple models, such as small cluster is not suitable to reproduce the experimental spectra 
 and cannot provide a microscopic interpretation of the spectra.
 Realistic models of the interface are required to address the perturbation of the ion on the water surface.
+
 %
 The difference between the HB dynamics outside the first shell of the \Li and that of nitrate-water Hydrogen (H-) bonds
 at interfaces is not visible from the values of the HB relaxation time. They reflect the difference 
 between HB dynamics in bulk water and that at the water/vapor interfaces.
 For the water/vapor interface of alkaline iodine solutions, I find that the cations does not alter the H-bonding network outside the first hydration shell of cations.
 It is concluded that no long-range structural-changing effects for alkali metal cations.
+
 %
 From the results of nonlinear susceptibilities, I conclude that these water molecules at the water/vapor interfaces of LiI, NaI, and KI solutions are participating
 in weaker H-bonds, compared with those at the pure water surface.
 The origin of the characteristics may come from a unique distribution of \I ions and alkali metal cations,
 which form a double layer over the thickness on the order of 5--10 \A.
+
 %
-Finally, I obtain that faster rotational anisotropy decay exists for water molecules at the interface of aqueous alkali-iodine solutions, 
-which is the result of a different HB types from the usual HB type in pure bulk water. 
-This effect on anisotropy decay is due to the H--I bond at the interface.
-This difference of HB structure from pure water/vapor interface changed the Im$\chi^{(2),\text{R}}$ spectrum
-and the HB dynamics of the interface of alkali-iodine solution.
+For the bulk and interfacial systems, I calculated the correlation functions of the hydrogen bond (HB) population, 
+and obtained the reaction rate constants with the HB formation and breakage. To analyze the HB dynamics on the interface, 
+we propose a statistical method which is based on the instantanous interface HB population for the instantaneous interface.
+With the help of instantaneous HB population operator, one do not need to know which molecules are within the instantaneous interface, 
+so there is no need to select the molecules on the interface and calculate the statistical average of physical quantities. 
+Except for the case where the interface thickness is low, this method can efficiently analyze the HB dynamics of the instantaneous interface. 
+And it can be easily applied to general interface systems or aqueous solutions.
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
@@ -353,26 +358,34 @@ and interface physics and chemistry. By communicating with her, I was implicitly
 She is rigorous in academic studies, optimistic and active, and has a wide range of interests. 
 All these have kept in my heart and gave me greater confidence in future scientific research work.
 
-I wish to thank Prof. Dr. Thomas Kühner, Dr. Giovanni Settanni, Dr. Peter
+%
+I wish to thank Prof. Dr. Thomas Kühner, Dr. Giovanni Settanni, PD Dr. Peter
 Virnau, Dr. Hans Behringer and Prof. Dr. Thomas Speck in the Institute for
 Physics for leading me to the fundamental statistical physics and excellent lectures
 and discussions. I am grateful to Prof. Dr. Friederike Schmid and Prof. Dr. Kurt
 Binder for their talks and guidance.
 
+%
 I am grateful to Dr. R\'emi Khatib for programing skills and helpful guidance on
 the programs for calculating the VSFG spectra. I also thank Dr. Shuanhu Qi, Dr. Jiajia Zhou and Dr. Fei Yu for useful discussions 
 on the the calculation of response functions. I would like to
-thank my colleagues Leila Salimi, Isidro Lorenzo Geada, Santosh Kumar Meena and Anusha Lalitha, 
+thank Leila Salimi, Isidro Lorenzo Geada, Santosh Kumar Meena and Anusha Lalitha, 
 at the Institute for Physics, for their encouragement and assistance.
 
-I thank Prof. Honggang Luo and Prof. Haiping Fang for their great help in my study and research in China. 
+%
+I thank Prof. Honggang Luo and Prof. Haiping Fang for their great help in my study during my PhD. 
 The cooperation and discussions with Dr. Guosheng Shi, Dr. Bo Zhou and Dr. Chunlei Wang have benefited me a lot. 
 I express my sincere thanks to them.
 
+%
 I thank Prof. Dr. Yuliang Jin for his support, trust and teachings over the past year.
 
-I am grateful to my parents and brother for their care, understanding and support for me in the past few years.
+%
+I am also grateful to my parents Yuhua Diao and Dehuai Huang and my brother Jialiang for his care, 
+understanding and support for me in the past few years. 
+I am especially grateful to my dear parents, who have worked hard for decades and nurtured me.
 
+%
 The financial supports of the China Scholarship Council and TRR146 are gratefully acknowledged.
 \end{acknowledgements}
 
@@ -403,6 +416,7 @@ The financial supports of the China Scholarship Council and TRR146 are gratefull
 \textbf{H-} & \textbf{H}ydrogen\\
 \textbf{HB} & \textbf{H}ydrogen \textbf{B}ond\\
 \textbf{HK} & \textbf{H}ohenberg-\textbf{K}ohn\\
+\textbf{IHB} & \textbf{I}nstantaneous interface \textbf{H}ydrogen \textbf{B}ond\\
 \textbf{KS} & \textbf{K}ohn-\textbf{S}ham\\
 \textbf{LDA} & \textbf{L}ocal \textbf{D}ensity \textbf{A}pproximation\\
 \textbf{MD} & \textbf{M}olecular \textbf{D}ynamics\\
@@ -489,9 +503,9 @@ $I_{\text{vis}}$ & intensity of the incident visible beam & \\
 $I_{\text{IR}}$ & intensity of the incident infrared beam & \\
 $r_{\text{OO}}$ & interoxygen distance & \\
 $\omega_{\text{e}}$ & the lowest electronic frequency &  \\
-$r_{\text{OO}}^{\text{c}}$ & the maximum value of the interoxygen distance in the definition of HB & \\
+$r_{\text{OO}}^{\text{c}}$ & the maximum value of the interoxygen distance (in the definition of HB) & \\
 $\phi^{\text{c}}$ & the maximum value of the angle between the O--O axis and one of the & \\
-                  & O--H bonds in the definition of HB & \\
+                  & O--H bonds (in the definition of HB) & \\
 $N$ & number of water molecules & \\
 $R_{\text{OH}}$ & O-H length in water molecule & \\
 $C_2(t)$ & orientational anisotropy decay & \\
@@ -507,7 +521,7 @@ $g_z(\nu)$ & projected VDOS for selected atoms along $z$-axis &  \\
 $g_{\text{A--B}}$ & radial distribution function & \\
 $k$ & rate constant of breaking a HB & \\
 $k'$ & rate constant of reforming a HB & \\
-$\theta_{\text{SFG}}$ & reflected angle of SFG beam with respect to the normal direction in the medium  & \\ 
+$\theta_{\text{SFG}}$ & reflected angle of SFG beam w.r.t. the normal direction in the medium  & \\ 
 $k(t)$ & reactive flux & \\
 $\tau_{\text{R}}$ & relaxation time of HB population operator correlation function & \\
 $P_2(x)$ & the second Legendre polynomial &  \\
