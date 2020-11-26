@@ -1,4 +1,56 @@
-\chapter{Molecular Dipole Moment and Dipole Polarizibility Derivatives} \label{calculate_derivatives} 
+\chapter{Calculation of Nonlinear Optical Susceptibilities}\label{calculation_of_chi}
+
+\paragraph{Definitions and Relations}
+
+1. Definition of double product of a $m$-order tensor $A$ and a $n$-order tensor $B$ is a tensor with order $m+n-2$.
+\begin{equation}
+    A:B=A_{ij}B_{lm}\delta_{jl}\delta_{im}.
+\label{tensor_double_product}
+\end{equation}
+
+2. The components of product of $AB$ is defined by 
+\begin{equation}
+    (AB)_{ijlm}=A_{ij}B_{lm}.
+\label{tensor_product}
+\end{equation}
+
+3. For vectors $\bf{a}$, $\bf{b}$, $\bf{c}$ and $\bf{d}$, ${\bf{ab}}:{\bf{cd}}=({\bf{a}}\cdot {\bf{d}})({\bf{b}}\cdot{\bf{c}})$.
+
+Proof:
+\begin{align}
+    {\bf{ab}}:{\bf{cd}}&=({\bf{ab}})_{ij}({\bf{cd}})_{lm}\delta_{jl}\delta_{im} \nonumber \\
+    &=({\bf{ab}})_{ij}({\bf{cd}})_{ji} \nonumber\\
+    &=(a_i b_j)(c_j d_i) \nonumber\\
+    &=({\bf{b}}\cdot{\bf{c}})({\bf{a}}\cdot{\bf{d}})
+\end{align}
+
+\paragraph{Proof of Eq.\space\ref{integral_identity1a}}
+Since 
+\begin{equation}
+  i\int_0^\infty dt e^{-it(a-ib)}=\frac{1}{a-bi},
+  \label{integral_identity1}
+\end{equation}
+set $a = (\omega_{v'} - \omega_{v}) - \omega$, and $b = \gamma_{v'v}$,
+then we have
+ \begin{align}
+ \int_0^\infty dt e^{-it((\omega_{v'}-\omega_v)-\omega-i\gamma_{v'v})}=\frac{-i}{(\omega_{v'} -\omega_v)-\omega-i\gamma_{v'v}},\nonumber
+ \end{align}
+which is Eq. \ref{integral_identity1a}.
+
+\paragraph{Derivation of Eq.\space\ref{eq:chi}}
+
+Now we give the derivation of the expression of $\chi^{\text{(2),R}}$
+\begin{align}
+   \chi^{\text{(2),R}}_{\eta\xi\kappa}&=\frac{-i}{k_{\text{B}}T \omega} \int_0^\infty dt e^{i \omega t}\left\langle \dot{A}_{\eta\xi}(t) \dot{M}_{\kappa}(0)\right\rangle
+\end{align}
+Derivation: 
+The resonant term $\chi^{(2),R}_{\eta\xi\kappa}$ is given by \cite{Morita2008}
+\begin{align}
+  \chi^{\text{(2),R}}_{\eta\xi\kappa}&=\frac{i\omega}{k_{\text{B}}T} \int_0^\infty dt e^{i \omega t}\left\langle {A}_{\eta\xi}(t) {M}_{\kappa}(0)\right\rangle,
+\end{align}
+
+\paragraph{Molecular Dipole Moment and Dipole Polarizibility Derivatives} \label{calculate_derivatives} 
+
 The polarizability tensor $\boldsymbol{\alpha}$ is defined by the relation
 \begin{equation}
   \delta \boldsymbol{\mu} = \boldsymbol{\alpha} \boldsymbol{\mathscr{E}}
@@ -25,12 +77,12 @@ We used three different frameworks: the lab framework ($x^{\text{l}},y^{\text{l}
 In the lab framework, the $z^{\text{l}}$-axis is perpendicular to the interface.
 The molecular frame will be used to decompose the signal into normal modes of water monomers.
 For the $j$-th molecule, the $z^{\text m}$ axis is along the bisector of the H-O-H angle, the $x^{\text m}$ axis is in the molecular plane,
-and the $y^{\text m}$ axis is out of the molecular plane. [\cite{Khatib2017}]
+and the $y^{\text m}$ axis is out of the molecular plane. 
 In the bond framework, $z^{\text{b},\epsilon}$ axis is along the bond $\epsilon$ of a molecule, $z^{\text{b},\epsilon}$
 is in the molecular plane and $y^{\text{b},\epsilon}$ is out of the molecular plane.
 
 There are two direction cosine matrices between the bond frameworks and molecular framework,
-we name them as ${\bf D}^{\text{b},\epsilon=-1}$ and  ${\bf D}^{\text{b},\epsilon=1}$, [\cite{Khatib2017}]
+we name them as ${\bf D}^{\text{b},\epsilon=-1}$ and  ${\bf D}^{\text{b},\epsilon=1}$, \cite{Khatib2017}
 or ${\bf D}^{\text{b},-1}$ and  ${\bf D}^{\text{b},1}$ for short. 
 Then the direction matrix ${\bf D}^{\text{b},\epsilon} $ can be represented by direction cosines between ${\bf x}^{\text{b},\epsilon}$ and ${\bf x}^m$, 
 where $\epsilon=\pm 1$ and $\theta$ denotes the H-O-H angle in the $j$-th water molecule for the $n$-step:
@@ -112,8 +164,8 @@ Then the MLWF centers for the system can be calculated from the updated coordina
     bond ${\epsilon}$. 
     %Therefore, the $k$ component of the dipole moment $(\mu^{b,r+\Delta r}_k)_{\epsilon}$ can be obtained.
     In the bond frame, $|\mu^b| =|\mu^b_z|$. 
-    Therefore, we can calculate the $k=z$ component of the dipole moment for ${\epsilon}$ in water molecule $j$ from the MLWF centers. [\cite{Silvestrelli1999}] 
-      The MLWF centers are computed [\cite{Silvestrelli1999}] and the partial dipole moment for a given molecular species $I$ is defined as [\cite{Salanne08}]
+    Therefore, we can calculate the $k=z$ component of the dipole moment for ${\epsilon}$ in water molecule $j$ from the MLWF centers. \cite{Silvestrelli1999} 
+      The MLWF centers are computed  and the partial dipole moment for a given molecular species $I$ is defined as \cite{Salanne08}
       %
       \begin{equation}
         \mu^I = \sum_{i\in I}(Z_i {\bf R}_i - 2\sum_{n\in i} {\bf r}^w_n).
@@ -128,7 +180,7 @@ In particular, here it is expressed as
 \end{equation}
 where $\epsilon=\pm 1$.
 %3c: 
-In the $\epsilon$ frame, the $k=z$ component dipole moment derivative with respect to bond length [\cite{Wilson1955}] for the single OH bond $\epsilon$ in water molecule $j$ is
+In the $\epsilon$ frame, the $k=z$ component dipole moment derivative with respect to bond length \cite{Wilson1955} for the single OH bond $\epsilon$ in water molecule $j$ is
         %
         \begin{equation}
           \frac{\partial \mu^{\text{b},\epsilon}}{\partial r} = (\mu^{\text{b},r+\Delta r,\epsilon}-\mu^{\text{b},r,\epsilon})/\Delta r.
@@ -159,7 +211,7 @@ In the $\epsilon$ frame, the $k=z$ component dipole moment derivative with respe
     % END of r-loop 
     then, to calculate the individual polarizability for a OH bond from Wannier centers, 
     calculations involving finite electric fields (of 0.0001 au intensity) were performed independently 
-    along $x$, $y$, and $z$ directions at each sampled time step. [\cite{sulpizi2013}]
+    along $x$, $y$, and $z$ directions at each sampled time step. \cite{sulpizi2013}
         %4a: 
     For the electric field $\mathscr{E} \in \{\mathscr{E}_x,\mathscr{E}_y, \mathscr{E}_z\}$,
             %similar to 2a5a, but add an electric filed $ \varepsilon$. %The template input file is: 2.inp.
@@ -178,7 +230,7 @@ In the $\epsilon$ frame, the $k=z$ component dipole moment derivative with respe
 \end{equation}
         %END $ \Delta r$-loop  
 %4a4 the polarizability tensors $\alpha^{b,r+|\Delta r|}$ and $\alpha^{b,|r-\Delta r|}$. 
-From the relation ( obtained from Eq.\space\ref{eq:def_alpha})
+From the relation (obtained from Eq.\space\ref{eq:def_alpha})
       \begin{subequations}
           \begin{align}
             & 0 = \alpha^{b,r+\Delta r}_{11}\mathscr{E}_{1} + \alpha^{b,r+\Delta r}_{12}\mathscr{E}_{2} + \alpha^{b,r+\Delta r}_{13}\mathscr{E}_{3}\\
