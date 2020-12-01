@@ -838,9 +838,24 @@ is ps. The thickness $d$ (\AA) denotes the thickness of the instantaneous interf
 %  6.0 & 0.117 & 0.072 & 8.58  \\
 %  7.0 & 0.119 & 0.071 & 8.39  \\
 
-%===============================================
-\paragraph{Interface of Lithium Nitrate Solutions}
-%===============================================
+\paragraph{HBD in Interface of Lithium Nitrate Solutions}
+The probability distribution of O and H atoms in the model of LiNO$_3$ interface is showed in Fig.\thinspace\ref{fig:prob_wat--ln_itp}. 
+\begin{figure}[h!]
+\centering
+\includegraphics [width=0.36 \textwidth] {./diagrams/prob_wat--ln_itp}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:prob_wat--ln_itp} The probability distributions $P(z)$, along the normal direction,
+  of O and H atoms in LiNO$_3$ solution-air interface, through the trajectory of 20 ps.
+The simulated interfacial system consisted of 127 water molecules and a Li$^+$--nitrate pair in a periodic
+box of size $15.78 \times 15.78 \times 31.56$ \AA$^3$, which corresponds to
+a density of 0.997 g/cm$^3$. All simulations were performed at 300 K within
+the canonical NVT ensemble. The discretized integration time step $\Delta t$ was
+set to 0.5 fs. At each MD step the corrector was applied
+only once, which implies just one preconditioned gradi-
+ent calculation. The Brillouin zone was sampled at the $\Gamma$-point only and, the BLYP XC functional has been
+employed.}
+%$15.7787 \times 15.7787 \times 31.5574$ \AA$^3$
+\end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics [width=0.32\textwidth] {./diagrams/distance_ions2surf_lino3_trimed}
@@ -853,9 +868,9 @@ For any molecule or ion $\alpha$ in such a solution interface system, we can get
 We assume that the $z$-axis is the normal direction, then the distances between the particle and the instantaneou surfaces are:
 %
 \begin{eqnarray}
-    d_{\alpha,1}(t)=  z^{surf}_{\alpha,1}(t) - z_{\alpha}(t),
+    d_{\alpha,1}(t)=  z^{surf}_{\alpha,1}(t) - z_{\alpha}(t),\label{eq:distance_particle2surf_1}\\
     d_{\alpha,2}(t)= z_{\alpha}(t) - z^{surf}_{\alpha,2}(t), 
-\label{eq:distance_particle2surf}
+\label{eq:distance_particle2surf_2}
 \end{eqnarray}
 %
 where $z_{\alpha}(t)$ is the coordinate of the particle $\alpha$ in the normal direction at time $t$, 
@@ -864,10 +879,10 @@ and the subscripts $i=1$ and 2 respectively identify the lower and upper instant
 As an example, Fig.\thinspace\ref{fig:distance_ions2surf_lino3_trimed} shows the distances, 
 $d_{\text{Li}^+,1}$ and $d_{\text{NO}_3^-,1}$, between ions and one of the instantaneous surfaces at a certain moment.
 
-Figure \ref{fig:dist_li_surf_lino3_interface} shows the time dependence of the distance between the anion (cation) 
-and the instantanous surface in the LiNO$_3$ solution at 300 K. We found that when the system reaches an equilibrium state, 
+Figure \ref{fig:prob_dist_li_surf_no3_surf} shows the probability density of the distance between the anion (cation) 
+and the instantanous surface in the LiNO$_3$ solution. We found that when the system reaches an equilibrium state, 
 the lithium ions are stably within a few angstroms below the interface, while the nitrate ion are more willing to be on the surface. 
-When the system is in equilibrium ($t>10$ ps), the distance $d_{\text{NO}_3^-,1}$ is around 0, 
+When the system is in equilibrium ($t>10$ ps), the distance $d_{\text{NO}_3^-,1}$ is around 2 \A, 
 which indicates that the nitrate ion is on the instantanous interface. 
 Therefore, the conclusion obtained from the HB dynamics in the instantaneous interface are consistent with that from the 
 SFG spectra of the LiNO$_3$ solution. 
@@ -875,10 +890,13 @@ SFG spectra of the LiNO$_3$ solution.
 %
 \begin{figure}[htbp]
 \centering
-\includegraphics [width=0.36 \textwidth] {./diagrams/dist_li_surf_lino3_interface} 
+\includegraphics [width=0.36 \textwidth] {./diagrams/prob_dist_li_surf_no3_surf} 
 \setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:dist_li_surf_lino3_interface} Time dependence of the Li$^+$--surface and nitrate--surface distances in the 
-water/vapor interface of LiNO$_3$ solution ($T$=300 K).}
+  \caption{\label{fig:prob_dist_li_surf_no3_surf} The probability distribution the Li$^+$--surface and nitrate--surface distances in the 
+water/vapor interface of LiNO$_3$ solution ($T$=300 K). 
+The horizontal axis represents the distance between the ion and the instantaneous surface, which is defined in 
+Eq.\thinspace\ref{eq:distance_particle2surf_1}. The \emph{distance} here refers specifically to $d_{\alpha,1}$, the distance between the ion 
+$\alpha$ and one of the instantaneous surfaces. Distance=0 denotes the instantaneous surface of the interfacial system of LiNO$_3$ solution.}
 \end{figure}
 %
 \paragraph{I$^-$--Water Hydrogen Bonds in Aqueous Solutions}\label{PARAGRAPH_I--W}
@@ -889,15 +907,15 @@ and Bandyopadhyay with atomistic molecular dynamics.\cite{Chanda2006}
 Similar analyse for nitrate--water is also done by Yadav, Choudhary and Chandra by first-principles MD simulations.\cite{Yadav2017} 
 In the case of water--water H-bonds, the critical distance of $r_\text{OO}^c=3.5$ \AA are the position of the first minimum of the oxygen--oxygen RDF.
 For the anion--oxygen H-bonds, we can use the similar criteria. The cutoff values for X--oxygen distance are obtained from the positions of the first
-minimum of the X--oxygen RDF, i.e., $R_\text{XO}^c$=4.1, 3.7 \A, for X = I$^-$ and nitrate O. [ADD a Fig. of g(r) $g_{I-O}(t)$] 
-We have still used $30^{\circ}$ for the anglar cutoff.\cite{Chowdhuri2006}
+minimum of the X--oxygen RDF, i.e., $R_\text{XO}^c$=4.1, 3.7 \A, for X = I$^-$ (see Fig.\thinspace\ref{fig:gdr_124_LiI}b) and nitrate O 
+(see Fig.\thinspace\ref{fig:gdr_127_LiNO3}b). We have still used $30^{\circ}$ for the anglar cutoff.\cite{Chowdhuri2006}
 The function $C_\text{HB}$ of I$^-$--water and water--water H-bonds describes the structural relaxation of these H- bonds. 
 The $C_\text{HB}(t)$ are shown in Fig.\thinspace\ref{fig:X-O_c_lii_xlogscale}. 
 \begin{figure}[htbp]
 \centering
 \includegraphics [width=0.6 \textwidth] {./diagrams/gdr_127_LiNO3} 
 \setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:gdr_127_LiNO3} (a)Li--water O, Li--water H RDFs; (b) Nitrate O--water O, nitrate O-water H RDFs for LiNO$_3$ 
+  \caption{\label{fig:gdr_127_LiNO3} (a)Li--water O, Li--water H RDFs; (b) Nitrate O--water O, nitrate O--water H RDFs for LiNO$_3$ 
 solutions at 300 K.} 
 %The RDFs were computed from DFTMD.
 \end{figure}
@@ -916,47 +934,56 @@ A base-10 log scale is used for the $x$-axis.[CHECK: Why it decay so FAST?]}
 \end{figure}
 The results of the continuous correlation functions for both definitions (ADH and AHD criterions) for the H-bonds are shown in Fig.\thinspace\ref{fig:wat-wat_s_lii} 
 for I$^-$--water H-bonds. The results of water--water H-bonds are also included for comparison in both Fig.\thinspace\ref{fig:wat-wat_s_lii} a and b.
+For both definitions of the H-bonds, it is found that the I$^-$--water H-bonds show much faster dynamics than water--water H-bonds. 
+(consistent to the previous MD results.)[REF] 
 \begin{figure}[H]
 \centering
 \includegraphics [width=0.6 \textwidth] {./diagrams/wat-wat_s_lii} 
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:wat-wat_s_lii} Time dependence of the continuous correlation functions $S_\text{HB}(t)$ of I$^-$--water (I$^-$--W) and water--water H-bonds at 300 K.}
 \end{figure}
-For both definitions of the H-bonds, it is found that the I$^-$--water H-bonds show faster dynamics than water--water H-bonds. 
-(consistent to the previous MD results.)[REF] Therefore, the time scales of the relaxation of these H-bonds can be obtained for both definitions. 
-In Table \ref{tab:properties_anion-water_hbs}, we have included the average lifetimes $\langle\tau_{a}\rangle$ for both water--water and I$^-$--water H-bonds. 
-We performing the fitting in the time region 0.2 ps < $t$ < 12 ps to calculate the forward and backward rate constants for HB breaking.
 %
+
+The time scales of the relaxation of these I$^-$--water H-bonds can be obtained for both definitions. 
+In Table \ref{tab:properties_anion-water_hbs}, we have included the average lifetimes $\langle\tau_{a}\rangle$ for I$^-$--water and nitrate--water H-bonds. 
+We have performed the fitting in the time region 0.2 ps < $t$ < 12 ps to calculate the forward and backward rate constants for HB breaking.
+No matter from ADH or AHD criteria, the average lifetime $\langle\tau_a\rangle$ of I$^-$--water H-bonds is much shorter than that of NO$_3$--water H-bonds.
+In addition, based on the HB population operator of ion--molecule pairs, we also calculated the HB lifetimes $1/k$ of these two hydrogen bonds. 
+The results show that the lifetime of the I$^-$--water bonds is only half of lifetime of NO$_3^-$--water bonds. Therefore, from the perspective of HB dynamics,
+we can draw the following conclusion: I$^-$--water H-bonds and NO$_3^-$--water H-bonds are both weaker than water--water Hbonds. In particular, 
+the I$^-$--water bonds is weaker than the NO$_3^-$--water ones.
 \begin{table}[htbp]
 \centering
 \caption{ 
-    The Dynamical properties of anion--water and water--water H-bonds at 300 K. Data are from DFTMD for the aqueous solutions. The values are expressed in ps.} 
-\begin{tabular}{ccccc}
+    The Dynamical properties of I$^-$--water and nitrate--water H-bonds at 300 K. Data are from DFTMD for the aqueous solutions. The values are expressed in ps.} 
+\begin{tabular}{cccc}
 \label{tab:properties_anion-water_hbs}
- Quantity & Criterion & W--W & I$^-$--W & NO$_3^-$--W  \\
+ Quantity & Criterion & I$^-$--water & NO$_3^-$--water \\
 \hline
-  $\langle\tau_a\rangle$  & ADH & 190.3 & 0.10 & 4.35 \\
-  $\langle\tau_a\rangle$ & AHD & 186.8  & 0.11 & 7.91 \\
-  $1/k$ & ADH & 9.82 & 2.80 & 4.15 \\
-  $1/k$ & AHD & 8.97 & 2.40 & 6.02\\
+  $\langle\tau_a\rangle$  & ADH & 0.10 & 4.35 \\
+  $\langle\tau_a\rangle$ & AHD & 0.11 & 7.91 \\
+  $1/k$ & ADH & 2.80 & 4.15 \\
+  $1/k$ & AHD & 2.40 & 6.02\\
 \end{tabular}
-%
 % Data from: LiI solution:  gang@XPS /home/gang/Github/water_pair_HB_dynamics/src/least_square_fit
 % Data from: LiNO3 solution:  /home/gang/Github/water_pair_HB_dynamics/src/least_square_fit/LiNO3 
 \end{table}
-\begin{figure}[H] % htbp
-\centering
-\includegraphics [width=0.6 \textwidth] {./diagrams/I--wat_n_lii} 
-\setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:I--wat_n_lii} Time dependence of the correlation functions $n_\text{HB}(t)$ of I$^-$--water (I$^-$--W) and water--water H-bonds at 300 K.}
-\end{figure}
-\begin{figure}[H]
-\centering
-\includegraphics [width=0.6 \textwidth] {./diagrams/I--wat_n_lii_xlogscale} 
-\setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:I--wat_n_lii_xlogscale} Time dependence of the correlation functions $n_\text{HB}(t)$ of I$^-$--water (I$^-$--W) and water--water H-bonds at 300 K.
-A base-10 log scale is used for the $x$-axis.}
-\end{figure}
+%
+%\begin{figure}[H] % htbp
+%\centering
+%\includegraphics [width=0.6 \textwidth] {./diagrams/I--wat_n_lii} 
+%\setlength{\abovecaptionskip}{0pt}
+%  \caption{\label{fig:I--wat_n_lii} Time dependence of the correlation functions $n_\text{HB}(t)$ of I$^-$--water (I$^-$--W) and water--water H-bonds at 300 K.}
+%\end{figure}
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics [width=0.6 \textwidth] {./diagrams/I--wat_n_lii_xlogscale} 
+%\setlength{\abovecaptionskip}{0pt}
+%  \caption{\label{fig:I--wat_n_lii_xlogscale} Time dependence of the correlation functions $n_\text{HB}(t)$ of I$^-$--water (I$^-$--W) and water--water H-bonds at 300 K.
+%A base-10 log scale is used for the $x$-axis.}
+%\end{figure}
+
 \paragraph{Experiments on HB Dynamics}
 %Experimentally Ref.  
 An important  structural characteristic of the H-bonded network is the average number of H-bonds per molecule, $\langle h_{i,j}\rangle$. \cite{Chowdhary2008} 
