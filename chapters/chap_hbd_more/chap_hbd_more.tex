@@ -20,7 +20,8 @@ P_{tc}(t) = -t\frac{dP_a(t)}{dt}, \nonumber
 integrating by parts, we obtain
 \begin{eqnarray}
 &&\langle \tau_{tc}\rangle = -\int_0^\infty t^2 \frac{dP_a(t)}{dt}dt \nonumber \\
-&&= -\int_0^\infty t^2 dP_a(t) = -[-2\langle \tau_{a}\rangle + 0] \nonumber\\
+%&&= -\int_0^\infty t^2 dP_a(t) = -[-2\langle \tau_{a}\rangle + 0] \nonumber\\
+&&= -\int_0^\infty t^2 dP_a(t) \nonumber\\
 &&= 2\langle \tau_{a}\rangle,\nonumber
 \end{eqnarray}
 in which we used $\int_0^\infty d(t^2 P_a)=0$.
@@ -163,53 +164,53 @@ k(t) = - \langle \dot{h}(0)[1-h(t)]\rangle /\langle h\rangle.
 \label{eq:rf3}
 \end{equation}
 
-%\paragraph{Fitting $C_2(t)$ with a Single Exponential Function}\label{single_exp}
-%We assume that the anisotropy decay $C_2(t)$ is a single exponential given by 
-%\begin{equation}
-%C_2(t) = A e^{-\kappa t},
-%\label{eq:tcf2}
-%\end{equation}
-%where $\kappa$ is a relaxation rate constant of the anisotropy decay. For each value of $\kappa$, we denote the relaxation period as $1/\kappa$.
-%The $C_2(t)$ for water molecules in different environments in LiI solution at 330 K is shown in
-%Fig.\space\ref{fig:2LiI-124w_c2_fit_5_single-exp}.
-%%
-%\begin{figure} [htbp]
-%\centering
-%	\includegraphics [width=0.60\textwidth] {./diagrams/2LiI-124w_c2_fit_5_single-exp}
-%\setlength{\abovecaptionskip}{0pt}
-%	\caption{\label{fig:2LiI-124w_c2_fit_5_single-exp} The anisotropy decay of OH bonds in water molecules at the water/vapor interface of LiI solutions (5 ps).}
-%\end{figure} 
-%It is evident, from the figure, that $C_2(t)$ for water molecules neither in the bulk or at interface of the LiI solution can \emph{not} be described as a single exponential dynamics.  Besides, we also have fitted the $C_2(t)$ for water molecules in NaI solution and the result is the same as above. The fitting parameters for LiI and NaI solution are presented in table \ref{tab:c2_single-exp-fitting_LiI} and \ref{tab:c2_single-exp-fitting_NaI}, respectively.
-%%-- 
-%\begin{table}
-%\centering
-%\caption{\label{tab:c2_single-exp-fitting_LiI}%
-%	The single-exponentially fitted parameters---the amplitude $A$, the decay rate $\kappa$, the relaxation period $1/\kappa$, of anisotropy decay for water molecules 
-%  at the water/vapor interface of 0.9 M LiI solutions, at 330 K.} 
-%\begin{tabular}{lccc}
-%	water molecules &  $A$ & $\kappa$ (THz) & $1/\kappa$ (ps)  \\
-%\hline
-%	I$^-$-shell  & 0.83  & 0.26  & 3.85  \\
-%	Li$^+$-shell & 0.89  & 0.07  & 14.29 \\
-%	bulk & 0.86 & 0.12 & 8.33 \\
-%	surface & 0.75 & 0.29 & 3.45 \\
-%\end{tabular}
-%\end{table}
-%%-- 
-%\begin{table}[H]
-%\centering
-%\caption{\label{tab:c2_single-exp-fitting_NaI}%
-%	The single-exponentially fitted parameters---the amplitude $A$, the decay rate $\kappa$, the relaxation period $1/\kappa$, of anisotropy decay for water molecules 
-%	at the water/vapor interface of 0.9 M NaI solutions, at 330 K.} 
-%\begin{tabular}{lccc}
-%	water molecules &  $A$ & $\kappa$ (THz) & $1/\kappa$ (ps)  \\
-%\hline
-%	I$^-$-shell  & 0.86  & 0.14  & 7.14 \\
-%	Na$^+$-shell & 0.79 & 0.07  & 14.29 \\
-%	bulk & 0.83 & 0.06  & 16.67 \\
-%	surface & 0.78 & 0.12 & 8.34 \\
-%\end{tabular}
-%\end{table}
+\paragraph{Fitting $C_2(t)$ with a Single Exponential Function}\label{single_exp}
+We assume that the anisotropy decay $C_2(t)$ is a single exponential given by 
+\begin{equation}
+C_2(t) = A e^{-\kappa t},
+\label{eq:tcf2}
+\end{equation}
+where $\kappa$ is a relaxation rate constant of the anisotropy decay. For each value of $\kappa$, we denote the relaxation period as $1/\kappa$.
+The $C_2(t)$ for water molecules in different environments in LiI solution at 330 K is shown in
+Fig.\space\ref{fig:2LiI-124w_c2_fit_5_single-exp}.
+%
+\begin{figure} [htbp]
+\centering
+	\includegraphics [width=0.60\textwidth] {./diagrams/2LiI-124w_c2_fit_5_single-exp}
+\setlength{\abovecaptionskip}{0pt}
+	\caption{\label{fig:2LiI-124w_c2_fit_5_single-exp} The anisotropy decay of OH bonds in water molecules at the water/vapor interface of LiI solutions (5 ps).}
+\end{figure} 
+It is evident, from the figure, that $C_2(t)$ for water molecules neither in the bulk or at interface of the LiI solution can \emph{not} be described as a single exponential dynamics.  Besides, we also have fitted the $C_2(t)$ for water molecules in NaI solution and the result is the same as above. The fitting parameters for LiI and NaI solution are presented in table \ref{tab:c2_single-exp-fitting_LiI} and \ref{tab:c2_single-exp-fitting_NaI}, respectively.
+%-- 
+\begin{table}
+\centering
+\caption{\label{tab:c2_single-exp-fitting_LiI}%
+	The single-exponentially fitted parameters---the amplitude $A$, the decay rate $\kappa$, the relaxation period $1/\kappa$, of anisotropy decay for water molecules 
+  at the water/vapor interface of 0.9 M LiI solutions, at 330 K.} 
+\begin{tabular}{lccc}
+	water molecules &  $A$ & $\kappa$ (THz) & $1/\kappa$ (ps)  \\
+\hline
+	I$^-$-shell  & 0.83  & 0.26  & 3.85  \\
+	Li$^+$-shell & 0.89  & 0.07  & 14.29 \\
+	bulk & 0.86 & 0.12 & 8.33 \\
+	surface & 0.75 & 0.29 & 3.45 \\
+\end{tabular}
+\end{table}
+%-- 
+\begin{table}[H]
+\centering
+\caption{\label{tab:c2_single-exp-fitting_NaI}%
+	The single-exponentially fitted parameters---the amplitude $A$, the decay rate $\kappa$, the relaxation period $1/\kappa$, of anisotropy decay for water molecules 
+	at the water/vapor interface of 0.9 M NaI solutions, at 330 K.} 
+\begin{tabular}{lccc}
+	water molecules &  $A$ & $\kappa$ (THz) & $1/\kappa$ (ps)  \\
+\hline
+	I$^-$-shell  & 0.86  & 0.14  & 7.14 \\
+	Na$^+$-shell & 0.79 & 0.07  & 14.29 \\
+	bulk & 0.83 & 0.06  & 16.67 \\
+	surface & 0.78 & 0.12 & 8.34 \\
+\end{tabular}
+\end{table}
 
 \paragraph{Relaxation Time of Hydrogen Bonds in Bulk Water}\label{rate_const_and_tau_R_128w}
 % 
@@ -254,15 +255,20 @@ The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{HB}}$ ($=1/k$) i
 \end{tabular}
 \end{table}
 
-\paragraph{Definitions of the $h(t)$}
-The correlation functions $C_{HB}(t)$ of water molecules in bulk water is shown in Fig. \ref{fig:2LiI-124w_c2_fit_5_single-exp}.
+\paragraph{Different Definitions of the $h(t)$}\label{DEF_POPULATION_OPERATOR}
+The correlation functions $C_{HB}(t)$ of water molecules in bulk water is shown in Fig. \ref{fig:bk_water_c_two_population_operators_with_ADH}.
 It shows that there are big differences in the correlation function $C_{HB}(t)$ of the two definitions of $h(t)$,
 because hydrogen exchange is considered in the O--H pair-based definition of $h(t)$, but not in the water--water pair-based definition.
+% bk_water_c_two_population_operators_with_ADH.eps
+% /home/gang/Github/water_pair_HB_dynamics/plot/plot_c/bk_water_c_two_population_operators_with_ADH.eps
+% old version: 128w_bk--water-pair-based_and_bond-based_c.eps
 \begin{figure} [htbp]
 \centering
-	\includegraphics [width=0.36\textwidth] {./diagrams/128w_bk--water-pair-based_and_bond-based_c}
+	\includegraphics [width=0.36\textwidth] {./diagrams/bk_water_c_two_population_operators_with_ADH}
 \setlength{\abovecaptionskip}{0pt}
-	\caption{\label{fig:2LiI-124w_c2_fit_5_single-exp} The correlation functions $C_{HB}(t)$ of water molecules in bulk water. Here $h(t)$ is based on two different definitions, one is based on a pair of water molecules (solid line), and the other is based on O--H pairs between water molecules (dashed line).}
+	\caption{\label{fig:bk_water_c_two_population_operators_with_ADH} The correlation functions $C_{HB}(t)$ of water molecules in bulk water (ADH criterion). 
+        Here $h(t)$ is based on two different definitions, one is based on a pair of water molecules (solid line),\cite{Khaliullin2013} 
+and the other is based on O--H pairs between water molecules (dashed line).}
 \end{figure} 
 
 \section{Dynamics of Interfacial Hydrogen Bonds} \label{ihb_and_selection}
