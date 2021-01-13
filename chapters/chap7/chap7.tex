@@ -193,14 +193,14 @@ Both correlations $C_{\text{SHB}}(t)$ and $\ln{S_{\text{SHB}}(t)}$ show that the
 In other words, the closer the hydrogen bond is to the nitrate, the faster it relaxes. Therefore, in the bulk LiNO$_3$ solution, nitrate ions accelerate the dynamical 
 process of H-bonds in water.
 %
-\begin{figure}[htbp] % or \begin{SCfigure}
-\centering
-\includegraphics [width=0.6\textwidth] {./diagrams/shb_c_and_s_ln_bk_NShell_pbc}
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:shb_c_and_s_ln_bk_NShell_pbc} The $C_{SHB}(t)$ and $S_{SHB}(t)$ of water--water H-bonds at the solvation shell 
-  of nitrate ion in the \LiN solution. These results are calculated for the temporal resolution $t_t=0.4$ ps. For the definition 
-  of $t_t$, see Appendix \ref{thickness_interface}. }
-\end{figure}
+%\begin{figure}[htbp] % or \begin{SCfigure}
+%\centering
+%\includegraphics [width=0.6\textwidth] {./diagrams/shb_c_and_s_ln_bk_NShell_pbc}
+%\setlength{\abovecaptionskip}{0pt}
+%\caption{\label{fig:shb_c_and_s_ln_bk_NShell_pbc} The $C_{SHB}(t)$ and $S_{SHB}(t)$ of water--water H-bonds at the solvation shell 
+%  of nitrate ion in the \LiN solution. These results are calculated for the temporal resolution $t_t=0.4$ ps. For the definition 
+%  of $t_t$, see Appendix \ref{thickness_interface}. }
+%\end{figure}
 
 
 %I simulate the alkali nitrate solution/vapor interface to find how the nitrate affect the structure of the interface.
@@ -297,12 +297,6 @@ respectively. For LiI solution, the water molecules bound to the cation ion
   The dashed line shows the \CHB for the interface (the thickness $d = 8$ \A) of the LiI solution.  
   This interface contains H-bonds between water molecules similar to those in bulk water, i.e.,
   water molecules participating in these H-bonds are not in the solvation shell of ions.} 
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics [width=0.6\textwidth] {./diagrams/C2_ln_bk}
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:C2_ln_bk}The $C_2$ of water in the solvation shell of Nitrate in bulk LiNO3 Nitrate solution.}
 \end{figure}
 %Fecko and co-workers' study of liquid D$_2$O by IR spectroscopy reveals that the vibrational dynamics observed are dominated by underdamped displacement of the hydrogen-bond coordinate at very short times ( less than 200 fs).\cite{CJF03,CJF05} 
 Fig.\thinspace\ref{fig:hbacf_C_sh2_2p} a and b show that the \CHB of H-bonds within the alkali cations and \I decay faster 
@@ -603,7 +597,8 @@ is ps. The parameter values and units are the same below.}
 \section{Rotational Anisotropy Decay of Water at the Interface of Alkali-Iodine Solutions}\label{RAD}
 Using the transition dipole auto-correlation function, 
 we determined the rotational anisotropy decay and therefore the OH-stretch relaxation at water/vapor interface of alkali iodide solutions.
-%The effects of ion environment on structure and dynamics of water are obtained by comparing the second-order Legendre polynomial, i.e.,  $P_2(x)=\frac{1}{2}(3x^2-1)$,  orientational correlation function of the transition dipole.
+%The effects of ion environment on structure and dynamics of water are obtained by comparing the second-order Legendre polynomial, 
+%i.e.,  $P_2(x)=\frac{1}{2}(3x^2-1)$,  orientational correlation function of the transition dipole.
 The anisotropy decay can be determined from experimental signal in two different polarization configurations---parallel and perpendicular polarizations, by 
 \begin{equation}
         R(t)=\frac{S_{\parallel}(t)-S_{\perp}(t)}{S_{\parallel}(t)+2S_{\perp}(t)}
@@ -755,8 +750,8 @@ at the water/vapor interfaces of alkali-iodine solutions.
 \begin{tabular}{lccccc}
 water molecules & $A_1$  & $\kappa_1$ (THz) & $A_2$ & $\kappa_2$ (THz) \\
 \hline
-$DDAA$ & 0.85 & 0.25   & 0.10 & 16.0\\
-$DD'AA$ & 0.89 & 0.14  & 0.06 & 14.1 \\
+$DDAA$ & 0.85 & 0.25 & 0.10 & 16.0\\
+$DD'AA$ & 0.89 & 0.14 & 0.06 & 14.1 \\
 $D'AA$ & 0.38 & 0.99 & 0.38 & 0.99 \\
 \end{tabular}
 \end{table}
@@ -776,13 +771,30 @@ $n_\text{Li-O}(\text{LiI)}$ & 3.0 & 4.0 \\
 $n_\text{Na-O}(\text{NaI)}$ & 3.5 & 6.0 
 \end{tabular}
 \end{table}
+
 %In the first shell with a radius 3 \A, the entropy difference between the \Li shell and \Na shell,
 %$\Delta S=k_B\text{ln}\frac{\Omega_\text{Na}}{\Omega_\text{Li}}=k_B\text{ln}\frac{n_\text{Na}/V_\text{Na}}{n_\text{Li}/V_\text{Li}} =k_B\text{ln}1.05$.
 
-%\paragraph{The anisotropy decay}
-%
-
-\FloatBarrier
+\paragraph{Anisotropy Decay in Hydration Shells of Ions}
+In order to verify whether the water molecules in the hydration shell of different ions have different orientation dynamics. 
+We calculated the anisotropy decay of water molecules in \Li and nitrate ions' hydration shells in the LiNO$_3$ interface. 
+The average results of the $C_2(t)$ is shown in Fig.\thinspace\ref{fig:C2_ln_itp_pbc}.
+The radius of the hydration shell of nitrate O, \Li, and water molecules are taken as 4.0, 2.8 and 3.5 \AA, respectively. 
+These values come from the radial distribution functions $g_{\text{N-OW}}(r)$, $g_{\text{Li-OW}}(r)$ and $g_{\text{OW-OW}}(r)$,
+for bulk LiNO$_3$ solution, as shown in Fig.\thinspace\ref{fig:gdr_127_LiNO3}a and Fig.\thinspace\ref{fig:gdr_NW_WW_127_LiNO3}.
+In view of the diffusion of molecules, we only counts trajectories with a duration of 10 ps. The total number of trajectories is 6.
+\begin{figure}
+\centering
+\includegraphics [width=0.42\textwidth] {./diagrams/C2_ln_itp_pbc} 
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:C2_ln_itp_pbc}The $C_2(t)$ of water in the solvation shell of water, \Li and nitrate ions in the interface system of \LiN solution.} 
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics [width=0.8\textwidth] {./diagrams/gdr_NW_WW_127_LiNO3} 
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:gdr_NW_WW_127_LiNO3}The RDFs for the \LiN solution at $T=300$ K.}
+\end{figure}
 \paragraph{Classification of Water Molecules Based on H-Bonds}
 We also studied the relation between the anisotropy decay of water molecules and their environment. 
 Following the definition used in Ref.\cite{TianCS08}, we use the following labels to denote water molecules in solution: 
