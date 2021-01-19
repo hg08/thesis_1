@@ -56,6 +56,7 @@ where the averaging $\langle\cdots\rangle$ is to be performed over the ensemble 
 In this paragraph, we will use three correlation functions to describe the HB dynamics of water/vapor interfaces of solutions,
 the HB population correlation function \CHB, the survival probability \SHB and the reactive flux $k(t)$. \cite{Rapaport1983}
 
+\FloatBarrier
 \paragraph{Structure of HB Network}
 One of the importrant characteristics of HB network is the average number of H-bonds per molecule. 
 At room temperature and atmospheric pressure, this quantity is close to four or slightly higher. \cite{Malenkov2006} 
@@ -65,6 +66,7 @@ Furthermore, one can consider a more detailed distribution function. A molecule 
 that is, the total number of H-bonds formed by the molecule at a certain time is $i+j$.
 Regarding the H-bonding of pure bulk water, people have obtained rich results with this analysis method and MD simulations. \cite{Malenkov1990,Malenkov2006}
 
+\FloatBarrier
 \paragraph{HB Population Auto-Correlation Function}
 We use the correlation function \CHB to describe the structural relaxation of H-bonds: 
 \begin{eqnarray}
@@ -142,6 +144,7 @@ represents the probability at time $t$
 that a tagged pair of initially H-bonded water molecules are unbonded but remain separated by less than $r_{\text{OO}}^{\text{c}}$.
 In the above formula, $1-h(t)$ describes the breaking of a HB at time $t$ after its formation at time $t=0$.
 %===============================
+\FloatBarrier
 \paragraph{Survival Probability}
 %\paragraph{Probability of the first HB Breaking}
 %===============================
@@ -192,6 +195,7 @@ S_{\text{HB}}(t)= \int_t^\infty P_a(t')dt'.
 
 %\paragraph{Average HB Lifetime $\tau_{\text{HB}}$} %\cite{HAK08}
 %Like in water, librational motions of water molecules cause an rupturing and reforming of a H bond on a time scale of 60 fs.\cite{SHC86}
+\FloatBarrier
 \paragraph{Reactive Flux $k(t)$} 
 Calculating the reactive flux HB correlation functions and determine the rate constant ($1/\tau_{\text{HB}}$),
 is a more rigorous way to obtain the nature of H-bonds at water/vapor interfaces. \cite{AL00}
@@ -236,6 +240,7 @@ Therefore, the reaction time constant $\tau_\text{re}$ is
 \end{eqnarray}
 %
 
+\FloatBarrier
 \paragraph{Structural Properties of Pure Water}
 The pure water system and the interface between pure water and vacuum, i.e., the water/vapor interface, 
 are ideal model systems for testing our algorithms.
@@ -317,6 +322,7 @@ For example, understanding of HB dynamics is essential when investigating proton
 The statistical properties of lifetime of H-bonds can be described by a variety of distribution functions.{\cite{Rapaport1983, Tanaka1983, Geiger1984,Naberukhin2009}
 Below we discuss the three probability distribution functions of HB lifetime, so that we can study the dynamic characteristics of H-bonds in liquids and interfaces.
 %
+\FloatBarrier
 \paragraph{Probability Distribution of HB Lifetimes in a Configuration}
 Suppose that there are $n_{tot}$ H-bonds in a system at time $t$, and we can distinguish a part of H-bonds from these H-bonds. 
 The lifetime of this part of H-bonds is in a certain range $[\tau, \tau + d\tau]$. We can assume that their number of those bonds is $n_\tau$. 
@@ -357,11 +363,10 @@ Let $\tau$ take all the values in the interval $[0,\infty]$, we can get the HB l
 \end{figure}
 %\paragraph{Relation Between HB Dynamics and Anisotropy Decay}
 %It is interesting to relate the HB kinetics with rotational dynamics (anisotropy decay) of single water molecules.\cite{HX01}
-%
-%\paragraph{Mean First Passage Time Probability Densities}
 
-\paragraph{$k$ and $k'$: Least Squares Fit}
-% TODO
+\FloatBarrier
+\paragraph{$k$ and $k'$}
+%\paragraph{$k$ and $k'$: Least Squares Fit}
 %In order to show the effect of water molecule diffusion on the HB dynamics, we can calculate the sum of the functions $c(t)$ and $n(t)$, i.e., $c(t)+n(t)$.
 \begin{figure}[H]
 %Location: /home/gang/Github/hbacf/__hbacf_continuous/figures/plot_n_from_2_hb_def_bk_and_itp/
@@ -464,6 +469,7 @@ For the long time region, these values of the $k$ are comparable in magnitude to
 
 %For the water/vapor interface of pure water, we also calculated the constants $k$ and $k'$ by least square fit. 
 
+\FloatBarrier
 \paragraph{LiNO$_3$ Solution}\label{PARAGRAPH_LINO3} 
 For a given molecular configuration, $\{\mathbf{r}_i (t)\}$, Eq. \ref{eq:rho_c} can be
 solved through interpolation on a spatial grid.\cite{Willard2010} 
@@ -508,9 +514,9 @@ It means that nitrate has structure-breaking ability, or compared with W--W inte
 %Project location: /home/gang/Proj--LiNO3_Interface/Prepare_LiNO3_2020
 %
 \section{Water-water Pair Based Hydrogen Bond Dynamics}
-The method described in this paragraph is used more in the literature. 
+The method of water-water pair based HB dynamics used in this section has been frequently used in previous literature.\cite{Luzar1994,AL96,AC00} 
 The basis is the population operator $h(t)$ of the HB formed between two water molecules. 
-We use the correlation function \CHB to describe the relaxation of H-bonds between two water molecules: \cite{Luzar1994,AL96,AC00}
+We use the correlation function \CHB to describe the relaxation of H-bonds between two water molecules: 
 \begin{eqnarray}
 C_{\text{HB}}(t)=\langle h(0)h(t) \rangle/\langle h\rangle
 \label{eq:C_HB}.
@@ -589,6 +595,7 @@ as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds
 %\end{tabular}
 %\end{table}
 
+\FloatBarrier
 \paragraph{Instantaneous Interfaces}
 As Willard and Chandler mentioned, due to molecular motions, interfacial configurations
 change with time, and the identity of molecules that lie at the interface also change with time, generally useful procedures for
@@ -614,6 +621,7 @@ With the parameter $\xi$ set, the interfaces can be defined to be the 2-dimensio
 where $\rho_c$ is a reference density. This instantaneous interface is a function of time as molecular configurations changes with time, that is 
 ${\mathbf s}(t) = {\mathbf s}(\{{\mathbf r}_i(t)\})$. 
 
+\FloatBarrier
 \paragraph{Instantaneous Layering of the water/vapor interface}
 After the instantaneous surface is defined, we can define an interface layer for any non-uniform fluid system. 
 Specifically, for the simulated water/vapor interface system in the cuboid simulation box, 
@@ -634,6 +642,7 @@ the HB population operators. And here we are combining the general Luzar-Chandle
  that is, the space constraint satisfied by the configuration of the molecular pair. This combination can easily select those molecules and their H-bonds that meet arbitrary 
 constraints when the molecular configuration changes.
 
+\FloatBarrier
 \paragraph{Interfacial Hydrogen Bond Population} \label{IHBP}
 Once we have determined the instantaneous surface ${\mathbf s}(t)={\mathbf s}(\{{\mathbf r}_i(t)\})$, we can define interfacial H-bonds.
 We use the parameter $d$ to denote the thickness of the instantaneous interface.
@@ -664,6 +673,7 @@ k^s(t)= -\frac{dC_{HB}^s}{dt}
 \end{eqnarray}
 Therefore, using these new correlation functions, we can determine the reaction rate constant of breaking and reforming and the lifetimes of interfacial H-bonding.
 %
+\FloatBarrier
 \paragraph{$C^s_\text{HB}(t)$ as function of $d$}
 \begin{figure}[htb]
 \centering
@@ -705,6 +715,7 @@ or the ADH definition of the HB, this conclusion is basically valid. Beside the 
 functions $C_\text{HB}(t)$ ($C^s_\text{HB}(t)$), $n(t)$ ($n^s(t)$), $k(t)$ ($k^s(t)$), and the rate constants $k$, $k'$ determined by them.
 
 %[Plot the $k$ and $k'$ as functions of thickness $d$.]
+\FloatBarrier
 \paragraph{Rate Constants $k$ and $k'$} 
 To find the reaction rate constants $k$ and $k'$, we can start from the correlation functions $C^s_\text{HB}(t)$, $n^s(t)$ and $k^s(t)$, 
 we can also first select the water molecules in the instantaneous interface at each time point $t$, and start from the corresponding 
@@ -839,6 +850,7 @@ is ps. The parameter values and units are the same below.}
 %  6.0 & 0.117 & 0.072 & 8.58  \\
 %  7.0 & 0.119 & 0.071 & 8.39  \\
 
+\FloatBarrier
 \paragraph{HBD in Interface of Lithium Nitrate Solutions}
 The probability distribution of O and H atoms in the model of LiNO$_3$ interface is showed in Fig.\thinspace\ref{fig:prob_wat--ln_itp}. 
 \begin{figure}[h!]
@@ -882,9 +894,9 @@ $d_{\text{Li}^+,1}$ and $d_{\text{NO}_3^-,1}$, between ions and one of the insta
 
 Figure \ref{fig:prob_dist_li_surf_no3_surf} shows the probability density of the distance between the anion (cation) 
 and the instantanous surface in the LiNO$_3$ solution. We found that when the system reaches an equilibrium state, 
-the lithium ions are stably within a few angstroms below the interface, while the nitrate ion are more willing to be on the surface. 
+the \Li ion is stably within a few angstroms below the interface, while the NO$^-_3$ ion is more willing to be near the surface. 
 When the system is in equilibrium ($t>10$ ps), the distance $d_{\text{NO}_3^-,1}$ is around 2 \A, 
-which indicates that the nitrate ion is on the instantanous interface. 
+which indicates that the nitrate ion is in the top layer the instantanous interface. 
 Therefore, the conclusion obtained from the HB dynamics in the instantaneous interface are consistent with that from the 
 SFG spectra of the LiNO$_3$ solution. 
 (See Fig.\thinspace\ref{fig:sfg_LiNO3_7A_20ps_gauss150} and Fig.\thinspace\ref{fig:surf_x-vs-l_x_d1-5}.)
@@ -900,6 +912,7 @@ Eq.\thinspace\ref{eq:distance_particle2surf_1}. The \emph{distance} here refers 
 $\alpha$ and one of the instantaneous surfaces. Distance=0 denotes the instantaneous surface of the interfacial system of LiNO$_3$ solution.}
 \end{figure}
 %
+\FloatBarrier
 \paragraph{I$^-$--Water Hydrogen Bonds in Aqueous Solutions}\label{PARAGRAPH_I--W}
 Hydrogen bonds between water molecules and other species also play decisive role in chemical and biological systems. 
 For the research of this type of H-bond, some results obtained by molecular simulations have been published. For example,
@@ -985,6 +998,7 @@ the I$^-$--water bonds is weaker than the NO$_3^-$--water ones.
 %A base-10 log scale is used for the $x$-axis.}
 %\end{figure}
 
+\FloatBarrier
 \paragraph{Experiments on HB Dynamics}
 %Experimentally Ref.  
 An important  structural characteristic of the H-bonded network is the average number of H-bonds per molecule, $\langle h_{i,j}\rangle$. \cite{Chowdhary2008} 
