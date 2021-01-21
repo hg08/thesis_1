@@ -24,7 +24,7 @@ The right panel shows that the \Li and the \nitrate ions are separated by a wate
 %\paragraph{The Interface Picture}
 %In order to further progress in our analysis beyond the clusters RNO$_3$(H$_2$O)$_n$ (R=Li, Na or K),
 We considered a model for water/vapor interface where a slab of 256 water molecules containing one \Li and 
-one \nitrate (denoted by LiNO$_3$(H$_2$O)$_{256}$) is included in a periodic simulation box of 19.70 $\times $ 19.70 $\times $ 40.00 \A$^3$ at 300 K.
+one \nitrate (LiNO$_3$(H$_2$O)$_{256}$) is included in a periodic simulation box of 19.70 $\times $ 19.70 $\times $ 40.00 \A$^3$ at 300 K.
 The slab is 20 \AA thick and infinite in the \X and \Y direction, while the
 separation between the periodic slabs in the \Z direction is 20 \A.
 The  \LiN was inserted at one of the two interfaces, with the \nitrate residing in the topmost layer and 
@@ -443,13 +443,13 @@ and Table \ref{tab:gdr_Na-water} and \ref{tab:gdr_K-water}). For \I in NaI inter
 and for \I in KI interface, $\delta_1 = 0.94$ \AA (See Fig.\thinspace\ref{fig:gdr_124_NaI}b and \ref{fig:gdr_124_KI}b).
 Therefore, these structural properties are similar to that in LiI interface, except the larger solvation shells.
 
-\paragraph{Vibrational Sum-Frequency Generation Spectra}
+\paragraph{VSFG Spectra}
 %We have calculated the susceptibility for the two interfaces, the one containing the LiI pair 
 %and the neat one which does not include any ion.
 %As we assumed in chapter 3, there is no time dependence of the dipole/polarisability components, therefore, 
 %only the value at $t=0$ is taken into account. 
 %The expression for the VSFG spectrum is :
-The SFG spectra for LiI, NaI and KI interfaces, as shown in Fig.\thinspace\ref{fig:sfg_118_2LiI_both_50ps_gauss150}, Fig.\thinspace\ref{fig:sfg_118_2NaI_50ps_gauss150} and 
+The calculated VSFG spectra for LiI, NaI and KI interfaces, as shown in Fig.\thinspace\ref{fig:sfg_118_2LiI_both_50ps_gauss150}, Fig.\thinspace\ref{fig:sfg_118_2NaI_50ps_gauss150} and 
 Fig.\thinspace\ref{fig:sfg_118_2KI_both_50ps_gauss150}. In all the cases there is one free OH stretching band (3600--3800 \centimeter) and 
 one bonded OH stretching band (3000--3600 \centimeter).
 %For NaI solution surface, in the region 3600--3800 cm$^{-1}$, Im$\chi^{(2),\text{R}}_{SSP}>0$ is obtained, and it is in 
@@ -467,6 +467,17 @@ This result is consistent with the VSFG spectrum calculated in paragraph \ref{sf
 (1) the anion--water H-bonds at water/vapor interfaces decrease the amount of free stretching OH bonds 
 (2) the free stretching peak in the intensity of VSFG decrease and the H-bonded stretching peak is shifted at the interfaces of LiNO$_3$ (or alkali-iodine) solutions.
 %
+\begin{figure}[H]
+\centering    
+\includegraphics [width=0.6\textwidth] {./diagrams/sfg_118_2LiI_both_50ps_gauss150} % sfg_LiI_16_40ps_gauss150 is removed
+\setlength{\abovecaptionskip}{0pt} 
+\caption{\label{fig:sfg_118_2LiI_both_50ps_gauss150} The 
+        (a) Im$\chi^{(2),R}_{SSP}$ and 
+        (b) $|\chi^{(2),\text{R}}_{SSP}|^2$ of the water/vapor interface of 0.9 M LiI solution (solid line) and pure water/vapor interface (dashed line).
+        The data for pure water/vapor interface is calculated from the DFTMD simulation for the water interface with the same thickness (5 \AA) at the same temperature (330 K). 
+        The same below.} 
+\end{figure}
+%
 \begin{figure}[htbp]
 \centering    
 \includegraphics [width=0.6\textwidth] {./diagrams/sfg_118_2NaI_50ps_gauss150}
@@ -474,21 +485,11 @@ This result is consistent with the VSFG spectrum calculated in paragraph \ref{sf
 \caption{\label{fig:sfg_118_2NaI_50ps_gauss150} The 
         (a) Im$\chi^{(2),\text{R}}_{SSP}$ and 
         (b) $|\chi^{(2),\text{R}}_{SSP}|^2$ of the water/vapor interface of 0.9 M NaI solution (solid line) and pure water/vapor (dashed line) interface. 
-        The data for pure water/vapor interface is calculated from the DFTMD simulation for the water interface with the same thickness (5 \AA) at the same temperature (330 K). 
-        The same below. 
        }
 %There are two \Na cations and two \I anions in the solution part of the simulation box.i
 %The simulation box is with the size of 15.60 \AA$ \times$15.60 \AA$ \times$31.00 \A. Half of the volume of the simulation box is vacuum. 
 %For LiI and KI solutions, the simulation methods are the same as that used for the NaI solution. 
 % The molar concentration of the solution is $c_{\text{LiI}}=0.9\times10^3 \text{ mol}/\text{m}^3$. 
-\end{figure}
-\begin{figure}[H]
-\centering    
-\includegraphics [width=0.6\textwidth] {./diagrams/sfg_118_2LiI_both_50ps_gauss150} % sfg_LiI_16_40ps_gauss150 is removed
-\setlength{\abovecaptionskip}{0pt} 
-\caption{\label{fig:sfg_118_2LiI_both_50ps_gauss150} The 
-        (a) Im$\chi^{(2),R}_{SSP}$ and 
-        (b) $|\chi^{(2),\text{R}}_{SSP}|^2$ of the water/vapor interface of 0.9 M LiI solution (solid line) and pure water/vapor interface (dashed line).}
 \end{figure}
 %
 \begin{figure}[H]
@@ -519,20 +520,25 @@ in the weak H-bonding region at 3400 \centimeter.  This result is also consisten
 
 Because of surface isotropy of the solutions, \cite{Shultz2010} the $\chi^{(2),\text{R}}_{SSP}$ can be calculated either 
 through $\chi^{(2),\text{R}}_{XXZ}$, or $\chi^{(2),\text{R}}_{YYZ}$. 
-In our simulation, both of them give very similar results. Here we only report the comparison between Im$\chi^{(2),\text{R}}_{XXZ}$ and
+In our simulation, both of them give very similar results. Here we report the comparison between Im$\chi^{(2),\text{R}}_{XXZ}$ and
 Im$\chi^{(2),\text{R}}_{YYZ}$ for 0.9 M KI solution in 
-Fig. \ref{fig:sfg_118_2KI_both_50ps_gauss150_330K_xxz_yyz}. It can be seen that indeed the spectra are very similar to each other.
-From the results of the nonlinear susceptibilities, we can conclude that these water molecules at the water/vapor interfaces of LiI, NaI, and KI solutions are participating 
-in weaker hydrogen bond, compared with those at the pure water surface. 
+Fig. \ref{fig:sfg_118_2KI_both_50ps_gauss150_330K_xxz_yyz}. 
+They should be very close to each other,because the interfaces have rotational symmetry about the z-axis.
+It can be seen that indeed the spectra are very similar to each other.
+From the results of the nonlinear susceptibilities, we conclude that these water molecules at the water/vapor interfaces of LiI, NaI, and KI solutions are participating 
+in weaker H-bonds, compared with those at the pure water surface. 
 The results of the simulations permits to interpret the features present in the experimental spectra, which can be explained as consequence of the double layer formed by the \I ions on
 the topmost water layer and the alkali in the sublayer (bulk in our relatively small simulation box). % MS modified
-
 \begin{figure}[htbp]
  \centering
  \includegraphics [width=0.36 \textwidth] {./diagrams/sfg_118_2KI_both_50ps_gauss150_330K_xxz_yyz} %
  \setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:sfg_118_2KI_both_50ps_gauss150_330K_xxz_yyz}Im$\chi^{(2),R}_{XXZ}$ (black solid) and Im$\chi^{(2),R}_{YYZ}$ (grey solid) spectra are very close, because the interfaces have rotational symmetry about the z-axis. }
+  \caption{\label{fig:sfg_118_2KI_both_50ps_gauss150_330K_xxz_yyz}Im$\chi^{(2),R}_{XXZ}$ and Im$\chi^{(2),R}_{YYZ}$ spectra for the whole KNO$_3$ interface of aqueous solution.}
 \end{figure} 
+
+In view of the close relationship between the hydrogen bond network of the solution interface and the properties of the solution, 
+we will continue to study the properties of pure water and the solution interface from the perspectives of HB dynamics and reorientation of water molecules 
+in Chapters \ref{CHAPTER_HB} and \ref{CHAPTER_HB_SOLUTIONS}.
 
 %\begin{figure}[htbp]
 %\centering

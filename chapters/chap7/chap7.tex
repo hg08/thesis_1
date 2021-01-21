@@ -1,11 +1,11 @@
 \chapter{Hydrogen Bond Dynamics in Solution Systems}\label{CHAPTER_HB_SOLUTIONS}
 %The influence of ions propensity for the aqueous surface on the water's HB network are also of special interest to the atmospheric chemistry community.
 In this chapter, we explore the effects of nitrate ions, iodide ions and alkali metal cations 
-on the HB dynamics at the water/vapor interface of alkali nitrate solutions and alkali
-iodine solutions, by DFTMD and we provide a microscopic interpretation of recent experimental results. \cite{HuaWei2014}
+on the HB dynamics and water reorientation dynamics at the water/vapor interface of alkali nitrate solutions and alkali
+iodine solutions, by DFTMD simulations. %We will also provide microscopic interpretations of recent experimental results. \cite{HuaWei2014}
 In paragraph \ref{env_effect}, we discuss the influence of ions on the hydrogen bond dynamics in the solution interface system; 
 in paragraph \ref{SHB_dynamics}, we study the HB dynamics and HB lifetime in the solvation shells of the ions;
-and in paragraph \ref{RAD}, we study the orientation dynamics of H-bonds in the solvation shells in the interfacial system; 
+and in paragraph \ref{RAD}, we study the reorientation dynamics of water molecules in the solvation shells in the interfacial system; 
 Finally, we study the orientation characteristics of water molecules in the ions' solvation shell in the interfacial system.
 
 \FloatBarrier
@@ -20,6 +20,12 @@ These two properties have been found for bulk water using the SPC water model by
 This log-log plot of the $k(t)$ shows that, as in the case of liquid water, this decay behaviour does not coincide with a power-law decay for water/vapor interface of neat water.
 This result is also the same as that of the classical molecular simulation of pure water. \cite{AL96b,Luzar1996}
 %
+
+It can be seen from Fig.\thinspace\ref{fig:128w_bk_itp_50ps_n_from_k_in_with_2_hb_def_type2} that the $n(t)$ of the water/vapor interface of neat water
+is always greater than the value of $n(t)$ in the bulk water. This means that the HB between a pair of water molecules at time $t$ is broken
+and the distance between them is less than 3.5 \A in the water/vapor interface is more likely to occur than in bulk water. 
+We interpret this result as the fact that at time $t$, there is a greater probability that the H-bonds on the interface are broken 
+compared to the H-bonds in the bulk water.
 \begin{figure}[htpb]
 \centering
 \includegraphics [width=0.42\textwidth] {./diagrams/121}
@@ -88,19 +94,13 @@ This result is also the same as that of the classical molecular simulation of pu
 %The time dependence of the population functions $n(t)$ for bulk water, as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds.} 
 %\end{figure}
 % 
-
-It can be seen from Fig.\thinspace\ref{fig:128w_bk_itp_50ps_n_from_k_in_with_2_hb_def_type2} that the $n(t)$ of the water/vapor interface of neat water
-is always greater than the value of $n(t)$ in the bulk water. This means that the HB between a pair of water molecules at time $t$ is broken
-and the distance between them is less than 3.5 \A in the water/vapor interface is more likely to occur than in bulk water. 
-We interpret this result as the fact that at time $t$, there is a greater probability that the H-bonds on the interface are broken 
-compared to the H-bonds in the bulk water.
 %
 \begin{figure}[H]
 \centering
-\includegraphics [width=0.5\textwidth] {./diagrams/128w_bk_itp_50ps_n_from_k_in_with_2_hb_def_type2}
+\includegraphics [width=0.6\textwidth] {./diagrams/128w_bk_itp_50ps_n_from_k_in_with_2_hb_def_type2}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:128w_bk_itp_50ps_n_from_k_in_with_2_hb_def_type2} 
-The time dependence of the population functions $n(t)$ for bulk water and the water/vapor interface from (a) ADH (b) AHD criteria. ($T=300$ K.)} 
+The time dependence of the population functions $n(t)$ for bulk water and the water/vapor interface at $T=300$ K from (a) ADH (b) AHD criteria.} 
 \end{figure}
 
 To study the HB dynamics after the transition phase, which is roughly at 0.1 ps (see Fig.\thinspace\ref{fig:121}) and lasts for hundreds of picoseconds, 
@@ -245,17 +245,18 @@ The slab is periodically replicated in the horizontal directions.}
 \includegraphics [width=0.6\textwidth] {./diagrams/c_and_s_ln_bk_pbc}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:c_and_s_ln_bk_pbc} 
-The time dependence of (a) $C_\text{HB}(t)$ and (b) ln$S_\text{HB}(t)$ of all water--water and nitrate--water H-bonds at 300 K
+The time dependence of (a) $C_\text{HB}(t)$ and (b) ln$S_\text{HB}(t)$ of all water--water and nitrate--water H-bonds
 for the slab of LiNO$_3$ solution, as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds. 
-The definition of the correlation function is based on the specific HB configuration between molecules.} 
+The definition of the correlation function is based on the specific O-H pairs between molecules.} 
 \end{figure}
 The results of the correlation functions $C_\text{HB}(t)$ and $S_\text{HB}(t)$ for both nitrate--water (N--W) and water--water (W--W) H-bonds 
 are shown in Fig.\thinspace\ref{fig:c_and_s_ln_bk_pbc}a and \ref{fig:c_and_s_ln_bk_pbc}b, respectively.
 For both HB definitions, it is found that the decay of the $C_\text{HB}(t)$ and $S_\text{HB}(t)$ for nitrate--water H-bonds is much faster 
 than that for water--water H-bonds. From the relation \ref{eq:calculate_hb_lifetime_from_s}, the faster relaxation of $S_\text{HB}(t)$ implies that 
 the nitrate--water H-bonds have shorter lifetime than the water--water H-bonds in the bulk phase. 
-This result is obtained from a DFTMD simulation of a bulk phase of LiNO$_3$ solution at 300 K. The simulated system consisted of 127 water molecules and a Li$^+$--NO$_3^-$ ion pair
-in a periodic cubic box of length $L=15.79$\AA, which corresponds to a density of 0.997 g cm$^{-3}$. 
+This result is obtained from a DFTMD simulation of a bulk phase of LiNO$_3$ solution at 300 K. 
+The simulated system consisted of 127 water molecules and a Li$^+$--NO$_3^-$ ion pair
+in a periodic cubic box of length $L=15.79$ \AA, which corresponds to a density of 0.997 g cm$^{-3}$. 
 The calculation results obtained from the simulations are in good agreement with numerous experimental results and simulation results. \cite{Tongraar2006} 
 It means that nitrate has structure-breaking ability, or compared with W--W interaction, N--W HB interaction is rather weak.
 %Actual value of the length for LiNO3 solution at 300 K : 15.7797 \AA
@@ -317,7 +318,7 @@ SFG spectra of the LiNO$_3$ solution.
 \includegraphics [width=0.36 \textwidth] {./diagrams/prob_dist_li_surf_no3_surf} 
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:prob_dist_li_surf_no3_surf} The probability distribution the Li$^+$--surface and nitrate--surface distances in the 
-water/vapor interface of LiNO$_3$ solution ($T$=300 K). 
+water/vapor interface of LiNO$_3$ solution. 
 The horizontal axis represents the distance between the ion and the instantaneous surface, which is defined in 
 Eq.\thinspace\ref{eq:distance_particle2surf_1}. The \emph{distance} here refers specifically to $d_{\alpha,1}$, the distance between the ion 
 $\alpha$ and one of the instantaneous surfaces. Distance=0 denotes the instantaneous surface of the interfacial system of LiNO$_3$ solution.}
@@ -341,7 +342,7 @@ The $C_\text{HB}(t)$ are shown in Fig.\thinspace\ref{fig:X-O_c_lii_xlogscale}.
 \includegraphics [width=0.6 \textwidth] {./diagrams/gdr_127_LiNO3} 
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:gdr_127_LiNO3} (a)Li--water O, Li--water H RDFs; (b) Nitrate O--water O, nitrate O--water H RDFs for LiNO$_3$ 
-solutions at 300 K.} 
+solutions.} % 300 K
 %The RDFs were computed from DFTMD.
 \end{figure}
 %\begin{figure}[htbp]
@@ -354,9 +355,9 @@ solutions at 300 K.}
 \centering
 \includegraphics [width=0.6 \textwidth] {./diagrams/X-O_c_lii_xlogscale} 
 \setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:X-O_c_lii_xlogscale}Time dependence of the intermittent correlation functions $C_\text{HB}(t)$ of I$^-$--water (I$^-$--W) and water--water H-bonds at 300 K. 
+  \caption{\label{fig:X-O_c_lii_xlogscale}Time dependence of the intermittent correlation functions $C_\text{HB}(t)$ of I$^-$--water (I$^-$--W) and water--water H-bonds. 
 A base-10 log scale is used for the $x$-axis.[CHECK: Why it decay so FAST?]}
-\end{figure}
+\end{figure} %(300 K)
 The results of the continuous correlation functions for both definitions (ADH and AHD criterions) for the H-bonds are shown in Fig.\thinspace\ref{fig:wat-wat_s_lii} 
 for I$^-$--water H-bonds. The results of water--water H-bonds are also included for comparison in both Fig.\thinspace\ref{fig:wat-wat_s_lii} a and b.
 For both definitions of the H-bonds, it is found that the I$^-$--water H-bonds show much faster dynamics than water--water H-bonds. 
@@ -365,8 +366,8 @@ For both definitions of the H-bonds, it is found that the I$^-$--water H-bonds s
 \centering
 \includegraphics [width=0.6 \textwidth] {./diagrams/wat-wat_s_lii} 
 \setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:wat-wat_s_lii} Time dependence of the continuous correlation functions $S_\text{HB}(t)$ of I$^-$--water (I$^-$--W) and water--water H-bonds at 300 K.}
-\end{figure}
+  \caption{\label{fig:wat-wat_s_lii} Time dependence of the continuous correlation functions $S_\text{HB}(t)$ of I$^-$--water (I$^-$--W) and water--water H-bonds.}
+\end{figure} % 300 K
 %
 
 The time scales of the relaxation of these I$^-$--water H-bonds can be obtained for both definitions. 
@@ -380,7 +381,7 @@ the I$^-$--water bonds is weaker than the NO$_3^-$--water ones.
 \begin{table}[htbp]
 \centering
 \caption{ 
-    The Dynamical properties of I$^-$--water and nitrate--water H-bonds at 300 K. Data are from DFTMD for the aqueous solutions. The values are expressed in ps.} 
+    The Dynamical properties of I$^-$--water and nitrate--water H-bonds. Data are from DFTMD for the aqueous solutions. The values are expressed in ps.} 
 \begin{tabular}{cccc}
 \label{tab:properties_anion-water_hbs}
  Quantity & Criterion & I$^-$--water & NO$_3^-$--water \\
@@ -389,7 +390,7 @@ the I$^-$--water bonds is weaker than the NO$_3^-$--water ones.
   $\langle\tau_a\rangle$ & AHD & 0.11 & 7.91 \\
   $1/k$ & ADH & 2.80 & 4.15 \\
   $1/k$ & AHD & 2.40 & 6.02\\
-\end{tabular}
+\end{tabular} % 300 K
 % Data from: LiI solution:  gang@XPS /home/gang/Github/water_pair_HB_dynamics/src/least_square_fit
 % Data from: LiNO3 solution:  /home/gang/Github/water_pair_HB_dynamics/src/least_square_fit/LiNO3 
 \end{table}
@@ -410,7 +411,7 @@ the I$^-$--water bonds is weaker than the NO$_3^-$--water ones.
 %\end{figure}
 
 
-\subsection{Effects of Alkali Metal Ions and \I on HB Dynamics}
+\paragraph{Effects of Alkali Metal Ions and \I on HB Dynamics}
 %\begin{figure}[!ht]
 %\centering
 %\includegraphics [width=\textwidth] {./diagrams/C_S_HB_124_2LiI-2NaI-2KI} %fig5.15
@@ -445,13 +446,13 @@ respectively. For LiI solution, the water molecules bound to the cation ion
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:hbacf_C_sh2_2p}The \CHB of water--water H-bonds in the solvation shell 
   of (a) cations and (b) I$^-$ at the interfaces of 0.9 M LiI, NaI and KI solutions, respectively.
-  The dashed line shows the \CHB for the interface (the thickness $d = 8$ \A) of the LiI solution.  
-  This interface contains H-bonds between water molecules similar to those in bulk water, i.e.,
-  water molecules participating in these H-bonds are not in the solvation shell of ions.} 
+  The dashed line is for the interface (the thickness $d = 8$ \A) of the LiI solution.}  
 \end{figure}
 %Fecko and co-workers' study of liquid D$_2$O by IR spectroscopy reveals that the vibrational dynamics observed are dominated by underdamped displacement of the hydrogen-bond coordinate at very short times ( less than 200 fs).\cite{CJF03,CJF05} 
 Fig.\thinspace\ref{fig:hbacf_C_sh2_2p} a and b show that the \CHB of H-bonds within the alkali cations and \I decay faster 
-than those in bulk water and at the surface of LiI solution.
+than those in bulk water and at the surface of LiI solution. [HOW TO EXPLAIN (a)?]
+[(WHAT DOES THIS SENTANCE FOR?)The interface of LiI solution contains H-bonds between water molecules similar to those in bulk water, i.e.,
+water molecules participating in these H-bonds are not in the solvation shell of ions.] 
 From Fig.\thinspace\ref{fig:hbacf_C_sh2_2p}b, we find that, for all three alkali-iodine solutions, the \CHB for hydration shell water molecules 
 of \I decays faster than that for molecules at the water/vapor interface.
 %The simulation produces similar result as Omta and coworker's experiments of femtosecond pump-probe spectroscopy, which demonstrate that anions ( $\text{SO}^{2-}_4$, $\text{ClO}^-_4$, etc) have no influence on the dynamics of bulk water, even at high concentration up to 6 M.\cite{AWO03} 
@@ -486,7 +487,7 @@ The values of $\tau_{\text{R}}$ decrease as the concentration of the solutions i
 \begin{table}[htbp]
 \centering
 \caption{\label{tab:tau_hb} 
-  The relaxation time $\tau_{\text{R}}$ (unit: ps) of the correlation function \CHB  for the water/vapor interface of the LiI (NaI) solutions, calculated by DFTMD simulations.}
+  The relaxation time $\tau_{\text{R}}$ (unit: ps) of the \CHB  for the water/vapor interface of the LiI (NaI) solutions, calculated by DFTMD simulations.}
 \begin{tabular}{ccc}
   concentration  & $\tau_{\text{R}}$ (LiI) & $\tau_{\text{R}}$ (NaI) \\
 \hline
@@ -512,7 +513,6 @@ decrease as the concentration of LiI (or NaI) solution increase.
 \end{figure}
 \FloatBarrier
 \section{Solvation Shell Hydrogen Bond Dynamics} \label{SHB_dynamics}
-\paragraph{Solvation Shells as Special interface}
 We will extend the IHB dynamics to H-bonds around certain ions, so that we can study the H-bonds in aqueous solutions. 
 Similar to the determination of the instantaneous surface, we can define an interface for each molecules in aqueous solutions, that is, 
 the first olvation shell of the molecule. Here, we use the word molecule to denote ions, and water molecules.  
@@ -533,7 +533,7 @@ The definition of HB here can be based on water molecule pairs or O-H pairs.
 Like in the IHB case, in this paragraph, we also just discuss H-bonds based on water molecule pairs. 
 For the hydrogen bond defined based on the O-H pairs, one can do a similar analysis.
 
-Similar to the correlation function $C^s_\text{HB}(t)$ for the H-bonds in instantaneous interfaces,
+Similar to the $C^s_\text{HB}(t)$ for the H-bonds in instantaneous interfaces,
 we define the correlation function $C^{k,X}_\text{HB}(t)$ that describes the fluctuation of the solvation shell H-bonds for ion $X$: 
 \begin{eqnarray}
 C^{k,X}_{\text{HB}}(t)=\langle h^{k,X}(0)h^{k,X}(t) \rangle/\langle h^{k,X}\rangle
@@ -554,7 +554,7 @@ k^\text{k,X}(t)= -\frac{dC_\text{HB}^\text{k,X}}{dt}
 Then, using these correlation functions, we can determine the reaction rate constant of breaking and reforming and the lifetimes of solvation shell H-bonding.
 %
 \FloatBarrier
-\paragraph{$C^{k}_\text{HB}(t)$}
+\paragraph{LiNO$_3$ Solution}
 \begin{figure}[H] 
 \centering
 \includegraphics [width=0.60\textwidth] {./diagrams/shb_c_ln_bk_Shell_pbc}
@@ -580,9 +580,9 @@ that $C^{k}_\text{HB}(t)$ decays faster than $C_\text{HB}(t)$ in pure water.
 \includegraphics [width=0.60\textwidth] {./diagrams/shb_c_ln_bk_Shell_bulk_wat_pbc_r5}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:shb_c_ln_bk_Shell_bulk_wat_pbc_r5}
-The correlation function $C^\text{k}_\text{HB}(t)$ for the H-bonds in the solvation shell of NO$^-_3$ ion, based on water-water 
+The $C^\text{k}_\text{HB}(t)$ for the H-bonds in the solvation shell of NO$^-_3$ ion, based on water-water 
 pair HB population operator $h^\text{k}(t)$, as computed from the (a) ADH and (b) AHD criteria of H-bonds.
-The correlation functions $C_\text{HB}(t)$ (dashed line) in the bulk water defined by two different HB criterion 
+The $C_\text{HB}(t)$ (dashed line) in the bulk water defined by two different HB criterion 
 ADH and AHD are also plotted in sub-figure a and b respectively. } 
 \end{figure}
 %
@@ -605,7 +605,7 @@ ADH and AHD are also plotted in sub-figure a and b respectively. }
 %The HB dynamics obtained from classical MD simulations can not catch the fast HB relaxation, and it give a totally different HB dynamics for the water molecules in these alkali halide solution/vapor interfaces.
 %
 \FloatBarrier
-\paragraph{$C^k_\text{HB}(t)$}
+\paragraph{Alkali-Iodine Solutions}
 To make the results clearer, we only added one cation and one anion to the simulated aqueous system. 
 We have done DFTMD simulations for LiI, NaI, KI bulk system and interface system respectively.
 %\begin{figure}[h]
@@ -627,7 +627,7 @@ on the relaxation of H-bonds outside the first solvation shell.
 \includegraphics [width=0.60\textwidth] {./diagrams/shb_c_lii_bk_new_Shell_pbc_r5}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:shb_c_lii_bk_new_Shell_pbc_r5} 
-The correlation function $C^\text{k}_\text{HB}(t)$ for the solvation shell H-bonds with radius ($r_\text{shell}=5.0$ \AA), based on water-water 
+The $C^\text{k}_\text{HB}(t)$ for the solvation shell H-bonds with radius ($r_\text{shell}=5.0$ \AA), based on water-water 
 pair HB population operator $h^\text{k}(t)$, as computed from the (a) ADH and (b) AHD criteria of H-bonds. }
 %The results are calculated from the simulated bulk LiI solution (new) at $T=300$ K.
 \end{figure}
@@ -637,7 +637,7 @@ pair HB population operator $h^\text{k}(t)$, as computed from the (a) ADH and (b
 \includegraphics [width=0.60\textwidth] {./diagrams/shb_s_lii_itp_Shell_pbc}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:shb_s_lii_itp_Shell_pbc}
-The correlation function $\ln S^\text{k}_\text{HB}(t)$ for H-bonds in the solvation shells of \Li and \I ions (in water--vapor interface)  based on water-water 
+The $\ln S^\text{k}_\text{HB}(t)$ for H-bonds in the solvation shells of \Li and \I ions (in water--vapor interface)  based on water-water 
 pair HB population operator $h^\text{k}(t)$, as computed from the (a) ADH and (b) AHD criteria of H-bonds.} 
 %The results are calculated from the simulated interface system of LiI solution at $T=300$ K.
 \end{figure}
@@ -679,7 +679,7 @@ C_2(t)=\langle P_2(\hat{u}(0)\cdot\hat{u}(t)) \rangle,
 \end{equation}
 where $\hat{u}(t)$ is the time dependent unit vector of the transition dipole, $P_2(x)$ is the second Legendre polynomial, and 
 $\langle \rangle$ indicate equilibrium ensemble average.\cite{Corcelli05,LinYS2010} %\cite{2010Lin} % angular brackets
-The anisotropy decay $C_2(t)$ for the water/vapor interface of neat water is shown in Fig.\space\ref{fig:c2_pure_water_inset}.
+The anisotropy decay $C_2(t)$ for the water/vapor interface of neat water is shown in Fig.\space\ref{fig:c2_2LiI_16_inset}.
 \begin{figure}[h]
 \centering
 \includegraphics [width=0.36\textwidth] {./diagrams/c2_pure_water_inset} 
@@ -688,8 +688,7 @@ The anisotropy decay $C_2(t)$ for the water/vapor interface of neat water is sho
   at 330 K, calculated by DFTMD simulations. The water/vapor interface of neat water is modeled with a slab 
   made of 121 water molecules in a simulation box of size $15.60 \times 15.60 \times 31.00$ \A$^3$.}
 \end{figure}
-
-The anisotropy decay $C_2(t)$ for the water/vapor interface of LiI solution is shown in Fig.\space\ref{fig:c2_2LiI_16_inset}.
+The anisotropy decay $C_2(t)$ for the whole LiI interface of aqueous solution is shown in Fig.\space\ref{fig:c2_2LiI_16_inset}.
 This function decays faster than that of neat water, indicating that H-bonds
 at the interfaces of alkali-iodine solutions reorient faster than in neat water. The inset shows the first 0.4 ps of $C_2(t)$, from which we see a 
 quick change during the first $\sim 0.1$ ps primarily due to librations.
@@ -702,11 +701,14 @@ quick change during the first $\sim 0.1$ ps primarily due to librations.
   and of neat water (dashed line) at 330 K, calculated by DFTMD simulations.} 
 \end{figure}
 %
-We also calculated the $C_2(t)$ for the interface of other alkali-iodine solutions LiI and KI. 
+We also calculated the $C_2(t)$ for the interface of other alkali-iodine solutions NaI and KI. 
 The results of $C_2(t)$ for the water/vapor interfaces of these solutions are shown in Fig.\thinspace\ref{fig:c2_2KI_2NaI_2LiI_16}.
 In all the cases $C_2(t)$ decays faster than in neat water, indicating that H-bonds
 at the interfaces of the three alkali-iodine solutions are orientated faster than that of neat water.
-They show that \I ions can accelerate the dynamics of molecular reorientation of water molecules at interfaces.   
+They show that \I ions might accelerate the dynamics of molecular reorientation of water molecules at interfaces. 
+Here, we have taken the water molecules in the entire interface as the research object, 
+and the calculation results are relatively rough. Therefore, we need careful inspection to verify the above conclusions. 
+In other words, we need to investigate the dynamic behavior of water molecules located in the solvation shells of ions.   
 
 %
 \begin{figure}[htbp]
@@ -741,11 +743,13 @@ C_2(t)=A_1e^{-t/\tau_{2,1}} +A_2e^{-t/\tau_{2,2}},
 \label{eq:tcf3}
 \end{equation}
 where $A_i$ are amplitudes and $1/\tau_{2,i}$ are decay rates ($i=1, 2$) of $C_2(t)$. 
-Then, the $\tau_{2,i}$ represent the relaxation time of the $C_2(t)$. 
+Then, the $\tau_{2,i}$ represent the relaxation times of the $C_2(t)$. 
 The $A_i$ and $\tau_{2,i}$ of the biexponentials fits for 
 the $C_2(t)$ are listed in Table ~\ref{tab:2LiI_c2_biexp} and Table ~\ref{tab:2NaI_c2_biexp}.
 The biexponential fit is very close to the calculated $C_2(t)$, 
 which can be seen in Fig.\thinspace\ref{fig:2LiI-124w_c2_fit_5ps_biexp}. 
+
+                                  
 %(compare Fig.\space\ref{fig:2LiI-124w_c2_fit_5_single-exp}).
 %
 \begin{table}[hbt]
@@ -779,14 +783,13 @@ surface & 0.73 & 3.70 & 0.22 & 0.07 \\
   \end{tabular}
 \end{table}
 %
-%图
+%
 \begin{figure}[htbp]
 \centering
 \includegraphics [width= 0.6\textwidth] {./diagrams/2LiI-124w_c2_fit_5_biexp} 
   \caption{\label{fig:2LiI-124w_c2_fit_5ps_biexp} The time dependence of the $C_2(t)$ of OH bonds 
   in water molecules at the water/vapor interface of LiI solution.}
 \end{figure} 
-%
 %[Notes: The 63-water-slab models is listed here as a reference. The number of water molecules is small; The data for KI/vapor and LiI/vapor interfaces come from  KI\_16 and LiI\_16 systems.  
 %Water(63) &0.831$\pm(1\times10^{-4})$ &  0.08760 $\pm(2\times 10^{-5})$&0.100$\pm(2\times10^{-4})$ & 1.029 $\pm(4\times10^{-3})$  \\ ]
 %
@@ -829,6 +832,17 @@ $n_\text{Na-O}(\text{NaI)}$ & 3.5 & 6.0
 %In the first shell with a radius 3 \A, the entropy difference between the \Li shell and \Na shell,
 %$\Delta S=k_B\text{ln}\frac{\Omega_\text{Na}}{\Omega_\text{Li}}=k_B\text{ln}\frac{n_\text{Na}/V_\text{Na}}{n_\text{Li}/V_\text{Li}} =k_B\text{ln}1.05$.
 
+\section{Anisotropy Decay for water molecules in \LiN Solution/Vapor Interface}
+The aniostropy decay of OH chromophores in water molecules in 0.4 M LiNO3 solution/vapor interface is shown in Fig.~\ref{fig:c2_LiNO3_inset}.  
+In the model of the interface, there is one \Li and one \nitrate in the 15.6 \AA$\times$15.6 \AA$\times$31.0 \AA simulation box. 
+The larger decay rate consistent to the conclusion infered from the VDOS of the interfaces, although the concentration of \LiN is lower. 
+This result obtained from another DFTMD trajectory consistent with the previous one, and it reflects that the \nitrate on the surface of the alkali nitrate solution weaken the H-bonds and  accelerate the anisotropy decay of water molecules at the interfaces.
+\begin{figure}[H]
+\centering
+\includegraphics [width=0.4\textwidth] {./diagrams/c2_LiNO3_inset} 
+\setlength{\abovecaptionskip}{10pt}
+\caption{\label{fig:c2_LiNO3_inset} The aniostropy decay of OH chromophores in water molecules in LiNO3 solution/vapor interface.}
+\end{figure} 
 \FloatBarrier
 \paragraph{Anisotropy Decay in Hydration Shells of Ions}
 To verify whether the water molecules in the hydration shell of different ions have different orientation dynamics. 
@@ -838,19 +852,18 @@ The radius of the hydration shell of nitrate O, \Li, and water molecules are tak
 These values come from the radial distribution functions $g_{\text{N-OW}}(r)$, $g_{\text{Li-OW}}(r)$ and $g_{\text{OW-OW}}(r)$,
 for bulk alkali nitrate solution, as shown in Fig.\thinspace\ref{fig:gdr_127_LiNO3}a and Fig.\thinspace\ref{fig:gdr_NW_WW_127_LiNO3}.
 In view of the diffusion of molecules, we only counts trajectories with a duration of 10 ps. The total number of trajectories is 6.
-
 \begin{figure}[H]
 \centering
 \includegraphics [width=0.42\textwidth] {./diagrams/C2_ln_itp_pbc} 
 \setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:C2_ln_itp_pbc}The $C_2(t)$ for water in the solvation shell of water, \Li and nitrate ions in the interface system of \LiN solution at $T=300$ K.
+\caption{\label{fig:C2_ln_itp_pbc}The $C_2(t)$ for water in the solvation shell of water, \Li and nitrate ions in the interface system of \LiN solution.
 The size of periodic box is $(a,b,c)=(15.7787, 15.7787, 31.5574)$ (\AA). } 
-\end{figure}
+\end{figure} % 300 K
 \begin{figure}[H]
 \centering
 \includegraphics [width=0.8\textwidth] {./diagrams/gdr_NW_WW_127_LiNO3} 
 \setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:gdr_NW_WW_127_LiNO3}The RDFs for the \LiN solution at $T=300$ K.}
+\caption{\label{fig:gdr_NW_WW_127_LiNO3}The RDFs for the \LiN solution.}% at $T=300$ K.
 \end{figure}
 
 In the interface of the NaNO$_3$ solution, the average value of the $C_2(t)$ functions are shown in 
@@ -862,15 +875,15 @@ for bulk alkali nitrate solution, as shown in Fig.\thinspace\ref{fig:gdr_127_LiN
 \centering
 \includegraphics [width=0.42\textwidth] {./diagrams/C2_nn_itp_pbc} 
 \setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:C2_nn_itp_pbc}The $C_2(t)$ for water in the solvation shell of water, Na$^+$ and nitrate ions in the interface system of NaNO$_3$ solution at $T=300$ K.
-The size of periodic box is $(a,b,c)=(15.6530, 15.6530, 31.3060)$ (\AA). } 
+\caption{\label{fig:C2_nn_itp_pbc}The $C_2(t)$ for water in the solvation shell of water, Na$^+$ and nitrate ions in the interface system of NaNO$_3$ solution.
+The size of periodic box is $(a,b,c)=(15.6530, 15.6530, 31.3060)$ (\AA). } % at T = 300 K
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics [width=0.8\textwidth] {./diagrams/gdr_NW_WW_127_NaNO3} 
 \setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:gdr_NW_WW_127_NaNO3}The RDFs for the NaNO$_3$ solution at $T=300$ K.}
-\end{figure}
+\caption{\label{fig:gdr_NW_WW_127_NaNO3}The RDFs for the NaNO$_3$ solution.}
+\end{figure} % 300 K
 
 For the interface of the KNO$_3$ solution, we also did the same calculation of $C_2(t)$. 
 The average value of the $C_2(t)$ functions are shown in Fig.\thinspace\ref{fig:C2_kn_itp_pbc}.
@@ -881,14 +894,14 @@ for bulk alkali nitrate solution, as shown in Fig.\thinspace\ref{fig:gdr_127_LiN
 \centering
 \includegraphics [width=0.42\textwidth] {./diagrams/C2_kn_itp_pbc} 
 \setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:C2_kn_itp_pbc}The $C_2(t)$ for water in the solvation shell of water, K$^+$ and nitrate ions in the interface system of KNO$_3$ solution at $T=300$ K.
+\caption{\label{fig:C2_kn_itp_pbc}The $C_2(t)$ for water in the solvation shell of water, K$^+$ and nitrate ions in the interface system of KNO$_3$ solution.
 The size of periodic box is $(a,b,c)=(15.7160, 15.7160, 31.4320)$ (\AA). } 
-\end{figure}
+\end{figure} % 300 K
 \begin{figure}[H]
 \centering
 \includegraphics [width=0.8\textwidth] {./diagrams/gdr_NW_WW_127_KNO3} 
 \setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:gdr_NW_WW_127_KNO3}The RDFs for the KNO$_3$ solution at $T=300$ K.}
+\caption{\label{fig:gdr_NW_WW_127_KNO3}The RDFs for the KNO$_3$ solution.} % 300 K
 \end{figure}
 
 It can be found that in the interfacial systems alkali metal nitrate solution, 
@@ -908,7 +921,7 @@ the increase of the radius of the hydration shell, and their relationship is sho
 \begin{table}[H]
 \centering
 \caption{\label{tab:relaxation_tau_vs_radius_ln} 
-    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ in the interface system of LiNO$_3$ solution at $T=300$ K.} 
+    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ in the interface system of LiNO$_3$ solution.} 
 \begin{tabular}{ccc}
  ion (molecule) & $r$ (\AA) & $\tau_2$ (ps)  \\
 \hline
@@ -916,11 +929,11 @@ the increase of the radius of the hydration shell, and their relationship is sho
   \Li & 2.8 & 9.26 $\pm$ 0.02 \\
   NO$^-_3$ & 4.0 & 5.30 $\pm$ 0.02 \\
 \end{tabular}
-\end{table}
+\end{table} % 300 K
 \begin{table}[H]
 \centering
 \caption{\label{tab:relaxation_tau_vs_radius_nn} 
-    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ in the interface system of NaNO$_3$ solution at $T=300$ K.} 
+    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ in the interface system of NaNO$_3$ solution.} 
 \begin{tabular}{ccc}
  ion (molecule) & $r$ (\AA) & $\tau_2$ (ps)  \\
 \hline
@@ -928,11 +941,11 @@ the increase of the radius of the hydration shell, and their relationship is sho
   \Na & 3.2 & 9.24 $\pm$ 0.02 \\
   NO$^-_3$ & 4.0 & 5.66 $\pm$ 0.01 \\
 \end{tabular}
-\end{table}
+\end{table} % 300 K
 \begin{table}[H]
 \centering
 \caption{\label{tab:relaxation_tau_vs_radius_kn} 
-    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ in the interface system of KNO$_3$ solution at $T=300$ K.} 
+    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ in the interface system of KNO$_3$ solution.} 
 \begin{tabular}{ccc}
  ion (molecule) & $r$ (\AA) & $\tau_2$ (ps)  \\
 \hline
@@ -940,14 +953,14 @@ the increase of the radius of the hydration shell, and their relationship is sho
   \K & 3.6 & 6.49 $\pm$ 0.02 \\
   NO$^-_3$ & 4.0 & 5.30 $\pm$ 0.01 \\
 \end{tabular}
-\end{table}
+\end{table} % 300 K
 \begin{figure}[H]
 \centering
 \includegraphics [width=0.42\textwidth] {./diagrams/ln_nn_kn_tau2_vs_shell_radius} 
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:ln_nn_kn_tau2_vs_shell_radius}The dependence of $\tau_2(t)$ on the radius of the solvation shell of molecules 
-(water,\Li,\Na, \K and nitrate ions) in the interface system of alkali nitrate solutions at $T=300$ K.}
-\end{figure}
+(water,\Li,\Na, \K and nitrate ions) in the interface system of alkali nitrate solutions.}
+\end{figure} % 300 K
 
 \FloatBarrier
 \paragraph{Probability Distribution of Ions}
@@ -956,65 +969,56 @@ The probability distribution of the ions in the aqueous-vapor interface of  LiI 
 
 \FloatBarrier
 \paragraph{Anisotropy Decay}
-The orientational anisotropy $r(t)$ is given by the rotational time-correlation function 
-\begin{equation}
-C_2(t)=\langle P_2(\hat{u}(0)\cdot\hat{u}(t)) \rangle,
-\label{eq:tcf2}
-\end{equation}
-where $\hat{u}(t)$ is the time dependent unit vector of the transition dipole, $P_2(x)$ is the second Legendre polynomial, and the angular brackets indicate equilibrium ensemble average.\cite{SAC05}%\cite{2010Lin}
-
 First, we assume that the anisotropy decay is a single exponential given by 
 \begin{equation}
-C_2(t)=e^{-\kappa t},
+C_2(t)=e^{-t/\tau_2},
 \label{eq:tcf2}
 \end{equation}
-where $\kappa$ is a rate constant for the anisotropy decay.
+where $\tau_2$ is a characteristic relaxation time for the anisotropy decay.
 
-The time correlation functions for water molecules bound to specific ions, for selected frequency windows up to 1.5 ps, are shown in Fig.~\ref{fig:2NaI-124w_0-25ps_c2_150224}.
-
+The time correlation functions for water molecules bound to specific ions, for selected frequency windows up to 10 ps, are shown in Fig.~\ref{fig:2NaI-124w_c2_fit_150223}.
+It shows that water molecules bound to \I anions decay fastest,while those bound to \Na slowest. (time range: 0-10 ps).
 \begin{figure}
 \centering
 \includegraphics [width=0.4 \textwidth] {./diagrams/2NaI-124w_c2_fit_150223} 
 \setlength{\abovecaptionskip}{10pt}
-\caption{\label{fig:2NaI-124w_c2_fit_150223} The aniostropy decay of OH chromophores in water molecules in NaI water solutions. Water molecules bound to \I anions decay fastest,
-while those bound to \Na slowest. (time range: 0-10 ps).}
+\caption{\label{fig:2NaI-124w_c2_fit_150223} The aniostropy decay of OH chromophores in water molecules in NaI water solutions.}
 \end{figure} 
-
-We obtain non-exponential kinetics for the rotation of water molecules in both surface and bulk water (and this is true for water molecules bound to ions).
+We obtain non single-exponential kinetics for the rotation of water molecules in both surface and bulk water (and this is true for water molecules bound to ions).
 Therefore, the rotational motion of water molecules are not simpley characterized by well-defined rate constants. Then the problem is how to understand the kinetics.
 The similar non-exponential kinetics is also obtain in the HB kinetcs in liquid water.\cite{AL96,TEDirama}  Luzar and Chandler interpreted the non-exponential kinetics as the 
-result of an interplay between diffusion and HB dynamics \cite{AL96}. (We can undertand the non-exponential kinetics of rotational anistropy decay by the following model:
-\begin{table}
-\caption{\label{tab:table_alkali_halide_2}%
-The fitted parameters of aniostropy decay of water moelcules in LiI (NaI) solutions. The decay rate $\kappa$ comes from fitting. }
-%\begin{ruledtabular}
-\begin{tabular}{lccc}
-Water molecules& Period $T$ (ps) & Decay rate $\kappa$ (THz) \\
-\hline
-bulk (LiI solution, or LiI) & 6.9 & 0.14 \\
-surface (LiI) & 2.3 & 0.44 \\
-bulk (NaI solution, or NaI) & 11.8 & 0.08 \\
-surface (NaI) & 5.6 & 0.18 \\
-\end{tabular}
-%\end{ruledtabular}
-\end{table}
-%--------------------
+result of an interplay between diffusion and HB dynamics \cite{AL96}. 
+Here, we try to undertand the non-exponential kinetics of rotational anistropy decay by the model in Eq.\thinspace\ref{eq:tcf3}.
+%
+%\begin{table}
+%\caption{\label{tab:table_alkali_halide_2}%
+%The fitted parameters of aniostropy decay of water moelcules in LiI (NaI) solutions. The decay rate $\kappa$ comes from fitting. }
+%\begin{tabular}{lccc}
+%Water molecules& $\tau_2$ (ps) \\
+%\hline
+%bulk (LiI solution, or LiI) & 6.9 \\
+%surface (LiI) & 2.3 \\
+%bulk (NaI solution, or NaI) & 11.8 \\
+%surface (NaI) & 5.6 \\
+%\end{tabular}
+%\end{table}
+%
 \begin{table}[h!]
 \centering
 \caption{\label{tab:table_expfit}%
 The fitted parameters of aniostropy decay of water moelcules in LiI (NaI) solutions. The decay rate $\kappa$ comes from fitting ([0,10] ps).}
 %\begin{ruledtabular}
 \begin{tabular}{lccc}
-Water molecules & $c$  &  $\kappa$ (THz) &$T=1/\kappa$ (ps) \\
+Water molecules & $c$  & $\tau_2$ (ps) \\
 \hline
-bound to I (LiI) & 0.82 & 0.24 & 4.2 \\
-bound to Li (LiI) & 0.88 & 0.07 & 14.3 \\
-in bulk (LiI) & 0.85 & 0.12 & 8.4\\
-in surface (LiI) & 0.81 & 0.35 & 2.9  \\
-bound to I (NaI) & 0.86 & 0.14 & 7.1 \\
-bound to Na (NaI) & 0.79 & 0.07 & 14.3 \\
-in bulk (NaI) & 0.83 & 0.06 & 16.7 \\
-in surface (NaI) & 0.78 & 0.12 & 8.4 \\
+\I-shell (LiI) & 0.82 & 4.2 \\
+\Li-shell (LiI) & 0.88 & 14.3 \\
+bulk (LiI) & 0.85 & 8.4\\
+surface (LiI) & 0.81 & 2.9  \\
+\I-shell (NaI) & 0.86 & 7.1 \\
+\Na-shell (NaI) & 0.79 & 14.3 \\
+bulk (NaI) & 0.83 & 16.7 \\
+surface (NaI) & 0.78 & 8.4 \\
 \end{tabular}
 %\end{ruledtabular}
 \end{table}
@@ -1023,9 +1027,9 @@ in surface (NaI) & 0.78 & 0.12 & 8.4 \\
 \centering
 \includegraphics [width=0.4 \textwidth] {./diagrams/c2_121-pure_2KI_2LiI_16_inset} 
 \setlength{\abovecaptionskip}{10pt}
-\caption{\label{fig:c2_121-pure_2KI_2LiI_16_inset} The aniostropy decay of OH chromophores in water molecules in 0.8M LiI (KI) solution /vapor interface (red and blue) and in Neat water/vapor interface (black). The water/vapor interface is modeled with a slab made of 121 water molecules in a simulation box of size 15.6\AA$\times$15.6\AA$\times$31.0\A. The inset plots the same correlation function $C_2(t)$ for the interval [0,1]ps.}
+\caption{\label{fig:c2_121-pure_2KI_2LiI_16_inset} (1023) The aniostropy decay of OH chromophores in water molecules in 0.8M LiI (KI) solution /vapor interface (red and blue) and in Neat water/vapor interface (black). The water/vapor interface is modeled with a slab made of 121 water molecules in a simulation box of size 15.6\AA$\times$15.6\AA$\times$31.0\A. The inset plots the same correlation function $C_2(t)$ for the interval [0,1]ps.}
 \end{figure} 
-Fig.~\ref{fig:c2_121-pure_2KI_2LiI_16_inset} shows that the solution with \I ions affect the rotational anisotropy decay of water molecules at interfaces.
+Figure\thinspace\ref{fig:c2_121-pure_2KI_2LiI_16_inset} shows that the solution with \I ions affect the rotational anisotropy decay of water molecules at interfaces.
 
 \begin{table}[h!]
 \centering
@@ -1047,46 +1051,40 @@ LiI/Vapor &0.836$\pm(2\times10^{-4})$ & 0.20463$\pm(4\times 10^{-5})$ &0.091$\pm
 \FloatBarrier
 \paragraph{Fitting by a biexponential}
 To obtain the effects of diffusion and HB decay of water molecules in solutions respectively, we assume that there are two independent decays in the process of an anisotropy decay. 
-Therefore, $C_2(t)$ has the form\cite{TanHS05}
-\begin{equation}
-C_2(t)=A_1e^{-\kappa_1 t} +A_2e^{-\kappa_2 t},
-\label{eq:tcf3}
-\end{equation}
-where $A_i$ are constants and $\kappa_i$ are decay rates ($i=1,2$). 
+\cite{TanHS05}
+%Therefore, $C_2(t)$ has the form\cite{TanHS05}
+%\begin{equation}
+%C_2(t)=A_1e^{-\kappa_1 t} +A_2e^{-\kappa_2 t},
+%\label{eq:tcf3}
+%\end{equation}
+%where $A_i$ are constants and $\kappa_i$ are decay rates ($i=1,2$). 
 The time constants and amplitudes of the biexponentials fits for the $C_2(t)$ are listed in table ~\ref{tab:table8}
-\begin{table}  % or [!htbp]
+\begin{table}[H]  % or [!htbp]
 \caption{\label{tab:table8}%
 The fitted parameters of aniostropy decay of water moelcules in LiI (NaI) solutions. The constants and amplitudes comes from fitting ([0,10] ps).}
 %\begin{ruledtabular}
 \begin{tabular}{lccccc}
-Water molecules & $A_1$  & $\kappa_1$ (THz) & $A_2$ & $\kappa_2$ (THz) \\
+Water molecules & $A_1$  & $\tau_{2,1}$ (ps) & $A_2$ & $\tau_{2,2}$ (ps) \\
 \hline
-bonded to I (LiI solution)  &0.45 & 0.31  & 0.45 & 0.31\\
-bonded to Li (LiI solution) & 0.56 & 0.12 & 0.33 &0.02  \\
-bulk (LiI solution) &0.43  & 0.11& 0.43 & 0.12 \\
-surface (LiI solution) & 0.41 & 0.35 & 0.40  & 0.36 \\
-bonded to I (NaI solution) &0.86 & 0.14 & 0.08 &9.86 \\
-bonded to Na (NaI solution) & 0.71 & 0.06 & 0.185 &0.79 \\
-bulk (NaI solution) & 0.81 & 0.06 & 0.099  &1.25  \\
-surface (NaI solution) & 0.77 & 0.11& 0.126 & 2.31 \\
+%\I-shell (LiI)  &0.45 & 3.23  & 0.45 & 3.23\\
+\Li-shell (LiI) & 0.56 & 8.33 & 0.33 & 50.00  \\
+%bulk (LiI) &0.43  & 9.09 & 0.43 & 8.33 \\
+surface (LiI) & 0.41 & 2.86 & 0.40  & 2.78 \\
+\I-shell (NaI) &0.86 & 7.14 & 0.08 & 0.10 \\
+\Na-shell (NaI) & 0.71 & 16.67 & 0.185 & 1.27 \\
+bulk (NaI) & 0.81 & 16.67 & 0.099  & 0.80  \\
+surface (NaI) & 0.77 & 9.09 & 0.126 & 0.43 \\
 \end{tabular}
 \label{biexponential}
 %\end{ruledtabular}
 \end{table}
 
-Let us consider the effect of ion species in solutions on the aniostropy decay of water molecules. From table ~\ref{biexponential}, we find that $\kappa_1\sim\kappa_2$ for LiI solution, 
+Let us consider the effect of ion species in solutions on the aniostropy decay of water molecules.
+From Table\thinspace\ref{biexponential}, we find that $\kappa_1\sim\kappa_2$ for LiI solution, 
 while for NaI solution, $\kappa_1<<\kappa_2$.
 The parameters can have the following explanation: $\kappa_1$ and $\kappa_2$ describe the time scale of Hydrogen bond dynamics and O---Li (O---Na) bond dynamics, respectively. 
 In LiI solution, O---Li bond dynamics and Hydrogen bond dynamics nearly are of the same time scale ($\sim$ 5.0 ps), 
 while in NaI solutin,time scale of O---Na bond dynamics ($\sim 0.3$ps) is much shorter than that of HB dynamics ($\sim 11.1$ ps). 
-%-----------------
-\begin{figure}
-\centering
-\includegraphics [width=0.4 \textwidth] {./diagrams/2NaI-124w_c2_fit_biexp_150310} 
-\setlength{\abovecaptionskip}{10pt}
-\caption{\label{fig:2NaI-124w_c2_fit_biexp_150310} The aniostropy decay of OH groups in water molecules in NaI water solutions can be fit (dashed lines) very well by a biexponential in [0, 10] ps).
-The biexponential fits better than single exponential does (see fig.~\ref{fig:2NaI-124w_c2_fit_150223}).}
-\end{figure} 
 
 In conclusion, two decay processes exist in the dynamics of water molecules in the alkali halide solution/vapor interface.
 The amplitude $\sim$ 1, decay constant $\sim$ 0.1 THz, and for the other describe the initial fast decay of the anisotropy, 
@@ -1100,14 +1098,14 @@ with amplitude $\sim$ 0.1, decay constant $\sim$ (1 $\sim$ 10) THz, due to the i
 %\caption{\label{fig:c2_hal_sh1_s}
 %The aniostropy decay of OH chromophores in water molecules localized in the first hydration shell of \I ions in LiI water solutions (0.9 M; 20 ps).}
 %\end{figure} 
-\begin{figure}
-\centering
-\includegraphics [width=0.4 \textwidth] {./diagrams/124_2NaI_c2_comp_na_bulk} 
-\setlength{\abovecaptionskip}{10pt}
-\caption{\label{fig:124_2NaI_c2_comp_na_bulk}
-The aniostropy decay of OH chromophores in water molecules localized in the first hydration shell of \Na ions in NaI water solutions (0.9 M); 
-The slower correlation time indicates that the water molecules are held more rigidly within the 1st hydration shell of \Na ions.}
-\end{figure}
+%\begin{figure}[H]
+%\centering
+%\includegraphics [width=0.4 \textwidth] {./diagrams/124_2NaI_c2_comp_na_bulk} 
+%\setlength{\abovecaptionskip}{10pt}
+%\caption{\label{fig:124_2NaI_c2_comp_na_bulk}
+%The aniostropy decay of OH chromophores in water molecules localized in the first hydration shell of \Na ions in NaI water solutions (0.9 M);} 
+%\end{figure}
+%
 %
 %\paragraph{Aqueous/Vapor Interface of LiI(NaI) Solution}
 %Here shows the simulated SFG spectrum of the aqueous-vapor interface of LiI solutions at 330 K.
@@ -1135,9 +1133,11 @@ The slower correlation time indicates that the water molecules are held more rig
 %\caption{\label{fig:2LiI-124w_c2_fit_150223} The aniostropy decay of OH chromophores in water molecules in LiI water solutions (time range: 0-10ps)(fit in [0, 10] ps).}
 %\end{figure} 
 %
-\begin{figure}
+\begin{figure}[H]
 \includegraphics [width=0.4 \textwidth] {./diagrams/2LiI-124w_0-25ps_c2_150222b_s2} 
-\caption{\label{fig:2LiI-124w_0-25ps_c2_150222b_s2} The aniostropy decay of OH chromophores in water molecules in NaI and LiI water solutions.}
+\caption{\label{fig:2LiI-124w_0-25ps_c2_150222b_s2} The aniostropy decay of OH chromophores in water molecules in NaI and LiI water solutions.
+The slower correlation time indicates that the water molecules are held more rigidly within the 1st hydration shell of \Li ions. 
+In other words, the order of the rigidity of the solvation shell is: \Li > \Na > \I}
 \end{figure} 
 We obtain non-exponential kinetics for the rotation of water molecules in both surface and bulk water (and this is true for water molecules bonded to ions).
 Therefore, the rotational motion of water molecules are not simpley characterized by well-defined rate constants. Then the problem is how to understand the kinetics.
@@ -1158,7 +1158,7 @@ The similar non-exponential kinetics is also obtain in the HB kinetcs in liquid 
 %\end{table}
 %---------------------------------------------------
 %\paragraph{Fitting by a biexponential}
-\begin{table}
+\begin{table}[H]
 \caption{\label{tab:table_center_ion}%
 The fitted parameters of aniostropy decay of water moelcules in LiI (NaI) solutions. The constants and amplitudes comes from fitting ([0,10] ps).}
 %\begin{ruledtabular}
@@ -1189,8 +1189,7 @@ surface (NaI solution) & 0.77 & 0.11 & 0.126 & 2.31 \\
 \label{biexponential}
 %\end{ruledtabular}
 \end{table}
-
-\begin{figure}%[!htbp]
+\begin{figure}[H]%[!htbp]
 \centering
 \includegraphics [width=0.6 \textwidth] {./diagrams/2NaI-124w_c2_fit_biexp_150310} 
 \caption{\label{fig:2NaI-124w_c2_fit_biexp_150310} The aniostropy decay of OH groups in water molecules in NaI water solutions can be fit (dashed lines) very well by a biexponential in [0, 10]ps).
@@ -1199,20 +1198,6 @@ decay constant $\sim$ 0.1 THz, and for the other describe the initial fast decay
 due to the inertial-librational motion preceding the orientational diffusion.}
 \end{figure} 
 
-
-\FloatBarrier
-\FloatBarrier
-\section{\LiN Solution/Vapor Interface}
-The aniostropy decay of OH chromophores in water molecules in 0.4 M LiNO3 solution/vapor interface is shown in Fig.~\ref{fig:c2_LiNO3_inset}.  
-In the model of the interface, there is one \Li and one \nitrate in the 15.6 \AA$\times$15.6 \AA$\times$31.0 \AA simulation box. 
-The larger decay rate consistent to the conclusion infered from the VDOS of the interfaces, although the concentration of \LiN is lower. 
-This result obtained from another DFTMD trajectory consistent with the previous one, and it reflects that the \nitrate on the surface of the alkali nitrate solution weaken the H-bonds and  accelerate the anisotropy decay of water molecules at the interfaces.
-\begin{figure}
-\centering
-\includegraphics [width=0.4\textwidth] {./diagrams/c2_LiNO3_inset} 
-\setlength{\abovecaptionskip}{10pt}
-\caption{\label{fig:c2_LiNO3_inset} The aniostropy decay of OH chromophores in water molecules in LiNO3 solution/vapor interface.}
-\end{figure} 
 
 %\paragraph{Power Spectra}
 %The power spcetra of dipole correlation fuction.
@@ -1241,7 +1226,7 @@ Clearly, we can see that $D'AA$ molecules are of free OH stretching during the d
 
 It is evident, from our calculations (Fig.\space\ref{fig:2LiI-124w_c2_fit_biexp_7wat_2ps_class_150324}), that the $C_2(t)$ for $DDAA$ and $DD'AA$ molecules do not decay exponentially (Table \ref{tab:fitting_c2_for_each_type_of_water}).
 %[BUT Table \ref{tab:fitting_c2_for_each_type_of_water} CAN NOT GIVE THE EVIDENCE. STH. IS MISSING!] 
-This result is similar to the reactive flux HB correlation function $k(t)$, i.e., 
+This result is similar to the reactive flux function $k(t)$, i.e., 
 the escaping rate kinetics of H-bonds in bulk water. \cite{Luzar1996} 
 The relaxation of H-bonds in water appears complicated, with no simple characterization in terms of a few relaxation rate constants. 
 Most of the authors believe that the cooperativity between neighbouring H-bonds, \cite{Sciortino1989, Ohmine1995} or 
