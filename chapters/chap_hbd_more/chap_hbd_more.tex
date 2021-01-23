@@ -1,5 +1,49 @@
 \chapter{HB Lifetime Distributions and Instantaneous Interfaces}
 \section{Relations between HB Lifetime Distributions}\label{relation_hbd}
+%Why is the lifetime of H-bonds worth paying attention to?
+The HB liefetime is a significant feature of the HB dynamics in liquids. 
+The peculiar properties of water are a direct consequence of water's H-bond lifetime distribution.\cite{Lee2007,Sciortino1989,Sciortino1990prl} 
+For example, understanding of HB dynamics is essential when investigating proton transfer reactions in protein environments.\cite{Ishikita2013}  
+The statistical properties of lifetime of H-bonds can be described by a variety of distribution functions.{\cite{Rapaport1983, Tanaka1983, Geiger1984,Naberukhin2009}
+Below we discuss the three probability distribution functions of HB lifetime, so that we can study the dynamic characteristics of H-bonds in liquids and interfaces.
+\paragraph{Probability Distribution of HB Lifetimes in a Configuration}\label{P_tc}
+Suppose that there are $n_{tot}$ H-bonds in a system at time $t$, and we can distinguish a part of H-bonds from these H-bonds. 
+The lifetime of this part of H-bonds is in a certain range $[\tau, \tau + d\tau]$. We can assume that their number of those bonds is $n_\tau$. 
+One can easily find that $n_{tot}>n_\tau$. If we observe this part of H-bonds in the next time period $[t, t+\tau]$, 
+then they will be broken once during $[t, t+\tau]$. 
+That is to say, within $[t,t+\tau]$, we will detect the breaking of all H-bonds with lifetime $\tau$ (see Fig.\thinspace\ref{fig:P_tc}).  
+Therefore, in a very short period of time $d\tau$, the probability of detecting these H-bonds is $(1/\tau)d\tau$.
+Since the probability for the HB to have the lifetime $\in [\tau,\tau+d\tau]$ is $P_t(\tau)$. 
+Therefore, the relation between $P_a(t)$ and $P_t(t)$ is
+\begin{eqnarray}
+P_a(t) = \int_t^\infty P_t(\tau)\frac{d\tau}{\tau},
+\label{eq:Pt_and_P}
+\end{eqnarray}
+i.e., the probability of the HB breaking for the first time in the time $t$ after detection at the initial moment depends on 
+the number of those H-bonds whose lifetime exceeds the given time $t$. \cite{Voloshin2009}
+\begin{figure}
+\centering
+\begin{tikzpicture}[help lines/.style={thin,draw=black!50}]
+%%\draw[help lines] (0,0) grid (4,4);
+\draw [<->, thick] (0.4,0) node [anchor = north] {$t_1$} -- (3.4,0) node [anchor = north] {$t_1 + \tau$};
+\draw (0.2,0) node [anchor = east] {bond $1$};
+\draw [<->, thick] (0.2,1) node [anchor = north] {$t_2$} -- (3.2,1) node [anchor = north] {$t_2 + \tau$};
+\draw (0,1) node [anchor = east] {bond $2$};
+\draw [<->, thick] (0.5,3) node [anchor = north] {$t_n $} -- (3.5,3) node [anchor = north] {$t_n + \tau$};
+\draw (0.3,3) node [anchor = east] {bond $n_{\tau}$};
+\draw [gray,<->, thick] (1.2,2.5) -- (5.0,2.5);
+\draw [gray,<->, thick] (0.3,2) -- (1.3,2);
+\draw [gray,<->, thick] (2.2,1.5) -- (4.5,1.5);
+\draw [gray,<->, thick] (0.5,4) -- (2.3,4) ;
+\draw [thick] (1.0,4.2) -- (1.0,-0.5) node [anchor = north] {time $t$};
+\draw [thick] (4.0,4.2) -- (4.0,-0.5) node [anchor = north] {time $t+\tau$};
+\end{tikzpicture}
+  \caption{\label{fig:P_tc} The H-bonds with lifetime $\tau$ in a certain configuration. 
+At time $t$, we assume that there are totally $n_{tot}$ H-bonds can be detected, and $n_{\tau}$ H-bonds are of lifetime $\tau$, therefore,  the fraction of H-bonds that 
+have the lifetime $\tau$ in the configuration at time $t$ is $P_{tc}(\tau) =  n_{\tau} /n_{tot}$.
+Let $\tau$ take all the values in the interval $[0,\infty]$, we can get the HB lifetime distribution $P_{tc}(t)$.
+}
+\end{figure}
 \paragraph{Different HB lifetime Distributions}\label{diff_distr}
 From the probability $P_{tc}(t)$ of the total HB lifetime in a configuration, and the probability $P_{a}$ of 
 the first HB breaking in time $t$ after it have been detected at the moment $t$, one can introduce the average time 
@@ -271,7 +315,7 @@ because hydrogen exchange is considered in the O--H pair-based definition of $h(
 and the other is based on O--H pairs between water molecules (dashed line).}
 \end{figure} 
 
-\section{Dynamics of Interfacial Hydrogen Bonds} \label{ihb_and_selection}
+\section{Interfacial Hydrogen Bond Dynamics} \label{ihb_and_selection}
 \paragraph{Instantaneous Surfaces}
 Let us consider the interfacial system of pure water.  At a certain time $t$, the instantaneous surface ${\mathbf s}^0(x(t),y(t))$ can be determined by calculating 
 the coarse-graining density field: we can specify that the coarse-grained density is the reference density $\rho_\text{ref} = 0.016 $ \A$^{-3}$,
