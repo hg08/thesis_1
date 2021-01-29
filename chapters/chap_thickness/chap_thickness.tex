@@ -2,11 +2,11 @@
 To determine the thickness of the water/vapor interface of alkali solutions,
 we chose several different thickness values of slab of the interface and calculate 
 the corresponding susceptibility for these slabs, respectively.
-Take the water/vapor interface of LiNO$_3$ solution as an example. We chose seven different thickness 
+Take the water/vapor interface of LiNO$_3$ solution as an example. We chose several different thickness 
 values---from 2 to 8 \A, and calculate VSFG intensities $I_{SSP} \propto |\chi^{(2),\text{R}}_{SSP}|^2$ 
 for the water/vapor interface with a thickness of each of these values. 
 The result is given in Fig. ~\ref{fig:117_2LiNO3_30ps_2-6A_150_Im_150720} a and b.
-It shows that $|\chi^{(2),\text{R}}_{SSP}|^2$ converges as the thickness increases to 8 \A. 
+It shows that $|\chi^{(2),\text{R}}_{SSP}|^2$ converges as the thickness increases. 
 %
 \begin{figure}[H]
 %\begin{figure}[!ht]
@@ -14,9 +14,8 @@ It shows that $|\chi^{(2),\text{R}}_{SSP}|^2$ converges as the thickness increas
 \includegraphics [width= 0.6\textwidth] {./diagrams/117_2LiNO3_30ps_2-6A_150_Im_150720}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:117_2LiNO3_30ps_2-6A_150_Im_150720} The calculated $|\chi^{(2),\text{R}}_{SSP}|^2$, 
-of water molecules at the aqueous/vapor interfaces with different thickness. 
-This calculation is done for a model for the water/vapor interface where a slab of 117 water molecules containing one \Li and one \nitrate is included 
-in a period simulation box of 15.60 \AA$\times$15.60 \AA$\times$31.00 \AA at 300 K.}
+of water molecules at the aqueous/vapor interfaces with different thickness.
+} 
 \end{figure}
 %
 %\begin{figure}[H]
@@ -34,9 +33,7 @@ in a period simulation box of 15.60 \AA$\times$15.60 \AA$\times$31.00 \AA at 300
   \includegraphics [width=0.6 \textwidth] {./diagrams/2LiI-124w_0-30ps_2-8A_150_Im_150720}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:2LiI-124w_0-30ps_2-8A_150_Im_150720} The calculated $|\chi^{(2),R}_{SSP}|^2$, 
-  of water molecules at water/vapor interfaces (LiI solution) with different thickness. This calculation is done for a model 
-  for water/vapor interface where a slab of 118 water molecules containing one \Li and one \I is included 
-  in a period simulation box of 15.60 \AA $\times$ 15.60 \AA $\times$ 31.00 \AA.}
+  of water molecules at water/vapor interfaces (LiI solution) with different thickness.}
 \end{figure}
 %
 Because of the limitation of the box scale, we chose different thickness values---$d=$2--8 \A, for checking. 
@@ -60,8 +57,8 @@ increases as the thickness increase from 0 to 8 \A.
 %
 Furthermore, we also estimated the thickness of a water/vapor interface by calculating the HB dynamics for it. 
 Fig. \ref{fig:2LiI-124w_S_layers} shows the dependence of the logarithm of survival probability on the thickness of the water/vapor interface 
-of the LiI solution. We see that when $d = 8$ \AA the $\ln S_{\text{HB}}$ of the interface 
-does not change as the thickness increases, indicating the thickness of the interface. 
+of the LiI solution. We see that when $d = 8$ \AA the correlation function $\ln S_{\text{HB}}(t)$ of the interface 
+converges as the thickness increases, indicating the thickness of the interface. 
 \begin{figure}[H]%[!ht]
 \centering
 \includegraphics [width=0.38\textwidth] {./diagrams/2LiI-124w_S_layers} %fig.5.9
@@ -74,15 +71,19 @@ In addition, the survival probability \SHB is dependent on the temporal resoluti
 which is the time interval between two adjacent states in time used to calculate the survival probability.
 As an example, the $t_t$ dependence of the $\tau_{\text{HB}}$ of the three alkali-iodine solution interfaces in our AIMD simulations is 
 reported in Fig. \ref{fig:hb_lifetime_124_2LiI-2NaI-2KI}. 
-It shows that, if we take the $t_t$ as small as possible, the number of times that H-bonds break and form again in this period of time ($t_t$) will be reduced.
-Thus, we can obtain the continuum HB lifetime independent of the $t_t$. As shown in Fig. \ref{fig:hb_lifetime_124_2LiI-2NaI-2KI}, 
-the value of $\tau_{\text{HB}}$ corresponding to the intersections of the $\tau_{\text{HB}}(t_t)$ functions and the line $t_t = 5$ fs approximately give the continuum HB lifetimes.
+It shows that, if one take the $t_t$ as small as possible, the number of times that H-bonds break and form again in this period of time ($t_t$) will be reduced.
+As shown in Fig. \ref{fig:hb_lifetime_124_2LiI-2NaI-2KI}, 
+The value of $\tau_{\text{HB}}$ corresponding to the intersections of the $\tau_{\text{HB}}(t_t)$ functions and the line $t_t = 5$ fs approximately give the continuum HB lifetimes.
+For $t_t = 5$ fs, the calculated continuum HB lifetime is 0.30 ps, 0.31 ps and 0.23 ps, for the interface of LiI, NaI and KI solution, respectively.
+Then, the estimated value of $\tau_\text{HB}$ is $\sim 0.2$ ps.
+Moreover, we can obtain the continuum HB lifetime independent of the $t_t$: $\tau_\text{HB} = \lim_{t_t \to 0} \tau_\text{HB}(t_t)$. 
+
 \begin{figure}[H]
  \centering
  \includegraphics [width=0.36\textwidth] {./diagrams/hb_lifetime_124_2LiI-2NaI-2KI} %fig5.16
  \setlength{\abovecaptionskip}{0pt}
  \caption{\label{fig:hb_lifetime_124_2LiI-2NaI-2KI} The resolution dependence of the continuum lifetime $\tau_{\text{HB}}$ of water--water H-bonds at interfaces of
     different 0.9 M alkali-iodine solutions at 330 K, calculated for six temporal resolutions ($t_t$). \cite{Ferrario1990,Mountain1995,Root1997}
-    For $t_t = 5$ fs, the calculated continuum HB lifetime is 0.30 ps, 0.31 ps and 0.23 ps, for the interface of LiI, NaI and KI solution, respectively.}
+ }
 \end{figure} 
 

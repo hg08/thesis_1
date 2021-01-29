@@ -27,18 +27,25 @@ Proof:
 \paragraph{Proof of Eq.\space\ref{integral_identity1a}}
 Since 
 \begin{equation}
-  i\int_0^\infty dt e^{-it(a-ib)}=\frac{1}{a-bi},
+  \lim_{t\to\infty} |e^{-it(a-ib)}|\le \lim_{t\to\infty} |e^{-bt}| = 0,
+  \label{integral_identity0}
+\end{equation}
+we can obtain
+\begin{equation}
+  \int_0^\infty dt e^{-it(a-ib)}=\frac{1}{b+ia},
+  \label{integral_identity0}
+\end{equation}
+i.e.,
+\begin{equation}
+  i\int_0^\infty dt e^{-it(a-ib)}=\frac{1}{a-ib}.
   \label{integral_identity1}
 \end{equation}
-set $a = (\omega_{v'} - \omega_{v}) - \omega$, and $b = \gamma_{v'v}$,
+Set $a = (\omega_{v'} - \omega_{v}) - \omega$, and $b = \gamma_{v'v}$,
 then we have
  \begin{align}
- \int_0^\infty dt e^{-it((\omega_{v'}-\omega_v)-\omega-i\gamma_{v'v})}=\frac{-i}{(\omega_{v'} -\omega_v)-\omega-i\gamma_{v'v}},\nonumber
+ \int_0^\infty dt e^{-it[(\omega_{v'}-\omega_v)-\omega-i\gamma_{v'v}]}=\frac{-i}{(\omega_{v'} -\omega_v)-\omega-i\gamma_{v'v}}.\nonumber
  \end{align}
-which is Eq. \ref{integral_identity1a}.
-
 \paragraph{Derivation of Eq.\space\ref{eq:chi}}
-
 Now we give the derivation of the expression of $\chi^{\text{(2),R}}$
 \begin{align}
    \chi^{\text{(2),R}}_{\eta\xi\kappa}&=\frac{-i}{k_{\text{B}}T \omega} \int_0^\infty dt e^{i \omega t}\left\langle \dot{A}_{\eta\xi}(t) \dot{M}_{\kappa}(0)\right\rangle
