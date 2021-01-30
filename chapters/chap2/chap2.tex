@@ -13,7 +13,7 @@ As Stillinger said, "Since hydrogen bonding is the most important interaction in
 are cooperative (that is, nonadditive), it is insufficient for the purposes of computer simulation to use the potential energy function for dimers alone."\cite{Stillinger1980}
 Paragraph \ref{section_AIMD} to \ref{section_BOMD} will give an introduction to the basic ideas of AIMD and DFT as well as the BOMD we adopted.
 Paragraph \ref{section_VDOS} and \ref{section_VSFG} will introduce the analysis methods used in this paper, including the method of calculating VDOS from velocity autocorrelation and the method of calculating SFG spectrum from velocity correlation function.
-\section{Modeling Interfaces with \abinitio Molecular Dynamics}\label{section_AIMD}
+\section{Modeling interfaces with \abinitio molecular dynamics}\label{section_AIMD}
 Modern theoretical methodology, aided by the advent of high speed computing, has advanced
 to a level where the microscopic details of dynamical processes in condensed phases can be
 treated on a relatively routine basis. One common theoretical approaches
@@ -72,7 +72,7 @@ are determined using the first principle electronic structure methods on the fly
 Therefore, AIMD is also a good predictive tool. 
 However, as a drawback, the AIMD simulations are expensive and can nowadays be performed on size-limited system of 100--1000 atoms for up to a few hundred ps. 
 
-\section{Density Functional Theory} \label{section_DFT}
+\section{Density functional theory} \label{section_DFT}
 In most currently performed AIMD simulations, the dynamics is performed within the so-called Born-Oppenheimer approximation.
 Since the mass of an electron is much smaller than that of any nuclei, there is a strong separation of timescales between the electronic and nuclear motion. 
 We assume that the kinetic energy of nuclei is zero and their potential energy is constant in each moment of the dynamics.
@@ -312,7 +312,7 @@ C^{\text{ABC}} \approx -\sqrt{C_6^{\text{AB}}C_6^{\text{AC}}C_6^{\text{BC}}},
 \end{equation}
 since the total three-body contribution is typically 5--10\% of $E_{\text{disp}}=E_{\text{disp}}^{(2)}+E_{\text{disp}}^{(3)}$.
 %
-\section{Born-Oppenheimer Molecular Dynamics}\label{section_BOMD}
+\section{Born-Oppenheimer molecular dynamics}\label{section_BOMD}
 %[Ehrenfest MD, CPMD and BOMD]
 In computational material science, the most popular AIMD simulation methods are the Born-Oppenheimer Molecular Dynamics (BOMD) and Car-Parrinello Molecular Dynamics (CPMD) methods. 
 In the BOMD, the potential energy $E[\{\psi_i\};\bf{R}]$ is minimized at each MD step with respect to $\{\psi_i({\bf r})\}$  under the orthonormality condition
@@ -380,7 +380,7 @@ to nuclear motion, i.e., $\tau_{e}^{\text{BO}}\approx\tau_{\text{n}}$.
 In BOMD, the time step can be even larger if the nuclear dynamics becomes fairly slow. \cite{GK93} 
 But in order to resolve vibrations in molecular systems, the time step must be decreased to less than 1 fs in this thesis. \cite{DM00}
 %
-\section{Vibrational Density of States}\label{section_VDOS}
+\section{Vibrational density of states}\label{section_VDOS}
 In order to obtain information on the vibrational properties of a molecular systems, it is possible to use the velocities auto-correlation functions (ACFs),
 as calculated from the AIMD trajectories.
 The obtained Vibrational Density Of States (VDOS) can 
@@ -409,7 +409,7 @@ C_z(t)=\frac{\langle\sum^{N}_{i=1}{v_{i,z}(t){v_{i,z}(0)\rangle}}}{\langle\sum^{
 where $v_{i,z}$ is the vertical component of the velocity of the $i$-th atom.
 The VDOS $g_z(\nu)$ for water molecules is used to extract the O-H stretch along the vertical direction to the averaging water/vapor interface. 
 
-\section{Calculation of VSFG Spectroscopy for Water/Vapor Interfaces}\label{section_VSFG}
+\section{Calculation of VSFG spectroscopy for water/vapor interfaces}\label{section_VSFG}
 %SFG calculation and measurement
 %[Introduction of the VSFG spectroscopy]
 As we introduced in Chapter \ref{CHAPETR_1}, the VSFG spectroscopy is a powerful tool for extracting structural and dynamical information
@@ -419,14 +419,14 @@ and buried interfaces; \cite{Chen99,Chen07}
 It can probe liquid interface with molecular sensitivity. \cite{Khatib16,Khatib16b,Khatib2017}
 Therefore, VSFG spectroscopy can yield structural information about water/vapor interfaces which could not be obtained with other techniques.
 
-\subsection{Nonlinear Susceptibility of Water Molecules at Water/Vapor Interfaces}
+\subsection{Nonlinear susceptibility of water molecules at water/vapor interfaces}
 % [Aim of VSFG simulations and VSFG theory]
 %[
 %    [PUT ELSEWHERE: this part is FOR introducing VSFG tech] Experiments required theoretical modeling in order to dissect the experimental results, and to rationalize the different factors that contribute to the interfacial properties.
 %Perry et al.\cite{Perry03} developed a method to compute the VSFG spectrum from instantaneous normal modes (INM), 
 %as well as a time correlation function method. They are based on classical MD simulations.
 %]
-\paragraph{Sum Frequency Generation}
+\paragraph{Sum frequency generation}
 The sum frequency generation is a coherent nonlinear optical process in which incident laser beams with frequency and wave vector 
 ($\omega_1, {\bf k}_1$) and ($\omega_2, {\bf k}_2$) produce a signal with frequency and wave vector
 ($\omega_1+\omega_2, {\bf k}_1+{\bf k}_2$ ) (Fig.\thinspace\ref{fig:sfg_1a}). 
@@ -476,7 +476,7 @@ Generally, experiments employ visible light and VSFG frequencies far from resona
 term $\chi^{\text{(2),NR}}$ is approximately off-resonant to the light frequencies involved. \cite{Morita02}
 %Neglecting the frequency dependence of the nonresonant term $\chi^{\text{(2),NR}}$ is usually a good approximation. 
 
-\paragraph{Microscopic Expression of Molecular Hyperpolarizability} 
+\paragraph{Microscopic expression of molecular hyperpolarizability} 
 As the electric field is increased, the description of the induced dipole moment 
 $\boldsymbol \mu$ should include the normally insignificant nonlinear terms. We can express the induced dipole moment as
 \begin{equation}
@@ -575,7 +575,7 @@ $L_{\eta\eta}$, $L_{\xi\xi}$ and $L_{\kappa\kappa}$ are the Fresnel coefficients
 $\theta_{\text{SFG}}$ is the reflected angle of SFG beam with respect to the normal 
 direction in the medium.
 
-\subsection{Sum Frequency Generation Spectra from Velocity-Velocity Correlation Functions}
+\subsection{Sum frequency generation spectra from velocity auto-correlation functions}
 %To construct SFG spectrum of O-H stretching at the water/vapor interface and to ascertain the molecular origin of SFG spectrum, 
 %quantum corrected time correlation function \cite{Morita02,Morita04} and instantaneous normal mode (INM) methods are used 
 %by Perry and coworkers.\cite{Perry03} 
@@ -602,7 +602,7 @@ according to the classical formula \cite{Morita02,Morita2008,Nihonyanagi2011}
 % \chi^{(2)}_{XXZ,R}&=\frac{i}{k_BT \omega} \sum\limits_j \int_0^\infty dt e^{i\omega t} \left \langle \frac{\partial A_{XX}}{\partial r_j} \frac{\partial M_Z}{\partial r_j}  \dot{r}_j(0) \dot{r}_j(t) \right\rangle
 % \label{eq:chi2}
 % \end{align}
-where $k_{\text{B}}$ is the Boltzmann constant, $\omega$ is the frequency of the IR beam, ${\bf M}$ (${A}$) are the dipole 
+where $k_{\text{B}}$ is the Boltzmann constant, $\omega$ is the frequency of the IR beam, ${\bf M}$ (${A}$) is the dipole 
 moment (dipole polarizability) of the system, and $\left\langle\dots\right\rangle$ denotes the average over all starting time points. 
 %The derivation of Eq.\thinspace(\ref{eq:chi}) is given in Appendix \ref{calculation_of_chi}.
  
@@ -757,13 +757,13 @@ ${\bf{D}}^{\text{m}}$ is time dependent.
 %and $\theta'$ is the angle of the dipole moment of the water molecule from the normal direction of the interface, 
 %and both $\gamma$ and $\theta'$ are time dependent.
 
+Based on the DFTMD simulations, we can implement the parameterization of $\frac{\partial \mu_{k}}{\partial r_z}$ and $\frac{\partial\alpha_{ij}}{\partial r_z}$
+and calculate the correlation function $\langle\dot{A}_{\eta\xi}(t)\dot{M}_{\kappa}(0)\rangle$ through the velocity auto-correlation function. 
+This approximation for estimating the susceptibility retains the details of the interface, including the full electronic structure. 
+And it reduces the computational cost for a total calculation with the instantaneous evaluation of the molecular dipoles and polarizabilities.\cite{sulpizi2013} 
 The parametrization of $\frac{\partial \mu_{k}}{\partial r_z}$ and $\frac{\partial\alpha_{ij}}{\partial r_z}$ is based 
 on the calculation of Maximally Localized Wannier Functions (MLWF) \cite{Marzari97} 
  and can be done through the approach developed by Salanne \etal \cite{Salanne08} and Khatib \etal \cite{Khatib2017}
-The main advantage of such approximation for the calculation of the susceptibility is that still retain details of the
-water/vapor interfaces including the full electronic structure, but its computational
-cost is reduced with respect to a full calculation with the instantaneous evaluation of the 
-molecular dipoles and polarizabilities. \cite{sulpizi2013} 
 The implementation of this parametrization is given in Appendix \ref{calculate_derivatives}.
 %\paragraph{Calculation of $\chi^{(2)}$ (Method 2)}
 %We now consider the velocities projection on the water normal modes, identified by the collective variables ${\bf{R}}_j$ in the molecular framework. 

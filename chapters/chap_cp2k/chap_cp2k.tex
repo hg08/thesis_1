@@ -1,11 +1,11 @@
-\chapter{Computational Details of the DFTMD Simulations}\label{computational_detail}
-In the thesis, the DFT calculations were done with the CP2K program, which incorporates the Gaussian and Plane Waves (GPW) method\cite{GL99}. 
+\chapter{Computational details of the DFTMD simulations}\label{computational_detail}
+The DFT calculations were done with the CP2K program, which incorporates the Gaussian and Plane Waves (GPW) method\cite{GL99}. 
 Core electrons were described by Goedecker-Teter-Hutter pseudopotentials\cite{MK05}, while the valence electrons were expanded as a double-zeta Gaussian basis set.
 The double zete basis sets optimized for the dondesnsed phase\cite{VandeVondele2007} were used in conjunction with GTH pseudopotentials\cite{Goedecker1996} 
 and a 280 Ry cutoff for the auxiliary plane wave basis.
 The discretized integration time step $\Delta t$ was set to 0.5 fs. 
 The Brillouin zone was sampled at the $\Gamma$-point only and, the BLYP XC functional has been employed.
-\paragraph{Neat Water}\label{DETAILS_NEAT_WATER}
+\paragraph{Neat water}\label{DETAILS_NEAT_WATER}
 %In addition to the simulation in the main text of this thesis, we also use different methods for the bulk water system with the same temperature,
 %volume and number of molecules. 
 To simulate the bulk water for testing the algorithm of IHB, We constructed the following model. 
@@ -17,10 +17,10 @@ The size of the simulation box is obtained as follows:
 According to the experimentally obtained relations between water density,temperature and ion concentration (if ions are present), 
 a nonlinear equation set is established, and then the equation set is solved to find the box size.
 
-\paragraph{Lithium Nitrate Solutions}\label{DETAILS_LINO3}
-All simulations on alkali nitrate solutions were performed at 300 K within the canonical NVT ensemble. 
+\paragraph{Lithium nitrate solutions}\label{DETAILS_LINO3}
+Simulations on alkali nitrate solutions were performed at 300 K within the canonical NVT ensemble. 
 The simulated interfacial system consisted of 127 water molecules and a Li$^+$--nitrate pair in a periodic
-box of size $15.78 \times 15.78 \times 31.56$ \AA$^3$, which corresponds to
+box of size $15.78 \times 15.78 \times 31.56$ \A$^3$, which corresponds to
 a density of 0.997 g/cm$^3$. 
 At each MD step the corrector was applied
 only once, which implies just one preconditioned gradient calculation. 
@@ -29,7 +29,7 @@ solved through interpolation on a spatial grid.\cite{Willard2010}
 We have taken $\{\mathbf{r}_i (t)\}$ to refer to the positions of all
 atoms except hydrogen atoms in the system, and because the bulk correlation length of
 liquid water is about one molecular diameter, we have used $\xi$ 
-=2.4 \AA; further, we have used $\rho_0= 0.016$ \AA $^{-3}$, which is
+=2.4 \AA; further, we have used $\rho_0= 0.016$ \A$^{-3}$, which is
 approximately one-half the bulk density of water. 
 
 This calculation of the $\chi^\text{(2,R)}$ is done for a model for the water/vapor interface 
@@ -167,7 +167,7 @@ in a period simulation box of 15.60 \AA$\times$15.60 \AA$\times$31.00 \AA at 300
 %&END MOTION
 % \end{lstlisting}
  
-\paragraph{Interface of Alkali-Iodine Solution}
+\paragraph{Interface of alkali-iodine solution}
 The calculation of the $\chi^\text{(2,R)}$ is done for a model for water/vapor interface where a slab of 118 
 water molecules containing one \Li and one \I is included in a period simulation box of 15.60 \AA $\times$ 15.60 \AA $\times$ 31.00 \AA.
 
