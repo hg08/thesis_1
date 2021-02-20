@@ -1,7 +1,6 @@
-\chapter{Calculation of Nonlinear Optical Susceptibilities}\label{calculation_of_chi}
+\chapter{Calculation of nonlinear optical susceptibilities}\label{calculation_of_chi}
 
-\paragraph{Definitions and Relations}
-
+\paragraph{Definitions and relations}
 1. Definition of double product of a $m$-order tensor $A$ and a $n$-order tensor $B$ is a tensor with order $m+n-2$.
 \begin{equation}
     A:B=A_{ij}B_{lm}\delta_{jl}\delta_{im}.
@@ -24,7 +23,7 @@ Proof:
     &=({\bf{b}}\cdot{\bf{c}})({\bf{a}}\cdot{\bf{d}})
 \end{align}
 
-\paragraph{Proof of Eq.\space\ref{integral_identity1a}}
+\paragraph{Proof of Eq.\thinspace\ref{integral_identity1a}}
 Since 
 \begin{equation}
   \lim_{t\to\infty} |e^{-it(a-ib)}|\le \lim_{t\to\infty} |e^{-bt}| = 0,
@@ -45,7 +44,7 @@ then we have
  \begin{align}
  \int_0^\infty dt e^{-it[(\omega_{v'}-\omega_v)-\omega-i\gamma_{v'v}]}=\frac{-i}{(\omega_{v'} -\omega_v)-\omega-i\gamma_{v'v}}.\nonumber
  \end{align}
-\paragraph{Derivation of Eq.\space\ref{eq:chi}}
+\paragraph{Derivation of Eq.\thinspace\ref{eq:chi}}
 Now we give the derivation of the expression of $\chi^{\text{(2),R}}$
 \begin{align}
    \chi^{\text{(2),R}}_{\eta\xi\kappa}&=\frac{-i}{k_{\text{B}}T \omega} \int_0^\infty dt e^{i \omega t}\left\langle \dot{A}_{\eta\xi}(t) \dot{M}_{\kappa}(0)\right\rangle
@@ -56,7 +55,7 @@ The resonant term $\chi^{(2),R}_{\eta\xi\kappa}$ is given by \cite{Morita2008}
   \chi^{\text{(2),R}}_{\eta\xi\kappa}&=\frac{i\omega}{k_{\text{B}}T} \int_0^\infty dt e^{i \omega t}\left\langle {A}_{\eta\xi}(t) {M}_{\kappa}(0)\right\rangle,
 \end{align}
 
-\paragraph{Molecular Dipole Moment and Dipole Polarizibility Derivatives} \label{calculate_derivatives} 
+\paragraph{Molecular dipole moment and dipole polarizability derivatives} \label{calculate_derivatives} 
 
 The polarizability tensor $\boldsymbol{\alpha}$ is defined by the relation
 \begin{equation}
@@ -66,7 +65,7 @@ The polarizability tensor $\boldsymbol{\alpha}$ is defined by the relation
 where $\delta \boldsymbol{\mu}$ is the electric dipole moment (a vector) induced in the molecule by
 the electric field $\boldsymbol{\mathscr{E}}$, with the components $\mathscr{E}_x$,$\mathscr{E}_y$ and $\mathscr{E}_z$.
 Now we describe the main algorithm to implement the parametrization of the molecular dipole moment 
-derivative $\frac{\partial \mu_k}{\partial r}$ and dipole polarizibility derivative $\frac{\partial\alpha_{\eta\xi}}{\partial r}$. 
+derivative $\frac{\partial \mu_k}{\partial r}$ and dipole polarizability derivative $\frac{\partial\alpha_{\eta\xi}}{\partial r}$. 
 This result can be used in the velocity ACF-based method for calculating the VSFG spectroscopy intensity.
 
 Given a DFT MD trajectory of total length $\sim 10^2$ ps for bulk water, sampled with a frequency $\sim 1$ ps$^{-1}$.
@@ -80,7 +79,7 @@ The H atoms in a water molecule are denoted by H$^{\epsilon=1}$ and H$^{\epsilon
 %Calculate the direction cosine matrix between bond framework and molecular framework. 
 
 We used three different frameworks: the lab framework ($x^{\text{l}},y^{\text{l}},z^{\text{l}}$), the molecular framework
-($x^{\text{m}},y^{\text{m}},z^{\text{m}}$) and the bond framework ($x^{\text{b}},y^{\text{b}},z^{\text{b}}$) (see Fig.\space\ref{fig:frameworks}).
+($x^{\text{m}},y^{\text{m}},z^{\text{m}}$) and the bond framework ($x^{\text{b}},y^{\text{b}},z^{\text{b}}$) (see Fig.\thinspace\ref{fig:frameworks}).
 In the lab framework, the $z^{\text{l}}$-axis is perpendicular to the interface.
 The molecular frame will be used to decompose the signal into normal modes of water monomers.
 For the $j$-th molecule, the $z^{\text m}$ axis is along the bisector of the H-O-H angle, the $x^{\text m}$ axis is in the molecular plane,
@@ -116,7 +115,7 @@ i.e.,
 %\begin{equation}
 %(\hat x^m_3) = (a_{31}) \hat x^l_1 + (a_{32}) \hat x^l_2 + (a_{31})_{nj} \hat x^l_3,
 %\end{equation}
-%Therefore, the realation between the unit vecotor  $(\hat x^m_1)$ and $(\hat x^m_2)$ are
+%Therefore, the relation between the unit vector  $(\hat x^m_1)$ and $(\hat x^m_2)$ are
 %
 \begin{subequations}
 \begin{align}
@@ -155,7 +154,7 @@ i.e.,
 %\end{subequations}
 %
 %2a4.We need to calculate the dipole moment of each molecule for $\Delta r \in [-0.05,0.05]$. 
-The dipole moment of each OH bond with different length is requird to determine the dipole moment derivative. 
+The dipole moment of each OH bond with different length is required to determine the dipole moment derivative. 
     %(For convionient, we have defined $ \text{inc} =\Delta r/|\Delta r|$.)
     %We elongate (reduce) the bond OH$_{n, j,\epsilon}$, and keep other bonds still, then we obtain a updated coordinate file ${\text{pos}}nj\epsilon\text{inc}.\text{xyz}$, where $(n, j,\epsilon)$ is the index of the H in OH$_{\epsilon}$.
 Therefore, we elongate (reduce) one bond ${\epsilon}$ by $\Delta r = 0.05$ \AA ($\Delta r = -0.05 $ \A), and keep other 
@@ -237,7 +236,7 @@ In the $\epsilon$ frame, the $k=z$ component dipole moment derivative with respe
 \end{equation}
         %END $ \Delta r$-loop  
 %4a4 the polarizability tensors $\alpha^{b,r+|\Delta r|}$ and $\alpha^{b,|r-\Delta r|}$. 
-From the relation (obtained from Eq.\space\ref{eq:def_alpha})
+From the relation (obtained from Eq.\thinspace\ref{eq:def_alpha})
       \begin{subequations}
           \begin{align}
             & 0 = \alpha^{b,r+\Delta r}_{11}\mathscr{E}_{1} + \alpha^{b,r+\Delta r}_{12}\mathscr{E}_{2} + \alpha^{b,r+\Delta r}_{13}\mathscr{E}_{3}\\
@@ -251,7 +250,7 @@ where
   \delta \mu^{b,r+\Delta r}_{3} = \mu^{b,\epsilon,r+\Delta r,\mathscr{E}}_{3} - \mu^{b,\epsilon,r+\Delta r}_{3}.
 \end{equation}
 %
-and the expressions of the electric filed ${\mathscr{E}^\text{b}}$ in a OH framework for the 3 cases of external eletric field 
+and the expressions of the electric filed ${\mathscr{E}^\text{b}}$ in a OH framework for the 3 cases of external electric field 
 which is along $x$, $y$ and $z$ axis in the lab framework, respectively, we obtain 9 equations.
 %
 For

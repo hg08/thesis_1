@@ -1,5 +1,8 @@
   \chapter{Alkali nitrate clusters}\label{CHAPTER_results_clusters}
-  In this chapter, gas phase clusters including alkali cations, nitrate ions and a few water molecules have been used to understand the
+There are two ways of obtaining highly specific information on solvation structures: studying gas-phase clusters consisting of ions surrounded by a few water molecules \cite{Weber2000,Kropman2001},
+and exciting and detecting a dissolved prob molecule\cite{Jimenez1994}.
+Due to the experimental difficulties, most information on the dynamics of aqueous solvation shells was obtained from MD simulations.\cite{Smith1994,Chandra2000}
+  In this chapter, DFTMD simulations of the gas phase clusters including alkali cations, nitrate ions and a few water molecules have been used to obtain these specific information and to understand the
   effects of alkali cations and nitrate anions on hydrogen
   bonding. \cite{jiangling2010,heine2015} 
   VDOS is used to extract the vibrational signatures for the water molecules in these systems.
@@ -19,14 +22,14 @@
   %\setlength{\abovecaptionskip}{10pt}
   %\caption{The geometry optimized structure of the cluster NO$_3^-$(H$_2$O)$_3$. The red dotted lines denote the H-bonds.}\label{fig:3_NO3_small}
   %\end{wrapfigure}
-  \begin{figure}
+  \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{./diagrams/clusters_4}
   \setlength{\abovecaptionskip}{0pt}
-    \caption{\label{fig:clusters_4}Geometry optimized structure of the clusters: (a) [NO$_3\cdot$(H$_2$O)$_3$]$^-$; (b) RNO$_3$(H$_2$O)$_3$; (c) RNO$_3$(H$_2$O)$_4$; (d) RNO$_3$(H$_2$O)$_5$ (R=Li,Na,K). More structural properties are shown in Appendix \ref{structure_of_clusters}.}
+    \caption{\label{fig:clusters_4}Geometry optimized structure of the clusters: (a) [NO$_3\cdot$(H$_2$O)$_3$]$^-$; (b) RNO$_3$(H$_2$O)$_3$; (c) RNO$_3$(H$_2$O)$_4$; (d) RNO$_3$(H$_2$O)$_5$ (R=Li,Na,K). More structural properties are given in Appendix \ref{structure_of_clusters}.}
   \end{figure}
   First, we consider the nitrate--water cluster, [NO$_3\cdot$(H$_2$O)$_3$]$^-$. The symmetric isomer of the cluster, 
-  as shown in Fig.\thinspace\ref{fig:clusters_4}(a), is obtained by geometry optimization at the BLYP/TZV2P level of theory. 
+  as shown in Fig.\thinspace\ref{fig:clusters_4} a, is obtained by geometry optimization at the BLYP/TZV2P level of theory. 
   According to the definition of the H-bond, \cite{JT90,SB02} there are three H-bonds in it,
   i.e., only one of the two OH bonds is H-bonded to \nitrate in each water molecule. 
   %Therefore, for each water molecule, we say there is one HB and one quasi-HB.
@@ -42,11 +45,11 @@
   \centering
   \includegraphics [width=0.36\textwidth] {./diagrams/vdos_NO3-3w_2_H6H7_simple}%
   \setlength{\abovecaptionskip}{0pt}
-    \caption{\label{fig:vdos_NO3-3w_2_H6H7}VDOS for the two OH bonds in w1 (Fig.\thinspace\ref{fig:clusters_4}(a)) of [NO$_3\cdot$(H$_2$O)$_3$]$^-$.} 
+    \caption{\label{fig:vdos_NO3-3w_2_H6H7}VDOS for the two OH bonds in w1 (Fig.\thinspace\ref{fig:clusters_4} a) of [NO$_3\cdot$(H$_2$O)$_3$]$^-$.} 
     %The length of the DFTMD trajectory is 5 ps.
   \end{figure}  %(Calculated from the function vdos3.f and ft$\_$5s.sh)
   %(MS:repetition)A quasi-HB is formed if the O--H distance $r_\text{OH}$ satisfies the condition $r_\text{OH}<3.5$ \AA, but not that the O--H$\cdots$O angle is less than $\frac{\pi}{6}$. \cite{JT90} 
-  Additionally, we label the three water molecules as w1, w2, and w3, respectively (Fig.\thinspace\ref{fig:clusters_4}(a)). 
+  Additionally, we label the three water molecules as w1, w2, and w3, respectively (Fig.\thinspace\ref{fig:clusters_4} a). 
   For the three water molecules, we find some differences in the structural parameters.
   Table\thinspace\ref{tab:3_nitrate_bond} gives the calculated lengths of H-bonds in the cluster [NO$_3\cdot$(H$_2$O)$_3$]$^-$. 
   The average differences $\Delta{d}$ between the H-bonds and the quasi-H-bonds are 0.69 \AA (Table\thinspace\ref{tab:3w_nitrate}). 
@@ -66,7 +69,7 @@
   and the VDOS for water molecules of this cluster.
 
   The sharp peaks in the RDF given in Fig.\thinspace\ref{gdr_4_Li} show that the solvation shell of \Li is bound to all the four water molecules.
-  The peak for $g_{\text{LiO}}$ is at 2.02 \AA, and for $g_{\text{LiH}}$ is 2.69 \AA. 
+  The peak for $g_{\text{LiO}}$ is at 2.02 \AA, and for $g_{\text{LiH}}$ is at 2.69 \AA. 
   \begin{figure}[b!]
   \centering
   \includegraphics[width=0.36\textwidth] {./diagrams/gdr_4_Li}
@@ -117,7 +120,7 @@ The VDOS for water molecules only bound to Li (Fig.\thinspace\ref{vdos_4_Li-wat_
   As a first minimal model system for the interfaces of alkali nitrate solution, we consider alkali nitrate water clusters including 3 to 5 waters. 
   The idea is to investigate the effect of the alkali nitrate on the vibrational properties of those water molecules which are directly 
   H-bonded to the ions.
-  In our simulations, the clusters are geometry optimized and the most stable configurations are determined (Fig.\thinspace\ref{fig:clusters_4}(b)(c)(d)).
+  In our simulations, the clusters are geometry optimized and the most stable configurations are determined (Fig.\thinspace\ref{fig:clusters_4} b, c, d).
   The first interesting result is that for all the clusters containing 3 to 5 water molecules, a contact ion pair is maintained during the 
   300 K simulation trajectories where a \emph{direct} interaction involves the cation and one of the nitrate oxygen's. 
   %The most stable isomer of the RNO$_3$(NO$_3$)$_3$ complex (R=Li,Na,K) is shown in Fig.~\ref{fig:clusters_4}(b) and compared to the symmetric slovation of the simple NO$_3$(H$_2$O)$_3$. 
@@ -126,7 +129,7 @@ The VDOS for water molecules only bound to Li (Fig.\thinspace\ref{vdos_4_Li-wat_
 In the LiNO$_3$(H$_2$O)$_3$ cluster, there are three H-bonds and three Li-O bonds. 
 The average lengths of them are given in Table\thinspace\ref{tab:table_lino3}. 
 We use HB1, HB2 and HB3 to denote the HB between w1 and w2, w2 and \nitrate, and w3 and \nitrate, 
-respectively (Fig.\thinspace\ref{fig:clusters_4}(b)). Both the average lengths of HB1 and HB3 are very close 
+respectively (Fig.\thinspace\ref{fig:clusters_4} b). Both the average lengths of HB1 and HB3 are very close 
 to each other and both of them are smaller than those of HB2. 
 Since both w1 and w2 are bound to \li, we calculate an average value $\bar{d}_{\text{HB}}=1.81$ \AA of the lengths of HB1 and HB3.
 The difference between length of HB2 and $\bar{d}_{\text{HB}}$ is $\delta d_{\text{HB}}=0.19$ \AA.
@@ -163,7 +166,7 @@ In the frequency range 3000--3800 \centimeter, each water molecules has two vibr
 to the free OH peak at 3700 \centimeter, we see that the HB band is characterized by quite strong \emph{red-shifted} 
 peaks around 3200 \centimeter. These red-shifted peaks are associated to water molecules which are bound either to 
 the cation or to both cation and anion and are different with respect to the peaks associated to the water molecules
-which only bound to the nitrate in the simple cluster [NO$_3\cdot$(H$_2$O)$_3$]$^-$ (3430 \centimeter, see e.g., in Fig.\thinspace\ref{fig:vdos_NO3-3w_2_H6H7}). 
+which only bound to the nitrate in the simple cluster [NO$_3\cdot$(H$_2$O)$_3$]$^-$ (3430 \centimeter, see Fig.\thinspace\ref{fig:vdos_NO3-3w_2_H6H7}). 
 %
 %\begin{figure}[h!]
 \begin{figure}[H]
