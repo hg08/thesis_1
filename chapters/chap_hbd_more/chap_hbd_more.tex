@@ -175,7 +175,7 @@ it is the true distribution of HB bonds in simulated systems.
 %TODO
 %For $P_a(\tau)$
 %For $P_{tt}(\tau)$
-
+\section{Hydrogen bond population operator}\label{hbpo}
 \paragraph{Calculation of the reactive flux}\label{calc_rf}
 For dynamical variables $x_i(t)$ and $x_k(t)$, their correlation functions have the following relationship:\cite{Landau1980}
 \begin{equation}
@@ -210,7 +210,70 @@ k(t) = - \langle \dot{h}(0)[1-h(t)]\rangle /\langle h\rangle.
 \label{eq:rf3}
 \end{equation}
 
-\paragraph{Fitting $C_2(t)$ with a single exponential function}\label{single_exp}
+
+\paragraph{Relaxation time of hydrogen bonds in bulk water}\label{rate_const_and_tau_R_128w}
+% 
+For the dynamic trajectory of such a system, we also calculated the self-correlation function $c(t)$ of the HB population operator, 
+and the functions $k(t)$ and $n(t)$ derived from it. 
+Table \ref{tab:k_k_prime_128w_1} and \ref{tab:k_k_prime_128w_2} shows the rate constant $k$, $k'$ and 
+the relaxation time $\tau_\text{HB}$ obtained by the least squares fit method. 
+It can be seen from the tables that the accuracy of the calculation of $k$, $k'$ are accurate to at least two decimal places.
+
+%
+\begin{table}[htbp]
+\centering
+\caption{\label{tab:k_k_prime_128w_1} 
+    The $k$ and $k'$ for the bulk water. We carried on the short time region 0.2 ps $< t <$ 2 ps. 
+The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{HB}}$ ($=1/k$) is ps. The $h(t)$ is bond-based.} 
+\begin{tabular}{cccc}
+ Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{HB}}$ (bulk) \\
+\hline
+  ADH & 0.335 & 0.937 & 2.988  \\
+  ADH(from $k_{in}$) & 0.299  & 1.029 & 3.347   \\
+  AHD & 0.322 & 1.01 & 3.101 \\ 
+  AHD(from $k_{in}$) & 0.288 & 1.121 & 3.468 \\ 
+\end{tabular}
+\end{table}
+%
+\begin{table}[htbp]
+\centering
+\caption{\label{tab:k_k_prime_128w_2} 
+    The $k$ and $k'$ for the bulk water. We carried on the long time region 2 ps $< t <$ 12 ps. 
+The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{HB}}$ ($=1/k$) is ps. The $h(t)$ is bond-based.} 
+\begin{tabular}{cccc}
+ Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{HB}}$ (bulk) \\
+\hline
+  ADH & 0.103 & 0.024 & 9.690 \\
+  ADH(from $k_{in}$) & 0.103  & 0.028 & 9.728 \\
+  AHD & 0.104 & 0.034 & 9.656  \\
+  AHD(from $k_{in}$) & 0.103  & 0.040 & 9.702  \\
+\end{tabular}
+\end{table}
+
+\paragraph{Different definitions of the $h(t)$}\label{DEF_POPULATION_OPERATOR}
+Here we discuss the definition of another possible hydrogen bond population operator $\tilde{h}(t)$ besides $h(t)$ introduced in the text.
+When a pair of water molecules $a$ and $b$ are H-bonded, 
+the oxygen atom in each water molecule can act both as a donor and an acceptor. 
+In particular, a pair of water molecules can form 4 different forms of H-bonds. 
+In other words, if the role of H atoms between the pair of water molecules changes, but they still form H-bonds, 
+we think that an old H-bond is broken and a new H-bond is formed.
+
+The correlation functions \CHB of water molecules in bulk water is shown in Fig. \ref{fig:bk_water_c_two_population_operators_with_ADH}.
+It shows that there are big differences in the correlation functions of the two definitions $h(t)$ and $\tilde{h}(t)$,
+because hydrogen exchange is considered in the O--H pair-based HB population $\tilde{h}(t)$, but not in the water--water pair-based HB population $h(t)$.
+% bk_water_c_two_population_operators_with_ADH.eps
+% /home/gang/Github/water_pair_HB_dynamics/plot/plot_c/bk_water_c_two_population_operators_with_ADH.eps
+% old version: 128w_bk--water-pair-based_and_bond-based_c.eps
+\begin{figure} [htbp]
+\centering
+	\includegraphics [width=0.36\textwidth] {./diagrams/bk_water_c_two_population_operators_with_ADH}
+\setlength{\abovecaptionskip}{0pt}
+	\caption{\label{fig:bk_water_c_two_population_operators_with_ADH} The correlation functions \CHB of water molecules in bulk water (ADH criterion). 
+        Here HB population is based on two different definitions, one is based on a pair of water molecules (solid line),\cite{Khaliullin2013} 
+and the other is based on O--H pairs between water molecules (dashed line).}
+\end{figure} 
+
+\section{Fitting $C_2(t)$ with a single exponential function}\label{single_exp}
 We assume that the anisotropy decay $C_2(t)$ is a single exponential given by 
 \begin{equation}
 C_2(t) = A e^{-\kappa t},
@@ -257,57 +320,3 @@ It is evident, from the figure, that $C_2(t)$ for water molecules neither in the
 \end{tabular}
 \end{table}
 
-\paragraph{Relaxation time of hydrogen bonds in bulk water}\label{rate_const_and_tau_R_128w}
-% 
-For the dynamic trajectory of such a system, we also calculated the self-correlation function $c(t)$ of the HB population operator, 
-and the functions $k(t)$ and $n(t)$ derived from it. 
-Table \ref{tab:k_k_prime_128w_1} and \ref{tab:k_k_prime_128w_2} shows the rate constant $k$, $k'$ and 
-the relaxation time $\tau_\text{HB}$ obtained by the least squares fit method. 
-It can be seen from the tables that the accuracy of the calculation of $k$, $k'$ are accurate to at least two decimal places.
-
-%
-\begin{table}[htbp]
-\centering
-\caption{\label{tab:k_k_prime_128w_1} 
-    The $k$ and $k'$ for the bulk water. We carried on the short time region 0.2 ps $< t <$ 2 ps. 
-The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{HB}}$ ($=1/k$) is ps. The $h(t)$ is bond-based.} 
-\begin{tabular}{cccc}
- Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{HB}}$ (bulk) \\
-\hline
-  ADH & 0.335 & 0.937 & 2.988  \\
-  ADH(from $k_{in}$) & 0.299  & 1.029 & 3.347   \\
-  AHD & 0.322 & 1.01 & 3.101 \\ 
-  AHD(from $k_{in}$) & 0.288 & 1.121 & 3.468 \\ 
-\end{tabular}
-\end{table}
-%
-\begin{table}[htbp]
-\centering
-\caption{\label{tab:k_k_prime_128w_2} 
-    The $k$ and $k'$ for the bulk water. We carried on the long time region 2 ps $< t <$ 12 ps. 
-The unit for $k$ ($k'$) is ps$^{-1}$, and that for $\tau_{\text{HB}}$ ($=1/k$) is ps. The $h(t)$ is bond-based.} 
-\begin{tabular}{cccc}
- Criterion & $k$  (bulk) & $k'$ (bulk) & $\tau_{\text{HB}}$ (bulk) \\
-\hline
-  ADH & 0.103 & 0.024 & 9.690 \\
-  ADH(from $k_{in}$) & 0.103  & 0.028 & 9.728 \\
-  AHD & 0.104 & 0.034 & 9.656  \\
-  AHD(from $k_{in}$) & 0.103  & 0.040 & 9.702  \\
-\end{tabular}
-\end{table}
-
-\paragraph{Different definitions of the $h(t)$}\label{DEF_POPULATION_OPERATOR}
-The correlation functions \CHB of water molecules in bulk water is shown in Fig. \ref{fig:bk_water_c_two_population_operators_with_ADH}.
-It shows that there are big differences in the correlation function \CHB of the two definitions of $h(t)$,
-because hydrogen exchange is considered in the O--H pair-based definition of $h(t)$, but not in the water--water pair-based definition.
-% bk_water_c_two_population_operators_with_ADH.eps
-% /home/gang/Github/water_pair_HB_dynamics/plot/plot_c/bk_water_c_two_population_operators_with_ADH.eps
-% old version: 128w_bk--water-pair-based_and_bond-based_c.eps
-\begin{figure} [htbp]
-\centering
-	\includegraphics [width=0.36\textwidth] {./diagrams/bk_water_c_two_population_operators_with_ADH}
-\setlength{\abovecaptionskip}{0pt}
-	\caption{\label{fig:bk_water_c_two_population_operators_with_ADH} The correlation functions \CHB of water molecules in bulk water (ADH criterion). 
-        Here $h(t)$ is based on two different definitions, one is based on a pair of water molecules (solid line),\cite{Khaliullin2013} 
-and the other is based on O--H pairs between water molecules (dashed line).}
-\end{figure} 
