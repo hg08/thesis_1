@@ -76,7 +76,7 @@ In particular, as the interface thickness increases, the two methods can achieve
 %特别地，随着界面厚度的增大，两种方法可以得到相同的结果。
 The code for calculating the HB dynamics for instantaneous interfaces can be found on \url{https://github.com/hg08/hb_in_interface}. 
 %===================
-\section{Thickness of the water/vapor interfaces}
+\section{Thickness of the aqueous/vapor interfaces}
 To determine the thickness of the water/vapor interface of alkali solutions,
 we chose several different thickness values of slab of the interface and calculate 
 the corresponding susceptibility for these slabs, respectively.
@@ -111,10 +111,9 @@ of water molecules at the aqueous/vapor interfaces with different thickness.
   \includegraphics [width=0.6 \textwidth] {./diagrams/2LiI-124w_0-30ps_2-8A_150_Im_150720}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:2LiI-124w_0-30ps_2-8A_150_Im_150720} The calculated $|\chi^{(2),R}_{SSP}|^2$, 
-  of water molecules at water/vapor interfaces (LiI solution) with different thickness.}
+  of water molecules at the interfaces of the LiI solution with different thickness.}
 \end{figure}
 %
-Because of the limitation of the box scale, we chose different thickness values---$d=$2--8 \A, for checking. 
 The VSFG intensities $I_{SSP} \propto |\chi^{(2),R}_{SSP}|^2$ for the water/vapor interface of the LiI solution 
 are given in Fig.\thinspace\ref{fig:2LiI-124w_0-30ps_2-8A_150_Im_150720} a and b. The results show that $|\chi^{(2),R}_{SSP}|^2$ 
 increases as the thickness increase from 0 to 8 \A. 
@@ -147,13 +146,13 @@ in 0.9 M LiI solution.}
 
 In addition, the survival probability \SHB is dependent on the temporal resolution $t_t$,
 which is the time interval between two adjacent states in time used to calculate the survival probability.
-As an example, the $t_t$ dependence of the $\tau_{\text{HB}}$ of the three alkali-iodine solution interfaces in our AIMD simulations is 
+As an example, the $t_t$ dependence of the $\tau_{\text{HB}}$ of the three alkali-iodine solution interfaces in AIMD simulations is 
 reported in Fig.\thinspace\ref{fig:hb_lifetime_124_2LiI-2NaI-2KI}. 
 It shows that, if one take the $t_t$ as small as possible, the number of times that H-bonds break and form again in this period of time ($t_t$) will be reduced.
 As shown in Fig.\thinspace\ref{fig:hb_lifetime_124_2LiI-2NaI-2KI}, 
 The value of $\tau_{\text{HB}}$ corresponding to the intersections of the $\tau_{\text{HB}}(t_t)$ functions and the line $t_t = 5$ fs approximately give the continuum HB lifetimes.
 For $t_t = 5$ fs, the calculated continuum HB lifetime is 0.30 ps, 0.31 ps and 0.23 ps, for the interface of LiI, NaI and KI solution, respectively.
-Then, the estimated value of $\tau_\text{HB}$ is $\sim 0.2$ ps.
+Then, the estimated value of $\tau_\text{a}$ is $\sim 0.2$ ps.
 Moreover, we can obtain the continuum HB lifetime independent of the $t_t$: $\tau_\text{HB} = \lim_{t_t \to 0} \tau_\text{HB}(t_t)$. 
 
 \begin{figure}[H]

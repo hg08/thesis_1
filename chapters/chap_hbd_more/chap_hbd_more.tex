@@ -125,10 +125,10 @@ i.e.,
 \label{eq:int_Ca}
 \end{eqnarray}
 \paragraph{Calculation of HB lifetime distributions}
-In this paragraph, we describe the method to calculate the above lifetime distributions $P_{tc}(\tau)$, $P_\text{a}(\tau)$, and $P_{tt}(\tau)$.
+In this paragraph, we describe the method to calculate the above lifetime distributions $P_\text{tc}(\tau)$, $P_\text{a}(\tau)$, and $P_\text{tt}(\tau)$.
 
-First, we describe the method of calculating $P_{tc}(\tau)$.
-Theoretically speaking, in order to calculate $P_{tc}(\tau)$, our detection time $t$ must meet the following conditions: 
+First, we describe the method of calculating $P_\text{tc}(\tau)$.
+Theoretically speaking, in order to calculate $P_\text{tc}(\tau)$, our detection time $t$ must meet the following conditions: 
 $t-t_0 > \tau_\text{hb}^{\max}$, where $t_0$ is the initial time and $\tau_\text{hb}^{\max}$ is the maximum lifetime value of the H-bonds in the system. 
 However, the value of $\tau_\text{hb}$ cannot be known in advance. 
 In order to reduce the error, the method we can adopt is to set an empirical value as large as possible for
@@ -163,12 +163,12 @@ formed after $t_0$ and broken at $t^{(j)}$.
 Specifically, for the AIMD simulation results we obtained, we also approximate $P_{tc}$ as follows: 
 We select evenly distributed $n$ time points $t=t_1,...,t_n$, from the trajectory obtained by the simulation, 
 and count the HB lifetimes at each time point $t_i$.
-The distribution function $P_{tc}(\tau)$ 
+The distribution function $P_\text{tc}(\tau)$ 
 can be obtained by the average of the lifetime distribution detected at a certain time $t_i$, $i=1,\cdots, n$, 
 where $t_i-t_{i-1} = \tau_\text{hb}^{\max}$. 
 
-If only from the perspective of simulation data, we have another way to obtain $P_{tc}(\tau)$: 
-Count the lifetimes of H-bonds that are formed after the initial time $t_0$ and are broken before the end time $t_f$.
+If only from the perspective of simulation data, we have another way to obtain $P_\text{tc}(\tau)$: 
+Count the lifetimes of H-bonds that are formed after the initial time $t_0$ and are broken before the end time $t_\text{f}$.
 Although the distribution obtained in this method cannot be verified experimentally, 
 it is the true distribution of HB bonds in simulated systems. 
 
@@ -286,7 +286,7 @@ Fig.\thinspace\ref{fig:2LiI-124w_c2_fit_5_single-exp}.
 \centering
 	\includegraphics [width=0.60\textwidth] {./diagrams/2LiI-124w_c2_fit_5_single-exp}
 \setlength{\abovecaptionskip}{0pt}
-	\caption{\label{fig:2LiI-124w_c2_fit_5_single-exp} The anisotropy decay of OH bonds in water molecules at the water/vapor interface of LiI solutions (5 ps).}
+	\caption{\label{fig:2LiI-124w_c2_fit_5_single-exp} The anisotropy decay of OH bonds in water molecules at the interface of LiI solutions.}
 \end{figure} 
 It is evident, from the figure, that $C_2(t)$ for water molecules neither in the bulk or at interface of the LiI solution can \emph{not} be described as a single exponential dynamics.  Besides, we also have fitted the $C_2(t)$ for water molecules in NaI solution and the result is the same as above. The fitting parameters for LiI and NaI solution are presented in table \ref{tab:c2_single-exp-fitting_LiI} and \ref{tab:c2_single-exp-fitting_NaI}, respectively.
 %-- 
@@ -294,7 +294,7 @@ It is evident, from the figure, that $C_2(t)$ for water molecules neither in the
 \centering
 \caption{\label{tab:c2_single-exp-fitting_LiI}%
 	The single-exponentially fitted parameters---the amplitude $A$, the decay rate $\kappa$, the relaxation period $1/\kappa$, of anisotropy decay for water molecules 
-  at the water/vapor interface of 0.9 M LiI solutions, at 330 K.} 
+  at the interface of 0.9 M LiI solutions, at 330 K.} 
 \begin{tabular}{lccc}
 	water molecules &  $A$ & $\kappa$ (THz) & $1/\kappa$ (ps)  \\
 \hline
@@ -309,7 +309,7 @@ It is evident, from the figure, that $C_2(t)$ for water molecules neither in the
 \centering
 \caption{\label{tab:c2_single-exp-fitting_NaI}%
 	The single-exponentially fitted parameters---the amplitude $A$, the decay rate $\kappa$, the relaxation period $1/\kappa$, of anisotropy decay for water molecules 
-	at the water/vapor interface of 0.9 M NaI solutions, at 330 K.} 
+	at the interface of 0.9 M NaI solutions, at 330 K.} 
 \begin{tabular}{lccc}
 	water molecules &  $A$ & $\kappa$ (THz) & $1/\kappa$ (ps)  \\
 \hline
