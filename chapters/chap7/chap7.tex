@@ -15,12 +15,12 @@ All simulations in this chapter were performed at 300 K within the canonical NVT
 The length of the trajectory is 60 ps of physical time.
 %The definition of $h(t)$ is based on specific H--O bond, instead of water-water pairs.
 For the interface of the LiNO$_3$ solution, we performed the simulation on a system containing one \Li ion, one nitrate ion 
-and 127 water molecules. 
-The size of periodic box is $(a,b,c)=(15.7787, 15.7787, 31.5574)$ (\AA).
+and 127 water molecules (concentration: $\sim$ 0.4 M). 
+The size of periodic box is $15.7787 \times 15.7787 \times 31.5574$ \A$^3$.
 %During the simulation, the temperature of the system is 
 %300 K and the volume is a constant, and periodic boundary conditions are used.
-For the interface of the NaNO$_3$ solution, the size of periodic box is $(a,b,c)=(15.6530, 15.6530, 31.3060)$ (\AA). % NaNO3, at T = 300 K
-For the interface of the KNO$_3$ solution, the size of periodic box is $(a,b,c)=(15.7160, 15.7160, 31.4320)$ (\AA). % KNO3
+For the interface of the NaNO$_3$ solution, the size of periodic box is $15.6530 \times 15.6530 \times 31.3060$ \A$^3$. % NaNO3, at T = 300 K
+For the interface of the KNO$_3$ solution, the size of periodic box is $15.7160 \times 15.7160 \times 31.4320$ \A$^3$. % KNO3
 
 The simulated bulk alkali metal nitrate \LiN, NaNO$_3$, and KNO$_3$ solution consisted of one alkali metal ion, 
 one nitrate ion and 127 water molecules in a periodic cubic box of length $L$, which corresponds to their density of $\sim$ 1.00 g cm$^{-3}$. 
@@ -269,7 +269,7 @@ The result we obtained from VSFG spectra in Chapter \label{CHAPTER_SFG_Calculati
 or, the nitrate ion in the solution tends to be distributed on the surface, 
 which is also consistent with the smaller relaxation time given by the HB population correlation functions \CHB and \SHB.
 
-Compared with the pure water interface, the characteristic relaxation time of the H-bonds between the water molecules 
+Compared with the water/vapor interface, the characteristic relaxation time of the H-bonds between the water molecules 
 in the interface of the alkali metal salt solution as a whole becomes smaller and increases with the increase of the solute concentration.
 %与纯水界面相比，作为一个整体的卤化碱金属盐溶液界面中的水分子之间的氢键特征弛豫时间变小，且随着溶质浓度的增加而增大。
 \section{Ion--water hydrogen bonds}\label{PARA_ION-WAT}
@@ -285,7 +285,7 @@ in the interface of the alkali metal salt solution as a whole becomes smaller an
 %(1) \I is a strong structure-breaking anion; %[\cite{Trevani2000}] 
 %(2) compared to pure water, the OH stretching peak at the interface of a solution containing iodide ions will blue shift. [\cite{Tongraar2010}] 
 %Comparing these black solid curves, we can see that the interface of the solution containing ions has lower $k(t)$.
-%In other words, compared to the pure water interface, 
+%In other words, compared to the water/vapor interface, 
 %the ratio of H-bonds that were initially bonded at the solution interface and broken at time $t$ is lower.
 %Because the effect of iodide ions is to increase the $k(t)$ of the interface, the decrease of $k (t)$ of the interface with a larger thickness
 %may only be due to the contribution of cations located under the first layer of water molecules at the interface. 
@@ -541,7 +541,7 @@ It has a value 1 when the particular tagged molecular pair are H-bonded \emph{an
 with a radius $r_{shell}$, and zero otherwise. 
 The definition of $h^{(\text{k})}(t)$ is similar to $h^{(\text{s})}[{r}(t)]$, which is defined in \ref{IHBP} for studying the interfacial H-bonds.
 Similarly, $h^{(\text{k})}(t)$ can be used efficiently to obtain the dynamic characteristics of H-bonds in solvation shells of any radius. 
-The definition of HB here can be based on water molecule pairs or O-H pairs. 
+%The definition of HB here can be based on water molecule pairs or O-H pairs. 
 Like in the IHB case, in this paragraph, we just discuss water molecule pair-based H-bonds. 
 
 Similar to the \CSHB for the H-bonds in instantaneous interfaces, for a given $r_\text{shell}$,
@@ -570,14 +570,14 @@ The results are given in the next paragraphs.
 
 \begin{figure}[H] 
 \centering
-\includegraphics [width=0.60\textwidth] {./diagrams/shb_c_ln_bk_Shell_pbc}
+\includegraphics [width=0.6\textwidth] {./diagrams/shb_c_ln_bk_Shell_pbc}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:shb_c_ln_bk_Shell_pbc}
 Correlation function $C^\text{(k)}_\text{HB}(t)$ for the H-bonds in the solvation shells, based on %(water-water pair based) 
 the HB population $h^\text{(k)}(t)$, as computed from the (a) ADH and (b) AHD criteria of H-bonds.} 
 \end{figure}
 %The results are obtained from the DFTMD simulation for the bulk LiNO$_3$ solution at $T=300$ K. 
-We calculated the HB dynamics of the H-bonds between water molecules in the first solvation shell and other molecules outside the sphere. 
+We calculated the HB dynamics of the H-bonds between water molecules in the first solvation shell and other molecules outside the first solvation shell. 
 The choice of the shell radius comes from the RDFs (see Fig.\ref{fig:gdr_NW_WW_127_LiNO3}). Comparing Fig.\ref{fig:256_LiNO3_hbacf_sh_no3} 
 and Fig.\thinspace\ref{fig:shb_c_ln_bk_Shell_pbc}, we conclude that: In the bulk system, although the HB between nitrate and water molecule is significantly 
 weaker than the bond between \Li ion and water molecule under the same conditions,
@@ -662,8 +662,9 @@ but we cannot infer more qualitative conclusions from this small difference.
 \includegraphics [width=0.60\textwidth] {./diagrams/shb_c_lii_bk_new_Shell_pbc_r5}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:shb_c_lii_bk_new_Shell_pbc_r5} 
-The $C^\text{(k)}_\text{HB}(t)$ for the solvation shell H-bonds with radius ($r_\text{shell}=5.0$ \AA), based on water-water 
-pair HB population operator $h^\text{(k)}(t)$, as computed from the (a) ADH and (b) AHD criteria of H-bonds. }
+The $C^\text{(k)}_\text{HB}(t)$ for the solvation shell H-bonds with radius ($r_\text{shell}=5.0$ \AA),
+as computed from the (a) ADH and (b) AHD criteria of H-bonds. }
+% based on water-water pair HB population operator $h^\text{(k)}(t)$, 
 %The results are calculated from the simulated bulk LiI solution (new) at $T=300$ K.
 \end{figure}
 %
@@ -672,8 +673,9 @@ pair HB population operator $h^\text{(k)}(t)$, as computed from the (a) ADH and 
 \includegraphics [width=0.60\textwidth] {./diagrams/shb_s_lii_itp_Shell_pbc}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:shb_s_lii_itp_Shell_pbc}
-The $\ln S^\text{(k)}_\text{HB}(t)$ for H-bonds in the solvation shells of \Li and \I ions (in the water/vapor interface)  based on water-water 
-pair HB population operator $h^\text{(k)}(t)$, as computed from the (a) ADH and (b) AHD criteria of H-bonds.} 
+The $\ln S^\text{(k)}_\text{HB}(t)$ for H-bonds in the solvation shells of \Li and \I ions (in the water/vapor interface) 
+as computed from the (a) ADH and (b) AHD criteria of H-bonds.} 
+% based on water-water pair HB population operator $h^\text{(k)}(t)$, 
 %The results are calculated from the simulated interface system of LiI solution at $T=300$ K.
 \end{figure}
 %
@@ -1059,7 +1061,7 @@ are shown in Fig.\thinspace\ref{fig:2LiI-124w_0-25ps_c2_150222b_s2}.
 The slower correlation time indicates that the water molecules are held more rigidly within the 1st hydration shell of \Li ions. 
 In other words, the order of the rigidity of the solvation shell is: \Li > \Na > \I}
 \end{figure} 
-It shows that water molecules bound to \I anions decay fastest,while those bound to \Na slowest. (time range: 0--2 ps).
+It shows that water molecules bound to \I anions decay fastest,while those bound to \Na slowest. (time range: 0--2 ps)
 %
 %We obtain non single-exponential kinetics for the rotation of water molecules in both surface and bulk water (and this is true for water molecules bound to ions).
 %Therefore, the rotational motion of water molecules are not simply characterized by a well-defined rate constant (see Fig.\thinspace\ref{fig:2NaI-124w_c2_fit_150223}).

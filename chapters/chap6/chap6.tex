@@ -1,6 +1,4 @@
 \chapter{Hydrogen bond dynamics at water/vapor interfaces}\label{CHAPTER_HB}
-%There are two types of bonds in water: the stronger covalent bonds (molecular $\sigma$ bonds) within a single water molecule and 
-%the much weaker H-bonds between water molecules.
 H-bonds play a critical role in the behaviour of bulk water,\cite{Eisenberg1969,Luzar1996,Cabane2005} 
 water near interfaces,\cite{Chowdhary2008} and aqueous solutions. \cite{Naslund2005} 
 There are many methods to study the hydrogen bond (HB) dynamics in water, solutions or interfaces, 
@@ -26,7 +24,6 @@ and the oxygen-hydrogen-oxygen included angle is greater than cutoff angle $\the
 We denote this definition as the Acceptor-Hydrogen-Donor (AHD) criterion of H bonds.
 In this thesis, we use $r^{\text{c}}_{\text{OO}}=3.5\AA$ both for ADH and AHD criteria, $\phi^{\text{c}}=30^{\circ}$ for ADH criterion, 
 and $\theta^{\text{c}}=120^{\circ}$ for AHD criterion.
-%The distance criteria of $R_{\text{OH}}$  was determined from the first minimum in the O--H RDF for SPC water. \cite{HJCB81}
 
 % introduce h(t)
 The configuration criterion above allows us to define a variable $h[r(t)] = h(t)$, the HB population. 
@@ -34,7 +31,7 @@ Here an instantaneous configuration $r(t)$ denotes the positions of all the atom
 The $h(t)$ has a value 1 when the particular tagged pair of molecules are bonded, and 0 otherwise. 
 %=================
 % added 2020-5-27: to show that h(t) is actually the fluctuation of itself (\delta h).
-We know that the instantaneous fluctuation or deviation in a dynamical variable $A(t)$ from its time-independent equilibrium average $\langle A\rangle$ , 
+We know that the fluctuation or deviation in a dynamical variable $A(t)$ from its time-independent equilibrium average $\langle A\rangle$ , 
 is defined by \cite{DC87} 
 $$
 \delta A = A(t) - \langle A\rangle.
@@ -46,9 +43,10 @@ then
 $$
 \delta h(t) = h(t).
 $$
-Therefore, the $h(t)$ describe the instantaneous fluctuation $\delta h(t)$  of the HB population.  
-%The behaviour of $r_{OO}(t)$  is depicted in Fig.\ref{fig:Ex30ps_hb}a. We find that in the equilibrium system, $r_{OO}(t)$ looks chaotic.
+Therefore, the $h(t)$ describe the fluctuation $\delta h(t)$  of the HB population.  
 %=================
+
+
 
 While the equilibrium average of the $\delta h(t)$ is zero, we can obtain useful information by considering the equilibrium 
 correlations between fluctuations at different times. The correlation between the $\delta h(t)$ and the $\delta h(0)$ can be written as 
@@ -61,15 +59,6 @@ where the averaging $\langle\cdots\rangle$ is to be performed over the ensemble 
 In this paragraph, we will use three different correlation functions to describe the HB dynamics of water/vapor interfaces of solutions:
 the HB population auto-correlation function \CHB, the continuum HB population correlation function (survival probability) \SHB and the reactive flux $k(t)$. \cite{Rapaport1983}
 
-%\paragraph{Structure of HB Network}
-%One of the importrant characteristics of HB network is the average number of H-bonds per molecule. 
-%At room temperature and atmospheric pressure, this quantity is close to four or slightly higher. \cite{Malenkov2006} 
-%
-%Furthermore, one can consider a more detailed distribution function. A molecule can form multiple H-bonds with other molecules at the same time.
-% Among these H-bonds, the molecule has $i$ times in the form of donors and $j$ times in the form of acceptors, 
-%that is, the total number of H-bonds formed by the molecule at a certain time is $i+j$.
-%Regarding the H-bonding of pure bulk water, people have obtained rich results with this analysis method and MD simulations. \cite{Malenkov1990,Malenkov2006}
-
 \FloatBarrier
 \paragraph{HB population auto-correlation function}
 We use the auto-correlation function \CHB ($c(t)$ for short) of the HB population to describe the structural relaxation of H-bonds: 
@@ -80,8 +69,6 @@ C_{\text{HB}}(t)=\langle h(0)h(t) \rangle/\langle h\rangle
 With the aid of the ergodic principle, the ensemble average $\langle \cdots\rangle$ is implemented by time average.
 The $\langle h\rangle$ is the probability that a pair of randomly chosen water molecules in the system is
 H-bonded at any time $t$. 
-%Here is an explanation of the specific meaning of the word "form". 
-%Each water molecule has two H atoms and one O atom. Therefore, 
 As examples, the dynamics of the interoxygen distance $r_{\text{OO}}(t)$, 
 the cosine of H$-$O$\cdots$O angle cos$\phi(t)$  
 and the $h(t)$ for a HB in a DFTMD simulated water cluster (H$_2$O)$_n$ (n=5) at 300 K is displayed in Fig.\thinspace\ref{fig:Ex30ps_hb}, respectively.
@@ -118,6 +105,55 @@ and $\tau_R = 14.16$ ps for AHD definition.
 %The length of the trajectory is 35 ps of physical time. Ref:\cite{Khaliullin2013}}
 \end{figure} 
 %
+
+The method of water-water pair based HB dynamics used in this section has been frequently used in previous literature.\cite{Luzar1994,AL96,AC00} 
+The basis is the population operator $h(t)$ of the HB formed between two water molecules. 
+The function \CHB is interpreted as the probability that the HB between a certain pair of water molecules is intact at time  $t$, 
+if the pair of water molecules are H-bonded at time zero. 
+The \CHB measures correlation in $h(t)$ independent of any possible bond breaking events. 
+It is one of the intermittent HB correlation functions, introduced by Rapaport.\cite{Rapaport1983} 
+
+Here we also discuss the definition of another possible hydrogen bond population operator $\tilde{h}(t)$ besides $h(t)$ introduced in the text.
+When a pair of water molecules $a$ and $b$ are H-bonded, 
+the oxygen atom in each water molecule can act both as a donor and an acceptor. 
+In particular, a pair of water molecules can form 4 different forms of H-bonds. 
+In other words, if the role of H atoms between the pair of water molecules changes, but they still form H-bonds, 
+we think that an old H-bond is broken and a new H-bond is formed.
+
+The correlation functions of $h(t)$ ($\tilde{h}(t)$) of water molecules in bulk water is shown in Fig. \ref{fig:bk_water_c_two_population_operators_with_ADH}.
+It shows that there are some differences in the correlation functions of the two definitions $h(t)$ and $\tilde{h}(t)$,
+because hydrogen exchange is considered in the O--H pair-based HB population $\tilde{h}(t)$, but not in the water--water pair-based HB population $h(t)$.
+%
+\begin{figure} [htbp]
+\centering
+	\includegraphics [width=0.36\textwidth] {./diagrams/bk_water_c_two_population_operators_with_ADH}
+\setlength{\abovecaptionskip}{0pt}
+	\caption{\label{fig:bk_water_c_two_population_operators_with_ADH} The auto-correlation functions of $h(t)$ and $\tilde{h}(t)$ for water molecules in bulk water (ADH criterion). 
+        The HB population is based on two different definitions, $h(t)$ is based on a pair of water molecules (solid line),\cite{Khaliullin2013} 
+and $\tilde{h}(t)$ is based on O--H pairs between water molecules (dashed line).}
+\end{figure} 
+
+Fig.\thinspace\ref{fig:128w_bk_2delta_t_60ps_water_pair_c_ns40} shows the correlation function $C_\text{HB}(t)$ 
+for bulk water over time. 
+Comparing Fig.\thinspace\ref{fig:128w_c_itp_bk_ns40} and Fig.\thinspace\ref{fig:128w_bk_2delta_t_60ps_water_pair_c_ns40}, 
+we find that although the trend of change of \CHB is the same: as time increases, it gradually decays from 1; 
+but from a quantitative point of view, the latter decays more slowly. This difference comes from our definition 
+of the HB population operator, and does not depend on the HB criterion. 
+From Fig.\thinspace\ref{fig:128w_bk_2delta_t_60ps_water_pair_c_ns40}, 
+we see that the above conclusions are correct regardless of ADH or AHD criteria. 
+In the following, we will use this HB population operator based on molecular pairs, which is based on water-water molecule pairs, 
+or ion-water molecule pairs, unless otherwise specified.
+\begin{figure}[H]
+%Location: /home/gang/Github/water_pair_HB_dynamics/plot/plot_c/
+\centering
+\includegraphics [width=0.360\textwidth] {./diagrams/128w_bk_2delta_t_60ps_water_pair_c_ns40}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:128w_bk_2delta_t_60ps_water_pair_c_ns40} 
+The $C_\text{HB}(t)$ for bulk water, 
+as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds. Ref:\cite{Khaliullin2013}} 
+\end{figure}
+%
+
 Because the thermal motion can cause distortions of H-bonds from the perfectly tetrahedral configuration,
 water molecules show a librational motion on a time scale of $\sim$ 0.1 ps superimposed to rotational and diffusional motions ($> 1$ ps), 
 which causes a time variation of interaction parameters.
@@ -153,10 +189,8 @@ where $k_\text{in}(t) = -\langle \dot h(0)[1-h(t)]h^d(t) \rangle/\langle h\rangl
 %===============================
 \FloatBarrier
 \paragraph{Survival Probability}
-%\paragraph{Probability of the first HB Breaking}
 %===============================
 Another scheme to describe the HB dynamics is the continuum HB population correlation function \SHB ($s(t)$ for short), or survival probability \cite{AC00} for a newly generated HB.
-%The probability densities
 It is defined as
 \begin{eqnarray}
 S_{\text{HB}}(t)=\langle h(0)H(t) \rangle/\langle h\rangle 
@@ -166,7 +200,7 @@ where $H(t)=1$ if the tagged pair of molecules, remains \emph{continuously} H-bo
 and 0 otherwise.  It describes the probability that an initially H-bonded molecular pair 
 remains bonded at all times up to $t$. \cite{Chowdhuri2006}
 The \SHB for the DFTMD simulated bulk water according to the formula \ref{eq:S_HB} is shown in Fig.\thinspace\ref{fig:128w_s_itp_bk_ns40}.
-%-------------------
+%
 \begin{figure}[hbtp]
 \centering
 \includegraphics [width=0.36\textwidth] {./diagrams/128w_s_bk_ns40}
@@ -192,16 +226,7 @@ It denotes the probability of the first HB breaking in time $t$ after it has bee
 S_{\text{HB}}(t)= \int_t^\infty P_a(t')dt'.
 \label{eq:P_2}
 \end{eqnarray}
-%
-%In terms of $h$, the probability distribution can be expressed as
-%\begin{eqnarray}
-%P_a(t) = \frac{\langle [1-h(0)]\delta [t-\int_0^t h(t')dt'][1-h(t)]\rangle}{\langle 1-h(0)\rangle},
-%\label{eq:P_3}
-%\end{eqnarray}
-%where $\langle \rangle$ denotes the average over all molecular pairs which are starting to H-bonded at time $t$.
 
-%\paragraph{Average HB Lifetime $\tau_{\text{HB}}$} %\cite{HAK08}
-%Like in water, librational motions of water molecules cause an rupturing and reforming of a H bond on a time scale of 60 fs.\cite{SHC86}
 \FloatBarrier
 \paragraph{Reactive Flux $k(t)$} 
 The rate of relaxation to equilibrium is characterized by the reactive flux correlation function, 
@@ -243,8 +268,7 @@ are ideal model systems for testing our algorithms.
 For bulk water, we can compare the results of the current method with the results of 
 previous works.\cite{AL96,Kessler2015} After the validation for bulk water, we will show in this paragraphs the results of the HB dynamics of the air-water interface.
 
-% about the pure water interface, the aqueous solution containing ions, and the HB dynamics in the interface corresponding to the aqueous solution.
-[all the data on the simulation]
+%[all the data on the simulation]
 All simulations in this chapter were performed at 300 K within the canonical NVT ensemble.
 The length of the trajectory is 60 ps of physical time.
 %The definition of $h(t)$ is based on specific H--O bond, instead of water-water pairs.
@@ -291,8 +315,6 @@ of water--water H-bonds for water/vapor \emph{interface}.}
 Let's now discuss the result for the water-vapor interface.
 For the water-vapor interface, we reported the result of the correlation function  $c(t)$, $n(t)$
 in Fig.\thinspace\ref{fig:128w_itp_c_n_k} a and the reactive flux $k(t)$ in Fig.\thinspace\ref{fig:128w_itp_c_n_k} b.
-%which had been used in the study of HB dynamics of liquid water. \cite{AL96,Khaliullin2013}
-%The $k(t)$ calculated from the positional trajectory of water molecules in DFTMD simulations, is reported in Fig.\thinspace\ref{fig:128w_bk_2delta_t_60ps_k_log}. 
 %
 In both bulk and interface cases, the $k(t)$ quickly changes from its initial value on a time scale of less than 0.2 ps. 
 This value can be roughly seen from Fig.\thinspace\ref{fig:pure_bk_and_itp_k}, which redraws the $k(t)$ in Fig.\thinspace\ref{fig:pure_bk_c_n_k} and 
@@ -305,23 +327,7 @@ Fig.\thinspace\ref{fig:128w_itp_c_n_k} in double logarithmic coordinates and com
   \caption{\label{fig:pure_bk_and_itp_k}Time dependence of $k(t)$ 
 of water--water H-bonds for (a) bulk water and (b) water-vapor interface.}
 \end{figure}
-%(see the inset of Fig.\space\ref{fig:121}). 
-%For the times beyond the transient period, the $k(t)$ decays to zero monotonically, and the slop of the $\ln{k(t)}$ increases monotonically with $t$ (see Fig.\space\ref{fig:121_log_rf}). 
-%These two properties were also found for bulk water using the SPC water model by Luzar and Chandler. \cite{AL96} 
-%This log-log plot of the $k(t)$ shows that, as in the case of liquid water, this decay behaviour does not coincide with a power-law decay for water/vapor interface of neat water.
-%This result is also the same as that of the classical molecular simulation of pure water. \cite{AL96b,Luzar1996}
-%%
-%\begin{figure}[htpb]
-%\centering
-%\includegraphics [width=0.5\textwidth] {./diagrams/121}
-%\setlength{\abovecaptionskip}{0pt}
-%  \caption{\label{fig:121}The time dependence of the $k(t)$ for the water/vapor interface of neat water, calculated by DFTMD simulations.
-%  The inset shows the log-log plot of the $k(t)$.}
-%\end{figure}
 %
-%\paragraph{Relation Between HB Dynamics and Anisotropy Decay}
-%It is interesting to relate the HB kinetics with rotational dynamics (anisotropy decay) of single water molecules.\cite{HX01}
-
 For the water/vapor interface, we focus on the reactive flux $k(t)$, 
 which had been used in the study of HB dynamics of liquid water. \cite{AL96,Khaliullin2013}
 The $k(t)$ calculated from the trajectory of water molecules in simulations, is reported in Fig.\thinspace\ref{fig:121}. 
@@ -340,8 +346,6 @@ i.e., as $t$ increases, $n(t)$ increases rapidly from 0, and it reaches a maximu
 We also find that the maximum value of $n(t)$ at the water/vapor interface is slightly higher than that in bulk water.
 It can be seen that $n(t)$ of the water/vapor interface
 is always greater than that in the bulk water, whether we take the definition of ADH or AHD.
-%This means that the HB between a pair of water molecules at time $t$ is broken
-%and the distance between them is less than $r^c_\text{OO}=3.5$ \AA at the water/vapor interface is more likely to occur than in bulk water. 
 We interpret this result as the fact that at time $t$, there is a greater probability that the H-bonds on the interface are broken 
 compared to the H-bonds in the bulk water.
 \begin{figure}[htpb]
@@ -360,19 +364,6 @@ Time dependence of $n(t)$ for bulk water and the water/vapor interface from (a) 
 \end{figure}
 
 \paragraph{Reaction rate constants $k$ and $k'$}
-%\paragraph{$k$ and $k'$: Least Squares Fit}
-%In order to show the effect of water molecule diffusion on the HB dynamics, we can calculate the sum of the functions $c(t)$ and $n(t)$, i.e., $c(t)+n(t)$.
-%\begin{figure}[H]
-%%Location: /home/gang/Github/hbacf/__hbacf_continuous/figures/plot_n_from_2_hb_def_bk_and_itp/
-%\centering
-%\includegraphics [width=0.6\textwidth] {./diagrams/128w_bk_itp_50ps_n_from_k_in_with_2_hb_def}
-%\setlength{\abovecaptionskip}{0pt}
-%\caption{\label{fig:128w_bk_itp_50ps_n_from_k_in_with_2_hb_def} 
-%Time dependence of the population functions $n(t)$ for (a) bulk water and (b) water/vapor interface, as computed from the ADH (solid line) and AHD (dashed line) 
-%criterion of H-bonds with the expression $n(t) = \int_0^t dt'k_{in}(t')$.} 
-%\end{figure}
-
-
 Khaliullin and K\"uhne have studied the H-bonding kinetics of pure water using the AIMD simulations.\cite{Khaliullin2013}
 Based on the HB population operators $h(t)$ and $h^{(d)}(t)$, and the correlation functions $n(t)$ and $k(t)$, they have used the simulation data 
 to obtain the ratio $k/k'$ in the bulk water, and then the lifetime and relaxation time 
@@ -444,50 +435,10 @@ For the long time region, these values of the $k$ are comparable in magnitude to
 %For the water/vapor interface of pure water, we also calculated the constants $k$ and $k'$ by least square fit. 
 
 \section{Instantaneous interfacial HB dynamics}
-The method of water-water pair based HB dynamics used in this section has been frequently used in previous literature.\cite{Luzar1994,AL96,AC00} 
-The basis is the population operator $h(t)$ of the HB formed between two water molecules. 
-We use the correlation function \CHB to describe the relaxation of H-bonds between two water molecules: 
-\begin{eqnarray}
-C_{\text{HB}}(t)=\langle h(0)h(t) \rangle/\langle h\rangle
-\label{eq:C_HB}.
-\end{eqnarray}
-Similarly, with the aid of the ergodic principle, the ensemble average $\langle \cdots\rangle$ is implemented by time average.
-The $\langle h\rangle$ is the probability that a pair of randomly chosen water molecules in the system is
-H-bonded at any time $t$. 
-
-The function \CHB is interpreted as the probability that the HB between a certain pair of water molecules is intact at time  $t$, 
-if the pair of water molecules are H-bonded at time zero. 
-In a large system that consist of many water molecules, the probability that a specific pair of water molecules are H-bonded is extremely small. 
-Therefore, the \CHB relaxes to zero, when $t$ is large enough. 
-The \CHB measures correlation in $h(t)$ independent of any possible bond breaking events. 
-It is one of the intermittent HB correlation functions, introduced by Rapaport, \cite{Rapaport1983} 
-and can be studied by a continuous function, probability densities.
-
-Fig.\thinspace\ref{fig:128w_bk_2delta_t_60ps_water_pair_c_ns40} shows the correlation function $C_\text{HB}(t)$ 
-for bulk water over time. 
-Comparing Fig.\thinspace\ref{fig:128w_c_itp_bk_ns40} and Fig.\thinspace\ref{fig:128w_bk_2delta_t_60ps_water_pair_c_ns40}, 
-we find that although the trend of change of \CHB is the same: as time increases, it gradually decays from 1; 
-but from a quantitative point of view, the latter decays more slowly. This difference comes from our definition 
-of the HB population operator $h$, and does not depend on the HB criterion. 
-For example, from Fig.\thinspace\ref{fig:128w_bk_2delta_t_60ps_water_pair_c_ns40}, 
-we can see that the above conclusions are correct regardless of ADH or AHD criteria. It can be seen that our different definitions of the HB population operator 
-will lead to different correlation functions related to it. To see the direct comparison of the \CHB in the two cases, 
-refer to the Appendix \ref{DEF_POPULATION_OPERATOR}. 
-In the following, we will use this HB population operator based on molecular pairs, which is based on water-water molecule pairs, 
-or ion-water molecule pairs, unless otherwise specified.
-\begin{figure}[H]
-%Location: /home/gang/Github/water_pair_HB_dynamics/plot/plot_c/
-\centering
-\includegraphics [width=0.360\textwidth] {./diagrams/128w_bk_2delta_t_60ps_water_pair_c_ns40}
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:128w_bk_2delta_t_60ps_water_pair_c_ns40} 
-The $C_\text{HB}(t)$ for bulk water, 
-as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds. Ref:\cite{Khaliullin2013}} %[DESCRIBE THE FIGURE][COMPARE THE RESULTs TO hbond-based CORRELATION FUNCTION]
-\end{figure}
 
 To study the interface HB dynamics, we first determine the instantaneous interface and then define the interfacial HB population operator. 
 Based on these two definitions, we can derive the correlation functions and reaction rate constants, in each interface layer. 
-These quantities represent the change characteristics of the HB dynamics on the interface with the interface layer's thickness.
+Using these quantities we can discuss the change in the HB dynamics at the interface with the interface layer's thickness.
 
 % One can uncomment if remove PERCENT
 %====================================
@@ -538,7 +489,7 @@ As Willard and Chandler mentioned, due to molecular motions, interfacial configu
 change with time, and the identity of molecules that lie at the interface also change with time, generally useful procedures for
 identifying interfaces must accommodate these motions. \cite{Willard2010} 
 To determine the instantaneous interface of the water/vapor system, we here adopted their proposed method based on spatial density.
-The instantaneous coarse-grained density at space-time point $\mathbf{r},t$ can be expressed as polynomial
+The coarse-grained density at space-time point $\mathbf{r},t$ can be expressed as polynomial
 \begin{eqnarray}
 \bar{\rho}(\mathbf{r}, t)=\sum_{i} \phi(|\mathbf{r}-\mathbf{r}_{i}(t)|; \xi) 
 \end{eqnarray}
@@ -555,17 +506,17 @@ With the parameter $\xi$ set, the interfaces can be defined to be the 2-dimensio
 \bar\rho(\mathbf{s};t)= \rho_c 
 \label{eq:rho_c}
 \end{eqnarray} 
-where $\rho_c$ is a reference density. This instantaneous interface is a function of time as molecular configurations changes with time, that is 
+where $\rho_c$ is a reference density. This interface is a function of time as molecular configurations changes with time, that is 
 ${\mathbf s}(t) = {\mathbf s}(\{{\mathbf r}_i(t)\})$. 
 
 %{Instantaneous Layering of the water/vapor interface} DELETED THE PARAGRAPH NAME
 After the instantaneous surface is defined, we can define an interface layer for any non-uniform fluid system. 
 Specifically, for the simulated water/vapor interface system in the cuboid simulation box, 
-we can get another two-dimensional manifold ${\mathbf s}_0(t)$ by moving the instantaneous surface ${\mathbf s}(t)$ determined above 
-along the system's normal coordinate to a certain distance $d$, which is another surface. We use these two surfaces 
-as the two boundaries of the interface. In other words, at any time point $t$, the volume between the two surfaces 
+we can get another two-dimensional manifold ${\mathbf s}_0(t)$ by moving the surface ${\mathbf s}(t)$ determined above 
+along the system's normal coordinate to a certain distance $d$ (two grey surfaces are shown in Fig.\thinspace\ref{fig:128w_itp_add_z_d_trimed_with_inner_layers}).
+We use these two surfaces as the two boundaries of the interface. In other words, at any time point $t$, the volume between the two surfaces 
 ${\mathbf s}(t)$ and ${\mathbf s}_0(t)$ is defined as the instantaneous interface. 
-Here, we use $d$ to denote the thickness of the instantaneous interface. As long as we change the value of $d$, we can get interfaces with different thicknesses. 
+Here, we use $d$ to denote the thickness of the interface. As we change the value of $d$, we can get interfaces with different thicknesses. 
 Different values of $d$ give us different layering strategies for the interface system. 
 See Fig.\thinspace\ref{fig:128w_itp_add_z_d_trimed_with_inner_layers} as an example.
 \begin{figure}
@@ -574,7 +525,8 @@ See Fig.\thinspace\ref{fig:128w_itp_add_z_d_trimed_with_inner_layers} as an exam
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:128w_itp_add_z_d_trimed_with_inner_layers}
 A slab of water (128 water molecules are included) with the instantaneous interface represented as a blue mesh on the upper and lower phase boundary.
-The normal is along the $z$-axis and the parameter $d$ is the thickness of the interfacial layer.} 
+The normal is along the $z$-axis and the parameter $d$ is the thickness of the interfacial layer.
+The grey surfaces are obtained by translating the interfaces to the inside of the system along the $z$-axis (or the opposite direction of the $z$-axis) by $d$.} 
 %The box dimensions are $15.64 \times 15.64 \times 31.28$ \AA$^3$, and the slab is periodically replicated in the $x$, $y$ and $z$ directions. 
 \end{figure}
 
@@ -586,18 +538,15 @@ in these interfaces, we can obtain the dynamical characteristics of various solu
 %These different environments have a common feature: because the molecular configuration changes over time, the usual method first selects these molecules or molecular pairs, 
 %and then determines the H-bonds in this special environment based on a HB criterion, and finally calculate the HB lifetimes or autocorrelation functions of 
 %the HB population operators. 
-And here we are combining the general Luzar-Chandler HB population operator with the environment in which the HB is formed,
- that is, the space constraint satisfied by the configuration of the molecular pair. This combination can easily select those molecules and their H-bonds that meet arbitrary 
-constraints when the molecular configuration changes.
 
 \FloatBarrier
 \paragraph{Interfacial hydrogen bond population} \label{IHBP}
-Once we have determined the instantaneous surface ${\mathbf s}(t)={\mathbf s}(\{{r}_i(t)\})$, we can define interfacial H-bonds.
-Now we define the interface HB population operator $h^{(s)}[{r}(t)]$ as follows:
+Once we have determined the surface ${\mathbf s}(t)={\mathbf s}(\{{r}_i(t)\})$, we can define interfacial H-bonds.
+Now we define the interface HB population operator $h^{(\text{s})}[{r}(t)]$ as follows:
 It has a value 1 when the particular tagged molecular pair are H-bonded, \emph{and} both molecules are inside the instantaneous interface 
 with a thickness $d$, and zero otherwise. 
-The definition of  $h^{(s)}[{r}(t)]$ is critical to help us to efficiently obtain the H-bonds' dynamic characteristics in an
-instantaneous interface system of any thickness. %Note that the definition of HB here is based on water molecule pairs or O-H pairs. 
+The definition of  $h^{(\text{s})}[{r}(t)]$ is critical to help us to efficiently obtain the H-bonds' dynamic characteristics of 
+the interfacial layer with a given thickness $d$. %Note that the definition of HB here is based on water molecule pairs or O-H pairs. 
 In this paragraph, we only discuss H-bonds based on water molecule pairs. Starting from the H-bonds based on O-H pairs, the same analysis 
 can also be done. 
 
@@ -631,26 +580,33 @@ We will discuss the dependence of the correlation functions \CHB, \CSHB, and the
 The \CSHB for the instantaneous interfacial H-bonds with different thickness ($d$), 
 as computed from the (a) ADH and (b) AHD criteria of H-bonds.} 
 \end{figure}
-For the pure water interface, we used two geometric criteria of H-bonds to calculate the \hbos and therefore correlation function \CSHB. 
+For the water/vapor interface, we used two geometric criteria of H-bonds to calculate the \hbos and therefore correlation function \CSHB. 
 The calculation results of the \CSHB are shown in Fig.\thinspace\ref{fig:128w_itp_pure_water_pair_c_ihb}.
-We find that the greater the thickness $d$ of the instantaneous interface is selected, 
-the slower the relaxation of the interface H-bonds. When the thickness is greater than a certain thickness $d^c$ ( $\sim$ 3 \AA),
-the relaxation of H-bonds at the interface hardly changes.
+%We find that the greater the thickness $d$ of the instantaneous interface is selected, 
+%the slower the relaxation of the interface H-bonds. 
+%When the thickness is greater than a certain thickness $d^c$ ( $\sim$ 3 \AA),
+%the relaxation of H-bonds at the interface hardly changes.
+We find that the HB dynamics is faster at the water/vapor interface when compared to bulk.
+As $d$ increases, we get slower and slower HB dynamics. 
+%When $d$ exceeds 3 \A, the interface's HB dynamics no longer changes with $d$. 
+This feature means that as $d$ increases, the interface's HB dynamics will converge and eventually tend to the bulk water's hydrogen bond dynamics.
+This behavior is independent of the HB definition as shown by the comparison of the results in panel a and b of Fig.\thinspace\ref{fig:128w_itp_pure_water_pair_c_ihb}.
 %
 
-For comparison, we first calculate the HB dynamics of water molecules in the interface obtained by selecting molecules 
-located in instantaneous interface. (See Appendix \ref{ihb_and_selection} for details.) 
-In this algorithm, we first select the molecules in the interface at each moment and then make a statistical
+For comparison, we also calculate the HB dynamics of water molecules in the interface obtained by selecting molecules 
+located in the interface. We call this method Molecule Sampling (MS) (See Appendix \ref{ihb_and_selection} for details). 
+In this method, we first select the molecules at the interface at each moment and then make a statistical
 average of the calculated correlation functions.
-Specifically, to determine which water molecules are located in the instantaneous interface, we sample at regular intervals, and then calculate 
-the correlation function \CHB for the water molecules located in the interface and their a statistical average.
+Specifically, to determine which water molecules are located at the instantaneous interface, 
+we sample at regular intervals, and then calculate the correlation function \CHB for the water molecules located in the interface and their a statistical average.
 As the thickness $d$ changes, the \CHB in the interface will also change. 
 Figure \ref{fig:128w_itp_pure_water_pair_c_ihb_scheme1} shows how the function \CHB changes with the thickness $d$.
-The sub-figures a and b use HB definition criterion ADH, and AHD, respectively.
+The panel a and b use HB definition criterion ADH, and AHD, respectively.
 Comparing Fig.\thinspace\ref{fig:128w_itp_pure_water_pair_c_ihb} and Fig.\thinspace\ref{fig:128w_itp_pure_water_pair_c_ihb_scheme1}, we see that
-when we use the method of Molecule Selection (MS) in the interface, the dependence of the correlation function \CHB.  
-on the interface thickness is very consistent with that of \CSHB for large $d$. 
-Moreover, regardless of the AHD definition or the ADH definition of the HB, this conclusion is basically valid. 
+when we use the method of MS at the interface, the dependence of the correlation function \CHB
+on the interface thickness is consistent with that of \CSHB for large $d$. 
+Moreover, regardless of the AHD definition or the ADH definition of the HB, this conclusion is basically valid.
+ 
 Beside the correlation functions \CHB or \CSHB in the interface, we will further examine the correlation 
 functions \CHB, $n(t)$, $k(t)$ (\CSHB, $n^\text{(s)}(t)$, $k^\text{(s)}(t)$), and the rate constants $k$, $k'$ determined by them.
 \begin{figure}[H]
@@ -659,20 +615,21 @@ functions \CHB, $n(t)$, $k(t)$ (\CSHB, $n^\text{(s)}(t)$, $k^\text{(s)}(t)$), an
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:128w_itp_pure_water_pair_c_ihb_scheme1} 
 The \CHB for the instantaneous interfacial H-bonds with different thickness $d$,  
-as computed from the (a) ADH and (b) AHD criteria of H-bonds. These results are based on selecting the water molecules in the instantaneous interface and averaging 
-the correlation functions of these water molecules. The sampling is performed every 4 ps.} 
+as computed from the (a) ADH and (b) AHD criteria of H-bonds. 
+These results are based on MS method. The sampling is performed every 4 ps.} 
+%These results are based on selecting the water molecules in the instantaneous interface and averaging 
+%the correlation functions of these water molecules. The sampling is performed every 4 ps.
 \end{figure}
 
 %[Plot the $k$ and $k'$ as functions of thickness $d$.]
 \FloatBarrier
 \paragraph{$d$-dependence of $k$ and $k'$} 
 To find the reaction rate constants $k$ and $k'$, we also have two choices. we can start from the correlation functions \CSHB, $n^\text{(s)}(t)$ and $k^\text{(s)}(t)$;
-We can also first select the water molecules in the instantaneous interface at each time point $t$, and start from the corresponding 
+We can also first select the water molecules at the instantaneous interface at each time point $t$, and start from the corresponding 
 correlation functions \CHB, $n(t)$ and $k(t)$ of the H-bonds of these selected water molecules.
 Figure \ref{fig:128w_itp_pure_water_pair_k_k_prime_ihb_both_schemes} compares the rate constants ($k$ and $k'$) 
 and the lifetime $\tau_\text{HB}$ obtained by the two different methods, i.e., the Instantaneous Interfacial Hydrogen Bond (IHB) and MS methods. 
-We see that, whether it is $k$, $k'$ or $\tau_\text{HB}$, their changing \emph{trend} with the thickness $d$ of the 
-instantaneous interface is only slightly affected by the calculation methods. 
+We see that, whether it is $k$, $k'$ or $\tau_\text{HB}$, their changing \emph{trend} with the thickness $d$ of the interface is only slightly affected by the calculation methods. 
 To illustrate this point more clearly, we compare the $k$, $k'$ and $\tau_\text{HB}$ obtained under the two methods.
 We listed more detailed data in Table\thinspace\ref{tab:k_k_prime_tau_128w_pure_ihb_ADH} to \ref{tab:k_k_prime_tau_128w_pure_ihb_AHD}.
 %
@@ -696,14 +653,14 @@ region 0.2 ps $< t <$ 12 ps.}
 \end{figure}
 
 We also found that when we focus on the molecules in the interface whose thickness is less than $d_0$, 
-the values of the reaction rate constants depend on the method we use. 
+the values of the reaction rate constants slightly depend on the method we use. 
 That is, the $k$ obtained by the IHB method is relatively larger than by the MS method, and $k'$ is smaller. 
 Since $\tau_\text{HB} = 1/k$, large $k$ directly leads to a relatively shorter HB lifetime using the IHB method. 
 This result is related to our definition of IHB, and it is the same as our expectations: 
 The definition of interfacial H-bonds (or \hbos) makes the HB break rate 
 on the interface artificially increased. At the same time, the MS method retains the original rate constant of H-bonds, 
 but it may include the contribution of bulk water molecules to the rate constant. 
-That is why the MS method underestimate the $k$. 
+That is why the MS method slightly underestimate the $k$. 
 
 In Fig.\thinspace\ref{fig:128w_itp_pure_water_pair_k_k_prime_ihb_both_schemes}, the $k$, $k'$ and $\tau_\text{HB}$ for the \emph{bulk} water 
 are also drawn with dashed lines as a reference.
@@ -728,12 +685,7 @@ we can approximate the interfacial HB dynamics, by either the IHB and the MS met
 %because the H-bonds obtained in this way are not artificially broken, and if the interface is thick enough  
 %(see Fig.\thinspace\ref{fig:128w_itp_pure_water_pair_k_k_prime_ihb_both_schemes}a), then we can use the IHB method, because it can automatically define which H-bonds come 
 %from the interface without the need to select the molecules in the interface layer.
-To summarize, we have studied the HB dynamics for instantaneous interfaces using two different statistical methods, IHB and MS.
-From the above results for water/vapor interface, we conclude that from the perspective of HB dynamics,
-the thickness of the air-water interface of water is about 3 \A. This value is smaller than that obtained from the SFG spectra 
-(Ref. paragraph \thinspace\ref{sfg_lino3_interface}), and this result has reference significance for our study of the influence of ions on the H-bonds 
-outside the solvation shell of ions. 
-As the presence of ions in the solution affects the HB network, we will analyze these effects in the next chapter.
+
 %
 \begin{table}[H]%[htb]
 \centering
@@ -992,4 +944,21 @@ We carried on the longer time region 0.2 ps $< t <$ 12 ps.
 %%$n_\text{Na-O}(\text{NaI)}$ & 3.5 & 6.0 
 %%\end{tabular}
 %%\end{table}
+
+\section{Summary}
+In this chapter, we have introduced the HB population operator and various correlation functions \CHB, \SHB, $n(t)$, and $k(t)$ based on this operator. 
+The HB dynamics calculations for the bulk water and the interface are based on these correlation functions. 
+The \CHB describes the relaxation of the H-bonds. The \SHB gives the average lifetime $\langle \tau_a \rangle$ of the continuous H-bonds. 
+The $n(r)$ describes the probability that the HB is broken but still separated by cutoff radius $r_{OO}^\text{c}$. 
+Based on DFTMD simulations, starting from the functions \CHB, $n(t)$, and $k(t)$, 
+we have calculated the reaction rate constants $k$ and $k'$ for HB rupture and regeneration for bulk water and the water/vapor interface.
+
+We have studied the HB dynamics for instantaneous interfaces using two different statistical methods, the IHB and MS.
+We find that as the interface thickness increases, 
+the HB reaction rate constants tend to the rate constants in the bulk water.
+From the above results for water/vapor interface, we conclude that from the perspective of HB dynamics,
+the thickness of the air-water interface of water is about 3 \A. This value is smaller than that obtained from the SFG spectra 
+(Ref. paragraph \thinspace\ref{sfg_lino3_interface}), and this result has reference significance for our study of the influence of ions on the H-bonds 
+outside the solvation shell of ions. 
+As the presence of ions in the solution affects the HB network, we will analyze these effects in the next chapter.
 
