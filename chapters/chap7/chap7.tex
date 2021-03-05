@@ -1,10 +1,10 @@
 \chapter{Hydrogen bond dynamics in solution systems}\label{CHAPTER_HB_SOLUTIONS}
 %The influence of ions propensity for the aqueous surface on the water's HB network are also of special interest to the atmospheric chemistry community.
-We have combined the IHB and MS methods and determined the reaction rate constants of the H-bonds on the water-vapor interface. 
+We have combined the IHB and MS methods and determined the reaction rate constants of the H-bonds at the water-vapor interface. 
 Below we will make some changes to the way we have used and apply it to the solution systems.
 In this chapter, we explore the effects of nitrate ions, iodide ions and alkali metal cations 
-on the HB dynamics and water reorientation dynamics at the water/vapor interface of alkali nitrate solutions and alkali
-iodine solutions, by DFTMD simulations. %We will also provide microscopic interpretations of recent experimental results. \cite{HuaWei2014}
+on the HB dynamics and water reorientation dynamics at the interface of alkali nitrate solutions and alkali
+iodine solutions through DFTMD simulations. %We will also provide microscopic interpretations of recent experimental results. \cite{HuaWei2014}
 In paragraphs \ref{HBD_ITP} and \ref{PARA_ION-WAT}, we discuss the HB dynamics in the whole interface system and the ion--water hydrogen bonds. 
 Then in paragraph \ref{PARA_SHBD}, we study the HB dynamics and HB lifetime in the solvation shells of the ions.
 In paragraphs \ref{RAD} and \ref{RAD_SHELL}, we focus on the reorientation dynamics of water molecules at the interfaces
@@ -14,28 +14,9 @@ and in the solvation shells of ions in the solutions.
 All simulations in this chapter were performed at 300 K within the canonical NVT ensemble.
 The length of the trajectory is 60 ps of physical time.
 %The definition of $h(t)$ is based on specific H--O bond, instead of water-water pairs.
-For the interface of the LiNO$_3$ solution, we performed the simulation on a system containing one \Li ion, one nitrate ion 
-and 127 water molecules (concentration: $\sim$ 0.4 M). 
-The size of periodic box is $15.7787 \times 15.7787 \times 31.5574$ \A$^3$.
-%During the simulation, the temperature of the system is 
-%300 K and the volume is a constant, and periodic boundary conditions are used.
-For the interface of the NaNO$_3$ solution, the size of periodic box is $15.6530 \times 15.6530 \times 31.3060$ \A$^3$. % NaNO3, at T = 300 K
-For the interface of the KNO$_3$ solution, the size of periodic box is $15.7160 \times 15.7160 \times 31.4320$ \A$^3$. % KNO3
+For the same solution, we have done DFTMD simulations for the interface system and the bulk system respectively. 
+For the detailed parameter settings of different systems, see the appendix.
 
-The simulated bulk alkali metal nitrate \LiN, NaNO$_3$, and KNO$_3$ solution consisted of one alkali metal ion, 
-one nitrate ion and 127 water molecules in a periodic cubic box of length $L$, which corresponds to their density of $\sim$ 1.00 g cm$^{-3}$. 
-Here, $L=15.7787$, 15.6530, and 15.7160 for \LiN, NaNO$_3$, and KNO$_3$ solution, respectively.
-
-%The simulated water-vapor interface consisted of 128 water molecules in a periodic box with size 15.64 $\times$ 15.64 $\times$ 31.28 \A$^3$.
-%The simulated system consisted of 127 water molecules and a Li$^+$--NO$_3^-$ ion pair
-%in a periodic cubic box of length $L=15.79$ \AA, which corresponds to a density of 0.997 g cm$^{-3}$. 
-
-%In the model of the interface of \LiN solution, there is one \Li, one \nitrate and 127 water molecules in a periodic box of size 
-%15.60 \AA$\times$15.60 \AA$\times$31.00 \A. 
-
-The water/vapor interface is modeled with a slab 
-made of 121 water molecules in a simulation box of size $15.60 \times 15.60 \times 31.00$ \A$^3$. 
-For this water/vapor interface, the DFTMD simulation at 330 K is also calculated.
 
 \section{HB dynamics at water/vapor interface}\label{HBD_ITP}
 In this paragraph, we consider all water molecules in the air-water interface as a whole to calculate the HB dynamics. 
@@ -457,8 +438,8 @@ The $C_\text{HB}(t)$ are shown in Fig.\thinspace\ref{fig:X-O_c_lii_xlogscale}, a
 the results of the continuous correlation functions for both definitions (ADH and AHD criterions) for the H-bonds are shown in Fig.\thinspace\ref{fig:wat-wat_s_lii} 
 for I$^-$--water hydrogen bonds. The results of water--water hydrogen bonds are also included for comparison in both Fig.\thinspace\ref{fig:X-O_c_lii_xlogscale} 
 and \thinspace\ref{fig:wat-wat_s_lii}.
-For both definitions of the H-bonds, it is found that the I$^-$--water hydrogen bonds show much faster dynamics than water--water hydrogen bonds. 
-(consistent to the previous MD results.)[REF] 
+For both definitions of the H-bonds, it is found that the I$^-$--water hydrogen bonds show much faster dynamics than water--water hydrogen bonds 
+(consistent to the previous MD results).[REF] 
 %\begin{figure}[htbp]
 %\centering
 %\includegraphics [width=0.6 \textwidth] {./diagrams/X-O_c_lii} 
@@ -493,15 +474,13 @@ the I$^-$--water bonds is weaker than the NO$_3^-$--water ones.
 \begin{table}[htbp]
 \centering
 \caption{ 
-    The Dynamical properties of I$^-$--water and nitrate--water hydrogen bonds. The values are expressed in ps.} 
-\begin{tabular}{cccc}
+    The dynamical properties of I$^-$--water and nitrate--water hydrogen bonds within ADH (AHD) criterion.} 
+\begin{tabular}{ccc}
 \label{tab:properties_anion-water_hbs}
-  & Criterion & I$^-$--water & NO$_3^-$--water \\
+ Quantities  & I$^-$--water & NO$_3^-$--water \\
 \hline
-  $\langle\tau_a\rangle$  & ADH & 0.10 & 4.35 \\
-  $\langle\tau_a\rangle$ & AHD & 0.11 & 7.91 \\
-  $1/k$ & ADH & 2.80 & 4.15 \\
-  $1/k$ & AHD & 2.40 & 6.02\\
+  $\langle\tau_a\rangle$ (ps) & 0.10 (0.11) & 4.35 (7.91) \\
+  $1/k$ (ps) & 2.80 (2.40) & 4.15(6.02) \\
 \end{tabular} % 300 K
 % Data from: LiI solution:  gang@XPS /home/gang/Github/water_pair_HB_dynamics/src/least_square_fit
 % Data from: LiNO3 solution:  /home/gang/Github/water_pair_HB_dynamics/src/least_square_fit/LiNO3 
@@ -695,16 +674,18 @@ as computed from the (a) ADH and (b) AHD criteria of H-bonds.}
 %
 \section{Rotational anisotropy decay of water at the air-water interface}\label{RAD}
 The effect of ions on the dynamics of water molecules can also be characterized by rotational anisotropy decay of water molecules.
-Using the transition dipole auto-correlation function, 
-we determined the rotational anisotropy decay and therefore the OH-stretch relaxation at the interface of alkali iodide solutions.
-The effects of ion environment on structure and dynamics of water are obtained by comparing the second-order Legendre polynomial, 
-i.e.,  $P_2(x)=\frac{1}{2}(3x^2-1)$,  orientational correlation function of the transition dipole.
-The anisotropy decay can be determined from experimental signal in two different polarization configurations---parallel and perpendicular polarizations, by 
+The pump-prob polarization anisotropy monitors electronic alignment.\cite{Jonas96,Farrow08} 
+The anisotropy decay can be determined from experimental signal in two different polarization configurations---parallel and perpendicular polarizations, by\cite{Fleming86} 
 \begin{equation}
         R(t)=\frac{S_{\parallel}(t)-S_{\perp}(t)}{S_{\parallel}(t)+2S_{\perp}(t)}
 \label{eq:ad}
 \end{equation}
-where $t$ is the time between pump and probe laser pulses.  The anisotropy decay can also be obtained by simulations, and calculated by the third-order response functions $R(t)$. \cite{Jansen10,Jansen06}
+where $t$ is the time between pump and probe laser pulses. 
+Using the transition dipole auto-correlation function, 
+we determined the rotational anisotropy decay and therefore the OH-stretch relaxation at the interface of alkali iodide solutions.
+The effects of ion environment on structure and dynamics of water are obtained by comparing the second-order Legendre polynomial, 
+i.e.,  $P_2(x)=\frac{1}{2}(3x^2-1)$,  orientational correlation function of the transition dipole.
+The anisotropy decay can also be obtained by simulations, and calculated by the third-order response functions. \cite{Jansen10,Jansen06}
 The orientational anisotropy $C_2(t)$ is given by the rotational time-correlation function 
 \begin{equation}
 C_2(t)=\langle P_2(\hat{u}(0)\cdot\hat{u}(t)) \rangle,
@@ -725,7 +706,8 @@ The inset shows $C_2(t)$ in the first 1 ps , from which we see a quick change du
 %In the model of the interface, there is one \Li and one \nitrate in the 15.60 \AA$\times$15.60 \AA$\times$31.00 \AA simulation box. 
 The anisotropy decay of OH chromophores in water molecules in 0.4 M LiNO3 solution/vapor interface is shown in Fig.\thinspace\ref{fig:c2_LiNO3_inset}.  
 The larger decay rate consistent obtained from the VDOS of the interfaces, although the concentration of \LiN is lower. 
-This result obtained from another DFTMD trajectory consistent with the previous one, and it reflects that the \nitrate on the surface of the alkali nitrate solution weaken the H-bonds and  accelerate the anisotropy decay of water molecules at the interfaces.
+%This result obtained from another DFTMD trajectory consistent with the previous one, and it 
+This result implies that the \nitrate on the surface of the alkali nitrate solution weaken the H-bonds and  accelerate the anisotropy decay of water molecules at the interfaces.
 \begin{figure}[H]
 \centering
 \includegraphics [width=0.36\textwidth] {./diagrams/c2_LiNO3_inset} 
@@ -1006,7 +988,7 @@ the increase of the radius of the hydration shell, and their relationship is sho
 \begin{table}[H]
 \centering
 \caption{\label{tab:relaxation_tau_vs_radius_ln} 
-    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ at the interface system of LiNO$_3$ solution.} 
+    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ at the interface of LiNO$_3$ solution.} 
 \begin{tabular}{ccc}
  ion (molecule) & $r$ (\AA) & $\tau_2$ (ps)  \\
 \hline
@@ -1018,7 +1000,7 @@ the increase of the radius of the hydration shell, and their relationship is sho
 \begin{table}[H]
 \centering
 \caption{\label{tab:relaxation_tau_vs_radius_nn} 
-    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ at the interface system of NaNO$_3$ solution.} 
+    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ at the interface of NaNO$_3$ solution.} 
 \begin{tabular}{ccc}
  ion (molecule) & $r$ (\AA) & $\tau_2$ (ps)  \\
 \hline
@@ -1291,9 +1273,10 @@ The relative standard errors: $\Delta A_i/A_i \le 10^{-2}$, $\Delta \tau_{2,i}/\
 water molecules & $A_1$  & $\tau_{2,1}$ (ps) & $A_2$ & $\tau_{2,2}$ (ps) \\
 \hline
 DD$'$A & 0.90 & 16.5 & 0.12 & 0.01 \\
-DD$'$AA & 0.89 & 6.90 & 0.09 & 0.07 \\
-DD$'$AA & 0.88 & 6.90 & 0.06 & 0.07 \\
-DD$'$AA & 0.86 & 4.47 & 0.09 & 0.07 \\
+DD$'$AA & 0.88 & 5.09 & 0.08 & 0.07 \\
+%DD$'$AA & 0.89 & 6.90 & 0.09 & 0.07 \\
+%DD$'$AA & 0.88 & 6.90 & 0.06 & 0.07 \\
+%DD$'$AA & 0.86 & 4.47 & 0.09 & 0.07 \\
 DDAA & 0.85 & 3.98 & 0.10 & 0.06 \\
 D$'$AA & 0.38 & 0.14 & 0.38 & 0.14 \\
 \end{tabular}

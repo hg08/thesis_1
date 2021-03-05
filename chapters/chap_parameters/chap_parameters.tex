@@ -148,6 +148,25 @@ that H's contribution dominates that of the water molecule.
 \caption{\label{fig:vdos_NO3-3w_2_H-wat} The comparison between the VDOS for H and for a whole water molecule 
 ({w1}, Fig.\thinspace\ref{fig:clusters_4} a), in [NO$_3\cdot$(H$_2$O)$_3$]$^-$ at 300 K.}
 \end{figure}  %(Calculated from the function vdos3.f and ft$\_$5s.sh)
+
+\paragraph{Dipole orientation distribution of water at aqueous/vapor interfaces}
+Set $\theta$ as the angle between the dipole moment of water molecules and the normal vector 
+of the interface, and $P(\theta)$ as the probability.
+The data used to statistics is the dipole tilt angle $\theta_{i}$. 
+We use the $\theta_i$ instead of $\langle\theta\rangle$ to do the statistics.
+With picking up $\theta_{l}$, $l=0, 10, 20, ...$ from the series $\theta_{i}$,
+we find that pure water's dipole moment tilt angle is smaller than that of water molecules at the salty water surface. 
+This result means that on the pure water surface, water molecules have more $p$-polarization components than those in the salty water surface. 
+However, the water molecules at the salty water surface has more $s$-polarization component.
+The result is shown in Fig.\ref{fig:prob_theta_ln_itp_256}.
+%
+\begin{figure}[H]
+\centering
+\includegraphics [width=0.42\textwidth]{./diagrams/prob_theta_ln_itp_256} % Here is how to import EPS art
+\setlength{\abovecaptionskip}{20pt}
+\caption{\label{fig:prob_theta_ln_itp_256} The dipole orientation distribution of water molecules at pure and salty (LiNO$_3$ solution) water surfaces.}
+\end{figure}
+
 \paragraph{RDFs in nitrate solutions}
 %\begin{figure}[htb]
 %\centering                                          
@@ -166,29 +185,12 @@ The RDFs $g_\text{Li-OW}(r)$, $g_\text{Li-HW}(r)$, $g_\text{ON-OW}(r)$ and $g_\t
 \end{figure}
 %
 \paragraph{RDFs in alkali iodide solutions}
-The RDFs $g_\text{Li-OW}(r)$, $g_\text{Li-HW}(r)$, $g_\text{I-OW}(r)$ and $g_\text{I-HW}(r)$ in bulk LiI solution is shown in Fig.\thinspace\ref{fig:gdr_124_2LiI}.
+The RDFs $g_\text{Li-OW}(r)$, $g_\text{Li-HW}(r)$, $g_\text{I-OW}(r)$ and $g_\text{I-HW}(r)$ for the interface of the LiI solution is shown in Fig.\thinspace\ref{fig:gdr_124_2LiI}.
 \begin{figure}[H]%[htb]
 \centering                                          
 \includegraphics [width=0.6 \textwidth] {./diagrams/gdr_124_2LiI} 
 \setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:gdr_124_2LiI} The RDFs $g_\text{Li-OW}(r)$, $g_\text{Li-HW}(r)$, $g_\text{I-OW}(r)$ and $g_\text{I-HW}(r)$ at the interface of LiI solution.}
+  \caption{\label{fig:gdr_124_2LiI} The RDFs $g_\text{Li-OW}(r)$, $g_\text{Li-HW}(r)$, $g_\text{I-OW}(r)$ and $g_\text{I-HW}(r)$ for the interface of LiI solution.}
 %Box size: 15.60 $\times$ 15.60 $\times$ 31.00 \A$^3$; $T = 330$ K.
 \end{figure}
 %
-\paragraph{Dipole orientation distribution of water at aqueous/vapor interfaces}
-Set $\theta$ as the angle between the dipole moment of water molecules and the normal vector 
-of the interface, and $P(\theta)$ as the probability.
-The data used to statistics is the dipole tilt angle $\theta_{i}$. 
-We use the $\theta_i$ instead of $\langle\theta\rangle$ to do the statistics.
-With picking up $\theta_{l}$, $l=0, 10, 20, ...$ from the series $\theta_{i}$,
-we find that pure water's dipole moment tilt angle is smaller than that of water molecules at the salty water surface. 
-This result means that on the pure water surface, water molecules have more $p$-polarization components than those in the salty water surface. 
-However, the water molecules at the salty water surface has more $s$-polarization component.
-The result is shown in Fig.\ref{fig:prob_theta_ln_itp_256}.
-%
-\begin{figure}[H]
-\centering
-\includegraphics [width=0.42\textwidth]{./diagrams/prob_theta_ln_itp_256} % Here is how to import EPS art
-\setlength{\abovecaptionskip}{20pt}
-\caption{\label{fig:prob_theta_ln_itp_256} The dipole orientation distribution of water molecules at pure and salty water surfaces.}
-\end{figure}
