@@ -77,34 +77,30 @@ Due to the experimental difficulties, most information on the dynamics of aqueou
     \caption{\label{gdr_4_Li}RDFs $g_{\text{Li-O}}$ and $g_{\text{Li-H}}$ for the cluster \LiFourW.} 
   \end{figure}
   %
-  \begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.36\textwidth] {./diagrams/vdos_4_Li} 
-  \setlength{\abovecaptionskip}{0pt}
-  \caption{\label{vdos_4_Li}VDOS for the four water molecules (all water molecules) in the cluster \LiFourW.} 
-  %(a) The VDOS for all water molecules (black line), Li-bound (red) and H-bonded water molecules (blue).
-  %(b) The VDOS for H-bonded water molecules (blue), and of both Li-bound and H-bonded water molecules (orange). %old version: vdos_4_Li-wat_2p }
-  \end{figure}
-  %
 
   The VDOS for water molecules in the cluster [Li$\cdot$(H$_2$O)$_4$]$^+$ is calculated from a 20-ps trajectory,
   during which one water molecule escaped from the bonding of the Li and then formed a new HB to 
-  another water molecule. First, Fig.\thinspace\ref{vdos_4_Li} 
+  another water molecule. First, Fig.\thinspace\ref{fig:vdos_4_Li} A 
   shows that, in this case, there are two types of OH stretching modes in the cluster \LiFourW:
   free OH stretch which peaks at 3705 \cm and bonded OH stretch at 3625 \centimeter. 
   However, the water molecules just bound to Li has two degenerate free O-H stretching modes. 
   %Second, Fig.\thinspace\ref{vdos_4_Li}  shows that if a H-bonded water molecule is in the solvation shell of \Li, 
   %the H-bonded OH streching frequency is 75 \cm higher than that of the H-bonded OH strech outside the solvation shell of \Li. 
+\begin{figure}%
+    \centering
+    \subfloat[]{{\includegraphics[width=5.3cm]{./diagrams/vdos_4_Li} }}
+    \qquad
+    \subfloat[]{{\includegraphics[width=5.0cm]{./diagrams/vdos_4_Li-wat_w1_5ps} }}
+    \caption{
+(A) 
+VDOS for the four water molecules (all water molecules) in the cluster \LiFourW.
+(B)
+VDOS for the water molecules (three water molecules) bound to Li in the cluster \LiFourW.
+}%
+    \label{fig:vdos_4_Li}%
+\end{figure}
   %
-  \begin{figure}[htbp]
-  \centering
-  \includegraphics [width=0.360 \textwidth] {./diagrams/vdos_4_Li-wat_w1_5ps} 
-  \setlength{\abovecaptionskip}{20pt}
-  \caption{\label{vdos_4_Li-wat_w1_5ps}VDOS for the water molecules (three water molecules) bound to Li
-    in the cluster \LiFourW.} 
-  \end{figure}
-  %
-The VDOS for water molecules only bound to Li (Fig.\thinspace\ref{vdos_4_Li-wat_w1_5ps}) shows that these water molecules only have free OH stretch, 
+  The VDOS for water molecules only bound to Li (Fig.\thinspace\ref{fig:vdos_4_Li} B) shows that these water molecules only have free OH stretch, 
   since there is only a broad stretching mode at 3705 cm$^{-1}$.
 
   \section{Clusters of alkali nitrate and water molecules}\label{paragraph_clusters_alkali_nitrate_and_water_molecules}
@@ -168,7 +164,7 @@ peaks around 3200 \centimeter. These red-shifted peaks are associated to water m
 the cation or to both cation and anion and are different with respect to the peaks associated to the water molecules
 which only bound to the nitrate in the simple cluster [NO$_3\cdot$(H$_2$O)$_3$]$^-$ (3430 \centimeter, see Fig.\thinspace\ref{fig:vdos_NO3-3w_2_H6H7}). 
 %
-%\begin{figure}[h!]
+%\egin{figure}[h!]
 \begin{figure}[H]
 \centering
   \includegraphics [width=0.72\textwidth] {./diagrams/gdr_3_RNO3}

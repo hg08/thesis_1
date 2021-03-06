@@ -1,7 +1,6 @@
-\chapter{Hydrogen bond dynamics in solution systems}\label{CHAPTER_HB_SOLUTIONS}
-%The influence of ions propensity for the aqueous surface on the water's HB network are also of special interest to the atmospheric chemistry community.
-We have combined the IHB and MS methods and determined the reaction rate constants of the H-bonds at the water-vapor interface. 
-Below we will make some changes to the way we have used and apply it to the solution systems.
+\chapter{Hydrogen bond dynamics in electrolyte solutions}\label{CHAPTER_HB_SOLUTIONS}
+%We have combined the IHB and MS methods and determined the reaction rate constants of the H-bonds at the water-vapor interface. 
+%Below we will make some changes to the way we have used and apply it to the solution systems.
 In this chapter, we explore the effects of nitrate ions, iodide ions and alkali metal cations 
 on the HB dynamics and water reorientation dynamics at the interface of alkali nitrate solutions and alkali
 iodine solutions through DFTMD simulations. %We will also provide microscopic interpretations of recent experimental results. \cite{HuaWei2014}
@@ -12,22 +11,18 @@ and in the solvation shells of ions in the solutions.
 
 %[all the data on the simulation]
 All simulations in this chapter were performed at 300 K within the canonical NVT ensemble.
-The length of the trajectory is 60 ps of physical time.
+The length of each trajectory is 60 ps.
 %The definition of $h(t)$ is based on specific H--O bond, instead of water-water pairs.
 For the same solution, we have done DFTMD simulations for the interface system and the bulk system respectively. 
 For the detailed parameter settings of different systems, see the appendix.
 
 
-\section{HB dynamics at water/vapor interface}\label{HBD_ITP}
-In this paragraph, we consider all water molecules in the air-water interface as a whole to calculate the HB dynamics. 
-When it comes to the HB dynamics in the ion solvation shell, 
-we determine the water molecules to be considered by whether the water molecules are in the ion solvation shell
-at the sampling time.
+\section{HB dynamics at electrolyte solution/vapor interface}\label{HBD_ITP}
 \paragraph{Lithium nitrate solutions} \label{PARAGRAPH_LINO3}
 %Fig.\thinspace\ref{fig:lino3_interface_all_add_z_trimed}
 %illustrates the obtained instantaneous interfaces for one configuration of a slab of 
 %LiNO$_3$ solution at 300 K. 
-%\begin{figure}[H]
+%\egin{figure}[H]
 %\centering
 %\includegraphics [width=0.32\textwidth] {./diagrams/lino3_interface_all_add_z_trimed}
 %\setlength{\abovecaptionskip}{0pt}
@@ -52,6 +47,16 @@ The probability distribution of O and H atoms in the model of LiNO$_3$ interface
 %$15.7787 \times 15.7787 \times 31.5574$ \AA$^3$
 \end{figure}
 %
+
+The correlation functions $C_\text{HB}(t)$ and $S_\text{HB}(t)$ for both nitrate--water (N--W) and water--water (W--W) H-bonds 
+are shown in Fig.\thinspace\ref{fig:c_and_s_ln_bk_pbc} a and b, respectively.
+For both HB definitions, we found that the decay of the $C_\text{HB}(t)$ and $S_\text{HB}(t)$ for nitrate--water hydrogen bonds is much faster 
+than that for water--water hydrogen bonds. From the relation \ref{eq:calculate_hb_lifetime_from_s}, the faster relaxation of $S_\text{HB}(t)$ implies that 
+the nitrate--water hydrogen bonds have shorter lifetime than the water--water hydrogen bonds in the bulk phase. 
+The calculation results obtained from the simulations are in good agreement with numerous experimental and simulation results. \cite{PS03,Vrbka2004,Tongraar2006,Otten2007} 
+It means that nitrate has structure-breaking ability, or compared with W--W interaction, N--W HB interaction is weaker.
+%Actual value of the length for LiNO3 solution at 300 K : 15.7797 \AA
+%Project location: /home/gang/Proj--LiNO3_Interface/Prepare_LiNO3_2020
 \begin{figure}[H]
 \centering
 \includegraphics [width=0.6\textwidth] {./diagrams/c_and_s_ln_bk_pbc}
@@ -61,28 +66,28 @@ Time dependence of (a) $C_\text{HB}(t)$ and (b) ln$S_\text{HB}(t)$ of all water-
 for the slab of LiNO$_3$ solution, as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds. 
 The definition of the correlation function is based on the specific O-H pairs between molecules.} 
 \end{figure}
-
-
-The correlation functions $C_\text{HB}(t)$ and $S_\text{HB}(t)$ for both nitrate--water (N--W) and water--water (W--W) H-bonds 
-are shown in Fig.\thinspace\ref{fig:c_and_s_ln_bk_pbc} a and b, respectively.
-For both HB definitions, we found that the decay of the $C_\text{HB}(t)$ and $S_\text{HB}(t)$ for nitrate--water hydrogen bonds is much faster 
-than that for water--water hydrogen bonds. From the relation \ref{eq:calculate_hb_lifetime_from_s}, the faster relaxation of $S_\text{HB}(t)$ implies that 
-the nitrate--water hydrogen bonds have shorter lifetime than the water--water hydrogen bonds in the bulk phase. 
-The calculation results obtained from the simulations are in good agreement with numerous experimental results and simulation results. \cite{Tongraar2006} 
-It means that nitrate has structure-breaking ability, or compared with W--W interaction, N--W HB interaction is rather weak.
-%Actual value of the length for LiNO3 solution at 300 K : 15.7797 \AA
-%Project location: /home/gang/Proj--LiNO3_Interface/Prepare_LiNO3_2020
 %
-\begin{figure}[H]
-\centering
-\includegraphics [width=0.32\textwidth] {./diagrams/distance_ions2surf_lino3_trimed}
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:distance_ions2surf_lino3_trimed}
-Distances between ions and one of the instantaneous surfaces (blue meshes) for a slab of aqueous LiNO$_3$ solution.}
+\begin{figure}[H]%
+    \centering
+    \subfloat[]{{\includegraphics[width=4.0cm]{./diagrams/distance_ions2surf_lino3_trimed} }}
+    \qquad
+    \subfloat[]{{\includegraphics[width=5.2cm]{./diagrams/prob_dist_li_surf_no3_surf} }}
+    \caption{
+Distribution of ions at the interface of LiNO$_3$ solution. 
+(A) 
+Distances between ions and one of the instantaneous surfaces (blue meshes) for a slab of aqueous LiNO$_3$ solution. 
+(B)
+Probability distribution the Li$^+$--surface and \nitrate--surface distances at the 
+water/vapor interface of LiNO$_3$ solution. 
+The horizontal axis represents the distance between the ion and the instantaneous surface, which is defined in 
+Eq.\thinspace\ref{eq:distance_particle2surf_1}. The \emph{distance} refers specifically to $d_{\text{X},1}$, the distance between the ion 
+X and one of the instantaneous surfaces. Zero distance denotes the instantaneous surface of the interfacial system of LiNO$_3$ solution.
+}%
+    \label{fig:prob_dist_li_surf_no3_surf}%
 \end{figure}
 
 
-For the DFTMD trajectory of a solution interface, we can now get instantaneous surface (see Fig.\thinspace\ref{fig:distance_ions2surf_lino3_trimed}).
+For the DFTMD trajectory of a solution interface, we can now get instantaneous surface (see Fig.\thinspace\ref{fig:prob_dist_li_surf_no3_surf} A).
 For any molecule or ion X in such a solution interface system, we can get its distance from the instantaneous surface.
 We assume that the $z$-axis is the normal direction, then the distances between the particle and the instantaneous surfaces are:
 %
@@ -95,23 +100,12 @@ We assume that the $z$-axis is the normal direction, then the distances between 
 where $z_{\text{X}}$ is the coordinate of the particle X in the normal direction at time $t$, 
 $z^\text{surf}_{\text{X},i}(t)$ is the $z$ coordinate of the surface position corresponding to particle X at time $t$, 
 and the subscripts $i=1$ and 2 respectively identify the lower and upper instantaneous surfaces.
-As an example, Fig.\thinspace\ref{fig:distance_ions2surf_lino3_trimed} shows the distance, 
+As an example, Fig.\thinspace\ref{fig:prob_dist_li_surf_no3_surf} A shows the distance, 
 $d_{\text{Li}^+,1}$ ($d_{\text{NO}_3^-,1}$), between \Li (\nitrate) ions and one of the instantaneous surfaces at a certain moment.
-%
-\begin{figure}[H]
-\centering
-\includegraphics [width=0.36 \textwidth] {./diagrams/prob_dist_li_surf_no3_surf} 
-\setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:prob_dist_li_surf_no3_surf}Probability distribution the Li$^+$--surface and \nitrate--surface distances at the 
-water/vapor interface of LiNO$_3$ solution. 
-The horizontal axis represents the distance between the ion and the instantaneous surface, which is defined in 
-Eq.\thinspace\ref{eq:distance_particle2surf_1}. The \emph{distance} refers specifically to $d_{\text{X},1}$, the distance between the ion 
-X and one of the instantaneous surfaces. Zero distance denotes the instantaneous surface of the interfacial system of LiNO$_3$ solution.}
-\end{figure}
 
-Figure \ref{fig:prob_dist_li_surf_no3_surf} shows the probability density of the distance between the anion (cation) 
+Figure \ref{fig:prob_dist_li_surf_no3_surf} B shows the probability density of the distance between the anion (cation) 
 and the instantaneous surface in the simulated air-water interface of LiNO$_3$ solution. We found that when the system reaches an equilibrium state, 
-the \Li ion is stably within a few angstroms below the interface, while the NO$^-_3$ ion is more willing to be near the surface. 
+the \Li ion is stable within a few angstroms below the interface, while the NO$^-_3$ ion resides near the surface. 
 When the system is in equilibrium ($t>10$ ps), the distance $d_{\text{NO}_3^-,1}$ is around 2 \A, 
 which indicates that the nitrate ion is in the top layer the instantaneous interface. 
 Therefore, the conclusion obtained from the HB dynamics in the instantaneous interface are consistent with that from the 
@@ -142,7 +136,7 @@ and of alkali metal ion at the interface of the three 0.9 M alkali-iodine soluti
 \end{table} 
 %Water/Vapor & -&-&
 
-To see ions' effects, we compared the HB population correlation functions between the air-water interface of the pure water and solutions.
+To investigate ions' effects, we compared the HB population correlation functions between the air-water interface of the pure water and solutions.
 We consider the \CHB and \SHB, which is related to the HB relaxation time $\tau_\text{R}$ and the HB lifetime $\tau_\text{a}$, respectively.
 
 Table \ref{tab:tau_hb_alkali_iodine} lists the continuum HB lifetime in the first hydration shell of I$^-$ ion and of alkali metal ion
@@ -430,6 +424,21 @@ the HB dynamics of surfactant--water and water--water hydrogen bonds at the air/
 and Bandyopadhyay.\cite{Chanda2006} 
 Similar analyse for nitrate--water is also done by Yadav, Choudhary and Chandra by first-principles MD simulations.\cite{Yadav2017} 
 In the case of water--water hydrogen bonds, the cutoff radius $r_\text{OO}^c=3.5$ \AA is the position of the first minimum of the oxygen--oxygen RDF.
+
+\begin{figure}[H]
+\centering
+\includegraphics [width=0.6 \textwidth] {./diagrams/X-O_c_lii_xlogscale} 
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:X-O_c_lii_xlogscale}Time dependence of the intermittent correlation functions \CHB of I$^-$--water (I$^-$--W) and water--water hydrogen bonds. 
+A base-10 log scale is used for the $x$-axis.
+}
+\end{figure} %(300 K)
+\begin{figure}[H]
+\centering
+\includegraphics [width=0.6 \textwidth] {./diagrams/wat-wat_s_lii} 
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:wat-wat_s_lii}Time dependence of the continuous correlation functions \SHB of I$^-$--water (I$^-$--W) and water--water hydrogen bonds.}
+\end{figure} % 300 K
 For the anion--oxygen H-bonds, we can use the similar criteria. The cutoff values for X--oxygen distance are obtained from the positions of the first
 minimum of the X--oxygen RDF, i.e., $R_\text{XO}^c$=3.7 and 4.1 \A, for X = nitrate O (see Fig.\thinspace\ref{fig:gdr_127_LiNO3}) 
 and X = I$^-$ (see Fig.\thinspace\ref{fig:gdr_124_LiI}). We have used $\phi^c = 30^{\circ}$ for the angular cutoff.\cite{Chowdhuri2006}
@@ -446,21 +455,6 @@ For both definitions of the H-bonds, it is found that the I$^-$--water hydrogen 
 %\setlength{\abovecaptionskip}{0pt}
 %  \caption{\label{fig:X-O_c_lii}Time dependence of the intermittent correlation functions $C_\text{HB}(t)$ of I$^-$--water (I$^-$--W) and water--water hydrogen bonds at 300 K.}
 %\end{figure}
-\begin{figure}[H]
-\centering
-\includegraphics [width=0.6 \textwidth] {./diagrams/X-O_c_lii_xlogscale} 
-\setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:X-O_c_lii_xlogscale}Time dependence of the intermittent correlation functions \CHB of I$^-$--water (I$^-$--W) and water--water hydrogen bonds. 
-A base-10 log scale is used for the $x$-axis.
-}
-\end{figure} %(300 K)
-\begin{figure}[H]
-\centering
-\includegraphics [width=0.6 \textwidth] {./diagrams/wat-wat_s_lii} 
-\setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:wat-wat_s_lii}Time dependence of the continuous correlation functions \SHB of I$^-$--water (I$^-$--W) and water--water hydrogen bonds.}
-\end{figure} % 300 K
-%
 
 
 The time scales of the relaxation of these I$^-$--water hydrogen bonds are obtained for both definitions. 
