@@ -1,5 +1,5 @@
 \chapter{Hydrogen bond dynamics in electrolyte solutions}\label{CHAPTER_HB_SOLUTIONS}
-%We have combined the IHB and MS methods and determined the reaction rate constants of the H-bonds at the water-vapor interface. 
+%We have combined the IHB and MS methods and determined the rate constants of the H-bonds at the water-vapor interface. 
 %Below we will make some changes to the way we have used and apply it to the solution systems.
 In this chapter, we explore the effects of nitrate ions, iodide ions and alkali metal cations 
 on the HB dynamics and water reorientation dynamics at the interface of alkali nitrate solutions and alkali
@@ -61,7 +61,7 @@ It means that nitrate has structure-breaking ability, or compared with W--W inte
 \includegraphics [width=0.6\textwidth] {./diagrams/c_and_s_ln_bk_pbc}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:c_and_s_ln_bk_pbc} 
-Time dependence of (a) $C_\text{HB}(t)$ and (b) ln$S_\text{HB}(t)$ of all water--water and nitrate--water hydrogen bonds
+Time dependence of (a) $C_\text{HB}(t)$ and (b) ln$S_\text{HB}(t)$ of all water--water (W--W) and nitrate--water (N--W) hydrogen bonds
 for the slab of LiNO$_3$ solution, as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds. 
 The definition of the correlation function is based on the specific O-H pairs between molecules.} 
 \end{figure}
@@ -148,13 +148,13 @@ the \I ion resides near the surface, while the alkali metal ions' density distri
     \centering
     \subfloat[]{{\includegraphics[width=5.2cm]{./diagrams/prob_dist_Li_surf_I_surf} }}
     \qquad
-    \subfloat[]{{\includegraphics[width=5.2cm]{./diagrams/prob_dist_Li_surf_I_surf} }}
+    \subfloat[]{{\includegraphics[width=5.2cm]{./diagrams/prob_dist_Na_surf_I_surf} }}
     \caption{
 Distribution of ions at the interface of LiI  and NaI solution.   
 (A) 
 Density distribution the Li$^+$--surface and I$^-$--surface distances at the interface of LiI solution. 
 (B)
-(TO ADD)Density distribution the Na$^+$--surface and I$^-$--surface distances at the interface of NaI solution. 
+Density distribution the Na$^+$--surface and I$^-$--surface distances at the interface of NaI solution. 
 %The horizontal axis represents the distance between the ion and the instantaneous surface, which is defined in 
 %Eq.\thinspace\ref{eq:distance_particle2surf_1}. 
 %The \emph{distance} refers specifically to $d_{\text{X},1}$, the distance between the ion 
@@ -370,7 +370,7 @@ For the water/vapor interface and the aqueous electrolyte solution interfaces,
 we have performed the same analysis described in chapter \ref{CHAPTER_HB} where the $k(t)=-dc(t)/dt$ is decomposed into two terms: $kc(t)$ and $-k'n(t)$. 
 The optimal values of coefficients $k$ and $k'$ given for these interfaces have been listed in Table \ref{tab:k_k_prime_pure_and_solutions}. 
 These values are comparable in magnitude to those obtained by Ref.\thinspace{\cite{Khaliullin2013}}. 
-It can be seen from Table \ref{tab:k_k_prime_pure_and_solutions} that the HB breaking reaction rate ($k$) at the water/vapor interface is basically equivalent to 
+It can be seen from Table \ref{tab:k_k_prime_pure_and_solutions} that the HB breaking rate ($k$) at the water/vapor interface is basically equivalent to 
 that at the solution interface, but the HB reforming rate constant($k'$) is smaller than that at the solution interface by 30\% to 50\%.
 Correspondingly, we find the HB relaxation times for the three interfaces are: $\tau={1}/{(k+k')} \sim $2.0--2.5 ps. 
 For water/vapor interface, the relaxation time is $\tau \sim $ 3.3 ps. 
@@ -475,7 +475,7 @@ This is also consistent with the VDOS analysis and the blue-shifted frequency (o
 \paragraph{I$^-$--water hydrogen bond dynamics}\label{PARAGRAPH_I--W}
 Hydrogen bonds between water molecules and other species also play decisive role in chemical and biological systems. 
 For this type of H-bond, some results obtained by molecular simulations have been published. For example,
-the HB dynamics of surfactant--water and water--water hydrogen bonds at the air/water interface has been analyzed by Chanda 
+the HB dynamics of surfactant--water and water--water hydrogen bonds at the interface has been analyzed by Chanda 
 and Bandyopadhyay.\cite{Chanda2006} 
 Similar analyse for nitrate--water is also done by Yadav, Choudhary and Chandra by first-principles MD simulations.\cite{Yadav2017} 
 In the case of water--water hydrogen bonds, the cutoff radius $r_\text{OO}^{\text{c}}=3.5$ \AA is the position of the first minimum of the oxygen--oxygen RDF.
@@ -552,7 +552,7 @@ the I$^-$--water bonds is weaker than the NO$_3^-$--water ones.
 
 \FloatBarrier
 \section{Solvation shell HB dynamics} \label{PARA_SHBD}
-We will extend the IHB dynamics to H-bonds around certain ions in aqueous solutions. 
+We will extend the IHB dynamics to H-bonds around ions in aqueous solutions. 
 Similar to the determination of the instantaneous surface, we can define an interface for each molecule or ion in aqueous solutions, i.e., 
 the first solvation shell of them. 
 Below we will combine the interface defined by the first solvation shell of the ion, 
@@ -560,16 +560,14 @@ and Luzar-Chandler's HB population \cite{AL96} to calculate the HB
 dynamics for the H-bonds between water molecules in the solvation shell of the ion and those outside the shell. 
 From the characteristics of HB dynamics in the solvation shells, we can obtain the effects of various ions on structure and dynamics of aqueous solutions. 
 
-\paragraph{Solvation shell HB population}
+\paragraph{Solvation shell HB population}\label{para:SHBP}
 Given the solvation shell ${\mathbf k}(t)={\mathbf k}(\{{\mathbf r}_i(t)\})$, we can define the Solvation shell H-Bonds (SHBs).
 We use the parameter $r_\text{shell}$ to denote the radius of the solvation shell.
-We define the solvation shell HB population operator $h^{(\text{k})}(t) = h^{(\text{k})}[{r}(t)]$ as follows:
-It has a value 1 when the particular tagged molecular pair are H-bonded \emph{and} one of the water molecules are inside the solvation shell
+We define the solvation shell HB population operator $h^{(\text{k,X})}(t) = h^{(\text{k,X})}[{r}(t)]$ as follows:
+It has a value 1 when the particular tagged molecular pair are H-bonded \emph{and} one of the water molecules are inside the solvation shell of species X
 with a radius $r_\text{shell}$, and zero otherwise. 
-The definition of $h^{(\text{k})}(t)$ is similar to $h^{(\text{s})}[{r}(t)]$, which is defined in \ref{IHBP} for studying the interfacial H-bonds.
-Similarly, $h^{(\text{k})}(t)$ can be used to obtain the dynamic characteristics of H-bonds in the solvation shell with radius $r_\text{shell}$. 
-%The definition of HB here can be based on water molecule pairs or O-H pairs. 
-Like in the IHB case, in this paragraph, we just discuss water molecule pair-based H-bonds. 
+The definition of $h^{(\text{k,X})}(t)$ is similar to $h^{(\text{s})}(t)$ in paragraph \ref{IHBP} for studying the interfacial H-bonds, and it is used to obtain the dynamic characteristics of H-bonds in the solvation shell of species X with radius $r_\text{shell}$. 
+%Like in the IHB case, in this paragraph, we just discuss water molecule pair-based H-bonds. 
 
 Similar to the \CSHB for the H-bonds in instantaneous interfaces, for a given $r_\text{shell}$,
 we define the correlation function $C^\text{(k,X)}_\text{HB}(t)$ that describes the fluctuation of the solvation shell H-bonds for ion X: 
@@ -589,7 +587,7 @@ and a reactive flux function
 k^\text{(k,X)}(t)= -\frac{dC_\text{HB}^\text{(k,X)}}{dt}
 \label{eq:k_k_HB}.
 \end{eqnarray}
-Using these functions, we can determine the reaction rate constants of breaking and reforming and the lifetimes for the solvation shell H-bonding.
+Using these functions, we can determine the rate constants of breaking and reforming and the lifetimes for the solvation shell H-bonding.
 The results are given in the next paragraphs.
 %
 \paragraph{Alkali-nitrate solution}
@@ -605,17 +603,32 @@ the HB population $h^\text{(k)}(t)$, as computed from the (a) ADH and (b) AHD cr
 \end{figure}
 %The results are obtained from the DFTMD simulation for the bulk LiNO$_3$ solution at $T=300$ K. 
 We calculated the HB dynamics of the H-bonds between water molecules in the first solvation shell and molecules outside the first solvation shell. 
-The choice of the shell radius comes from the RDFs (see Fig.\ref{fig:gdr_NW_WW_127_LiNO3}). Comparing Fig.\ref{fig:256_LiNO3_hbacf_sh_no3} 
-and Fig.\thinspace\ref{fig:shb_c_ln_bk_Shell_pbc}, we conclude that: In bulk system, although the HB between nitrate and water molecule is significantly 
-weaker than the bond between \Li ion and water molecule under the same conditions,
-the HB strength between water molecules in the ions' hydration shells and those outside the shells are not affected by the nature of the ions evidently.
+The choice of the shell radius comes from the RDFs (see Fig.\ref{fig:gdr_NW_WW_127_LiNO3}). 
+Figure \ref{fig:c_and_s_ln_bk_pbc}a shows that the nitrate--water hydrogen bond, or the H-bonds in the first solvation shell of nitrate,
+is significantly weaker than water--water hydrogen bonds.
+And from the VDOS for the Li(H$_2$O)$_4$ cluster (see Fig.\thinspace\ref{fig:vdos_4_Li}A), 
+we know that \li-bound water has a red-shifted peak, i.e., the \li--water
+bonds slow down the vibrational relaxations of water--water hydrogen bonds in the solvation shell of \Li. % But vibrational relaxations are not HB relaxation!! Here is still a problem.
+If the above two properties were still valid outside the first solvation shell of the nitrate or \Li ions, 
+then we could conclude that the H-bonds outside the first solvation shell of nitrate will be weaker than 
+that outside the fisrt solvation shell of \Li ion, i.e., 
+the relaxation time of $C^{(\text{k},\text{NO}_3^-)}_\text{HB}(t)$ 
+will be significantly less than the relaxation time of $C^{(\text{k},\text{Li}^+)}_\text{HB}(t)$ . % 不得不用虚拟语气了. 
+However, as we can see from Fig.\thinspace\ref{fig:shb_c_ln_bk_Shell_pbc}a and b, 
+the relaxation of $C^{(\text{k},\text{NO}_3^-)}_\text{HB}(t)$ is almost the same as that of $C^{(\text{k},\text{Li}^+)}_\text{HB}(t)$, 
+at least the former will not be faster than the latter.
 Specifically, Fig.\thinspace\ref{fig:shb_c_ln_bk_Shell_pbc} shows that the relaxation process of the H-bonds between the water molecules in NO$^-_3$-shell and 
-those outside the shell is \emph{not} faster than the relaxation process of H-bonds between the water molecules in and outside the \Li-shell. 
+those outside the shell is \emph{not} faster than the relaxation process of H-bonds between the water molecules in and outside the \li-shell. 
+In general, this result implies that the HB strength between water molecules in the ions' hydration shells and those outside the shells are not affected by the nature of the ions evidently.
+In other words, the order of the strength of the H-bonds does not significantly affect the surrounding H-bonds. 
 
-Like \CSHB, $C^\text{(k)}_\text{HB}(t)$ shows that the HB dynamics is accelerated to a certain extent. 
+
+In addition, like \CSHB, $C^\text{(k)}_\text{HB}(t)$ shows that the HB dynamics is accelerated to a certain extent. 
 %Therefore, the two are not comparable. 
 For example, it can be seen from Fig.\thinspace\ref{fig:shb_c_ln_bk_Shell_bulk_wat_pbc_r5} 
-that for NO$^-_3$ ion, the $C^\text{(k)}_\text{HB}(t)$ decays much faster than \CHB in pure water.
+that for NO$^-_3$ ion, the $C^\text{(k)}_\text{HB}(t)$ decays faster than \CHB in pure water.
+The difference between the relaxation process of $C^\text{(k,X)}_{\text{HB}}(t)$ and \CHB actually comes from the restriction conditions 
+we added when defining the solvation shell HB population $h^\text{(k,X)}(t)$ (see paragraph \thinspace\ref{para:SHBP}).
 \begin{figure}[H] 
 \centering
 \includegraphics [width=0.60\textwidth] {./diagrams/shb_c_ln_bk_Shell_bulk_wat_pbc_r5}
@@ -623,7 +636,7 @@ that for NO$^-_3$ ion, the $C^\text{(k)}_\text{HB}(t)$ decays much faster than \
 \caption{\label{fig:shb_c_ln_bk_Shell_bulk_wat_pbc_r5}
 The $C^\text{k}_\text{HB}(t)$ for the H-bonds in the solvation shell of NO$^-_3$ ion, 
 as computed from the (a) ADH and (b) AHD criteria of H-bonds.
-The \CHB (dashed line) in the bulk water is also plotted in sub-figure a and b respectively.} 
+The \CHB (dashed line) in bulk water is also plotted in sub-figure a and b respectively.} 
 \end{figure}
 %
 %\begin{figure}[h]
@@ -668,7 +681,7 @@ Like the LiNO$_3$ solution, the relaxation functions $C^\text{(k,Li)}_\text{HB}(
 $C^\text{(k,I)}_\text{HB}(t)$ are very close to each other. 
 This result shows that the presence of ions has no significant effect on the relaxation of H-bonds outside the first solvation shell.
 Because of the definition of $C^\text{(k)}_\text{HB}(t)$, 
-we know that some artificial speed-up in the HB dynamics is included in this concepts.
+we know that some artificial speed-up in the HB dynamics is included. 
 
 
 Moreover, the $S^\text{(k,Li)}_\text{HB}(t)$ and $S^\text{(k,I)}_\text{HB}(t)$ have no significant difference. 
@@ -720,7 +733,7 @@ as computed from the (a) ADH and (b) AHD criteria of H-bonds.}
 %before we obtain the conclusion.} 
 %\end{figure}
 %
-\section{Rotational anisotropy decay of water at the water/vapor interface}\label{RAD}
+\section{Rotational anisotropy decay of water molecules at the water/vapor interface}\label{RAD}
 The effect of ions on the dynamics of water molecules can also be characterized by rotational anisotropy decay of water molecules.
 The pump-prob polarization anisotropy monitors electronic alignment.\cite{Jonas96,Farrow08} 
 The anisotropy decay can be determined from experimental signal in two different polarization configurations---parallel and perpendicular polarizations, by\cite{Fleming86} 
@@ -956,7 +969,7 @@ and the other is of amplitude $\sim$ 0.1, decay constant $\sim$ 10 THz, due to t
 %\end{table}
 
 \FloatBarrier
-\section{Rotational anisotropy decay in solvation shell of ions}\label{RAD_SHELL}
+\section{Rotational anisotropy decay of water molecules in solvation shell of ions}\label{RAD_SHELL}
 In this paragraph, we will answer the question that whether the water molecules in the first solvation hydration shell of different ions have different orientation dynamics. 
 In addition to the calculation for the alkali-nitrate solution, we also calculated the anisotropic decay in the ion solvation shell of the alkali-iodide solution.
 \paragraph{Alkali-nitrate solution}
@@ -1040,7 +1053,7 @@ the increase of the radius of the hydration shell, and their relationship is sho
 \begin{table}[H]
 \centering
 \caption{\label{tab:relaxation_tau_vs_radius_ln} 
-    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ at the interface of LiNO$_3$ solution.} 
+    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ at the interface of the LiNO$_3$ solution.} 
 \begin{tabular}{ccc}
  ion (molecule) & $r$ (\AA) & $\tau_2$ (ps)  \\
 \hline
@@ -1052,7 +1065,7 @@ the increase of the radius of the hydration shell, and their relationship is sho
 \begin{table}[H]
 \centering
 \caption{\label{tab:relaxation_tau_vs_radius_nn} 
-    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ at the interface of NaNO$_3$ solution.} 
+    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ at the interface of the NaNO$_3$ solution.} 
 \begin{tabular}{ccc}
  ion (molecule) & $r$ (\AA) & $\tau_2$ (ps)  \\
 \hline
@@ -1064,7 +1077,7 @@ the increase of the radius of the hydration shell, and their relationship is sho
 \begin{table}[H]
 \centering
 \caption{\label{tab:relaxation_tau_vs_radius_kn} 
-    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ at the interface of KNO$_3$ solution.} 
+    The radius $r$ of hydration shells and corresponding relaxation times $\tau_2$ at the interface of the KNO$_3$ solution.} 
 \begin{tabular}{ccc}
  ion (molecule) & $r$ (\AA) & $\tau_2$ (ps)  \\
 \hline
@@ -1078,7 +1091,7 @@ the increase of the radius of the hydration shell, and their relationship is sho
 \includegraphics [width=0.42\textwidth] {./diagrams/ln_nn_kn_tau2_vs_shell_radius} 
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:ln_nn_kn_tau2_vs_shell_radius}Dependence of $\tau_2(t)$ on the radius of the solvation shell of molecules 
-(water, \Li, \Na, \K and nitrate ions) in the slab of alkali nitrate solutions.
+(water, \Li, \Na, \K and nitrate ions) in the slab of the alkali nitrate solutions.
 %The linear regression line (dashed line) obtained by the data in Table 
 %\ref{tab:relaxation_tau_vs_radius_ln}--\ref{tab:relaxation_tau_vs_radius_kn} is
 % $\tau_2 = -2.15 r + 14.76$. 
@@ -1091,7 +1104,7 @@ are shown in Fig.\thinspace\ref{fig:2LiI-124w_0-25ps_c2_150222b_s2}.
 \begin{figure}[H]
 \centering
 \includegraphics [width=0.4 \textwidth] {./diagrams/2LiI-124w_0-25ps_c2_150222b_s2} 
-\caption{\label{fig:2LiI-124w_0-25ps_c2_150222b_s2}Anisotropy decay of OH bonds in water molecules in NaI and LiI solutions.
+\caption{\label{fig:2LiI-124w_0-25ps_c2_150222b_s2}Anisotropy decay of OH bonds in water molecules in the NaI and LiI solutions.
 }
 \end{figure} 
 It shows that water molecules bound to \I anions decay fastest,while those bound to \Na slowest. 
@@ -1107,7 +1120,7 @@ In other words, the order of the rigidity of the solvation shell is: \Li > \Na >
 \begin{table}[h!]
 \centering
 \caption{\label{tab:table_expfit}%
-The fitted parameters of anisotropy decay of water molecules in LiI (NaI) solutions. The decay rate $\kappa$ comes from fitting ([0,10] ps).}
+The fitted parameters of anisotropy decay of water molecules in the LiI (NaI) solution. The decay rate $\kappa$ comes from fitting ([0,10] ps).}
 \begin{tabular}{lccc}
 Water molecules & $c$  & $\tau_2$ (ps) \\
 \hline
@@ -1179,7 +1192,7 @@ Water molecules & $c$  & $\tau_2$ (ps) \\
 \begin{table}[H]
 \centering
 \caption{\label{tab:table_center_ion}%
-Fitted parameters of anisotropy decay of water molecules in LiI (NaI) solutions. The constants and amplitudes comes from fitting ([0,10] ps).}
+Fitted parameters of anisotropy decay of water molecules in the LiI (NaI) solution. The constants and amplitudes comes from fitting ([0,10] ps).}
 %\begin{ruledtabular}
 \begin{tabular}{lccccc}
 central ions & $A_1$  & $\kappa_1$ (THz) & $A_2$ & $\kappa_2$ (THz) \\
@@ -1212,7 +1225,7 @@ central ions & $A_1$  & $\kappa_1$ (THz) & $A_2$ & $\kappa_2$ (THz) \\
 \centering
 \includegraphics [width=0.6 \textwidth] {./diagrams/2NaI-124w_c2_fit_150223} 
 \setlength{\abovecaptionskip}{10pt}
-\caption{\label{fig:2NaI-124w_c2_fit_150223}Anisotropy decay of OH bonds in water molecules in NaI solutions.}
+\caption{\label{fig:2NaI-124w_c2_fit_150223}Anisotropy decay of OH bonds in water molecules in the NaI solution.}
 \end{figure} 
 \begin{figure}[H]%[!htbp]
 \centering
@@ -1320,12 +1333,12 @@ and the relation between the interfacial HB dynamics and rotational anisotropy d
 \begin{figure}[H] %[!htbp]
 \centering
 \includegraphics [width=0.36 \textwidth] {./diagrams/2LiI-124w_c2_fit_biexp_7wat_2ps_2021} 
-\caption{\label{fig:2LiI-124w_c2_fit_biexp_7wat_2ps_2021} Time dependence of the $C_2(t)$ for DD$'$A, DD$'$AA, and D$'$AA water molecules at the water/vapor interface of LiI solution.}
+\caption{\label{fig:2LiI-124w_c2_fit_biexp_7wat_2ps_2021} Time dependence of the $C_2(t)$ for DD$'$A, DD$'$AA, and D$'$AA water molecules at the interface of LiI solution.}
 \end{figure}  
 \begin{table}[H]
 \centering
 \caption{\label{tab:fitting_c2_for_each_type_of_water}%
-	Biexponential fitting (2 ps) of $C_2(t)$ for water molecules in 0.9 M LiI solution. 
+	Biexponential fitting (2 ps) of $C_2(t)$ for water molecules in the LiI solution. 
 The relative standard errors: $\Delta A_i/A_i \le 10^{-2}$, $\Delta \tau_{2,i}/\tau_{2,i} \le 3\times 10^{-2}$.}
 %\begin{ruledtabular}
 \begin{tabular}{lccccc}
