@@ -45,12 +45,12 @@ the HB population $h(t)$ of the molecules in the interface at different times,
 and calculate the \emph{average} of the obtained correlation functions 
 over the $n$ functions, e.g., $C_{\text{HB},j}(t), j=1,\cdots,n$.
  
-\paragraph{Interfacial hydrogen bond population operator $h^s(t)$}
+\paragraph{Interfacial hydrogen bond population operator \hbos} 
 The IHB method to extract the interfacial molecules is as follows. 
 1) Determine the instantaneous surface of a system;
 2) Define a interface system with a fixed thickness below the instantaneous surface; 
-3) Define the interfacial hydrogen bond population operator $h^s(t)$.
-4) Calculate the autocorrelation function of $h^s(t)$ and then the related observations. 
+3) Define the interfacial hydrogen bond population operator \hbos.
+4) Calculate the autocorrelation function of \hbos and then the related observations. 
 
 If we want to calculate only the dynamic characteristics of molecules located in the interface, 
 the MS method will have a error in select correct molecules in interface. 
@@ -141,7 +141,7 @@ converges as the thickness increases, indicating the thickness of the interface.
 \includegraphics [width=0.38\textwidth] {./diagrams/2LiI-124w_S_layers} %fig.5.9
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:2LiI-124w_S_layers}The logarithms of the function \SHB for water-water H-bonds at interfaces with different thickness
-in 0.9 M LiI solution.}
+in the LiI solution.} % 0.9 M.
 \end{figure}
 
 In addition, the survival probability \SHB is dependent on the temporal resolution \rt,
@@ -160,6 +160,19 @@ Moreover, we can obtain the continuum HB lifetime independent of the \rt: $\tau_
  \includegraphics [width=0.36\textwidth] {./diagrams/hb_lifetime_124_2LiI-2NaI-2KI} %fig5.16
  \setlength{\abovecaptionskip}{0pt}
  \caption{\label{fig:hb_lifetime_124_2LiI-2NaI-2KI} The resolution dependence of the continuum lifetime $\tau_{\text{HB}}$ of water--water H-bonds at interfaces of
- different 0.9 M alkali-iodine solutions at 330 K, calculated for six temporal resolutions (\rt). \cite{Ferrario1990,Mountain1995,Root1997}
+ different alkali-iodine solutions at 330 K, calculated for six temporal resolutions (\rt). \cite{Ferrario1990,Mountain1995,Root1997}
+ } % 0.9 M
+\end{figure}
+\paragraph{PBC's effect}
+\begin{figure}[H]
+ \centering
+ \includegraphics [width=0.36\textwidth] {./diagrams/c2_128w_itp_pbc_15c2-vs-21} %fig5.16
+ \setlength{\abovecaptionskip}{0pt}
+ \caption{\label{fig:c2_128w_itp_pbc_15c2-vs-21} The PBC's effect on the thickness-dependence of $C_2(t)$ for water molecules at the water/vapor interfaces.
  }
-\end{figure} 
+\end{figure}
+Figure \ref{fig:c2_128w_itp_pbc_15c2-vs-21} shows the effect of PBC on $C_2(t)$. 
+In our simulation, whether the PBC is considered or not will not have a substantial impact on the result 
+that the orientation relaxation of OH bond depends on the thickness of the interface. 
+Even without considering the PBC, we can still conclude that the orientation relaxation process of OH bonds at the water/vapor interface 
+slows down obviously with the increase of interface thickness.
