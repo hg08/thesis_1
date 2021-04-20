@@ -369,17 +369,6 @@
     url = {https://www.sciencedirect.com/science/article/abs/pii/S0022286011006247},
     pages = {146-155}
 }
-@manual{Sampling,
-    title = {{For the chosen time step and number of steps, the frequency range we can obtain for the VDOS is (3, 3.3$\times10^4$)cm$^{-1}$  (from the Nyquist criterion). 
-It is reasonable to analyze vibrations of water molecules whose frequencies are in (1600, 3800)cm$^{-1}$.
-To obtain the vibrations with the highest frequecies $\nu_\text{max}$, the sampling rates $f_{s}$ must be at least as high as $f_s=2\nu_\text{max}$, thus, the time step $\Delta{t}$ must satisfy $\Delta{t}\leq{1}/{2\nu_\text{max}}$.
-   If $f_{s}$ is known, the upper bound of vibrational frequencies $\nu_\text{max}$ can be calculated.
-   For a sequence with $M$ steps, the maximun period $T_\text{max}=\Delta{t}$ (the maximum frequency ${f_s}_\text{max}=1/{\Delta{t}}$).
-   $f_{s_\text{max}}=2\nu_\text{max}$, then $\nu_\text{max}={f_s}_\text{max}/{2}=1/{2\Delta{t}}$.
-   In our simulation, the time step is 0.5 fs and the total number of steps $M\approx10^4$. Thus the frequency range of the VDOS is in $(3.3, 3.3\times 10^4)$ cm$^{-1}$.
-   In this thesis, we consider the vibrational modes of water molecules in (1600, 3800) cm$^{-1}$.
-   The time step is 0.5 fs.}}
-  }
 @article{WeiX02,
   title = {{Sum-Frequency Spectroscopic Studies of Ice Interfaces}},
   author = {Wei, Xing and Miranda, Paulo B. and Zhang, Chun and Shen, Y. R.},
@@ -414,16 +403,7 @@ To obtain the vibrations with the highest frequecies $\nu_\text{max}$, the sampl
   doi = {10.1103/PhysRevLett.85.768},
   url = {https://link.aps.org/doi/10.1103/PhysRevLett.85.768}
 }
-@ARTICLE{AKS86,
-    author = {A. K. Soper and M. G. Phillips},
-    title = {{A New Determination of the Structure of Water at 25 $^{\circ}$C}},
-    journal = {Chem. Phys},
-    year = {1986},
-    volume = {107},
-    doi = {10.1016/0301-0104(86)85058-3},
-    url = {https://www.sciencedirect.com/science/article/abs/pii/0301010486850583},
-    pages = {47--60}
-}
+
 @ARTICLE{Ferrario1990,
     abstract = {Effective pair‐potential models, parametrized to the properties of the pure liquids, have been used in molecular‐dynamics simulations of aqueous (binary) mixtures containing methanol, ammonia, or acetone. Results are reported for thermodynamic and structural properties, self‐diffusion coefficients, and reorientational correlation times. There is fair agreement with a wide variety of experimental data. The pattern of hydrogen bonding and the distribution of hydrogen‐bond lifetimes in the simulated mixtures have been investigated. The observed anomalous behavior of methanol and acetone solutions appears to be related to specific features of the hydrogen bonding—namely, the ability of these molecules to exhibit enhanced acceptor character. As a consequence of the assumed intermolecular potentials, the balance between the competing effects of hydrophobic hydration of methyl groups and hydrogen bonding to oxygen atoms is tipped towards the latter. A number of interesting structural effects have been noted. In particular, the distribution function g(R) for water oxygen atoms sharpens appreciably on addition of the second component. The structure of the water–ammonia system is discussed in detail. There is good accord with available x‐ray data at low concentration, but there are no measurements available to test the predictions at high concentration.},
     author = {M. Ferrario and M. Haughney and R. McDonald M. L. Klein},
@@ -4111,7 +4091,7 @@ compares this nonlinear technique with its linear analogs, and highlights the la
     SPC/E water model. Our results for the SPC-FQ model are in better agreement with recent
     vibrational echo experiments. © 2004 American Institute of Physics.}}
 }
-@ARTICLE{Schmidt05,
+@ARTICLE{Schmidt2005,
     author = {J. R. Schmidt and S. A. Corcelli and J. L. Skinner},
     title = {{Pronounced Non-Condon Effects in the Ultrafast Infrared Spectroscopy of Water}},
     journal = {J. Chem. Phys.},
@@ -4173,7 +4153,8 @@ compares this nonlinear technique with its linear analogs, and highlights the la
     doi = {10.1016/j.ymeth.2004.03.021},
     url ={https://www.sciencedirect.com/science/article/pii/S1046202304001124}
 }
-@article{SM03,
+#article{SM03,
+@article{Mukamel2003,
   title = {Photon Statistics: Nonlinear Spectroscopy of Single Quantum Systems},
   author = {Mukamel, Shaul},
   journal = {Phys. Rev. A},
@@ -5825,7 +5806,7 @@ title = {{ Electronic Structrue Calculations for Solids and Materials: Theory an
 publisher={Cambridge University Press},
 year = {2006}
 }
-@ARTICLE{Bakker10,
+@ARTICLE{Bakker2010,
 author = {H. Bakker and J. L. Skinner},
 title = {{Vibrational Spectroscopy as a Probe of Structure and Dynamics in Liquid Water}},
 journal = {Chem. Rev.},
@@ -7459,68 +7440,47 @@ result is significantly longer than the 0.9 ps decay previously calculated for t
 SPC/E water model. Our results for the SPC-FQ model are in better agreement with recent
 vibrational echo experiments. © 2004 American Institute of Physics. ͓DOI: 10.1063/1.1803532͔}},
 }
-@ARTICLE{Schmidt05,
-author = {J. R. Schmidt and S. A. Corcelli and J. L. Skinner},
-title = {{Pronounced Non-Condon Effects in the Ultrafast Infrared Spectroscopy of Water}},
-journal = {J. Chem. Phys.},
-year = {2005},
-volume = {123},
-pages = {044513},
-abstract= {{In the context of vibrational spectroscopy in liquids, non-Condon effects refer to the dependence of
-the vibrational transition dipole moment of a particular molecule on the rotational and translational
-coordinates of all the molecules in the liquid. For strongly hydrogen-bonded systems, such as liquid
-water, non-Condon effects are large. That is, the bond dipole derivative of an OH stretch depends
-strongly on its hydrogen-bonding environment. Previous calculations of nonlinear vibrational
-spectroscopy in liquids have not included these non-Condon effects. We find that for water,
-inclusion of these effects is important for an accurate calculation of, for example, homodyned and
-heterodyned three-pulse echoes. Such echo experiments have been “inverted” to obtain the OH
-stretch frequency time-correlation function, but by necessity the Condon and other approximations
-are made in this inversion procedure. Our conclusion is that for water, primarily because of strong
-non-Condon effects, this inversion may not lead to the correct frequency time-correlation function.
-Nevertheless, one can still make comparison between theory and experiment by calculating the
-experimental echo observables themselves.}}
-}
 @ARTICLE{Auer07,
-author = {B. Auer and R. Kumar and J. R. Schmidt and J. L. Skinner},
-title = {{Hydrogen Bonding and Raman, IR, and 2D-IR Spectroscopy of Dilute HOD in Liquid D$_2$O}},
-journal = {Proc. Natl. Acad. Sci. USA},
-year = {2007},
-volume = {104},
-number ={36},
-pages = {14215-14220},
-abstract= {{ We present improvements on our previous approaches for calcu-
-lating vibrational spectroscopy observables for the OH stretch
-region of dilute HOD in liquid D 2 O. These revised approaches are
-implemented to calculate IR and isotropic Raman spectra, using the
-SPC/E simulation model, and the results are in good agreement
-with experiment. We also calculate observables associated with
-three-pulse IR echoes: the peak shift and 2D-IR spectrum. The
-agreement with experiment for the former is improved over our
-previous calculations, but discrepancies between theory and ex-
-periment still exist. Using our proposed definition for hydrogen
-bonding in liquid water, we decompose the distribution of fre-
-quencies in the OH stretch region in terms of subensembles of HOD
-molecules with different local hydrogen-bonding environments.
-Such a decomposition allows us to make the connection with
-experiments and calculations on water clusters and more generally
-to understand the extent of the relationship between transition
-frequency and local structure in the liquid.}}
+    author = {B. Auer and R. Kumar and J. R. Schmidt and J. L. Skinner},
+    title = {{Hydrogen Bonding and Raman, IR, and 2D-IR Spectroscopy of Dilute HOD in Liquid D$_2$O}},
+    journal = {Proc. Natl. Acad. Sci. USA},
+    year = {2007},
+    volume = {104},
+    number ={36},
+    pages = {14215-14220},
+    abstract= {{ We present improvements on our previous approaches for calcu-
+    lating vibrational spectroscopy observables for the OH stretch
+    region of dilute HOD in liquid D 2 O. These revised approaches are
+    implemented to calculate IR and isotropic Raman spectra, using the
+    SPC/E simulation model, and the results are in good agreement
+    with experiment. We also calculate observables associated with
+    three-pulse IR echoes: the peak shift and 2D-IR spectrum. The
+    agreement with experiment for the former is improved over our
+    previous calculations, but discrepancies between theory and ex-
+    periment still exist. Using our proposed definition for hydrogen
+    bonding in liquid water, we decompose the distribution of fre-
+    quencies in the OH stretch region in terms of subensembles of HOD
+    molecules with different local hydrogen-bonding environments.
+    Such a decomposition allows us to make the connection with
+    experiments and calculations on water clusters and more generally
+    to understand the extent of the relationship between transition
+    frequency and local structure in the liquid.}}
 }
 @ARTICLE{Collins04,
-author = {K. D. Collins},
-title = {{Ions from the Hofmeister Series and Osmolytes: Effects on Proteins in Solution and in the Crystallization Process}},
-journal = {Methods},
-year = {2004},
-volume = {34},
-pages = {300-311}
+    author = {K. D. Collins},
+    title = {{Ions from the Hofmeister Series and Osmolytes: Effects on Proteins in Solution and in the Crystallization Process}},
+    journal = {Methods},
+    year = {2004},
+    volume = {34},
+    pages = {300-311}
 }
 @ARTICLE{SM03,
-author = {S. Mukamel},
-title = {{}},
-journal = {Phys. Rev. A},
-year = {2003},
-volume = {68},
-pages = {063821}
+   author = {S. Mukamel},
+   title = {{}},
+   journal = {Phys. Rev. A},
+   year = {2003},
+   volume = {68},
+   pages = {063821}
 }
 @ARTICLE{Nadler11,
 author = {R. Nadler and J. F. Sanz},
@@ -8279,7 +8239,6 @@ volume = {116},
 number = "",
 pages = {23351-23361},
 year = "2012",
-issn = "",
 doi = "",
 url = " ",
 author = {Ellen H. G. Backus and Nuria Garcia-Araez and Mischa Bonn and Huib J. Bakker},
@@ -9076,15 +9035,34 @@ doi = {10.1063/1.471856},
 URL = { 
         https://doi.org/10.1063/1.471856   
 }}
-@ARTICLE{,
-author = {},
-title = {{}},
-journal = {},
-year = {},
-volume = {},
-number ={},
-pages = {},
-abstract= {{ }}
+@article{VandeVondele2007,
+author = {VandeVondele,Joost  and Hutter,Jürg },
+title = {Gaussian basis sets for accurate calculations on molecular systems in gas and condensed phases},
+journal = {The Journal of Chemical Physics},
+volume = {127},
+number = {11},
+pages = {114105},
+year = {2007},
+doi = {10.1063/1.2770708},
+URL = { 
+        https://doi.org/10.1063/1.2770708
+},
+eprint = { 
+        https://doi.org/10.1063/1.2770708   
+}
+}
+@ARTICLE{AKS86,
+    author = {A. K. Soper and M. G. Phillips},
+    title = {{A New Determination of the Structure of Water at 25 $^{\circ}$ C}},
+    journal = {Chem. Phys},
+    year = {1986},
+    volume = {107},
+    doi = {10.1016/0301-0104(86)85058-3},
+    url = {https://www.sciencedirect.com/science/article/abs/pii/0301010486850583},
+    pages = {47-60}
+}
+@MISC{Gang202104,
+	note = {{For OH vibrations at room temperature, the energy difference between vibrational states $|\nu=0\rangle$ and $|\nu=1\rangle$ is about 4500 K, or 0.4 eV, which is much larger than $k_\text{B}T$. Therefore, we can treat the OH like a linear harmonic oscillator.}}
 }
 @ARTICLE{,
 author = {},
