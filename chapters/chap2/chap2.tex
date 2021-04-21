@@ -430,14 +430,18 @@ Therefore, VSFG spectroscopy can yield structural information about water/vapor 
 The VSFG is a coherent nonlinear optical process in which incident laser beams with frequency and wave vector 
 ($\omega_1, {\bf k}_1$) and ($\omega_2, {\bf k}_2$) produce a signal with frequency and wave vector
 ($\omega_1+\omega_2, {\bf k}_1+{\bf k}_2$ ) (Fig.\thinspace\ref{fig:sfg_1a}). 
-In this process, the  fields arise from the polarization induced over a macroscopically large volume superposition coherently.
+In this process, the fields arise from the polarization induced over a macroscopically large volume superposition coherently.
 %
 %\paragraph{Vibrational Resonances and Non-resonances}
 The VSFG signal intensity is proportional to the square of the resonant and non-resonant terms:
-\begin{equation}
-  I_{\text{SFG}}(\omega) \varpropto |\chi^{(2),\text{R}}(\omega)+\chi^{(2),\text{NR}}(\omega)|^2.
+\begin{align}
+  &I_{\text{SFG}}(\omega) \varpropto |\chi^{(2)}(\omega)|^2 \nonumber \\
+  &=|\chi^{(2),\text{R}}(\omega)+\chi^{(2),\text{NR}}(\omega)|^2,
 \label{eq:I_SFG}
-\end{equation}
+\end{align}
+where $\chi^{(2)}$ is a third-rank tensor called second-order nonlinear susceptibility, or hyperpolarizability for a molecule\cite{Morita2018-page2},
+and it is responsible to the SFG process. 
+$\chi^{(2),\text{R}}$ is the vibrationally resonant term, while $\chi^{(2),\text{NR}}$ is the nonresonant term.
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[help lines/.style={thin,draw=black!50}]
@@ -456,7 +460,7 @@ The VSFG signal intensity is proportional to the square of the resonant and non-
  The dashed line denotes a virtual electronic state in the Raman transition.
 }\label{fig:sfg_1a} 
 \end{figure}
-
+%
 Because experiments usually employed visible and SFG frequencies are far from resonant 
 conditions, $\chi^{(2),\text{NR}}$ can be considered totally off-resonant and therefore 
 insensitive to the laser beams' frequencies involved. Therefore, we can neglect the 
@@ -590,7 +594,7 @@ direction in the medium.
 %Details:
 In this paragraph I review the derivation an expression for the calculation of the sum frequency generation spectra of water interfaces that is
 based on the projection of the atomic velocities on the local normal modes, such an approach permits one to obtain the SFG signals from suitable
-velocity-velocity ACFs, reducing the computational cost to that of the accumulation of a molecular dynamics trajectory, and therefore cutting 
+velocity ACFs, reducing the computational cost to that of the accumulation of a molecular dynamics trajectory, and therefore cutting 
 the overhead costs associated with the explicit calculation of the dipole and polarizability tensor. Moreover, the method permits to interpret 
 the peaks in the spectrum in terms of local modes.
 The components of the resonant term $\chi^{\text{(2),R}}_{\eta\xi\kappa}$ of the second order susceptibility can be calculated 

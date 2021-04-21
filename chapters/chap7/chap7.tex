@@ -395,7 +395,7 @@ These values are comparable in magnitude to those obtained by Ref.\thinspace{\ci
 It can be seen from Table \ref{tab:k_k_prime_pure_and_solutions} that the HB breaking rate ($k$) at the water/vapor interface is the same as 
 that at the solution interface, but the HB reforming rate constant($k'$) is smaller than that at the solution interface by 30\% to 50\%.
 Correspondingly, we find the HB relaxation times for the three interfaces are: $\tau={1}/{(k+k')} \sim $2.0--2.5 ps;
-while for water/vapor interface, the relaxation time is $\tau \sim $ 3.3 ps. 
+while for the water/vapor interface, the relaxation time is $\tau \sim $ 3.3 ps. 
 %[TODO: TO ANSWER the question]
 %Our conclusion is that the difference between the relaxation time of H-bonds at the interface of solutions such as LiI, NaI, KI 
 %and the water/vapor interface is mainly due to the difference in the reforming rate $k'$ of H-bonds caused by the presence of ions,
@@ -761,16 +761,18 @@ as computed from the (a) ADH and (b) AHD criteria of H-bonds.}
 The effect of ions on the dynamics of water molecules can also be characterized by rotational anisotropy decay of water molecules.
 The pump-probe polarization anisotropy monitors electronic alignment.\cite{Jonas96,Farrow08} 
 The anisotropy decay can be determined from experimental signal in two different polarization configurations---parallel and perpendicular polarizations, by\cite{Szabo1984,Fleming86} 
-%\begin{equation}
-%   R(t)=\frac{S_{\parallel}(t)-S_{\perp}(t)}{S_{\parallel}(t)+2S_{\perp}(t)}
-%\label{eq:ad}
-%\end{equation}
 \begin{equation}
-    R(t)=\frac{S_{ZZ}(t)-S_{ZY}(t)}{S_{ZZ}(t)+2S_{ZY}(t)}
+   R(t)=\frac{I_{\parallel}(t)-I_{\perp}(t)}{I_{\parallel}(t)+2I_{\perp}(t)}
 \label{eq:ad}
 \end{equation}
-where $S_{ij}$ is the intensity of the emitted light with polarization along the $j$-axis when the absorbed light is polarized along the $i$-axis,
-$t$ is the time between pump and probe laser pulses. 
+%\begin{equation}
+%    R(t)=\frac{S_{ZZ}(t)-S_{ZY}(t)}{S_{ZZ}(t)+2S_{ZY}(t)}
+%\label{eq:ad}
+%\end{equation}
+%where $S_{ij}$ is the intensity of the emitted light with polarization along the $j$-axis when the absorbed light is polarized along the $i$-axis,
+where $I_{\parallel}(t)$ is the absorption change when the probe laser pulse is parallel to the pump laser pulse,
+$I_{\perp}(t)$ is the absorption change when the probe laser pulse is perpendicular to the pump, 
+and $t$ is the time between pump and probe laser pulses. 
 %Using the transition dipole auto-correlation function, we determined the rotational anisotropy decay and therefore the OH-stretch relaxation at the interface of alkali iodide solutions.
 The effects of ion environment on structure and dynamics of water are obtained by comparing the second-order Legendre polynomial, 
 i.e., $P_2(x)=\frac{1}{2}(3x^2-1)$,  orientational correlation function of the transition dipole.
@@ -838,13 +840,13 @@ As we known in paragraph \thinspace\ref{sfg_lino3_interface}, the LiNO$_3$ was i
 we have a model with one salty interface and one neat interface which can be used as a reference.
 We obtatined $A= 0.70 \pm 0.01$ for both the salty and neat interface,
 and $\tau_2 = 3.88 \pm 0.09$ ps and $4.04 \pm 0.09$ ps for the salty and neat water interface, respectively. 
-The smaller reorientation decay time (smaller $\tau_2$) for the salty interface is consistent obtained from the VDOS of the interfaces
-(higher frequency, or blue shift peak in Fig.\thinspace\ref{fig:surf_x-vs-l_x_d1-5} for nitrate-bound water molecules). 
+The close reorientation decay time ($\tau_2$) for the salty interface and the water/vapor interface is obtained. 
+%from the VDOS of the interfaces (higher frequency, or blue shift peak in Fig.\thinspace\ref{fig:surf_x-vs-l_x_d1-5} for nitrate-bound water molecules). 
 %DONE: 
 %1. be more quantitative, providing the rate constants from the exp fit; Done
 %2. Check the code again, and to calculate the C2(t) for LiNO3 solution again to make sure the result is correct.Done.  
 %This result obtained from another DFTMD trajectory consistent with the previous one, and it 
-This result implies that the \nitrate on the surface of the alkali nitrate solution weaken the H-bonds and  accelerate the anisotropy decay of water molecules at the interface.
+This result implies that the \nitrate on the surface of the alkali nitrate solution weaken the H-bonds and little accelerate the anisotropy decay of water molecules at the interface.
 \begin{figure}[H]
 \centering
 \includegraphics [width=0.36\textwidth] {./diagrams/c2_ln_itp_pbc_5ps} 
@@ -861,11 +863,33 @@ It decays significantly faster than in the water/vapor interface, indicating tha
 at the interfaces of the LiI solution are orientated more frequently than that of the water/vapor interface.
 We obtatined $A= 0.73 \pm 0.02$ ($0.77 \pm 0.02$) and $\tau_2 = 2.1 \pm 0.1$ ps ($ 2.7 \pm 0.1$ ps) for the LiI interface (the water/vapor interface). 
 It shows that LiI accelerate the dynamics of molecular reorientation of water molecules at the interface. 
+
+To expain the $C_2(t)$ for the \LiN solution/vapor and LiI/vapor interfaces, 
+we list the peaks of RDFs for the LiI/vapor, the \LiN/vapor and the water/vapor interfaces (see Fig.\thinspace\ref{tab:rdf_I2wat_peaks}).
+We found that there is a correlaton between reorientation and the strength of the H-bonds:
+The N--W and W--W hydrogen bonds have very close local structure, while the iodide-water (I$^-$--W) HB is of significantly different local structure.
+This result can be found from the larger values of the first peaks' locations in $g_\text{I-OW}$ and $g_\text{I-HW}$. 
+\begin{table}[H]
+\centering
+\caption{\label{tab:rdf_I2wat_peaks} 
+The peaks (unit: \A) of RDFs for the LiI/vapor, the \LiN/vapor and the water/vapor interfaces (see Table \ref{fig:gdr_127_LiNO3} and \ref{fig:gdr_124_2LiI}). 
+}
+\begin{tabular}{cccc}
+ g(r) & 1st peak & 2nd peak \\
+\hline
+ I-OW & 3.61 & - \\
+ I-HW & 2.66 & 4.07 \\
+ ON-OW & 2.80 & -\\
+ ON-HW & 1.83 & 3.30 \\
+ OW-OW & 2.79 & - \\
+ OW-HW & 1.83 & 3.25 \\
+\end{tabular}
+\end{table} 
 %Here, we have considered the water molecules in the entire slab, 
 %and the calculation results are relatively rough. 
 %To verify the above conclusions, we need to investigate the dynamic behavior of water molecules located in the solvation shells of ions.   
 \begin{figure}[H] %[htbp]XXX
-\centering                               
+\centering                                
 \includegraphics [width=0.4 \textwidth] {./diagrams/c2_2LiI_itp_pbc} 
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:c2_2LiI_itp_pbc}
@@ -895,7 +919,7 @@ the correlation function $C_2(t)$ has the form \cite{TanHS05}
 C_2(t)=A_1e^{-t/\tau_{2,1}} +A_2e^{-t/\tau_{2,2}},
 \label{eq:tcf3}
 \end{equation}
-where $A_i$ are amplitudes and $1/\tau_{2,i}$ are decay rates ($i=1, 2$) of $C_2(t)$,
+where $A_i$ are amplitudes and $1/\tau_{2,i}$ ($i=1, 2$) are decay rates of $C_2(t)$,
 and the $\tau_{2,i}$ represent the relaxation times of the $C_2(t)$. 
 %(DONE: Here I should comment on which is the physical meaning of a double exponential.)
 The form of this expression means: We assume that the orientation relaxation $C_2(t)$ is composed of two independent relaxation processes 
@@ -906,7 +930,7 @@ $C_2(t)$ are shown in Table ~\ref{tab:table8}.
 %and the function fitted according to Eq.\thinspace\ref{eq:tcf3},
 %as shown in Fig.\thinspace\ref{fig:2LiI-124w_c2_fit_5ps_biexp}. 
 We found that Eq.\thinspace\ref{eq:tcf3}, the biexponential kinetics is sufficiently accurate to 
-describe the attenuation characteristics of $C_2(t)$.                        
+describe the characteristics of anisotropy decay.                        
 %%(compare Fig.\space\ref{fig:2LiI-124w_c2_fit_5_single-exp}).
 %\begin{table}[H]%[hbt]
 %\centering
@@ -970,44 +994,55 @@ due to the inertial--librational motion preceding the orientational diffusion.
 %with amplitude $\sim$ 0.1, decay constant $\sim$ (1--10) THz,
 %results from the inertial-librational motion preceding the orientational diffusion.
 %
-\begin{table}[H] %[!hbtp]
-\centering
-\caption{\label{tab:table_CoordNo}%
-The coordination number for the ions in LiI (NaI) solution.}
-\begin{tabular}{lccc}
-name & $r_\text{shell}$ (\AA) & coordination number \\
-\hline
-$n_\text{Li-O}$ & 3.0 & 4.0 \\
-$n_\text{I-H}$ & 3.3 & 5.5 \\
-%$n_\text{I-H}(\text{NaI)}$ & 3.3 & 5.1 \\
-%$n_\text{I-O}(\text{NaI)}$ & 4.3 & 6.0 \\
-$n_\text{Na-O}$ & 3.5 & 6.0 \\ 
-$n_\text{I-O}$ & 4.3 & 5.8 \\
-\end{tabular}
-\end{table}
 
 
 %{Fitting by a biexponential}
-The relaxation time constants and amplitudes of the biexponentials fits (10 ps) for $C_2(t)$ are in Table \ref{tab:table8}.
 \begin{table}[H]  % or [!htbp]
 \centering
 \caption{\label{tab:table8}
 The fitted parameters of anisotropy decay of water molecules at the LiI (NaI, KI) solution/vapor interface 
-according to Eq.\thinspace\ref{eq:tcf3} for the time range [0,10] ps. The standard errors: $\delta A_i \sim 0.01$, $\delta \tau_{2} \sim 0.1$ ps}
+according to Eq.\thinspace\ref{eq:tcf3} for the time range [0,10] ps. The standard errors: $\delta A_i \sim 0.01$, $\delta \tau_{2,i} \sim 0.1$ ps ($i=1,2$).}
 \begin{tabular}{lccccc}
 \wat & $A_1$  & $\tau_{2,1}$ (ps) & $A_2$ & $\tau_{2,2}$ (ps) \\
 \hline
 %\I-shell (LiI)  &0.45 & 3.23  & 0.45 & 3.23\\
-\Li-shell & 0.56 & 8.33 & 0.33 & 50.00  \\
+\Li-shell & 0.56 & 8.3 & 0.33 & 50.0  \\
 %bulk (LiI) &0.43  & 9.09 & 0.43 & 8.33 \\
 %surface (LiI) & 0.41 & 2.86 & 0.40  & 2.78 \\
-\I-shell &0.86 & 7.14 & 0.08 & 0.10 \\
-\Na-shell & 0.71 & 16.67 & 0.185 & 1.27 \\
+\I-shell &0.86 & 7.1 & 0.08 & 0.1 \\
+\Na-shell & 0.71 & 16.7 & 0.185 & 1.3 \\
 %Bulk water & 0.60 & 13.51 & 0.31  & 3.45 \\
 %bulk (NaI) & 0.81 & 16.67 & 0.099  & 0.80  \\
-LiI/vapor & 0.84 & 4.89 & 0.09 & 0.57 \\ 
-NaI/vapor & 0.77 & 9.09 & 0.13 & 0.43 \\
-KI/vapor & 0.80 & 6.06 & 0.12 & 1.13 \\
+LiI/vapor & 0.84 & 4.9 & 0.09 & 0.6 \\ 
+NaI/vapor & 0.77 & 9.1 & 0.13 & 0.4 \\
+KI/vapor & 0.80 & 6.1 & 0.12 & 1.1 \\
+\end{tabular}
+\label{tab:biexponential1}
+\end{table}
+%{Fitting by a single exponential}
+The orientation relaxation time constants $\tau_{2,i}$ and amplitudes $A_i$ ($i=1,2$) of the single exponentials fits (10 ps) for $C_2(t)$ are in Table \ref{tab:table8}.
+For comparison, we also fit the C2(t) function of the water molecules in each interface in Table 1 with a single exponential. 
+The results are shown in table \ref{tab:1exp_alkali-iodide}. 
+It can be seen that the value of $\tau_2$ is between the two characteristic times $\tau_{2,1}$ and $\tau_{2,2}$, obtained by biexponential fitting. 
+At the same time, we can see the obvious difference in water molecules under various conditions: 
+the reorientation characteristic time $\tau_2$ in the first solvation shell of alkali metal ions is 2 to 3 times that of I$^-$ ion.
+This is a reasonable result. However, the single exponential model describes the reorientation of water molecules 
+as an exponential decay process. Our above biexponential function model (Eq.\thinspace\ref{eq:tcf3}) can be explained as: 
+the reorientation dynamics of each water molecule is composed of two independent decay processes.[MORE UNDERSTANDING TO BE ADDED]
+\begin{table}[H]  % or [!htbp]
+\centering
+\caption{\label{tab:1exp_alkali-iodide}
+The fitted (single exponential) parameters of anisotropy decay of water molecules at the LiI (NaI, KI) solution/vapor interface 
+according to Eq.\thinspace\ref{eq:tcf3} for the time range [0,10] ps. The standard errors: $\delta A \sim 0.01$, $\delta \tau_{2} \sim 0.1$ ps.}
+\begin{tabular}{lccccc}
+\wat & $A$  & $\tau_{2}$ (ps) \\
+\hline
+\Li-shell & 0.88 & 13.7 \\
+\I-shell & 0.83 & 3.9 \\
+\Na-shell & 0.84 & 10.1 \\
+LiI/vapor & 0.80 & 3.0 \\ 
+NaI/vapor & 0.86 & 4.2 \\ %scr_c2--121_pure--2KI_2NaI_16--inset_fit_single-exp.gp
+KI/vapor & 0.86 & 5.7 \\ %scr_c2--121_pure--2KI_2LiI_16--inset_fit_single-exp.gp
 \end{tabular}
 \label{tab:biexponential1}
 \end{table}
@@ -1417,7 +1452,7 @@ In particular, the I$^-$--water bonds is weaker than the NO$_3^-$--water ones.
 From the new solvation shell HB dynamics, we found that the HB relaxation between water molecules in the first solvation shell of the ion and those outside the shell is almost
 no longer significantly affected by the ion.
 
-The rotational anisotropy decay of water molecules at water/vapor interfaces and solution/vapor interfaces were investigated to
+The rotational anisotropy decay of water molecules at the water/vapor interfaces and solution/vapor interfaces were investigated to
 understand the effects of ions on the dynamics of water at interfaces.
  Two decay processes can be found in the dynamics of water molecules 
 at the interfaces of alkali-iodine solutions from the DFTMD simulations.
