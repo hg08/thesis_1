@@ -378,7 +378,7 @@ In the BOMD
 Since there is no explicit electron dynamics, the maximum integration time step is simply given by the one intrinsic 
 to nuclear motion, i.e., $\tau_{e}^{\text{BO}}\approx\tau_{\text{n}}$. 
 In BOMD, the time step can be even larger if the nuclear dynamics becomes fairly slow. \cite{GK93} 
-But in order to resolve vibrations in molecular systems, the time step must be decreased to less than 1 fs in this thesis. \cite{DM00}
+But in order to resolve vibrations in molecular systems, the time step is decreased to less than 1 fs in this thesis. \cite{DM00}
 %
 \section{Vibrational density of states}\label{section_VDOS}
 In order to obtain information on the vibrational properties of a molecular systems, it is possible to use the velocities auto-correlation functions (ACFs),
@@ -392,22 +392,22 @@ C(t)=\frac{\langle\sum^{N}_{i=1}{\bf{v}}_i(t)\cdot{\bf{v}}_i(0)\rangle}{\langle\
 \end{equation}
 where $\langle\dots\rangle$ denotes the average over starting times, $t$ is the time interval, and ${\bf{v}}_i$ denotes 
 the velocity of the $i$-th atom. The VDOS $g(\nu)$ for selected atoms, which is a function of the vibrational frequency $\nu$ 
-of atoms, is expressed in terms of the FT of the velocity ACF of the atoms. \cite{MPA86}
+of atoms, is expressed in terms of the Fourier transform (FT) of the velocity ACF of the atoms. \cite{MPA86}
 In equilibrium, $C(-t)=C(t)$, and $g(\nu)$ is a real function, i.e., 
 \begin{equation}
 g(\nu)= \sqrt{\frac{2}{\pi}}\int^{\infty}_{0}\text{d}t \text{cos}(2\pi\nu{t})C(t).
 \label{eq:f_omega2}
 \end{equation}
-Single components of the velocities ACFs can be also calculated. For example in the case of an interface it may be of interest to look at 
-$z$-component (where $z$ is the direction perpendicular to the surface),
+Single components of the velocities ACFs can also be calculated. For example in the case of an interface it may be of interest to look at 
+$z$-component (where $z$ is the direction perpendicular to the Gibbs interface),
 we can calculate the Fourier transform $g_z(\nu)$ of the ACF of the vertical component of atomic velocity. 
-$g_z(\nu)$ can be calculated by Eq.\thinspace(\ref{eq:f_omega2}), if we replace $C(t)$ by 
+$g_z(\nu)$ can be calculated by Eq.\thinspace(\ref{eq:f_omega2}) if we replace $C(t)$ by 
 \begin{equation}
 C_z(t)=\frac{\langle\sum^{N}_{i=1}{v_{i,z}(t){v_{i,z}(0)\rangle}}}{\langle\sum^{N}_{i=1}{\bf{v}}_i(0)\cdot{\bf{v}}_i(0)\rangle},
 \label{eq:ACN}
 \end{equation}
 where $v_{i,z}$ is the vertical component of the velocity of the $i$-th atom.
-The VDOS $g_z(\nu)$ for water molecules is used to extract the O-H stretch along the vertical direction to the averaging water/vapor interface. 
+The VDOS $g_z(\nu)$ for water molecules is used to extract the O-H stretch along the vertical direction to the interface. 
 
 \section{Calculation of VSFG spectroscopy for interfaces}\label{section_VSFG}
 %SFG calculation and measurement
@@ -417,9 +417,9 @@ on surfaces and interfaces.
 It can be applied to any interface as long as light can reach it, also including liquid/metal interfaces \cite{Harris90,Harris90b,DaiHL95,Halevi96,Wieckowski99} 
 and buried interfaces; \cite{Chen99,Chen07}
 It can probe liquid interface with molecular sensitivity. \cite{Khatib16,Khatib16b,Khatib2017}
-Therefore, VSFG spectroscopy can yield structural information about water/vapor interfaces which could not be obtained with other techniques.
+Therefore, VSFG spectroscopy can yield structural information about solution/vapor interfaces which could not be obtained with other techniques.
 
-\subsection{Nonlinear susceptibility of water molecules at interfaces}
+\subsection{Nonlinear susceptibility of water molecules at solution/vapor interfaces}
 % [Aim of VSFG simulations and VSFG theory]
 %[
 %    [PUT ELSEWHERE: this part is FOR introducing VSFG tech] Experiments required theoretical modeling in order to dissect the experimental results, and to rationalize the different factors that contribute to the interfacial properties.
@@ -525,7 +525,8 @@ we can rewrite Eq.\thinspace(\ref{eq:beta_R}) as
 \label{eq:beta_R_b}
 \end{align}
 where $H$ is the Hamiltonian of the system without external field. 
-Eq.\thinspace(\ref{eq:beta_R_b}) indicates that the resonant term $\beta_{\eta\xi\kappa}^{(2),\text{R}}$ is the Fourier-Laplace transformation of the quantity $\langle\alpha_{\eta\xi}(t)\mu_{\kappa}(0)\rangle$, i.e., the ensemble average of the time correlation function $\alpha_{}(t)\mu_{r}(0)$.
+Eq.\thinspace(\ref{eq:beta_R_b}) indicates that the resonant term $\beta_{\eta\xi\kappa}^{(2),\text{R}}$ is the FT 
+of the quantity $\langle\alpha_{\eta\xi}(t)\mu_{\kappa}(0)\rangle$, i.e., the ensemble average of the time correlation function $\alpha_{}(t)\mu_{r}(0)$.
 The damping rate $\gamma_{v'v}$ is not explicitly included in Eq.\thinspace(\ref{eq:beta_R_b}), because the dephasing is incorporated in the time development of the off-diagonal matrix elements 
 of $\alpha_{\eta\xi}(t)$ and $\mu_{\kappa}(0)$.
 
@@ -563,11 +564,11 @@ where $D(\Omega_i)$ is the direction cosine matrix of the $i$-th molecule, proje
 
 \paragraph{The Fresnel Factors}
 Because of screening and dipole-dipole coupling, the local electric fields felt by molecules is different from the macroscopic fields. \cite{Vanselow2012} 
-The SFG signal depends on the magnitude of the local electric fields of the interacting optical beams at the interfaces. 
+The VSFG signal depends on the magnitude of the local electric fields of the interacting optical beams at the interfaces. 
 While the magnitude of the local electric fields is related to both the intensity of the incident beams and the linear refractive indices 
 of the different layers (bulk) of the sample.\cite{Khatib16} The Fresnel coefficients define the magnitude of the electric fields at the interface. 
 Therefore, to find out the magnitude of the local electric fields, we need to evaluate the Fresnel factors. 
-The SFG intensity $I_{\text{SFG}}$, is proportional to the intensities of the incident visible and infrared beams, $I_{\text{vis}}$, $I$, 
+The VSFG intensity $I_{\text{SFG}}$, is proportional to the intensities of the incident visible and infrared beams, $I_{\text{vis}}$, $I$, 
 and to the square of the second-order nonlinear susceptibilities,
 $\chi_{\eta\xi\kappa}^{(2)}(\omega_{\text{SFG}})$, of the interface:
 \begin{equation}
@@ -575,9 +576,9 @@ $\chi_{\eta\xi\kappa}^{(2)}(\omega_{\text{SFG}})$, of the interface:
 \label{eq:chi}
 \end{equation}
 where $\eta$, $\xi$, $\kappa$ are the Descartes coordinates of the reference frame;
-$\omega_{\text{SFG}}=\omega_{\text{vis}}+\omega$ is the frequency of SFG beam; 
+$\omega_{\text{SFG}}=\omega_{\text{vis}}+\omega$ is the frequency of VSFG beam; 
 $L_{\eta\eta}$, $L_{\xi\xi}$ and $L_{\kappa\kappa}$ are the Fresnel coefficients; 
-$\theta_{\text{SFG}}$ is the reflected angle of SFG beam with respect to the normal 
+$\theta_{\text{SFG}}$ is the reflected angle of VSFG beam with respect to the normal 
 direction in the medium.
 
 \subsection{VSFG spectra from velocity ACFs}
@@ -593,7 +594,7 @@ direction in the medium.
 %The SFG spectrum is proportional to the square of the nonlinear susceptibility of water molecules at the water/vapor interface. \cite{QD94}  
 %Details:
 In this paragraph I review the derivation an expression for the calculation of the sum frequency generation spectra of water interfaces that is
-based on the projection of the atomic velocities on the local normal modes, such an approach permits one to obtain the SFG signals from suitable
+based on the projection of the atomic velocities on the local normal modes, such an approach permits one to obtain the VSFG signals from suitable
 velocity ACFs, reducing the computational cost to that of the accumulation of a molecular dynamics trajectory, and therefore cutting 
 the overhead costs associated with the explicit calculation of the dipole and polarizability tensor. Moreover, the method permits to interpret 
 the peaks in the spectrum in terms of local modes.
@@ -619,7 +620,7 @@ moment (dipole polarizability) of the system, and $\left\langle\dots\right\rangl
 \end{align}
 where ${\mu}^{i,\text{l},\epsilon}$ (${\alpha}^{i,\text{l},\epsilon}$) is the dipole moment (polarizability)
 of the bond $\epsilon$ of the $i$-th water molecule, the superscript (l) denote these quantities are measured in the 
-lab frame, and $N$ is the total number of the water molecules.
+lab frame, and $N$ is the total number of water molecules.
 Therefore, the correlation function in Eq.\thinspace(\ref{eq:chi}) can be written as 
 \begin{align}
   \langle\dot{A}_{\eta\xi}(t)\dot{M}_{\kappa}(0)\rangle 
@@ -765,10 +766,10 @@ ${\bf{D}}^{\text{m}}$ is time dependent.
 Based on the DFTMD simulations, we can implement the parameterization of $\frac{\partial \mu_{k}}{\partial r_z}$ and $\frac{\partial\alpha_{ij}}{\partial r_z}$
 and calculate the correlation function $\langle\dot{A}_{\eta\xi}(t)\dot{M}_{\kappa}(0)\rangle$ through the velocity auto-correlation function. 
 This approximation for estimating the susceptibility retains the details of the interface, including the full electronic structure. 
-And it reduces the computational cost for a total calculation with the instantaneous evaluation of the molecular dipoles and polarizabilities.\cite{sulpizi2013} 
+And it reduces the computational cost for a total calculation with the instantaneous evaluation of the molecular dipoles and polarizabilities\cite{sulpizi2013}. 
 The parametrization of $\frac{\partial \mu_{k}}{\partial r_z}$ and $\frac{\partial\alpha_{ij}}{\partial r_z}$ is based 
 on the calculation of Maximally Localized Wannier Functions (MLWF) \cite{Marzari97} 
- and can be done through the approach developed by Salanne \etal \cite{Salanne08} and Khatib \etal \cite{Khatib2017}
+ and can be done through the approach developed by Salanne \etal \cite{Salanne08} and Khatib \etal \cite{Khatib2017}.
 The implementation of this parametrization is given in Appendix \ref{calculate_derivatives}.
 %\paragraph{Calculation of $\chi^{(2)}$ (Method 2)}
 %We now consider the velocities projection on the water normal modes, identified by the collective variables ${\bf{R}}_j$ in the molecular framework. 
