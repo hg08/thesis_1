@@ -1,15 +1,15 @@
 \chapter{Summary}\label{CHAPTER_Summary}
 Using DFTMD simulations, we have analyzed the interfacial structure and dynamics of electrolyte solutions containing alkali nitrates.
-In particular we have presented a detailed analysis of the HB dynamics, reorientation dynamics of water molecules at the interface 
-and we have calculated the interface vibrational spectra in order to provide a molecular interpretation of available experimental data. 
+In particular we have presented a detailed analysis of the VSFG spectra, HB dynamics, reorientation dynamics of water molecules at the solution/vapor interfaces. 
+We have calculated the interface vibrational spectra in order to provide a molecular interpretation of available experimental data. 
 In view of the similarity between iodide ion and nitrate ion in the Hofmeister sequence, 
-we also did the same calculation for the electrolyte solutions of alkali metal iodide. 
+we also did the same calculation for the electrolyte solutions of alkali metal iodides. 
 It is expected that a general understanding of the dynamical properties in solutions containing larger anions such as 
 nitrate and iodide will be obtained.
 %鉴于碘离子与硝酸根离子在Hofmeister序列中的相似性，我们有时也对碘化碱金属盐的溶液或其界面系统做了计算。以期望对含有硝酸根和碘离子等较大的阴离子的溶液中动力学性质得到一般的认识。
 
 As a first system we have analyzed the behaviour of a salty interface containing LiNO$_3$.
-Both the measured and calculated VSFG spectra shows a reduced intensity of the lower frequency portion region, 
+Both measured and calculated VSFG spectra shows a reduced intensity of the lower frequency portion region, 
 when compared to the water/vapor interface. 
 This reduction is attributed to the H-bonds established between the \nitrate and the surrounding water molecules at the interface.
 This effects is only related to the presence of \nitrate at the water surface and is not affected by the presence of alkali metal ions.
@@ -17,13 +17,13 @@ Indeed we have shown that although the \Li can reside relative close to the wate
 ion pair with \nit, its effect on the VSFG spectrum is not visible. The water molecule which mediate the interaction 
 between the \nitrate and the \Li would produce a red-shifted peak in small water cluster, but its influence is not visible 
 neither in the VSFG spectra. To verify this conclusion, the free energy of different configurations was calculated for 
-larger water clusters in CP2K by the Blue-Moon method. The results still give consistent results: Li$^+$--NO$_3^-$ ion pairs 
+larger water clusters in CP2K by the Blue-Moon method. The results give consistent results: Li$^+$--NO$_3^-$ ion pairs 
 separated by a water molecule have lower free energy than the configuration in which Li$^+$ is in direct contact with NO$_3^-$. 
 
 We have also shown that the use of simple models, such as small cluster is not suitable to reproduce the experimental spectra 
 and cannot provide a microscopic interpretation of the VSFG spectra. Realistic models of the interface are required to address the 
-perturbation of the ion on the water surface. The elucidated mechanism is possibly more general to anions which have high 
-propensity for the water surface, as for example other molecular ions.
+perturbation of ions on the water surface. The elucidated mechanism is possibly more general to anions which have high 
+surface propensity for the solution/vapor interface, as for example other molecular ions.
 
 
 From the results of nonlinear susceptibilities, which shows bonded OH-stretching peaks with higher frequencies, 
@@ -31,9 +31,9 @@ we conclude that the water molecules at the interfaces of LiI, NaI, and KI solut
 in weaker H-bonds, compared with those at the water/vapor interface. 
 This conclusion is based on the DFTMD simulations, and % (with a simulation box with a length scale $\sim$ 10\A)
 the origin of the characteristics come from a unique distribution of \I ions and alkali metal cations, 
-which form a double layer \cite{Shultz2010} over the thickness on the order of 5--10 \A\ (see Appendix \ref{thickness_interface}).
+which form a double layer \cite{Shultz2010} over the thickness on the order of 5 \A\ (see Appendix \ref{thickness_interface}).
 
-For the bulk system, based on the Luzar-Chandler HB population operator, 
+For bulk system, based on the Luzar-Chandler HB population operator, 
 we calculated the correlation functions \CHB, $n(t)$, and $k(t)$, and obtained the reaction rate constants with the HB formation and breakage, 
 and then obtained the information about the HB lifetime. 
 %In order to analyze the HB dynamics on the interface, 
@@ -43,48 +43,46 @@ and then obtained the information about the HB lifetime.
 %so there is no need to select the molecules on the interface and calculate the statistical average of physical quantities. 
 %We took pure water interface and LiNO$_3$ solution as examples, and applied the above method to analyze the HB kinetics and HB lifetime on the interface. 
 %This set of methods can be easily applied to general interface systems or solutions.
-As we did in paragraph \ref{PARAGRAPH_LINO3} and \ref{PARAGRAPH_I--W}, we studied the population operators of nitrate ion--water hydrogen bond 
-and iodide ion--water hydrogen bond and their correlation functions. In general solutions, water--water H-bonds can be extended to ion--water H-bonds, 
-and then similar analysis can be done to study the HB dynamics.
+As we did in paragraph \ref{HBD_ITP}, we studied the population operators of nitrate ion--water hydrogen bond 
+and iodide ion--water hydrogen bond and their correlation functions. 
 
 Based on the DFMD simulations, the MS method % (i.e., select the water molecules in a certain thickness under the interface according to the molecular label)
-can \emph{partially} gives information on the HB breaking and reforming reaction
+can \emph{partially} gives information on the HB breaking and reforming
 rates through the water/vapor interface and therefore partially shows how much the interface affects the dynamics of H-bonds in water. 
 This method \emph{underestimates} the HB breaking rate constant of the water/vapor interface. 
-We have provided a method based on the instantaneous interface and the new-defined
-IHB population operator to obtain the interfacial HB dynamics of instantaneous water/vapor interfaces.  
+We have provided a method based on the \emph{instantaneous} interface and the new-defined
+\emph{interfacial HB population} operator to obtain the interfacial HB dynamics of instantaneous water/vapor interfaces.  
 Using the correlation functions based on IHB population operator, we directly calculated the HB dynamics of water layer with a certain thickness 
 under the instantaneous surface. 
-The IHB method allows us to avoid choosing which molecules are located in the interfacial layer and
-it also can provides partial information on the HB breaking and reforming reaction rates at the interface. 
+The IHB method allows us to avoid choosing which molecules reside in the interfacial layer and
+it also can provide partial information on the HB breaking and reforming rates at the interface. 
 However, it \emph{overestimates} the HB breaking rate constant. The calculation results in these two extreme cases
 indicate that the HB breaking and reforming rate constants in the water layer \emph{below} the surface tends to be uniform 
 (see Fig.\ref{fig:128w_itp_pure_water_pair_k_k_prime_ihb_both_schemes} a) 
-as the thickness of the water layer increases. Therefore, the real HB dynamical characteristics in the air-water interface 
+as the thickness of the water layer increases. Therefore, the real HB dynamical characteristics at the water/vapor interface 
 are derived from the two extreme cases. 
-In particular, the result gives an estimate of the thickness ($\sim$ 3 \AA) of the water/vapor interface.
+In particular, the result gives an estimate of the \emph{thickness} ($\sim$ 3 \AA) of the water/vapor interface.
 
-The combination of MS and IHB methods is also naturally extended to the solution interface. 
+The combination of the methods of MS and IHB is extended to the solution interface. 
 It has been confirmed that different ions in the electrolyte solution interface have their own unique distributions in the normal direction of the interface. 
-Therefore, the thickness of the solution will be greater than the thickness of the water/vapor interface. 
-In addition, we also regard the solvation shell of an ion as an interface, 
-and defined the SHB population operator, which is similar to the IHB population.
+Therefore, the thickness of the solution is greater than the thickness of the water/vapor interface. 
+In addition, we also regarded the solvation shell of an ion as an interface, 
+and defined the \emph{SHB population} operator, which is an extension to the IHB population.
 
-The difference between the HB dynamics for H-bonds outside the first shell of the \Li and for nitrate-water H-bonds 
+The difference between the HB dynamics for H-bonds between the first and the second solvation shell of the \Li and for nitrate-water H-bonds 
 at the interface is not visible from the values of the HB relaxation time. They reflect the difference between HB dynamics in 
-bulk water and at the water/vapor interface. For the interface of alkaline iodine solutions, we find 
+bulk water and at the water/vapor interface. For the alkaline iodide solution/vapor interfaces, we find 
 that the cations does not alter the H-bonding network outside the first hydration shell. 
 It is concluded that no long-range structural-changing effects for alkali metal cations.
-Moreover, we use the SHB method to calculate the HB dynamics for the water molecules outside the first solvation shell.
+Moreover, we use the SHB method to calculate the HB dynamics for water molecules between the first and the second solvation shell.
 As far as the types of ions (\Li, \Na, \K, NO$^-_3$ and \I ions) are concerned, 
 the HB dynamics for water molecule pairs does not vary significantly with the type of ions.
 %我们用SHB方法计算了离子第一溶解壳外的水分子的HBD.　结果显示，我我们所涉及到的离子种类，锂，钠，钾离子，硝酸根离子，碘离子，而言，球内的水分子与水分子之间的氢键动力学并不随着离子种类的不同而有明显差别。
 
 
-Finally, by calculating the rotational anisotropy decay, we obtain non-single-exponential dynamics 
-for the rotation of water molecules both at the surface and in bulk phase for alkaline 
-iodine solutions. Therefore, the rotational motion of water molecules are not simply characterized by well-defined rate constants. 
-Faster rotational anisotropy decay exists for water molecules at the interface of aqueous alkali-iodine solutions, 
+Finally, by calculating the rotational anisotropy decay, 
+we obtain a main result: the average ratio of free OH bonds is the most important factor that affect the decay rate of the reorientation relaxation of water molecules.
+Faster rotational anisotropy decay is a quite good model for water molecules at the interface of aqueous alkali-iodine solutions, 
 which is the result of a different HB types (D$'$AA) from the usual HB type (DDAA) in bulk water. 
 This effect on anisotropy decay is due to the H--I bond at the interface. Since the iodide's surface propensity is high, 
 this difference of HB structure from the water/vapor interface changed the Im$\chi^{(2),\text{R}}$ spectrum and the HB dynamics 
