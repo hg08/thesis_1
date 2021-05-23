@@ -84,7 +84,7 @@ and the $h(t)$ for a HB in a DFTMD simulated water cluster (H$_2$O)$_n$ (n=5) at
 In a large system that consist of many water molecules, the probability that a specific pair of water molecules are H-bonded is extremely small. 
 Therefore, the \CHB relaxes to zero, when $t$ is large enough. 
 The \CHB measures correlation in $h(t)$ independent of any possible bond breaking events. 
-This function is similar to one of the intermittent HB correlation functions, introduced by Rapaport,\cite{Rapaport1983}
+This function is similar to one of the intermittent HB correlation functions, introduced by Rapaport\cite{Rapaport1983},
 and can be studied by a continuous function, probability densities.
 From \CHB, the HB relaxation time can be computed by
 \begin{eqnarray}
@@ -534,8 +534,16 @@ for these interfaces, we can obtain the dynamical characteristics of various sol
 \paragraph{Interfacial hydrogen bond population} \label{IHBP}
 Once we have determined the instantaneous surface ${\mathbf s}(t)={\mathbf s}(\{{r}_i(t)\})$, we can define \emph{interfacial H-bonds}.
 Now we define the interface HB population operator $h^{(\text{s})}[{r}(t)]$ as follows:
-It has a value 1 when the particular tagged molecular pair are H-bonded, \emph{and} both molecules are inside the instantaneous interface 
-with a thickness $d$, and zero otherwise. 
+It has a value 1 when the particular tagged molecular pair $i,j$ are H-bonded, \emph{and} both molecules are inside the instantaneous interface 
+with a thickness $d$, and zero otherwise:
+\begin{align}
+   h^{(\text{s})}[{r}(t)]=\left\{
+   \begin{array}{rcl}
+           1       &      & {i,j\text{ are H-bonded, and}}\\
+                &      & {i,j\text{ are inside the interfacial layer}} \\   \label{eqn:h_s}
+           0       &      & {\text{otherwise}}
+   \end{array} \right.
+\end{align}
 The definition of  $h^{(\text{s})}[{r}(t)]$ is critical to help us to efficiently obtain the H-bonds' dynamic characteristics of 
 the interfacial layer with a given thickness $d$. %Note that the definition of HB here is based on water molecule pairs or O-H pairs. 
 In this paragraph, we discuss H-bonds based on water molecule pairs. 
@@ -674,7 +682,7 @@ We also noticed that the method of MS depends on our sampling rate on the trajec
 while the IHB method does not require such sampling. Therefore, the IHB method is a more convenient method to determine the HBD at the water/vapor interface.
 
 Finally, because the real HB dynamical properties of interface molecules are between the results of the above two methods, 
-we can approximate the interfacial HB dynamics, by either the IHB and the MS method if the thickness of the interface is large enough. 
+we can approximate the interfacial HB dynamics, by either the IHB and the MS method if the thickness of the interface is large enough, i.e., $d>d_0$.
 
 %In summary, if we study the dynamics of H-bonds in a very thin interface, we can use the method of molecular selection, 
 %because the H-bonds obtained in this way are not artificially broken, and if the interface is thick enough  
@@ -940,20 +948,20 @@ We carried on the longer time region 0.2 ps $< t <$ 12 ps (same below).
 %%\end{table}
 
 \section{Summary}
-In this chapter, we have introduced the interfacial HB population operators, 
-and various correlation functions \CHB, \SHB, $n(t)$, and $k(t)$ based on these operators. 
-The HB dynamics calculations for bulk water and the water/vapor interface are based on these correlation functions. 
+In this chapter, we have introduced the interfacial HB population operator, 
+and correlation functions \CHB, \SHB, $n(t)$, and $k(t)$ based on these operators. 
+Then the HB dynamics calculations for the bulk water and the water/vapor interface are based on these correlation functions. 
 The \CHB describes the relaxation of H-bonds. The \SHB gives the average lifetime $\langle \tau_a \rangle$ of the continuous H-bonds. 
 The $n(r)$ describes the probability that a HB is broken but still separated by cutoff radius $r_\text{OO}^\text{c}$. 
+THe $k(t)$ describes the rate that an initially HB breaks at time $t$.
 Based on DFTMD simulations, starting from the functions \CHB, $n(t)$, and $k(t)$, 
 we have calculated the reaction rate constants $k$ and $k'$ for HB rupture and regeneration for bulk water and the water/vapor interface.
 
-We have studied the HB dynamics for instantaneous interfaces using two different statistical methods, the MS and the newly introduced IHB.
-We have found that as the interface thickness increases, 
-the HB reaction rate constants tend to the rate constants in bulk water.
+For the water/vapor interface, we have studied the HB dynamics for instantaneous interfaces using two different statistical methods, the MS and the newly introduced IHB.
+We have found that as the thickness of the interface layer increases, 
+the HB reaction rate constants tend to the rate constants in the bulk water.
 From above results for the water/vapor interface, we conclude that from the perspective of HB dynamics,
 the thickness of the water/vapor interface is about 3 \A. This value is smaller than that obtained from the SFG spectra 
-(Ref. paragraph \thinspace\ref{sfg_lino3_interface}) for the \LiN/vapor interface, and this result has reference significance for our study of the influence of ions on the H-bonds 
-outside the solvation shell of ions. 
-As the presence of ions in the solution affects the HB network, we will analyze these effects in the next chapter.
+(Ref. paragraph \thinspace\ref{sfg_lino3_interface}) for the \LiN/vapor interface. 
+As the presence of ions in solutions affects the HB network, we will analyze these effects in the next chapter.
 
