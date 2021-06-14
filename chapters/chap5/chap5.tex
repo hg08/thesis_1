@@ -68,8 +68,9 @@ With the aid of the ergodic principle, the ensemble average $\langle \cdots\rang
 The $\langle h\rangle$ is the probability that a pair of randomly chosen water molecules in the system is
 H-bonded at any time $t$. 
 As examples, the dynamics of the interoxygen distance $r_{\text{OO}}(t)$, 
-the cosine of H$-$O$\cdots$O angle cos$\phi(t)$  
-and the $h(t)$ for a HB in a DFTMD simulated water cluster (H$_2$O)$_n$ (n=5) at 300 K is displayed in Fig.\thinspace\ref{fig:Ex30ps_hb}, respectively.
+the cosine of the H$-$O$\cdots$O angle (cos$\phi(t)$)  
+and the HB population operator $h(t)$ for a HB in a DFTMD simulated water cluster (H$_2$O)$_n$ (n=5) 
+at 300 K is displayed in Fig.\thinspace\ref{fig:Ex30ps_hb}, respectively.
 %-------------------
 \begin{figure}[hbtp]
 \centering
@@ -84,7 +85,8 @@ and the $h(t)$ for a HB in a DFTMD simulated water cluster (H$_2$O)$_n$ (n=5) at
 In a large system that consist of many water molecules, the probability that a specific pair of water molecules are H-bonded is extremely small. 
 Therefore, the \CHB relaxes to zero, when $t$ is large enough. 
 The \CHB measures correlation in $h(t)$ independent of any possible bond breaking events. 
-This function is similar to one of the intermittent HB correlation functions, introduced by Rapaport\cite{Rapaport1983},
+This function is similar to one of the intermittent HB correlation functions, introduced by Stillinger, Rapaport 
+and others\cite{Stillinger1975,Rapaport1983,Geiger1984,Zichi1986,Sciortino1989,Sciortino1990,Starr2000,vanderSpoel2006,Busch2021},
 and can be studied by a continuous function, probability densities.
 From \CHB, the HB relaxation time can be computed by
 \begin{eqnarray}
@@ -233,7 +235,7 @@ is the integrated flux departing the HB configuration space at time $t=0$ (For d
 The reactive flux $k(t)$ quantifies the rate that an initially present HB breaks at time $t$, 
 independent of possible breaking and reforming events in the interval from 0 to $t$.
 Therefore, $k(t)$ measures the effective decay rate of an 
-initial set of H-bonds\cite{DC87,FWS00}.
+initial set of H-bonds\cite{DC87,Starr2000}.
 
 
 We assume that each HB acts independently of other H-bonds\cite{AL96,AL00}, 
@@ -680,7 +682,7 @@ which have shown that isotropic properties are aleady present
 at sub-nanometer distances from the surface of ordered hydrophobic monolayers.
 They suggested a "healing length" of about 3 \AA with the bulk-phase properties of water recovered within the top few monolayers.
 We also noticed that the method of MS depends on our sampling rate on the trajectory of the simulated system, 
-while the IHB method does not require such sampling. Therefore, the IHB method is a more convenient method to determine the HBD at the water/vapor interface.
+while the IHB method does not require such sampling. Therefore, the IHB method is a more convenient method to determine the HB dynamics at the water/vapor interface.
 
 Finally, because the real HB dynamical properties of interface molecules are between the results of the above two methods, 
 we can approximate the interfacial HB dynamics, by either the IHB and the MS method if the thickness of the interface is large enough, i.e., $d>d_0$.

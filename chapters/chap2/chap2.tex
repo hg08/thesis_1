@@ -389,10 +389,10 @@ In BOMD, the time step can be even larger if the nuclear dynamics becomes fairly
 But in order to resolve vibrations in molecular systems, the time step is decreased to less than 1 fs in this thesis\cite{DM00}.
 %
 \section{Vibrational density of states}\label{section_VDOS}
-In order to obtain information on the vibrational properties of a molecular systems, it is possible to use the velocities Auto-Correlation Functions (ACFs),
+To obtain the vibrational properties of a molecular system, it is possible to use the velocity Auto-Correlation Functions (ACFs),
 as calculated from the AIMD trajectories.
 The obtained Vibrational Density of States (VDOS) can 
-provide information on the local environments on the OH-stretching mode of water molecules. 
+provide information on the local environment of the water molecules' OH-stretching mode. 
 For a system comprised of $N$ atoms, the velocity ACF $C(t)$ for a molecule is \cite{MTD,JMD,TI07} 
 \begin{equation}
 C(t)=\frac{\langle\sum^{N}_{i=1}{\bf{v}}_i(t)\cdot{\bf{v}}_i(0)\rangle}{\langle\sum^{N}_{i=1}{\bf{v}}_i(0)\cdot{\bf{v}}_i(0)\rangle},
@@ -406,9 +406,9 @@ In equilibrium, $C(-t)=C(t)$, and $g(\nu)$ is a real function, i.e.,
 g(\nu)= \sqrt{\frac{2}{\pi}}\int^{\infty}_{0}\text{d}t \text{cos}(2\pi\nu{t})C(t).
 \label{eq:f_omega2}
 \end{equation}
-Single components of the velocities ACFs can also be calculated. For example in the case of an interface it may be of interest to look at 
+Single components of the velocity ACFs can also be calculated. For example in the case of an interface it may be of interest to look at 
 $z$-component (where $z$ is the direction perpendicular to the Gibbs interface),
-we can calculate the Fourier transform $g_z(\nu)$ of the ACF of the vertical component of atomic velocity. 
+we can calculate the FT $g_z(\nu)$ of the ACF of the vertical component of atomic velocity. 
 $g_z(\nu)$ can be calculated by Eq.\thinspace(\ref{eq:f_omega2}) if we replace $C(t)$ by 
 \begin{equation}
 C_z(t)=\frac{\langle\sum^{N}_{i=1}{v_{i,z}(t){v_{i,z}(0)\rangle}}}{\langle\sum^{N}_{i=1}{\bf{v}}_i(0)\cdot{\bf{v}}_i(0)\rangle},
@@ -464,7 +464,7 @@ $\chi^{(2),\text{R}}$ is the vibrationally resonant term, while $\chi^{(2),\text
 \draw [->, thick] (1.2,1.5) -- (1.2,5);
 \draw [->, thick] (3.5,5) -- (3.5,0);
 \end{tikzpicture}
-\caption{The schematic of the VSFG process which involves IR and Raman transitions. The $\nu =0$, $\nu=1$ levels denote the ground and the first excited state of the oscillator\cite{Gang202104}, respectively.
+\caption{The schematic diagram of the VSFG process which involves IR and Raman transitions. The $\nu =0$, $\nu=1$ levels denote the ground and the first excited state of the oscillator\cite{Gang202104}, respectively.
  The dashed line denotes a virtual electronic state in the Raman transition.
 }\label{fig:sfg_1a} 
 \end{figure}
@@ -479,7 +479,7 @@ The molecular information is contained in the resonant signal. The resonant susc
 \label{eq:chi_R}
 \end{equation}
 where the index $\eta$, $\xi$ and $\kappa$ are one of $x, y$ and $z$ labels of the laboratory coordinate frame.
-In Eq.\thinspace(\ref{eq:chi_R}) $\rho=e^{-\beta H/Z}$ for a system with Hamiltonian $H$ and partition function $Z$ at reciprocal temperature $\beta=1/k_BT$;
+In Eq.\thinspace(\ref{eq:chi_R}) $\rho=e^{-\beta H}/Z$ for a system with Hamiltonian $H$ and partition function $Z$ at reciprocal temperature $\beta=1/k_BT$;
 $\mu_\kappa$ is the $\kappa$-th component of the system electric dipole and ${\alpha_{\eta\xi}}$ is the $\eta\xi$-th component of the polarizabiltiy tensor\cite{1995SM}.
 Besides the vibrational resonance, $\chi^{\text{(2),R}}$, which reflects the vibrational and orientational characteristics of the surface species, 
 the VSFG signal also includes the contribution from the non-resonant signal background $\chi^{\text{(2),NR}}$, 
