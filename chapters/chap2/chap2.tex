@@ -1,28 +1,29 @@
 \raggedbottom
 \chapter{Methods}\label{CHAPTER_Methods}
 In this chapter, we describe the methods to study the structure and dynamics of water and aqueous electrolyte solutions.
-We use DFTMD simulations to calculate the theoretical VSFG spectra. 
+The DFTMD simulations are performed to calculate the theoretical VSFG spectra. 
 Our motivations for adopting DFTMD simulations are manifold.
 In general, by using DFTMD, 
 (1) Structure and reactivity can be treated in a consistent way;
 (2) Efficient treatments of basis sets and long range interactions in the DFT do extend the simulation capabilities to 
 thousands of atoms, i.e. it allows realistic models for interfaces;
 (3) They provide information on the structural organization of the solvent in the interfaces. 
-In particular, the interface of the solution contains a large number of water molecules and a HB network composed of H-bonds between them.
+In particular, the interface of solutions contains a large number of water molecules and a HB network composed of H-bonds between them.
 As Stillinger said, since H-bonding is the most important interaction in liquid water and since these interactions 
 are cooperative, it is insufficient for the purposes of computer simulation to use the potential energy function for dimers alone\cite{Stillinger1980}.
 
 The organization of this chapter is the following.
-Paragraph \ref{section_AIMD} to \ref{section_BOMD} give an introduction to the basic ideas of AIMD and DFT as well as the BOMD we adopted.
-Paragraph \ref{section_VDOS} and \ref{section_VSFG} introduce the analysis methods used in this paper, including the method of calculating vibrational properties from velocity autocorrelation and the method of calculating SFG spectrum from velocity correlation function.
-Paragraph \ref{section_SFG_Exp} includes the available experimental data for the VSFG spectra of salty interfaces.
+Paragraph \ref{section_AIMD} to \ref{section_BOMD} give an introduction to the basic ideas of DFTMD as well as the BOMD we adopted.
+Paragraph \ref{section_VDOS} and \ref{section_VSFG} introduce the analysis methods used in this thesis, including the method of calculating 
+vibrational properties from velocity autocorrelation and the method of calculating VSFG spectrum from Velocity Correlation Function (VCF).
+Paragraph \ref{section_SFG_Exp} includes the available experimental data for the VSFG spectra of solution/vapor interfaces.
 
 \section{Modeling interfaces with \abinitio molecular dynamics}\label{section_AIMD}
 Modern theoretical methodology, aided by the advent of high speed computing, has advanced
 to a level where the microscopic details of dynamical processes in condensed phases can be
 treated on a relatively routine basis. One common theoretical approaches
-for obtaining these microscopic details of the system is the MD method.
-In the MD simulations,  the classical Newtonian equations of motion for
+for obtaining these microscopic details of the system is the MD simulations.
+In the MD simulations,  the classical Newton's equations of motion for
 a system are solved numerically starting from a prespecified initial state, and subject to a set of
 boundary conditions appropriate to the problem. The MD methodology allows both equilibrium
 thermodynamic and dynamical properties of a system at finite temperature to be computed,
@@ -30,12 +31,12 @@ while simultaneously providing a view of the microscopic motion of individual at
 in the system\cite{Tuckerman2010}.
 
 %[The reason to use  AIMD to simulate the water/vapor interface]
-Despite the success of classical molecular dynamics simulations, they  have some limitations. First, charges
+Despite the success of classical MD simulations, they  have some limitations. First, charges
 are treated as static parameters, therefore electronic polarization effects are
 not included.  The so-called polarizable models\cite{Rick94,SWR02,Lamoureux03}, in which charges 
 and induced dipoles are allowed to fluctuate in a changing environment, 
 have been proposed to overcome this problem. 
-While they have considerable success, they also have serious limitations, including a lack of transferability 
+While having considerable success, they also have serious limitations, including a lack of transferability 
 and standardization\cite{TME02}. Second, force fields assume a pre-specified connectivity among the atoms, therefore, they suffer
 from an inability to describe chemical bond-forming and -breaking. This problem
 can be treated using techniques such as the empirical valence
@@ -420,7 +421,7 @@ The VDOS $g_z(\nu)$ for water molecules is used to extract the O-H stretch along
 \section{Calculation of VSFG spectroscopy for interfaces}\label{section_VSFG}
 %SFG calculation and measurement
 %[Introduction of the VSFG spectroscopy]
-As we introduced in Chapter \ref{CHAPETR_1}, the VSFG spectroscopy is a powerful tool for extracting structural and dynamical information
+As introduced in Chapter \ref{CHAPETR_1}, the VSFG spectroscopy is a powerful tool for extracting structural and dynamical information
 on surfaces and interfaces.
 It can be applied to any interface as long as light can reach it, also including liquid/metal interfaces\cite{Harris90,Harris90b,DaiHL95,Halevi96,Wieckowski99} 
 and buried interfaces\cite{Chen99,Chen07};
@@ -520,7 +521,7 @@ $\alpha_{\eta\xi}$ is the $\eta\xi$-th component of the molecular dipole polariz
 $\mu_{\kappa}$ is the $\kappa$-th component of the molecular dipole moment,
 and $\gamma_{v'v}$ is the damping rate.
 Since  
-(Appendix \ref{calculation_of_chi}) 
+(see Appendix \ref{calculation_of_chi}) 
 \begin{align}
 \int_0^\infty dt e^{-it[(\omega_{v'}-\omega_v)-\omega-i\gamma_{v'v}]}=\frac{-i}{(\omega_{v'}-\omega_v)-\omega-i\gamma_{v'v}},
 \label{integral_identity1a}
@@ -601,7 +602,7 @@ direction in the medium.
 %Here we discuss the calculation of nonlinear susceptibility of water molecules at liquid/vapor interfaces.
 %The SFG spectrum is proportional to the square of the nonlinear susceptibility of water molecules at the water/vapor interface. \cite{QD94}  
 %Details:
-In this paragraph I review the derivation an expression for the calculation of the sum frequency generation spectra of water interfaces that is
+This paragraph gives the derivation an expression for the calculation of the sum frequency generation spectra of water interfaces that is
 based on the projection of the atomic velocities on the local normal modes, such an approach permits one to obtain the VSFG signals from suitable
 velocity ACFs, reducing the computational cost to that of the accumulation of a molecular dynamics trajectory, and therefore cutting 
 the overhead costs associated with the explicit calculation of the dipole and polarizability tensor. Moreover, the method permits to interpret 
@@ -645,22 +646,22 @@ We assume that the bond elongation are small compared to the total bond length a
 much larger than frequencies of bond reorientation, for example, the libration.
 Therefore, we can approximately write ${\dot\mu}(0)$ by 
 \begin{align}
-    \dot\mu_{\kappa}(0)&=\sum_i^{x,y,z}{\bf{D}}_{\kappa i}(0)\dot{\mu}_i(0) \nonumber \\
-                       &=\sum_i^{x,y,z}{\bf{D}}_{\kappa i}(0)\biggl(\sum_j^{x,y,z}\frac{d\mu_i}{d r_j}\frac{d{r}_j}{dt}|_{t=0}\biggr) \nonumber \\
-                       &=\sum_{i}^{x,y,z}{\bf{D}}_{\kappa i}(0)\frac{d\mu_i}{dr_z}v_z(0),
+    \dot\mu_{\kappa}(0)&=\sum_i^{x,y,z}{{D}}_{\kappa i}(0)\dot{\mu}_i(0) \nonumber \\
+                       &=\sum_i^{x,y,z}{{D}}_{\kappa i}(0)\biggl(\sum_j^{x,y,z}\frac{d\mu_i}{d r_j}\frac{d{r}_j}{dt}|_{t=0}\biggr) \nonumber \\
+                       &=\sum_{i}^{x,y,z}{{D}}_{\kappa i}(0)\frac{d\mu_i}{dr_z}v_z(0),
     \label{eq:dot_mu}
  \end{align}
-where ${\bf D}_{\kappa i}$ is the direction cosine between the laboratory-fixed $\kappa$ axis and the molecular-fixed $i$ axis,
+where ${D}_{\kappa i}$ is the direction cosine between the laboratory-fixed $\kappa$ axis and the molecular-fixed $i$ axis,
 and $v_z=\frac{d{r}_z}{dt}|_{t=0}$ is the projection of the velocity on the bond axis.
 
 Similarly, for the dipole polarizability, we have
 \begin{align}
-  \dot\alpha_{\eta\xi}(t)&=\sum_{i,j}^{x,y,z} \biggl({\bf{D}}_{\eta i}(t)\frac{\partial\alpha_{ij}}{\partial r_z}{\bf{D}}_{\xi j}(t)\biggr)v_z(t). 
+  \dot\alpha_{\eta\xi}(t)&=\sum_{i,j}^{x,y,z} \biggl({D}_{\eta i}(t)\frac{\partial\alpha_{ij}}{\partial r_z}{D}_{\xi j}(t)\biggr)v_z(t). 
   \label{eq:dot_alpha}
  \end{align}
 The Eq.\thinspace(\ref{eq:dot_mu}) and Eq.\thinspace(\ref{eq:dot_alpha}) simplify the calculation of the  
 $\left\langle \dot{A}_{\eta\xi}(t) \dot{\bf{M}}_{\kappa}(0)\right\rangle$ in Eq.\thinspace(\ref{eq:chi}), because $v_z(t)$
-and ${\bf{D}}(t)$ can be readily determined from the DFTMD
+and ${D}(t)$ can be readily determined from the DFTMD
 trajectory, and $\frac{d\mu_i}{dr_z}$ and $\frac{d\alpha_{ij}}{dr_z}$ can be parameterized\cite{Corcelli05,Khatib16}.
 %
 \begin{figure}
@@ -711,21 +712,21 @@ and the $y^{\text m}$ axis is out of the molecular plane\cite{Khatib2017}.
 In the bond framework, $z^{\text{b},\epsilon}$ axis is along the bond $\epsilon$ of a molecule, $z^{\text{b},\epsilon}$
 is in the molecular plane and $y^{\text{b},\epsilon}$ is out of the molecular plane.
 \begin{align}
-  \dot{\alpha}^{\text{l},\epsilon} &= {\bf{D}}^{\text{m}}{\bf{D}}^{\text{b},\epsilon}(\frac{\partial{\alpha}^{\text{b}}}{\partial r}\dot
-    r^{\epsilon})({\bf D}^{\text{b},\epsilon})^{\text{T}}({\bf D}^{\text{m}})^{\text{T}}, \\ 
-    \dot\mu^{\text{l},\epsilon} &= {\bf{D}}^{\text{m}}{\bf{D}}^{\text{b},\epsilon}(\frac{\partial \mu^{\text{b}}}{\partial r}\dot r^{\epsilon}).
+  \dot{\alpha}^{\text{l},\epsilon} &= {{D}}^{\text{m}}{{D}}^{\text{b},\epsilon}(\frac{\partial{\alpha}^{\text{b}}}{\partial r}\dot
+    r^{\epsilon})({D}^{\text{b},\epsilon})^{\text{T}}({D}^{\text{m}})^{\text{T}}, \\ 
+    \dot\mu^{\text{l},\epsilon} &= {{D}}^{\text{m}}{{D}}^{\text{b},\epsilon}(\frac{\partial \mu^{\text{b}}}{\partial r}\dot r^{\epsilon}).
     \label{eq:dot_mu-alpha}
  \end{align}
-The direction cosine matrix ${\bf{D}}^{\text{b},\epsilon=1}$ and ${\bf{D}}^{\text{b},\epsilon=-1}$ can be expressed as 
+The direction cosine matrix ${{D}}^{\text{b},\epsilon=1}$ and ${{D}}^{\text{b},\epsilon=-1}$ can be expressed as 
 \begin{equation}
-    {\bf{D}}^{\text{b},1}=\left(
+    {{D}}^{\text{b},1}=\left(
                 \begin{matrix}
                     \text{cos}\frac{\theta}{2} &  0  & -\text{sin}\frac{\theta}{2}\\
                     0 & 1 & 0\\
                     \text{sin}\frac{\theta}{2} & 0 & \text{cos}\frac{\theta}{2}
 \end{matrix}
 \right),\quad
-    {\bf{D}}^{\text{b},-1}=\left(
+    {{D}}^{\text{b},-1}=\left(
          \begin{matrix}
              -\text{cos}\frac{\theta}{2} & 0 & \text{sin}\frac{\theta}{2}\\
              0 & 1 & 0\\
@@ -736,10 +737,10 @@ The direction cosine matrix ${\bf{D}}^{\text{b},\epsilon=1}$ and ${\bf{D}}^{\tex
 \end{equation}
 where $\theta$ is the H-O-H angle in a water molecule.
 %The approximate value of the angle is 105.5$^\circ$.
-We can use ${\bf{D}}^{\text{m}}$ to transform the coordinates in a molecular framework to coordinates in the lab framework. 
+We use ${{D}}^{\text{m}}$ to transform the coordinates in a molecular framework to coordinates in the lab framework. 
 Because the orientation of water molecules is changing during the simulation, 
 %the angle $\theta'_i$ between the water dipole moment and the $z$-axis is time dependent, therefore, 
-${\bf{D}}^{\text{m}}$ is time dependent. 
+${{D}}^{\text{m}}$ is time dependent. 
 %It can be expressed as 
 %\begin{equation}
 %    {\bf{D}}^{\text{m}}=
@@ -776,7 +777,7 @@ and calculate the correlation function $\langle\dot{A}_{\eta\xi}(t)\dot{M}_{\kap
 This approximation for estimating the susceptibility retains the details of the interface, including the full electronic structure. 
 And it reduces the computational cost for a total calculation with the instantaneous evaluation of the molecular dipoles and polarizabilities\cite{sulpizi2013}. 
 The parametrization of $\frac{\partial \mu_{k}}{\partial r_z}$ and $\frac{\partial\alpha_{ij}}{\partial r_z}$ is based 
-on the calculation of Maximally Localized Wannier Functions (MLWF) \cite{Marzari97} 
+on the calculation of MLWF\cite{Marzari97} 
  and can be done through the approach developed by Salanne \etal \cite{Salanne08} and Khatib \etal \cite{Khatib2017}.
 The implementation of this parametrization is given in Appendix \ref{calculate_derivatives}.
 %\paragraph{Calculation of $\chi^{(2)}$ (Method 2)}
@@ -802,15 +803,15 @@ the relation of the surface/bulk molar concentration ratio $K_{\text{p}}$ \cite{
 0=K_{\text{p,Na}^+}< K_{\text{p,K}^+}< K_{\text{p,Li}^+}.
 \label{eq:bscr}
 \end{equation}
-i.e., \Na is the most surface-excluded in the water solution RNO$_3$, \K is less excluded, 
+i.e., \Na is the most surface-excluded in the alkali nitrate solution RNO$_3$, \K is less excluded, 
 and \Li is the least excluded cation (see Appendix \ref{surface_tension_increment} for details).
-In modeling the interfaces of aqueous solutions of alkali metal nitrates, we decided to start with LiNO$_3$, because the \Li ion is the least excluded of the vapor-liquid interface 
-among the alkali metal ions. 
+In modeling the interfaces of aqueous solutions of alkali nitrates, we started with LiNO$_3$, 
+because the \Li ion is the least excluded of the solution/vapor interface among the alkali metal ions. 
 
 Hua \etal \cite{HuaWei2014} have recently measured the VSFG spectra of water/vapor interface of \LiN salt solutions in the OH stretching region
-(3000--3800 \centimeter) using Heterodyne Detected VSFG spectroscopy\cite{HuaWei2011,HuaWei2011b,ChenXiangKe2010}. 
-The experimental result of the VSFG intensity of the alkali nitrate interfaces is given by in Fig.\space\ref{fig:Allen12}. 
-At a difference with the spectra for the water interface, in the spectra of 
+(3000--3800 \centimeter) using heterodyne detected VSFG spectroscopy\cite{HuaWei2011,HuaWei2011b,ChenXiangKe2010}. 
+The experimental result of the VSFG intensity of the alkali nitrate interfaces is given by in Fig.\thinspace\ref{fig:Allen12}. 
+At a difference with the spectra for the water/vapor interface, in the spectra of 
 \LiN solutions, a depletion of the 3200 \cm peak is observed, with an 
 enhancement of the 3400 \cm peak.
 A similar behaviour had been observed for the interface of NaNO$_3$ and 
