@@ -8,7 +8,7 @@ The code for calculating the instantaneous surfaces of interfacial systems can b
 %===================
 \paragraph{Griding and layering}
 We assume that the normal is along the $z$-axis direction. 
-First, we  discretize the coordinates of the $xy$ plane. 
+First, we discretize the coordinates of the $xy$ plane. 
 We divide the edges along the $x$- and  $y$-axis directions of the simulated box into $N$ parts uniformly, respectively, 
 and the $xy$ plane can be approximated by $N\times N$ discrete points. 
 Then $N\times N$ ordinates of the surface ${\mathbf s}^0(x(t_0),y(t_0))$ at the initial time $t_0$ can be represented as components of an $N\times N$-vector ${\mathbf z}^0(t_0$). 
@@ -30,8 +30,8 @@ At a certain time $t$, the ordinate $z$ of an atom can be approximately represen
 Then we compare $z(i,j)$ and $z^l_{i,j}$, $l=0,1$ to determine if the atom is in the interface layer. 
 If $z^0_{i,j}(t)<z(i,j)<z^1_{ij}(t)$, then the atom at $(x,y,z)$ is located in the interface layer at time $t$.
 
-\paragraph{Molecule sampling from instantaneous interface}\label{para_MS_interface}
-The method of sampling the interfacial molecules is as follows. 
+\paragraph{Interfacial molecule sampling}\label{para_MS_interface}
+The method of IMS is as follows. 
 1) Determine the instantaneous surface of the water/vapor interface system;
 2) Define a interfacial layer with a thickness $d$ below the surfaces; 
 3) Select the atoms which are located between the two instantaneous surface;
@@ -65,9 +65,9 @@ with the definition of H-bonds \cite{AL96b,Luzar1996} to define H-bonds that dep
 %so that we can understand the particularity of the interface of various solutions relative to pure water. 
 %%These results may help us have a better understanding of the physical and chemical processes related to interfaces.
 
-None of the two methods (MS and IHB) for obtaining the HB dynamics of the interface water molecules 
+None of the two methods (IMS and IHB) for obtaining the HB dynamics of the interface water molecules 
 can give the true interface HB dynamics completely and accurately. But they respectively give an extreme case of interface HB dynamics. 
-In the MS method, the formation and breaking of intermolecular H-bonds can be truly described, 
+In the IMS method, the formation and breaking of intermolecular H-bonds can be truly described, 
 but the selection of interface water molecules is not accurate enough, because of the sampling rate $1/{\delta t}$. 
 Since the configuration of the molecule will change over time, 
 the contribution of the H-bonds in bulk phase will be included. 

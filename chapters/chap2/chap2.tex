@@ -1,30 +1,30 @@
 \raggedbottom
 \chapter{Methods}\label{CHAPTER_Methods}
 In this chapter, we describe the methods to study the structure and dynamics of water and aqueous electrolyte solutions.
-The DFTMD simulations are performed to calculate the theoretical VSFG spectra. 
+DFTMD simulations are performed to calculate the theoretical VSFG spectra. 
 Our motivations for adopting DFTMD simulations are manifold.
-In general, by using DFTMD, 
-(1) Structure and reactivity can be treated in a consistent way;
-(2) Efficient treatments of basis sets and long range interactions in the DFT do extend the simulation capabilities to 
-thousands of atoms, i.e. it allows realistic models for interfaces;
-(3) They provide information on the structural organization of the solvent in the interfaces. 
+In general, DFTMD simulations have the following advantages: 
+(1) structure and reactivity can be treated in a consistent way;
+(2) efficient treatments of basis sets and long range interactions in the DFT do extend the simulation capabilities to 
+thousands of atoms, i.e., it allows realistic models for interfaces;
+(3) they provide information on the structural organization of the solvent at the interfaces. 
 In particular, the interface of solutions contains a large number of water molecules and a HB network composed of H-bonds between them.
 As Stillinger said, since H-bonding is the most important interaction in liquid water and since these interactions 
 are cooperative, it is insufficient for the purposes of computer simulation to use the potential energy function for dimers alone\cite{Stillinger1980}.
 
 The organization of this chapter is the following.
-Paragraph \ref{section_AIMD} to \ref{section_BOMD} give an introduction to the basic ideas of DFTMD as well as the BOMD we adopted.
+Paragraph \ref{section_AIMD} to \ref{section_BOMD} give an introduction to the basic ideas of the DFTMD as well as the BOMD we adopted.
 Paragraph \ref{section_VDOS} and \ref{section_VSFG} introduce the analysis methods used in this thesis, including the method of calculating 
-vibrational properties from velocity autocorrelation and the method of calculating VSFG spectrum from Velocity Correlation Function (VCF).
-Paragraph \ref{section_SFG_Exp} includes the available experimental data for the VSFG spectra of solution/vapor interfaces.
+vibrational properties from velocity autocorrelation and the method of calculating VSFG spectra from the Velocity Auto-Correlation Function (VACF).
+Paragraph \ref{section_SFG_Exp} includes the available experimental data for VSFG spectra of solution/vapor interfaces.
 
 \section{Modeling interfaces with \abinitio molecular dynamics}\label{section_AIMD}
 Modern theoretical methodology, aided by the advent of high speed computing, has advanced
 to a level where the microscopic details of dynamical processes in condensed phases can be
 treated on a relatively routine basis. One common theoretical approaches
 for obtaining these microscopic details of the system is the MD simulations.
-In the MD simulations,  the classical Newton's equations of motion for
-a system are solved numerically starting from a prespecified initial state, and subject to a set of
+In the MD simulations, classical Newton equations of motion for
+a system are solved numerically starting from a pre-specified initial state, and subject to a set of
 boundary conditions appropriate to the problem. The MD methodology allows both equilibrium
 thermodynamic and dynamical properties of a system at finite temperature to be computed,
 while simultaneously providing a view of the microscopic motion of individual atoms
@@ -44,8 +44,8 @@ bond method \cite{AW80} or other semi-empirical approaches. Unfortunately, these
 transferable and, therefore, need to be reparametrized for each type of reaction and may end
 up biasing the reaction path in undesirable ways.
 
-To overcome these limitations of force field based approaches, \abinitio molecular dynamics (AIMD) simulation techniques \cite{DKR90,MCP92,Allen1993,MET96,MP97,DM00,RC02}
-can be used. The AIMD combines finite temperature dynamics with forces
+To overcome these limitations of force field based approaches, \abinitio molecular dynamics (AIMD) simulation techniques\cite{DKR90,MCP92,Allen1993,MET96,MP97,DM00,RC02}
+can be used. The AIMD simulation combines finite temperature dynamics with forces
 obtained from electronic structure calculations performed ‘on the fly’ as the MD simulation
 proceeds\cite{DM00}. Because the electronic structure is treated explicitly in the AIMD calculations,
 many-body forces, electronic polarization and bond-forming and -breaking events are described
@@ -55,7 +55,7 @@ path integral approach\cite{RPF65,RPF72}, leading to the \abinitio path integral
 
 The AIMD method have been used to study a wide variety of chemically
 interesting problems in areas such as chemical reactivity, H-bonds for the interfacial structure, pKa,
-and vibrational spectroscopy. AIMD applications include calculations of the structure and dynamics of water and other H-bonded liquids, 
+and vibrational spectroscopy. The AIMD applications include calculations of the structure and dynamics of water and other H-bonded liquids, 
 proton transport in aqueous and condensed phase environments, structure, proton order/disorder and dynamical properties of ice, structure of
 liquid silicates and glasses, mechanisms of polymer knotting, Ziegler-Natta industrial catalysis
 and other surface catalytic processes. 
@@ -69,12 +69,12 @@ experimental data and even suggesting new experiments to perform\cite{TME02}.
 
 %[The reason to use the AIMD? ] 
 %[How to model the water/vapor interface system? ]
-To study the heterogeneous environment at water interface, AIMD is particularly suitable for the following reasons:
-(1) AIMD is only relying on the atomic coordinates of the model system $\bf R$, and not on any adjustable parameter, 
+To study the heterogeneous environment at water interface, the AIMD method is particularly suitable for the following reasons:
+(1) The AIMD method is only relying on the atomic coordinates of the model system $\bf R$, and not on any adjustable parameter, 
 i.e., the interatomic forces ${\bf F}_{\text{I}}=-\bigtriangledown_{{\bf R}_{\text{I}}}V({\bf R})$, where $V({\bf R})$ is the potential energy\cite{VKMP},
 are determined using the first principle electronic structure methods on the fly; 
 (2) New phenomena that are not foreseen before starting the simulation can simply happen if necessary.
-Therefore, AIMD is also a good predictive tool. 
+Therefore, the AIMD method is also a good predictive tool. 
 However, as a drawback, the AIMD simulations are expensive and can nowadays be performed on size-limited system of 100--1000 atoms for up to a few hundred ps. 
 
 \section{Density functional theory} \label{section_DFT}
@@ -122,7 +122,7 @@ The second HK theorem states that the total energy in the electronic density spa
         E^{\text{DFT}}[n_0]= \psi_0  H_{\text{e}} \psi_0 \leq \psi' H_{\text{e}} \psi' =E^{\text{DFT}}[n'],
 \label{eq:HK2}
 \end{equation}
-for which the equality holds iff $n_0=n'$. (variational principle)
+for which the equality holds if and only if $n_0=n'$ (variational principle).
 One try to choose different $n$ to optimize $E^{\text{DFT}}[n]$, the quantum expectation value of $H_{\text{e}}[n]$, thus to determine $E^{\text{DFT}}[n_0]$, i.e.
 \begin{equation}
 E^{\text{DFT}}[n_0]= \min\limits_{\psi} \psi  H_{\text{e}} \psi  = \min\limits_{n}\psi[n]H_{\text{e}}[n]\psi[n] =\min\limits_{n}E^{\text{DFT}}[n],
@@ -390,7 +390,7 @@ In BOMD, the time step can be even larger if the nuclear dynamics becomes fairly
 But in order to resolve vibrations in molecular systems, the time step is decreased to less than 1 fs in this thesis\cite{DM00}.
 %
 \section{Vibrational density of states}\label{section_VDOS}
-To obtain the vibrational properties of a molecular system, it is possible to use the velocity Auto-Correlation Functions (ACFs),
+To obtain the vibrational properties of a molecular system, it is possible to use the VACFs,
 as calculated from the AIMD trajectories.
 The obtained Vibrational Density of States (VDOS) can 
 provide information on the local environment of the water molecules' OH-stretching mode. 
@@ -407,9 +407,9 @@ In equilibrium, $C(-t)=C(t)$, and $g(\nu)$ is a real function, i.e.,
 g(\nu)= \sqrt{\frac{2}{\pi}}\int^{\infty}_{0}\text{d}t \text{cos}(2\pi\nu{t})C(t).
 \label{eq:f_omega2}
 \end{equation}
-Single components of the velocity ACFs can also be calculated. For example in the case of an interface it may be of interest to look at 
+Single components of the VACFs can also be calculated. For example in the case of an interface it may be of interest to look at 
 $z$-component (where $z$ is the direction perpendicular to the Gibbs interface),
-we can calculate the FT $g_z(\nu)$ of the ACF of the vertical component of atomic velocity. 
+we can calculate the FT $g_z(\nu)$ of the auto-correlation function of the vertical component of atomic velocity. 
 $g_z(\nu)$ can be calculated by Eq.\thinspace(\ref{eq:f_omega2}) if we replace $C(t)$ by 
 \begin{equation}
 C_z(t)=\frac{\langle\sum^{N}_{i=1}{v_{i,z}(t){v_{i,z}(0)\rangle}}}{\langle\sum^{N}_{i=1}{\bf{v}}_i(0)\cdot{\bf{v}}_i(0)\rangle},
@@ -558,13 +558,13 @@ where $D(\Omega_i)$ is the direction cosine matrix of the $i$-th molecule, proje
 %\label{eq:beta_condition}
 %        P_p(\omega_1)=\sum_q\alpha_{pq}(\omega_1)E_q(\omega_1)+\sum_{qr}\beta_{pqr}(\omega_1,\omega_2,\omega_3)E_q(\omega_2)E_r(\omega_3)+\cdots
 %\end{equation}
-%where the suffices $p$, $q$ and $r$ range over $x$, $y$ and $z$, and $P_p(\omega_1)$ is the induced dipole moment at frequncy $\omega_1$. The static polarizability and hyperpolarizability are defined as 
+%where the suffices $p$, $q$ and $r$ range over $x$, $y$ and $z$, and $P_p(\omega_1)$ is the induced dipole moment at frequency $\omega_1$. The static polarizability and hyperpolarizability are defined as 
 %\begin{equation}
 %        \alpha_{pq}^{\text{static}}=(\frac{\partial P_p}{\partial E_q})_{E=0},\ \
 %        \beta_{pqr}^{\text{static}}=(\frac{\partial^2 P_p}{\partial E_q \partial E_r})_{E=0}
 %\label{eq:beta_condition}
 %\end{equation}
-%and thus the dipole moment in a static exteral electric field is expressed as 
+%and thus the dipole moment in a static external electric field is expressed as 
 %\begin{equation}
 %        P_p^{\text{static}}=(P_p)_{E=0}+\sum_q\alpha_{pq}^{\text{static}}E_q+\frac{1}{2}\sum_{qr}\beta_{pqr}^{\text{static}}E_qE_r+\cdots,
 %\label{eq:static_dipole_moment}
@@ -604,7 +604,7 @@ direction in the medium.
 %Details:
 This paragraph gives the derivation an expression for the calculation of the sum frequency generation spectra of water interfaces that is
 based on the projection of the atomic velocities on the local normal modes, such an approach permits one to obtain the VSFG signals from suitable
-velocity ACFs, reducing the computational cost to that of the accumulation of a molecular dynamics trajectory, and therefore cutting 
+VACFs, reducing the computational cost to that of the accumulation of a molecular dynamics trajectory, and therefore cutting 
 the overhead costs associated with the explicit calculation of the dipole and polarizability tensor. Moreover, the method permits to interpret 
 the peaks in the spectrum in terms of local modes.
 The components of the resonant term $\chi^{\text{(2),R}}_{\eta\xi\kappa}$ of the second order susceptibility can be calculated 
@@ -772,12 +772,12 @@ ${{D}}^{\text{m}}$ is time dependent.
 %and $\theta'$ is the angle of the dipole moment of the water molecule from the normal direction of the interface, 
 %and both $\gamma$ and $\theta'$ are time dependent.
 
-Based on the DFTMD simulations, we can implement the parameterization of $\frac{\partial \mu_{k}}{\partial r_z}$ and $\frac{\partial\alpha_{ij}}{\partial r_z}$
+Based on DFTMD simulations, we can implement the parameterization of $\frac{\partial \mu_{k}}{\partial r_z}$ and $\frac{\partial\alpha_{ij}}{\partial r_z}$
 and calculate the correlation function $\langle\dot{A}_{\eta\xi}(t)\dot{M}_{\kappa}(0)\rangle$ through the velocity auto-correlation function. 
 This approximation for estimating the susceptibility retains the details of the interface, including the full electronic structure. 
 And it reduces the computational cost for a total calculation with the instantaneous evaluation of the molecular dipoles and polarizabilities\cite{sulpizi2013}. 
 The parametrization of $\frac{\partial \mu_{k}}{\partial r_z}$ and $\frac{\partial\alpha_{ij}}{\partial r_z}$ is based 
-on the calculation of MLWF\cite{Marzari97} 
+on the calculation of the MLWF\cite{Marzari97} 
  and can be done through the approach developed by Salanne \etal \cite{Salanne08} and Khatib \etal \cite{Khatib2017}.
 The implementation of this parametrization is given in Appendix \ref{calculate_derivatives}.
 %\paragraph{Calculation of $\chi^{(2)}$ (Method 2)}
@@ -824,7 +824,7 @@ It has also been argued that the positive electric field found at the interface 
 NaNO$_3$ salt solutions is due to the formation of an ionic double layer 
 between anions located near the surface and their counter-cations (e.g.
 Na$^+$) located further below. In Phase-Sensitive (PS) VSFG experiments the 
-magnitude of the induced change in the Im$\chi^{(2)}$ spectra comparatively
+magnitude of the induced change in the $\Im\chi^{(2)}$ spectra comparatively
 to that of the neat water suggested that \nitrate has a surface propensity 
 just in between I$^-$ and Cl$^-$\cite{Verreault2013,Verreault2009}. 
 % exp. results.
