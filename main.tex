@@ -41,6 +41,8 @@ headsepline, % Uncomment to get a line under the header
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
+\usepackage{mhchem} % chemical reactions 
+
 %\usepackage{mathpazo} % Use the Palatino font by default
 \usepackage{lmodern} % Use the Latin Modern font by default
 
@@ -156,7 +158,7 @@ headsepline, % Uncomment to get a line under the header
 \newcommand{\X}{$x$\xspace}
 \newcommand{\Y}{$y$\xspace}
 \newcommand{\Z}{$z$\xspace}
-
+\newcommand*{\tran}{^{\mkern-1.5mu\mathsf{T}}}
 
 %
 \newcommand{\rt}{$t_\text{t}$\xspace}
@@ -315,7 +317,7 @@ Alkali Nitrate Aqueous Solutions from \abinitio Molecular Dynamics} % Your thesi
 
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-The interfacial structure and dynamics of solutions containing alkali nitrates have been studied by Density Functional Theory-based 
+The interfacial structure and dynamics of solutions containing alkaline nitrates have been studied by Density Functional Theory-based 
 Molecular Dynamics (DFTMD) simulations. In particular we have presented a detailed analysis of the Hydrogen Bond (HB) structure at the interface and 
 have calculated the interface vibrational spectra to provide a molecular interpretation of available experimental data.
 %
@@ -358,16 +360,16 @@ The IHB method is also extended to general interface systems, such as the solvat
 %
 The difference between the HB dynamics in the first solvation shell of the \Li and that of nitrate-water Hydrogen (H-) bonds
 at interfaces is not visible from the values of the HB relaxation time. 
-For the interface of alkaline iodine solutions, we also find that the cations does not alter the H-bonding network 
+For the interface of alkaline iodide solutions, we also find that the cations does not alter the H-bonding network 
 outside the first hydration shell of the cations themselves.
 Through the solvation shell HB (SHB) dynamics, we obtained that 
 the HB dynamics for the H-bonds between water molecules in the first and the second solvation shell are not sensitive to the ions' nature.
 In contrast, after we calculated the reorientation dynamics ($C_2(t)$) of the water molecules in the first solvation shells of ions, 
 We found that the reorientation dynamics for the water molecules in the first solvation shell is significantly affected by the ions. 
 
-Finally, the distribution of the number of H-bonds of a OH group at a given instantaneous interface promotes our understanding of the difference between the alkali nitrate
+Finally, the distribution of the number of H-bonds of a OH group at a given instantaneous interface promotes our understanding of the difference between the alkaline nitrate
 solution/vapor and the water/vapor interfaces. In particular, the ratio of free OH bonds for interfaces affects the decay rate of the reorientation relaxation of water
-molecules and the $\Im \chi^{(2)}$ spectrum of the alkali nitrate interface.
+molecules and the $\Im \chi^{(2)}$ spectrum of the alkaline nitrate interface.
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
@@ -384,21 +386,19 @@ She is rigorous in academic studies, optimistic and active, and has a wide range
 All these have kept in my heart and gave me greater confidence in future scientific research work.
 
 %
+I am grateful to Prof. Dr. Kurt Binder and Prof. Dr. Friederike Schmid for their talks and guidance.
 I wish to thank Prof. Dr. Thomas Kühner, Dr. Giovanni Settanni, PD Dr. Peter
 Virnau, Dr. Hans Behringer and Prof. Dr. Thomas Speck at the institute for
-physics for leading me to the fundamental statistical physics and excellent lectures
-and discussions. I am grateful to Prof. Dr. Friederike Schmid and Prof. Dr. Kurt
-Binder for their talks and guidance.
+physics for leading me to the fundamental statistical physics and excellent lectures and discussions. 
 
 %
 I thank Prof. Dr. Harvey Meyer at the institute for nuclear physics. 
 I feel very honored to be a teaching assistant in his quantum field theory course. I have benefited a lot from his wonderful teaching methods, exercises, and questions and answers with students in his class.
 
 %
-I am grateful to R\'emi Khatib for programing skills and helpful guidance on
-the programs for calculating the VSFG spectra. I also thank Shuanhu Qi, Jiajia Zhou and Fei Yu for useful discussions. 
+I am grateful to R\'emi Khatib for helpful guidance on the programs for calculating the VSFG spectra. I thank Shuanhu Qi, Jiajia Zhou and Fei Yu for useful discussions. 
 I would like to thank Leila Salimi, Isidro Lorenzo Geada, Santosh Kumar Meena and Anusha Lalitha, 
-at the Institute for Physics, for their encouragement and assistance.
+at the Institute for Physics, for their assistance.
 
 %
 I thank Astrid Chase and Daniela Reibel for their enthusiastic and patient help during my stay at the University of Mainz. Thanks to Andreas Nussbaumer  for providing technical support.

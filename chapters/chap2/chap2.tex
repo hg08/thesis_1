@@ -40,7 +40,7 @@ While having considerable success, they also have serious limitations, including
 and standardization\cite{TME02}. Second, force fields assume a pre-specified connectivity among the atoms, therefore, they suffer
 from an inability to describe chemical bond-forming and -breaking. This problem
 can be treated using techniques such as the empirical valence
-bond method \cite{AW80} or other semi-empirical approaches. Unfortunately, these methods are also not
+bond method\cite{AW80} or other semi-empirical approaches. Unfortunately, these methods are also not
 transferable and, therefore, need to be reparametrized for each type of reaction and may end
 up biasing the reaction path in undesirable ways.
 
@@ -394,7 +394,7 @@ To obtain the vibrational properties of a molecular system, it is possible to us
 as calculated from the AIMD trajectories.
 The obtained Vibrational Density of States (VDOS) can 
 provide information on the local environment of the water molecules' OH-stretching mode. 
-For a system comprised of $N$ atoms, the velocity ACF $C(t)$ for a molecule is \cite{MTD,JMD,TI07} 
+For a system comprised of $N$ atoms, the velocity ACF $C(t)$ for a molecule is\cite{MTD,JMD,TI07} 
 \begin{equation}
 C(t)=\frac{\langle\sum^{N}_{i=1}{\bf{v}}_i(t)\cdot{\bf{v}}_i(0)\rangle}{\langle\sum^{N}_{i=1}{\bf{v}}_i(0)\cdot{\bf{v}}_i(0)\rangle},
 \label{eq:Ct3s}
@@ -485,7 +485,7 @@ $\mu_\kappa$ is the $\kappa$-th component of the system electric dipole and ${\a
 Besides the vibrational resonance, $\chi^{\text{(2),R}}$, which reflects the vibrational and orientational characteristics of the surface species, 
 the VSFG signal also includes the contribution from the non-resonant signal background $\chi^{\text{(2),NR}}$, 
 due to static hyperpolarizability of the interface itself\cite{Che2012}.  
-For example, there are strong non-resonant second-order nonlinear responses \cite{Pradier11,Vanselow2012,Wieckowski99} of the interface in the case of some metal(-oxide). 
+For example, there are strong non-resonant second-order nonlinear responses\cite{Pradier11,Vanselow2012,Wieckowski99} of the interface in the case of some metal(-oxide). 
 Generally, experiments employ visible light and VSFG frequencies far from resonant conditions, therefore, the non-resonant 
 term $\chi^{\text{(2),NR}}$ is approximately off-resonant to the light frequencies involved\cite{Morita02}.
 %Neglecting the frequency dependence of the nonresonant term $\chi^{\text{(2),NR}}$ is usually a good approximation. 
@@ -608,7 +608,7 @@ VACFs, reducing the computational cost to that of the accumulation of a molecula
 the overhead costs associated with the explicit calculation of the dipole and polarizability tensor. Moreover, the method permits to interpret 
 the peaks in the spectrum in terms of local modes.
 The components of the resonant term $\chi^{\text{(2),R}}_{\eta\xi\kappa}$ of the second order susceptibility can be calculated 
-according to the classical formula \cite{Morita02,Morita2008,Nihonyanagi2011}
+according to the classical formula\cite{Morita02,Morita2008,Nihonyanagi2011}
 \begin{align}
   \chi^{\text{(2),R}}_{\eta\xi\kappa}&=\frac{-i}{k_{\text{B}}T \omega} \int_0^\infty dt e^{i\omega t}\left\langle \dot{A}_{\eta\xi}(t) \dot{M}_{\kappa}(0)\right\rangle 
  \label{eq:chi}
@@ -660,7 +660,7 @@ Similarly, for the dipole polarizability, we have
   \label{eq:dot_alpha}
  \end{align}
 The Eq.\thinspace(\ref{eq:dot_mu}) and Eq.\thinspace(\ref{eq:dot_alpha}) simplify the calculation of the  
-$\left\langle \dot{A}_{\eta\xi}(t) \dot{\bf{M}}_{\kappa}(0)\right\rangle$ in Eq.\thinspace(\ref{eq:chi}), because $v_z(t)$
+$\left\langle \dot{A}_{\eta\xi}(t) \dot{M}_{\kappa}(0)\right\rangle$ in Eq.\thinspace(\ref{eq:chi}), because $v_z(t)$
 and ${D}(t)$ can be readily determined from the DFTMD
 trajectory, and $\frac{d\mu_i}{dr_z}$ and $\frac{d\alpha_{ij}}{dr_z}$ can be parameterized\cite{Corcelli05,Khatib16}.
 %
@@ -778,7 +778,7 @@ This approximation for estimating the susceptibility retains the details of the 
 And it reduces the computational cost for a total calculation with the instantaneous evaluation of the molecular dipoles and polarizabilities\cite{sulpizi2013}. 
 The parametrization of $\frac{\partial \mu_{k}}{\partial r_z}$ and $\frac{\partial\alpha_{ij}}{\partial r_z}$ is based 
 on the calculation of the MLWF\cite{Marzari97} 
- and can be done through the approach developed by Salanne \etal \cite{Salanne08} and Khatib \etal \cite{Khatib2017}.
+ and can be done through the approach developed by Salanne \etal\cite{Salanne08} and Khatib \etal\cite{Khatib2017}.
 The implementation of this parametrization is given in Appendix \ref{calculate_derivatives}.
 %\paragraph{Calculation of $\chi^{(2)}$ (Method 2)}
 %We now consider the velocities projection on the water normal modes, identified by the collective variables ${\bf{R}}_j$ in the molecular framework. 
@@ -798,7 +798,7 @@ In this chapter, we give the experimental results obtained on salty solutions co
 
 From the experimental data of surface tension dependence on solute concentration $\text{d}\gamma/\text{d}m_2$ 
 at low electrolyte concentrations ($\leq$1.5 M )\cite{Weissenborn95,Hey81,Jarvis68,Jarvis72}, 
-the relation of the surface/bulk molar concentration ratio $K_{\text{p}}$ \cite{Pegram2006} among \li, \Na and \K is: 
+the relation of the surface/bulk molar concentration ratio $K_{\text{p}}$\cite{Pegram2006} among \li, \Na and \K is: 
 \begin{equation}
 0=K_{\text{p,Na}^+}< K_{\text{p,K}^+}< K_{\text{p,Li}^+}.
 \label{eq:bscr}
@@ -808,7 +808,7 @@ and \Li is the least excluded cation (see Appendix \ref{surface_tension_incremen
 In modeling the interfaces of aqueous solutions of alkali nitrates, we started with LiNO$_3$, 
 because the \Li ion is the least excluded of the solution/vapor interface among the alkali metal ions. 
 
-Hua \etal \cite{HuaWei2014} have recently measured the VSFG spectra of water/vapor interface of \LiN salt solutions in the OH stretching region
+Hua \etal\cite{HuaWei2014} have recently measured the VSFG spectra of water/vapor interface of \LiN salt solutions in the OH stretching region
 (3000--3800 \centimeter) using heterodyne detected VSFG spectroscopy\cite{HuaWei2011,HuaWei2011b,ChenXiangKe2010}. 
 The experimental result of the VSFG intensity of the alkali nitrate interfaces is given by in Fig.\thinspace\ref{fig:Allen12}. 
 At a difference with the spectra for the water/vapor interface, in the spectra of 

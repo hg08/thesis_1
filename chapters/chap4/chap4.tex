@@ -30,15 +30,15 @@ To provide the interpretation to the above experimental results, the following a
 (1) VDOS; 
 (2) calculation of the nonlinear susceptibility; 
 (3) reconcile of the interface and cluster picture.
-In Paragraph \ref{sfg_ln}, the VSFG spectroscopy of the alkali nitrate interfaces of  aqueous solutions is calculated,
+In Paragraph \ref{sfg_ln}, the VSFG spectroscopy of the alkaline nitrate interfaces of  aqueous solutions is calculated,
 to find the connection between these two kind of models: the interface and cluster picture.
-Additionally, to study the effect of cations, the interfaces of alkali-iodine solutions are also studied in Paragraph \ref{sfg_alkali_iodide_interface}.
+Additionally, to study the effect of cations, the interfaces of alkaline iodide solutions are also studied in Paragraph \ref{sfg_alkali_iodide_interface}.
 
 \section{VSFG spectra of the LiNO$_3$ solution/vapor interface}\label{sfg_ln}
 % MAIN STATEMENT p1: LiNO3 forms a stable water separated ion pair at the interface.
 % p1a: NO3- is on the surface.
 It has been often put forward the idea that in nitrate solution anion and cation are paired 
-at the interface and form a double layer. Based on the relatively high propensity of \nitrate for the interface \cite{XuM2009,DEO07}
+at the interface and form a double layer. Based on the relatively high propensity of \nitrate for the interface\cite{XuM2009,DEO07}
 we decided to start the simulations with the anion at the water surface and to investigate the possibility that  \LiN
 forms a stable water-separated ion pair at the interface. The idea that nitrate anions form water-separated pair where
 the Coulomb interaction is shielded was already suggested for divalent cation nitrate\cite{XuM2009}.
@@ -47,7 +47,7 @@ The first result is that
 such model system is stable and the \nitrate remains within the topmost water layer during all the simulation time.
 This result can be found in the probability distribution along $z$-axis of the simulation box, 
 as shown in Fig.\thinspace\ref{fig:prob_LiNO3-wat--256_LiNO3_double_axis}.
-This is in agreement with previous simulation results based on polarizable classical force field \cite{DJT13}
+This is in agreement with previous simulation results based on polarizable classical force field\cite{DJT13}
 and also with some DFTMD work on nitric acid, which was also found stable at the interface\cite{ESS07}. 
 Moreover, the \Li remains relatively close to the surface, in a water sub-layer forming a water separated ion pair 
 with the \nitrate at the interface.
@@ -63,7 +63,7 @@ with the \nitrate at the interface.
 %
 % p2: The interface LiNO3 has depletion in 3200 cm-1 in SFG
 % p1 => p2
-We have calculated the susceptibility for the two interfaces, namely the one containing the \LiN pair(salty interface) 
+We have calculated the nonlinear susceptibility for the two interfaces, namely the one containing the \LiN pair (salty interface) 
 and the neat one which does not include any ion. 
 %The SFG signal is calculated by Eq. ~(\ref{eq:chi}):
 %\begin{align}
@@ -86,7 +86,8 @@ and the neat one which does not include any ion.
 % p6: for the top 1\AA, Free OH is less than neat water surface
 % p1a: NO3- is in the region of top 1\AA (or NO3- is on the surface). p5 => p6, p6 => p1a.
 The calculated imaginary part is reported in panel a and the intensity in panel b of  
-Fig.\thinspace\ref{fig:sfg_LiNO3_7A_20ps_gauss150}. The calculated intensity spectra show a depletion of the 3200 \cm region as in the experiments.
+Fig.\thinspace\ref{fig:sfg_LiNO3_7A_20ps_gauss150}. The calculated intensity spectra show a depletion of 
+the 3200 \cm region as in the experiments (see Fig. \ref{fig:sfg_1a}).
 The same feature is also shown in the imaginary part. 
 Also the calculated spectra show that the free OH region is less intense in the salty interface with respect to the water/vapor interface.
 %
@@ -180,7 +181,7 @@ NO$_3^-$ ($k_{p,\text{NO}_3^-} \approx 1.0$).
 How do we reconcile the interface picture and the cluster picture?
 In the small clusters (with 3, 4 and 5 water molecules) the contact ion pair is the most stable configuration, 
 while at the interface the water \emph{separated} configuration is the most stable.
-This suggests that a sufficiently large number of water molecules is required to stabilize a water separated ion pair where
+This result suggests that a sufficiently large number of water molecules is required to stabilize a water separated ion pair where
 the \nitrate anion still reside at the surface. 
 To verify this idea we extracted a relatively large cluster with 30 water molecules from the full interface, centered
 around the \Li ion and we simulate it in the gas phase. 
@@ -235,22 +236,22 @@ This reduction can be attributed to the H-bonds which are established between th
 This effect is only related to the presence of \nitrate at the water surface and is not affected by the presence of \Li ions.
 Indeed we have shown that although \Li can reside relative close to the water surface, also forming a water mediated
 ion pair with \nit, its effect on the VSFG spectrum is not visible. The water which mediate the interaction 
-between the \nitrate and \Li would produce a red-shifted peak in small water cluster, but its influence is not visible 
+between the \nitrate and \Li ions would produce a red-shifted peak in small water cluster, but its influence is not visible 
 neither in the calculated or the measured VSFG spectra. We have also shown that the very simple models,
 such as small clusters are not suitable to reproduce the experimental spectra and cannot provide a microscopic interpretation of the spectra. 
 A realistic model of the interface is required to address the perturbation of the ion on the water surface.
 %In summary, by the DFTMD simulation and analysing the VDOS for water molecules in alkali-nitrate-water clusters and alkali nitrate/vapor interface, 
 %we explains the difference between SFG spectrum of water/vapor interface of water solution of alkali nitrate and that of pure water (Fig. ~\ref{fig:Allen12}). 
 Besides, how do other ions, such as \li, \na, and K$^+$, etc., affect the VSFG spectra of the interface? 
-To test our method and explain the experimental observations, we constructed the interface of lithium iodide,
+To apply our method and explain the experimental observations, we constructed the interface of lithium iodide,
  sodium iodide, and potassium iodide solutions and calculated the VSFG spectra. 
 Experiments have proved that iodide ions have similar properties to nitrate ions in many aspects. 
 For example, they tend to the interface and are easily polarized. 
 On the other hand, when we analyze the effects of cations, the model containing iodide ions is more simplified than the model containing nitrate ions.
 
-\section{VSFG spectra of the alkali iodide solution/vapor interfaces}\label{sfg_alkali_iodide_interface} %Solutions LiI, NaI, KI
+\section{VSFG spectra of the alkaline iodide solution/vapor interfaces}\label{sfg_alkali_iodide_interface} %Solutions LiI, NaI, KI
 Direct investigations of the dynamics of simple ions, such as \I and \br, at water interfaces, 
-by the x-ray photoelectron spectroscopy \cite{ghosal2005} and MD simulations \cite{PJ01,PJ02} 
+by the x-ray photoelectron spectroscopy\cite{ghosal2005} and MD simulations\cite{PJ01,PJ02} 
 have shown that these ions could accumulate at the interface.
 To provide a molecular interpretation of the recorded spectra we perform here AIMD simulations of salty solutions containing alkali cations
 and iodine. % MS modified
@@ -286,7 +287,7 @@ First, we have calculated the probability distributions of \li, \I and O with re
 the normal direction ($z$-axis) of the LiI solution surface. 
 The results are given in Fig.\thinspace\ref{fig:prob_124_LiI_double_axis}, where we see that \I anions prefer to be located at the surface of the 
 solution, while the \Li cations prefer to stay below the surface. This result is consistent with the calculations by 
-Ishiyama and Morita \cite{TI07,Ishiyama2014} on a similar system. 
+Ishiyama and Morita\cite{TI07,Ishiyama2014} on a similar system. 
 %The ions distribution affects the orientation of water molecules in the interface system. % MS removed this sentence.
 
 The effects of \Li and \I on the organization of water molecules are shown in Li--water (Fig.\thinspace\ref{fig:gdr_124_LiI} a) 
@@ -309,12 +310,12 @@ two RDFs is $0.93$ \A, and it can be seen that $\delta_1$ is slightly equal to $
 \end{equation}
 This relation shows that for the water molecules around the I$^-$, only one H atom forms an I--H bond with the I$^-$. 
 This relation also implies that \I is essentially at the outermost layer of the solution interface. 
-This is consistent with many of the previous results from MD simulations \cite{Dang2002,Jungwirth2001} 
+This is consistent with many of the previous results from MD simulations\cite{Dang2002,Jungwirth2001} 
 and experimental results for the increase in surface tension relative to neat water for aqueous solutions of sodium halide salts\cite{Jungwirth2002,Vrbka2004,Garrett2004,Bajaj2016}.
 \begin{table}[htbp] %at 330 K.
 \centering
 \caption{\label{tab:gdr_Li-water} 
-Peaks of $g_{\text{Li-O}}$ and $g_{\text{Li-H}}$ for the LiI solution. (unit:\A, the same for Tables\thinspace\ref{tab:gdr_Na-water} and\thinspace\ref{tab:gdr_K-water})}
+Peaks of $g_{\text{Li-O}}$ and $g_{\text{Li-H}}$ for the LiI solution. (unit: \A, the same for Tables\thinspace\ref{tab:gdr_Na-water} and\thinspace\ref{tab:gdr_K-water})}
 \begin{tabular}{ccc} % 0.9 M
   $g_{\text{Li-O}}$& $g_{\text{Li-H}}$ & $\delta_1$  \\
 \hline
@@ -352,7 +353,7 @@ Peaks of $g_{\text{Li-O}}$ and $g_{\text{Li-H}}$ for the LiI solution. (unit:\A,
 \centering
 \includegraphics [width=0.6\textwidth] {./diagrams/gdr_124_LiI} 
 \setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:gdr_124_LiI} RDFs for LiI solution/vapor interface:
+  \caption{\label{fig:gdr_124_LiI} RDFs for the LiI solution/vapor interface:
   (a) $g_{\text{Li-O}}$ and $g_\text{{Li-H}}$. 
   The first two peaks of $g_{\text{Li-O}}$ and $g_{\text{Li-H}}$: 1.97 and 4.12 \A, and, 2.61 and 4.73 \A, respectively. 
   (b) $g_{\text{I-O}}$ and $g_{\text{I-H}}$. 
@@ -363,7 +364,7 @@ Peaks of $g_{\text{Li-O}}$ and $g_{\text{Li-H}}$ for the LiI solution. (unit:\A,
 \centering
 \includegraphics [width=0.6\textwidth] {./diagrams/gdr_124_NaI} 
 \setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:gdr_124_NaI} RDFs for NaI solution/vapor interface:
+  \caption{\label{fig:gdr_124_NaI} RDFs for the NaI solution/vapor interface:
   (a) $g_{\text{Na-O}}$ and $g_\text{{Na-H}}$. 
   The first two peaks of $g_{\text{Na-O}}$ and $g_{\text{Na-H}}$: 2.41 and 4.55 \A, and, 3.02 and 4.96 \A, respectively. 
   (b) $g_{\text{I-O}}$  and $g_{\text{I-H}}$. 
@@ -374,7 +375,7 @@ Peaks of $g_{\text{Li-O}}$ and $g_{\text{Li-H}}$ for the LiI solution. (unit:\A,
 \centering
 \includegraphics [width=0.6\textwidth] {./diagrams/gdr_124_KI} 
 \setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:gdr_124_KI} RDFs for KI solution/vapor interface:
+  \caption{\label{fig:gdr_124_KI} RDFs for the KI solution/vapor interface:
   (a) $g_{\text{K-O}}$ and $g_\text{{K-H}}$. 
   The first two peaks of $g_{\text{K-O}}$ and $g_{\text{K-H}}$: 2.84 and 4.71 \A, and, 3.40 and 5.51 \A, respectively. 
   (b) $g_{\text{I-O}}$  and $g_{\text{I-H}}$. 
@@ -383,13 +384,13 @@ Peaks of $g_{\text{Li-O}}$ and $g_{\text{Li-H}}$ for the LiI solution. (unit:\A,
 \end{figure}
 %
 
-For the NaI and the KI interfaces, the effects can be seen from Fig.\thinspace\ref{fig:gdr_124_NaI} and \ref{fig:gdr_124_KI}. For \Na and K$^+$, 
+For the NaI and the KI interfaces, the effects can be seen from Fig.s\thinspace\ref{fig:gdr_124_NaI} and \ref{fig:gdr_124_KI}. For \Na and K$^+$, 
 the relation $\delta_1 < R_{\text{OH}}$ remains,
 i.e., $\delta_1 = 0.61$ \AA for \Na and $\delta_1 = 0.56$ \AA  for K$^+$.
-For iodide ions, the relation $\delta_1 \approx R_{\text{OH}}$ still holds (See Fig.\thinspace\ref{fig:gdr_124_NaI} a and \ref{fig:gdr_124_KI} a,
-and Table \ref{tab:gdr_Na-water} and \ref{tab:gdr_K-water}). For \I in NaI interface, $\delta_1 = 0.96$ \A; 
-and for \I in KI interface, $\delta_1 = 0.94$ \AA (See Fig.\thinspace\ref{fig:gdr_124_NaI} b and \ref{fig:gdr_124_KI} b).
-Therefore, these structural properties are similar to that in LiI interface, except the larger solvation shells.
+For iodide ions, the relation $\delta_1 \approx R_{\text{OH}}$ still holds (See Fig.s\thinspace\ref{fig:gdr_124_NaI} a and \ref{fig:gdr_124_KI} a,
+and Table \ref{tab:gdr_Na-water} and \ref{tab:gdr_K-water}). For \I in the NaI interface, $\delta_1 = 0.96$ \A; 
+and for \I in the KI interface, $\delta_1 = 0.94$ \AA (See Fig.s\thinspace\ref{fig:gdr_124_NaI} b and \ref{fig:gdr_124_KI} b).
+Therefore, these structural properties are similar to that in the LiI interface, except the larger solvation shells.
 
 \paragraph{VSFG spectra}
 %We have calculated the susceptibility for the two interfaces, the one containing the LiI pair 
@@ -397,7 +398,7 @@ Therefore, these structural properties are similar to that in LiI interface, exc
 %As we assumed in chapter 3, there is no time dependence of the dipole/polarisability components, therefore, 
 %only the value at $t=0$ is taken into account. 
 %The expression for the VSFG spectrum is :
-The calculated VSFG spectra for LiI, NaI and KI interfaces, are shown in Fig.\thinspace\ref{fig:sfg_118_2LiI_both_50ps_gauss150} to \ref{fig:sfg_118_2KI_both_50ps_gauss150}. 
+The calculated VSFG spectra for the LiI, NaI and KI interfaces, are shown in Fig.s\thinspace\ref{fig:sfg_118_2LiI_both_50ps_gauss150} to \ref{fig:sfg_118_2KI_both_50ps_gauss150}. 
 In all the cases there is one free OH stretching band (3600--3800 \centimeter) and one bonded OH stretching band (3000--3600 \centimeter).
 These features are the same as that of the water/vapor interface.
 %For NaI solution surface, in the region 3600--3800 cm$^{-1}$, Im$\chi^{(2),\text{R}}_{SSP}>0$ is obtained, and it is in 
@@ -413,7 +414,7 @@ These features are the same as that of the water/vapor interface.
 The sign of $\Im\chi^{(2),\text{R}}$ is positive for the free OH peak while it is negative in the H-bonded region. % MS modified 
 This result is consistent with the VSFG spectrum calculated in Paragraph \ref{sfg_ln}, i.e., 
 (1) the anion--water bonds at interfaces decrease the amount of free stretching OH bonds 
-(2) the free stretching peak in the intensity of VSFG decrease and the H-bonded stretching peak is shifted at the interfaces of LiNO$_3$ (or alkali-iodine) solution.
+(2) the free stretching peak in the intensity of VSFG decrease and the H-bonded stretching peak is shifted at the interfaces of LiNO$_3$ (or alkaline iodide) solution.
 %
 \begin{figure}[H]
 \centering    
@@ -423,7 +424,7 @@ This result is consistent with the VSFG spectrum calculated in Paragraph \ref{sf
         (a) $\Im\chi^{(2),\text{R}}_{SSP}$ and 
         (b) $|\chi^{(2),\text{R}}_{SSP}|^2$ of the LiI solution/vapor (solid line) and the water/vapor (dashed line) interface.
         The data for the water/vapor interface is calculated from the DFTMD simulation for the water interface with the same thickness (5 \AA)
-        (the same for Fig.\thinspace\ref{fig:sfg_118_2NaI_50ps_gauss150} and\thinspace\ref{fig:sfg_118_2KI_both_50ps_gauss150}).} 
+        (the same for Fig.s\thinspace\ref{fig:sfg_118_2NaI_50ps_gauss150} and \ref{fig:sfg_118_2KI_both_50ps_gauss150}).} 
 \end{figure} % 0.9 M
 % The data for pure water/vapor interface is calculated from the DFTMD simulation for the water interface with the same thickness (5 \AA).  and same temperature.
 \begin{figure}[htbp]
@@ -457,13 +458,13 @@ This result is consistent with the VSFG spectrum calculated in Paragraph \ref{sf
 
 Compared with the water/vapor interface, the H-bonded peak of $|\chi^{(2),\text{R}}_{SSP}|^2$ for the NaI solution is blue-shifted, 
 which is consistent with experimental results on the NaI solution\cite{EAR04,CST11,LiuDingfang2004,AJ12}.
-The H-bonded OH-stretching peak of $|\chi^{(2),\text{R}}_{SSP}|^2$ for LiI and KI solutions are also blue-shifted. 
+The H-bonded OH-stretching peak of $|\chi^{(2),\text{R}}_{SSP}|^2$ for the LiI and the KI solutions are also blue-shifted. 
 These results support the idea that \I is a strong structure-breaking anion.   
 Secondly, the bonded OH-stretching region of the NaI solution is narrower than that of pure water. 
-This result has also been obtained for the interface of LiNO$_3$ solution.
+This result has also been obtained for the interface of the LiNO$_3$ solution.
 The retained high frequencies of these bonded OH-stretching peaks indicate that these molecules at the interfaces of these solutions are participating in weak H-bonding. 
 The introduction of \I salts, caused a slight decrease in the strong H-bonding region at 3200 \cm and relatively an increase 
-in the weak H-bonding region at 3400 \centimeter.  This result is consistent with experimental results in Ref. \cite{LiuDingfang2004,AJ12}. 
+in the weak H-bonding region at 3400 \centimeter.  This result is consistent with experimental results in Ref.\cite{LiuDingfang2004,AJ12}. 
 
 Because of surface isotropy of the solutions\cite{Shultz2010}, the $\chi^{(2),\text{R}}_{SSP}$ can be calculated either 
 through $\chi^{(2),\text{R}}_{XXZ}$, or $\chi^{(2),\text{R}}_{YYZ}$. 
@@ -476,8 +477,8 @@ From the results of the nonlinear susceptibilities, we conclude that water molec
 in weaker H-bonds, compared with those at the water/vapor interface. 
 The simulation results permit to interpret the features present in the experimental spectra, 
 which can be explained as consequence of the double layer formed by \I ions on
-the topmost water layer and the alkali in the sublayer (bulk in our relatively small simulation box). % MS modified
-Therefore, the VSFG experimental characteristics on alkali nitrate and alkali iodide solutions can be reproduced 
+the topmost water layer and the alkali ion in the sublayer (bulk in our relatively small simulation box). % MS modified
+Therefore, the VSFG experimental characteristics on alkaline nitrate and alkaline iodide solutions can be reproduced 
 from our calculation method, which verifies the reliability of the method used in the current thesis to calculate VSFG spectra.
 \begin{figure}[htbp]
  \centering
