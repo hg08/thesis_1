@@ -8,7 +8,7 @@ In general, DFTMD simulations have the following advantages:
 (2) efficient treatments of basis sets and long range interactions in the DFT do extend the simulation capabilities to 
 thousands of atoms, i.e., it allows realistic models for interfaces;
 (3) they provide information on the structural organization of the solvent at the interfaces. 
-In particular, the interface of solutions contains a large number of water molecules and a HB network composed of H-bonds between them.
+In particular, the interface of solutions contains a large number of H-bonded water molecules.
 As Stillinger said, since H-bonding is the most important interaction in liquid water and since these interactions 
 are cooperative, it is insufficient for the purposes of computer simulation to use the potential energy function for dimers alone\cite{Stillinger1980}.
 
@@ -16,12 +16,14 @@ The organization of this chapter is the following.
 Paragraph \ref{section_AIMD} to \ref{section_BOMD} give an introduction to the basic ideas of the DFTMD as well as the BOMD we adopted.
 Paragraph \ref{section_VDOS} and \ref{section_VSFG} introduce the analysis methods used in this thesis, including the method of calculating 
 vibrational properties from velocity autocorrelation and the method of calculating VSFG spectra from the Velocity Auto-Correlation Function (VACF).
-Paragraph \ref{section_SFG_Exp} includes the available experimental data for VSFG spectra of solution/vapor interfaces.
+Paragraph \ref{section_SFG_Exp} presents an overview of the available experimental data for VSFG spectra of solution/vapor interfaces.
+Paragraph \ref{section:def_HBP} reviews the Luzar-Chandler HB population operator and associated correlation functions, which are the basis for studying the 
+instantanous interfacial HB dynamics. 
 
 \section{Modeling interfaces with \abinitio molecular dynamics}\label{section_AIMD}
 Modern theoretical methodology, aided by the advent of high speed computing, has advanced
 to a level where the microscopic details of dynamical processes in condensed phases can be
-treated on a relatively routine basis. One common theoretical approaches
+treated on a relatively routine basis. One common theoretical approach
 for obtaining these microscopic details of the system is the MD simulations.
 In the MD simulations, classical Newton equations of motion for
 a system are solved numerically starting from a pre-specified initial state, and subject to a set of
@@ -80,7 +82,7 @@ However, as a drawback, the AIMD simulations are expensive and can nowadays be p
 \section{Density functional theory} \label{section_DFT}
 In most currently performed AIMD simulations, the dynamics is performed within the so-called Born-Oppenheimer (BO) approximation.
 Since the mass of an electron is much smaller than that of any nuclei, there is a strong separation of timescales between the electronic and nuclear motion. 
-We assume that the kinetic energy of nuclei is zero and their potential energy is constant in each moment of the dynamics.
+[REWRITE THIS SENTENCE: We assume that the kinetic energy of nuclei is zero and their potential energy is constant in each moment of the dynamics.]
 Therefore, the electrons can be treated independently at constant nuclear coordinates $\bf R$.
 Applying BO approximation, the potential energy $V(\bf R)$ is  written as
 \begin{equation}
@@ -98,13 +100,13 @@ H_{\text{e}} |\Psi_0 \rangle = \epsilon_0({\bf R})|\Psi_0 \rangle.
 \label{eq:SE}
 \end{equation}
 This is a high-dimensional eigenvalue problem, and it is still time consuming. 
-One great solution to the electronic structure problem (to solve the electronic, non-relativistic, time independent many-body 
-Sch\"{o}dinger equation) is the DFT\cite{HK64,KS65}.
+One great solution to the electronic structure problem is the DFT\cite{HK64,KS65}.
 
-DFT can be used to map the problem of a interacting electron gas onto that of a single particle in an effective non-local 
-potential\cite{MCP92}. It provides a favorable compromise between computational cost and accuracy.
+DFT can be used to map the problem of an interacting electron gas onto that of a non-interacting particles in an effective non-local 
+potential\cite{MCP92}. 
 
 %[HK theorem]
+\paragraph{DFT fundamental theorems}
 Hohenberg and Kohn (HK) proved that the total energy of a many-electron system is a unique functional of the electron density $n(\bf r)$.
 The first HK theorem proves that there exists a one-to-one correspondence between the ground state electronic density $n_0(\bf r)$ 
 and an external potential $v(\bf r)$, i.e., the electron density  $n$ determines all
@@ -114,7 +116,7 @@ ground state the density $n$ determines the energy).
 HK theorem says that there exists a valid functional $Q[n]$ that delivers the sum of the electronic kinetic energy $T[n]$ 
 and electron-electron repulsion energy $V_{ee}[n]$ of each trial electron density $n$\cite{Levy1979}.
 
-The electronic density $n(\bf r)$ which depends on just 3 electronic degrees of freedom, become the central quantity in DFT 
+The electronic density $n(\bf r)$, which depends on just 3 electronic degrees of freedom, become the central quantity in DFT 
 in place of the complex $3N_{\text{e}}$-dimensional many-body wave-function.
 
 The second HK theorem states that the total energy in the electronic density space satisfies
@@ -208,6 +210,7 @@ and the exchange and correlation potential
  \end{align}
 Given the explicit form of the exchange and correlation functional $E_{\text{XC}}$, the exchange and correlation potential $V_{\text {XC}}$ can be determined, and thus electron density $n({\bf r})$. Thus the KS equation must be solved self-consistently.
 
+\paragraph{Exchange and correlation: the LDA and GGAs functionals}
 The simplest density functional approximation is the Local Density Approximation (LDA). 
 In LDA, the exchange and correlation energy of an electronic system is
 \begin{equation}
@@ -259,6 +262,7 @@ However, they somewhat overestimate polarizabilities, the predicted dipolar
 polarizability (also called dipole polarizability) being typically 10\% too large.
 
 %[Dispersion Forces]
+\paragraph{Dispersion corrections}
 Dispersion is a general term referring to weak, long-range correlations in electronic structure. It includes van der Waals interactions,
 which originates from the coupling of the electric field generated by fluctuations in the electronic density at position $\bf{r}$ 
 in the system with the density at another point $\bf{r'}$\cite{Zeiss1977,Kohanoff06}. These interactions are not well modelled by any mean-field level of theory, 
@@ -321,7 +325,7 @@ C^{\text{ABC}} \approx -\sqrt{C_6^{\text{AB}}C_6^{\text{AC}}C_6^{\text{BC}}},
 \end{equation}
 since the total three-body contribution is typically 5--10\% of $E_{\text{disp}}=E_{\text{disp}}^{(2)}+E_{\text{disp}}^{(3)}$.
 %
-\section{Born-Oppenheimer molecular dynamics}\label{section_BOMD}
+\section{Born-Oppenheimer and Car-Parrinello molecular dynamics}\label{section_BOMD}
 %[Ehrenfest MD, CPMD and BOMD]
 In computational material science, the most popular AIMD simulation methods are the Born-Oppenheimer MD (BOMD) and Car-Parrinello MD (CPMD) methods. 
 In the BOMD, the potential energy $E[\{\psi_i\};\bf{R}]$ is minimized at each MD step with respect to $\{\psi_i({\bf r})\}$  under the orthonormality condition
@@ -418,7 +422,7 @@ C_z(t)=\frac{\langle\sum^{N}_{i=1}{v_{i,z}(t){v_{i,z}(0)\rangle}}}{\langle\sum^{
 where $v_{i,z}$ is the vertical component of the velocity of the $i$-th atom.
 The VDOS $g_z(\nu)$ for water molecules is used to extract the O-H stretch along the vertical direction to the interface. 
 
-\section{Calculation of VSFG spectroscopy for interfaces}\label{section_VSFG}
+\section{Calculation of VSFG spectra from molecular dynamics simulations}\label{section_VSFG}
 %SFG calculation and measurement
 %[Introduction of the VSFG spectroscopy]
 As introduced in Chapter \ref{CHAPETR_1}, the VSFG spectroscopy is a powerful tool for extracting structural and dynamical information
@@ -793,8 +797,13 @@ The implementation of this parametrization is given in Appendix \ref{calculate_d
 %where $i$ denote the $i$-th water molecule.
 %To parametrize the derivatives $\frac{\partial \alpha_i^{\text{m}}}{\partial R_j}$ and $\frac{\partial {\bf{\mu}}_i^{\text{m}}}{\partial R_j}$,
 %the Maximally Localized Wannier Functions (MLWF) were emplyed.\cite{Salanne08,Khatib2017}
-\section{Available experimental data}\label{section_SFG_Exp}
-In this chapter, we give the experimental results obtained on salty solutions containing alkali cations and nitrate (iodide) anions\cite{PS03,AJ12,HuaWei2014}. 
+\section{Selected experimental data on electrolyte interfaces}\label{section_SFG_Exp}
+
+[Q1: SOME EXPANSION ;
+ 
+Q2: ESTABLISH A CONNECTION BETWEEN THESE EXP.S AND YOUR THESIS. IN PARTICULAR, WHICH OPEN QUESTIONS RAISE FROM THE EXPERIMENTS? WHICH ONE WE WANT TO ADDRESS WITH OUR SIMULATIONS]
+
+In this chapter, we report the experimental results available on salty solutions containing alkali cations and nitrate (iodide) anions\cite{PS03,AJ12,HuaWei2014}. 
 
 From the experimental data of surface tension dependence on solute concentration $\text{d}\gamma/\text{d}m_2$ 
 at low electrolyte concentrations ($\leq$1.5 M )\cite{Weissenborn95,Hey81,Jarvis68,Jarvis72}, 
@@ -834,3 +843,246 @@ just in between I$^-$ and Cl$^-$\cite{Verreault2013,Verreault2009}.
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:Allen12}Experimental VSFG intensity of \LiN solutions, compared with that of neat water\cite{HuaWei2014}.}
 \end{figure}
+
+\section{Definitions of HB population and correlation functions}\label{section:def_HBP}
+Luzar and Chandler\cite{AL96} have pioneered the analysis of the HB dynamics of pure water, and
+subsequently such analysis has been extended to more complex systems, e.g., electrolytes\cite{Chandra2000}, proteins\cite{Tarek02,Matthias13}, 
+biomolecules\cite{Kolano06} and micellar surfaces\cite{SP05}.
+There are geometric\cite{Kumar2007} and energetic\cite{Sciortino1989} criteria to define a HB.
+Here we use the geometric one:
+Two water molecules are H-bonded if their inter-oxygen distance between a specific tagged pair of water molecules 
+is less than cutoff radius $r^{\text{c}}_{\text{OO}}$ and
+the H-O$\cdots$O angle is less than cutoff angle $\phi^{\text{c}}$\cite{AKS86,JT90,SB02}. 
+The value $r^{\text{c}}_{\text{OO}}$ corresponds to the first-minimum position of the O--O Radial Distribution Function (RDF) of water\cite{Sciortino1989}.   
+The choice for $\phi^{\text{c}}$ for water-water molecules is obtained by studying the average number of H-bonds,
+as a function of $\phi^{\text{c}}$\cite{Luzar1993}. We call this definition of HB the Acceptor-Donor-Hydrogen (ADH) criterion. 
+To compare the impact of different HB definitions on HB dynamics, we also use another definition of HB in our analysis. 
+When the distance between the oxygen atoms of two water molecules is less than $r^{\text{c}}_{\text{OO}}$, 
+and the O-H$\cdots$O included angle is greater than cutoff angle $\theta^{\text{c}}$, then we say that there is a HB between the two molecules. 
+We denote this definition as the Acceptor-Hydrogen-Donor (AHD) criterion.
+In this thesis, we use $r^{\text{c}}_{\text{OO}}=3.5$ \AA both for the ADH and AHD criteria, $\phi^{\text{c}}=30^{\circ}$ for the ADH criterion, 
+and $\theta^{\text{c}}=120^{\circ}$ for the AHD criterion.
+
+% introduce h(t)
+The configuration criterion above allows us to define a variable $h[r(t)] = h(t)$, the HB population. 
+Here a configuration $r(t)$ denotes the positions of all the atoms in the system at time $t$\cite{AL96}.  
+The $h(t)$ has a value 1 when the particular tagged pair of molecules are bonded, and 0 otherwise. 
+%=================
+% added 2020-5-27: to show that h(t) is actually the fluctuation of itself (\delta h).
+The fluctuation or deviation in the dynamical variable $h(t)$ from its time-independent equilibrium average $\langle h\rangle$ , 
+is defined by\cite{DC87} 
+$$
+\delta h = h(t) - \langle h\rangle.
+$$
+Since the probability that a specific pair of molecules is bonded in a large system is extremely small, i.e., 
+the time average of $h$ is zero, or  
+$\langle h \rangle = 0$,
+then
+$$
+\delta h(t) = h(t).
+$$
+Therefore, $h(t)$ describe the fluctuation $\delta h(t)$  of the HB population.  
+%=================
+
+While the equilibrium average of $\delta h(t)$ is zero, we can obtain useful information by considering the equilibrium 
+correlations between fluctuations at different times. The correlation between $\delta h(t)$ and $\delta h(0)$ can be written as 
+$$
+\langle \delta h(0) \delta h(t)\rangle = \langle h(0)h(t)\rangle-\langle h \rangle^2 = \langle h(0)h(t)\rangle,
+$$
+where the averaging $\langle\cdots\rangle$ is to be performed over the ensemble of initial conditions.% $(r^N, p^N)$.
+
+
+In this paragraph, we use the following three correlation functions to describe the HB dynamics of the water/vapor interface:
+the HB population auto-correlation function \CHB, the continuum HB population correlation function (also called survival probability) 
+\SHB and the reactive flux $k(t)$\cite{Rapaport1983}.
+
+\FloatBarrier
+\paragraph{Hydrogen bond population auto-correlation function}
+The auto-correlation function \CHB of the HB population is used to describe the structural relaxation of H-bonds. It is defined by 
+\begin{eqnarray}
+c(t)=\langle h(0)h(t) \rangle/\langle h\rangle
+\label{eq:C_HB}.
+\end{eqnarray}
+With the aid of the ergodic principle, the ensemble average $\langle \cdots\rangle$ is implemented by time average.
+The $\langle h\rangle$ is the probability that a pair of randomly chosen water molecules in the system is
+H-bonded at any time $t$. 
+As examples, the dynamics of the interoxygen distance $r_{\text{OO}}(t)$, 
+the cosine of the H$-$O$\cdots$O angle (cos$\phi(t)$)  
+and the HB population operator $h(t)$ for a HB in a DFTMD simulated water cluster (H$_2$O)$_n$ (n=5) 
+at 300 K is displayed in Fig.\thinspace\ref{fig:Ex30ps_hb}, respectively.
+%-------------------
+\begin{figure}[hbtp]
+\centering
+\includegraphics [width=0.42\textwidth] {./diagrams/Ex30ps_hb}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:Ex30ps_hb}Dynamics of $r_{\text{OO}}(t)$ (top panel), cos$\phi(t)$ (middle panel), 
+  and $h(t)$ (bottom panel) for a typical HB in a water cluster. The dashed lines show the interoxygen distance 
+  boundary $r^{\text{c}}_{\text{OO}}$=3.5 \AA (top panel) and criterion of cosine of H$-$O$\cdots$O angle cos$\phi^{\text{c}}$ 
+  with $\phi^{\text{c}}$=30$^{\circ}$ (middle panel), respectively.}
+\end{figure} 
+
+In a large system that consists of many water molecules, the probability that a specific pair of water molecules are H-bonded is extremely small. 
+Therefore, the \CHB relaxes to zero when $t$ is large. 
+The \CHB measures correlation in $h(t)$ independent of any possible bond breaking events. 
+This function is one of the intermittent HB correlation functions, introduced by Stillinger, Rapaport 
+and others\cite{Stillinger1975,Rapaport1983,Geiger1984,Zichi1986,Sciortino1989,Sciortino1990,Starr2000,vanderSpoel2006,Busch2021},
+and can be studied by a continuous function, the probability density.
+From \CHB, the HB relaxation time $\tau_{\text{R}}$ can be computed by
+\begin{eqnarray}
+  \tau_{\text{R}} &=& \frac{\int t c(t)\text{d}t}{\int c(t)\text{d}t}.
+\label{eq:tau_relaxation}
+\end{eqnarray}
+
+The \CHB for the simulated bulk water is shown in Fig.\thinspace\ref{fig:pure_bk_c_from_2_methods} a 
+(For computational details, see Appendix\thinspace\ref{DETAILS_NEAT_WATER}).
+We can obtain the relaxation time from Eq.\thinspace\ref{eq:tau_relaxation}: $\tau_R = 14.01$ ps for the ADH definition, 
+and $\tau_R = 14.16$ ps for the AHD definition. 
+\begin{figure}[H]
+\centering
+\includegraphics [width=0.6\textwidth] {./diagrams/pure_bk_c_from_2_methods}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:pure_bk_c_from_2_methods}
+The \CHB for bulk water, as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds. 
+(a) the interchange processes are included; (b) The interchange processes are neglected.}
+%\caption{\label{fig:128w_c_itp_bk_ns40}Time dependence of \CHB for bulk water at 300 K with density $\rho =1.00$ g/cm$^3$.} 
+%The length of the trajectory is 35 ps of physical time. Ref:\cite{Khaliullin2013}}
+\end{figure} 
+
+The method of HB population-based HB dynamics used in this section has been frequently used in previous literature\cite{Luzar1994,AL96,Chandra2000}. 
+The basis is the population operator $h(t)$ of the HB formed between two water molecules. 
+The function \CHB is interpreted as the probability that the HB is intact at time $t$, 
+if the pair of water molecules are H-bonded at time zero. 
+
+%Besides $h(t)$, here we also discuss another possible definition of the HB population operator ${h}'(t)$.
+When a pair of water molecules $a$ and $b$ are H-bonded, 
+there are 4 different forms of possible H-bonds . 
+In other words, there are exchange processes, i.e., interchange tunneling and bifurcation tunneling, during the dynamics.
+After an exchange process, a pair of bonded molecules still form H-bonds.
+%we say that an old HB is broken and a new HB is formed.
+In the above definition, we have not included this interexchange process, i.e., the H-bonds before and after the interexchange process are regarded as the same HB.
+If we consider this interexchange process in the definition of HB population, the corresponding function $c(t)$ will be slightly differnt, 
+see Fig.\thinspace\ref{fig:pure_bk_c_from_2_methods} b.   
+In the next paragraphs, for the sake of simplicity, 
+we will ignore this interchange process and simply regard the H-bonds before and after the exchange process as the same HB.
+%Fig.\thinspace\ref{fig:pure_bk_c_from_2_methods} a shows the correlation function \CHB for bulk water over time. 
+Comparing Fig.\thinspace\ref{fig:pure_bk_c_from_2_methods} a and b,  
+we find that the relaxation in the latter is faster than that in the former,
+because the bifurcation tunneling (hydrogen exchange) is considered.
+%In the following, we will use the original HB population based on O--H bond, instead of water--water molecule pairs, unless otherwise specified.
+
+%%
+%\begin{figure} [htbp]
+%\centering
+%	\includegraphics [width=0.36\textwidth] {./diagrams/bk_water_c_two_population_operators_with_ADH}
+%\setlength{\abovecaptionskip}{0pt}
+%	\caption{\label{fig:bk_water_c_two_population_operators_with_ADH} The auto-correlation functions of $h(t)$ and ${h}'(t)$ for water molecules in bulk water (ADH criterion). 
+%        The HB population is based on two different definitions: $h(t)$ is based on water molecule pair (solid line),\cite{Khaliullin2013} 
+%and ${h}'(t)$ is based on O--H pairs (dashed line).}
+%\end{figure} 
+Besides, in Fig.s\thinspace\ref{fig:pure_bk_c_from_2_methods} a and \ref{fig:pure_bk_c_from_2_methods} b, 
+we plotted \CHB for bulk water, using the ADH and AHD criteria of HB. We find that the relaxation tie of H-bonds is not affected by the HB criteria. 
+%
+
+Because the thermal motion can cause distortions of H-bonds from the perfectly tetrahedral configuration,
+water molecules show a librational motion on a time scale of $\sim$ 0.1 ps superimposed to rotational and diffusional motions ($> 1$ ps), 
+which causes a time variation of interaction parameters.
+A new HB population $h^{(d)}(t)$ was also defined to obviate the distortion of real HB dynamics\cite{Sciortino1989,Chandra2000}.
+The $h^{(d)}(t)$ is 1 when the interoxygen distance of a particular tagged pair of water molecules is less than $r^{\text{c}}_{\text{OO}}=3.5$ \AA at time $t$ and 0 otherwise. 
+The difference between the operators $h^{(d)}(t)$ and $h(t)$ is that there is no restriction on the angle. Therefore, those molecular pairs that meet the condition of $h^{(d)}(t)=1$ may not meet the condition of $h(t)=1$.
+That is, the H-bonds between the tagged molecular pairs that satisfy the condition $h^{(d)}(t)=1$ may have been broken, but they may more easily form H-bonds again.
+The function 
+\begin{eqnarray}
+  c^{(d)}(t)=\langle h(0)h^{(d)}(t) \rangle/\langle h\rangle
+\label{eq:C_HB_d}
+\end{eqnarray}
+is the probability that the specific two water molecules are located in reformable region ($r_{\text{OO}} < r^{\text{c}}_{\text{OO}}$) at time $t$,
+if they were H-bonded at time zero. 
+The time correlation function 
+%
+\begin{eqnarray}
+n(t)=\langle h(0)[1-h(t)]h^{(d)}(t) \rangle/\langle h\rangle 
+\label{eq:n_HB}
+\end{eqnarray}
+represents the probability at time $t$ 
+that a tagged pair of initially H-bonded water molecules are not bonded but remain separated by less than $r_{\text{OO}}^{\text{c}}$,
+$1-h(t)$ describes the breaking of a HB at time $t$ after its formation at time $t=0$.
+The probability at time $t$ that a pair of water molecules bonded at the initial moment does not be bonded 
+but the distance between their oxygen atoms is still less than $r_\text{OO}^c$ is calculated according to 
+\begin{eqnarray}
+n(t) = \int_0^t dt'k_\text{in}(t'),
+\label{eq:n_from_k_in}
+\end{eqnarray}
+where $k_\text{in}(t) = -\langle \dot h(0)[1-h(t)]h^d(t) \rangle/\langle h\rangle$ is the restricted rate function. 
+%===============================
+\FloatBarrier
+\paragraph{Continuum HB population correlation function \SHB}
+%===============================
+Another scheme to describe the HB dynamics is the continuum HB population correlation function \SHB, or survival probability\cite{Chandra2000} for a newly generated HB.
+It is defined as
+\begin{eqnarray}
+s(t)=\langle h(0)H(t) \rangle/\langle h\rangle 
+\label{eq:S_HB},
+\end{eqnarray}
+where $H(t)=1$ if the tagged pair of molecules, remains \emph{continuously} H-bonded till time $t$ 
+and 0 otherwise.  It describes the probability that an initially H-bonded molecular pair 
+remains bonded at all times up to $t$\cite{Chowdhuri2006}.
+The \SHB for the simulated bulk water according to the formula \ref{eq:S_HB} is shown in Fig.\thinspace\ref{fig:128w_s_itp_bk_ns40}.
+%
+\begin{figure}[hbtp]
+\centering
+\includegraphics [width=0.36\textwidth] {./diagrams/128w_s_bk_ns40}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:128w_s_itp_bk_ns40} Time dependence of \SHB for bulk water.} 
+%The length of the trajectory is 35 ps of physical time.
+\end{figure} 
+
+The average continuum HB lifetime $\langle \tau_{\mathrm{a}} \rangle$ is calculated by the integration of \SHB over $t$ (For detailed derivation, see Appendix \ref{diff_distr}.) :  
+\begin{eqnarray}
+  \langle\tau_{\mathrm{a}}\rangle = \int_0^\infty s(t) dt.
+\label{eq:calculate_hb_lifetime_from_s}
+\end{eqnarray}
+%
+The time derivative of \SHB
+\begin{eqnarray}
+P_a(t) = -\frac{\text{d}s(t)}{\text{d}t}
+\label{eq:P_1}
+\end{eqnarray}
+represents the first passage time probability density of H bonds. $P_a(t)$ is also called probability distribution of HB lifetimes\cite{Sciortino1990prl,Krausche1992,FWS99,Voloshin2009}, or histogram of HB lifetimes\cite{Geiger1984,Stanley2000}.
+It denotes the probability of the first HB breaking in time $t$ after it has been detected at $t=0$, i.e.,
+\begin{eqnarray}
+s(t)= \int_t^\infty P_a(t')dt'.
+\label{eq:P_2}
+\end{eqnarray}
+
+\FloatBarrier
+\paragraph{Reactive Flux $k(t)$} 
+The rate of relaxation to equilibrium is characterized by the reactive flux correlation function, 
+\begin{eqnarray}
+k(t) = -\frac{\text{d}c(t)}{\text{d}t},
+\label{eq:k}
+\end{eqnarray}
+i.e., $k(t)=\langle j(0)[1-h(t)]\rangle/\langle h\rangle$\cite{AL96,AL00},
+where 
+$j(0)=-\text{d}h/\text{d}t|_{t=0}$ 
+is the integrated flux departing the HB configuration space at time $t=0$ (For detailed derivation, see Appendix \ref{calc_rf}.).
+The $-k(t)$ is the average rate of change of HB population for the trajectories in which the HB is broken at a time $t$ later\cite{AL96}, 
+independent of possible breaking and reforming events in the interval from 0 to $t$.
+Therefore, $k(t)$ measures the effective decay rate of an initial set of H-bonds\cite{DC87,Starr2000}.
+
+
+Assuming that each HB acts independently of other H-bonds\cite{AL96,AL00}, 
+thanks to detailed balance condition, we obtain 
+\begin{eqnarray}
+  \tau_{\text{HB}} &=& \frac{1- \langle h\rangle}{k},
+\label{eq:rate}
+\end{eqnarray}
+where $k$ is the rate constant of breaking a HB (forward rate constant)\cite{Chandler1986,Chandler1978}. 
+For an aqueous interface, the probability that a given tagged molecule pair forms a HB is very low, that is, $\langle h\rangle \ll 1$. 
+Therefore, $k$ is related to the average HB lifetime by $\tau_{\text{HB}}=1/k$.
+Using $k'$ to represent the rate constant from the HB \emph{on} state to the HB \emph{off} state for a tagged pair of molecules (backward rate constant),
+the reaction time constant $\tau_\text{re}$ is 
+\begin{eqnarray}
+  \tau_\text{re} &=& \frac{1}{k+k'}.
+\label{eq:reaction_rate_tau}
+\end{eqnarray}
+

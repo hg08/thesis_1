@@ -225,6 +225,20 @@
 \NewDocumentCommand{\subject}{m}{\newcommand{\subjectname}{#1}}
 \NewDocumentCommand{\keywords}{m}{\newcommand{\keywordnames}{#1}}
 
+\NewDocumentCommand{\thesistitleG} { o m }{%
+ \IfValueTF{#1}{\def\shorttitleG{#1}}{\def\shorttitleG{#2}}%
+ \def\@titleG{#2}%
+ \def\ttitleG{#2}%
+}
+\NewDocumentCommand{\degreeG}{m}{\newcommand{\degreenameG}{#1}}
+\NewDocumentCommand{\addressesG}{m}{\newcommand{\addressnameG}{#1}}
+\NewDocumentCommand{\universityG}{m}{\newcommand{\univnameG}{#1}}
+\NewDocumentCommand{\departmentG}{m}{\newcommand{\deptnameG}{#1}}
+\NewDocumentCommand{\groupG}{m}{\newcommand{\groupnameG}{#1}}
+\NewDocumentCommand{\facultyG}{m}{\newcommand{\facnameG}{#1}}
+\NewDocumentCommand{\subjectG}{m}{\newcommand{\subjectnameG}{#1}}
+\NewDocumentCommand{\keywordsG}{m}{\newcommand{\keywordnamesG}{#1}}
+
 \newcommand{\checktoopen}{% New command to move content to the next page which prints to the next odd page if twosided mode is active  
 	\if@openright\cleardoublepage\else\clearpage\fi
 	\ifdef{\phantomsection}{\phantomsection}{}% The \phantomsection command is necessary for hyperref to jump to the correct page
@@ -386,16 +400,16 @@ KOMA-script documentation for details.}]{fancyhdr}
 	#1%added to be able to have abstract more than one page long
 	\thispagestyle{empty}
 	\begin{center}
-		{\normalsize \MakeUppercase{\univname} \par}% University name in capitals
+		{\normalsize \MakeUppercase{\univnameG} \par}% University name in capitals
 		\bigskip
 		{\huge\textit{\abstractname} \par}
 		\bigskip
-		{\normalsize \facname \par}% Faculty name
-		{\normalsize \deptname \par}% Department name
+		{\normalsize \facnameG \par}% Faculty name
+		{\normalsize \deptnameG \par}% Department name
 		\bigskip
-		{\normalsize \degreename\par}% Degree name
+		{\normalsize \degreenameG\par}% Degree name
 		\bigskip
-		{\normalsize\bfseries \@title \par}% Thesis title
+		{\normalsize\bfseries \@titleG \par}% Thesis title
 		\medskip
 		{\normalsize \byname{} \authorname \par}% Author name
 		\bigskip
