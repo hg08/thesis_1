@@ -80,10 +80,14 @@ Therefore, the AIMD method is also a good predictive tool.
 However, as a drawback, the AIMD simulations are expensive and can nowadays be performed on size-limited system of 100--1000 atoms for up to a few hundred ps. 
 
 \section{Density functional theory} \label{section_DFT}
-In most currently performed AIMD simulations, the dynamics is performed within the so-called Born-Oppenheimer (BO) approximation.
-Since the mass of an electron is much smaller than that of any nuclei, there is a strong separation of timescales between the electronic and nuclear motion. 
-[REWRITE THIS SENTENCE: We assume that the kinetic energy of nuclei is zero and their potential energy is constant in each moment of the dynamics.]
-Therefore, the electrons can be treated independently at constant nuclear coordinates $\bf R$.
+In most currently performed AIMD simulations, the dynamics is performed within the so-called Born-Oppenheimer (BO) approximation\cite{Born1927}.
+The mass of an electron is much smaller (1/1800) than that of any nuclei. 
+This means that electrons respond much more rapidly to changes in their 
+environment than nuclei can. 
+As a result, there is a strong separation of timescales between the electronic and nuclear motion, i.e., the kinetic energy of the nuclei can be ignored.
+First, we solve the question that describe the electron motion, for fixed positions of the nuclei. In other words, for a set of electrons moving in the field of a set of fixed nuclei, we find the lowest energy configuration (or \emph{ground state}) of the electrons. 
+Then we can express the ground state energy as a function of the positions of the nuclei (\emph{adiabatic potential energy surface} of atoms).
+In this approximation, the electrons are treated independently at constant nuclear coordinates $\bf R$. This is BO approximation, or adiabatic approximation. 
 Applying BO approximation, the potential energy $V(\bf R)$ is  written as
 \begin{equation}
   V({\bf R})=\langle \Psi_0 | H_{\text{e}} | \Psi_0 \rangle + E_{I}({\bf R}),
@@ -94,7 +98,7 @@ $E_I({\bf R})$ is the energy of the nuclei,
 and $H_{\text{e}}$ is the electronic many-body Hamiltonian, which depends on the electronic 
 coordinates but parametrically on the nuclear degrees of freedom, 
 
-After the BO approximation, a formidable task is to solve the electronic, non-relativistic, time independent many-body Sch\"{o}dinger equation
+After using BO approximation, a formidable task is to solve the electronic, non-relativistic, time independent many-body Sch\"{o}dinger equation
 \begin{equation}
 H_{\text{e}} |\Psi_0 \rangle = \epsilon_0({\bf R})|\Psi_0 \rangle.
 \label{eq:SE}
