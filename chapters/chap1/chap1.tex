@@ -1,4 +1,8 @@
 \chapter{Introduction}\label{CHAPETR_1}
+
+%Why care interface?
+The studies of interfacial systems are extremely important in physics, chemistry, biology, materials science, environmental and atmospheric sciences.
+%1
 %Why ions at water-vpaor important?
 Because of extremely high polarity, water is a unique solvent for salts.
 Interfaces of aqueous electrolyte solutions are ubiquitous in the biology, atmosphere, chemistry, man-made systems 
@@ -6,35 +10,78 @@ and industrial processes\cite{Irwin88,Tobias99, Benderskii00,
 Asahi01,Benderskii02,Richmond02,LiuH04,
 TianCS08,Yamamoto2008, Salmeron2009,ZhangLY09,
 LoNostro2012,Piatkowski2014,Balajka2018}.
-Many phenomena in biology and chemistry, such as adsorption,
-bubble formation, occur at aqueous interfaces\cite{Ball2008,Kuo2004b}. 
+Many phenomena, such as solvation, adsorption\cite{Chang06}, bubble formation\cite{Craig1993,Craig1993b,Weissenborn1995,Marcelja04,Craig04},
+occur at aqueous interfaces\cite{Ball2008,Kuo2004b}. 
+
 %2.
-Ions at the solution/vapor interface can undergo heterogeneous or interfacial reactions\cite{HuJH95,LiuDF04,Clifford07,Manna13,Pillar2014}.
 Compared to bulk atoms or molecules, interfacial atomic or molecular layers generally have very different properties. 
-%for example, water accelerate organic reactions under heterogeneous condition.\cite{Manna13} 
-%Heterogeneous reactions of ozone with bromide at the water/vapor interface of NaBr aerosol were observed, 
-%by Clifford and Donaldson, with measuring pH changes associated with the interfacial reaction of ozone and bromide\cite{Clifford07}.
-%In 2014, Pillar et.al.'s work shows a scheme that catechol, a molecular probe of the oxygenated aromatic hydrocarbons, 
-%present in secondary organic aerosols, contribute interfacial reactive species, which enhance the production 
-%of humic-like substances under atmospheric conditions.\cite{Pillar2014} It also implys that catechol undergoes fast oxidation 
-%at the water/vapor interface by some competing pathways.
+Ions at the solution/vapor interface can undergo heterogeneous or interfacial reactions\cite{HuJH95,LiuDF04,Clifford07,Manna13,Pillar2014}.
+For example, water accelerate organic reactions under heterogeneous condition\cite{Manna13}. 
+Heterogeneous reactions of ozone with bromide at the water/vapor interface of NaBr aerosol were observed, 
+by Clifford and Donaldson, with measuring pH changes associated with the interfacial reaction of ozone and bromide\cite{Clifford07}.
+In 2014, Pillar et.al.'s work shows a scheme that catechol, a molecular probe of the oxygenated aromatic hydrocarbons, 
+present in secondary organic aerosols, contribute interfacial reactive species, which enhance the production 
+of humic-like substances under atmospheric conditions\cite{Pillar2014}. It also implys that catechol undergoes fast oxidation 
+at the water/vapor interface by some competing pathways.
 %Reactions between gases and halide anions are enhanced at the interfaces.\cite{HuJH95,LiuDF04}
+
 %3.
+The influence of ions on the liquid interfaces is of fundamental interest
+and of practical significance. 
+Understanding ion behavior at the air/water interface is crucial in solving environmental problems such as acid
+rain and water pollution.\cite{Chang06} In atmospheric chemistry,
+the uptake of pollutants by water clouds depends on the ion
+distribution at the aqueous solution/vapor interface. Understanding the equilibrium properties and dynamics of ions at
+aqueous interfaces is essential in controlling the chemical reactivity at interfaces.
+
+%4.
+Besides, our understanding of the liquid interface is also closely related to energy and human development. 
+For example, the chemical potential difference of the interface between two seawaters with different salt concentrations. 
+At the intersection of sea water and river water, brackish water is easily produced. 
+There are more than 2 billion kilowatts of usable salinity energy on the earth, and its energy is even greater than the temperature difference energy.
+
+%5.
 Therefore, studying the structure and dynamics of aqueous interfaces (solution/vapor interfaces) is essential for 
 obtaining the informations on the specific mechanism underlying the interfacial phenomena.
  
 %Fact: 
-Experimentally, to determine the structure of an interface, one can use Vibrational Sum-Frequency Generation (VSFG) spectroscopy,
-which utilizes a second-order nonlinear optical process and the resulting signal is very sensitive to surface ions and 
+Experimentally, to determine the structure of an interface, one can probe the second-order nonlinear susceptibility $\chi^{(2)}$ of 
+the interface\cite{Shen84,Guyot-Sionnest1986,Shen2020}.
+For this purpose, the Vibrational Sum-Frequency Generation (VSFG) spectroscopy technology has been frequently used in recent years.
+It utilizes a second-order nonlinear optical process and the resulting signal is very sensitive to surface ions and 
 molecules of a sub-monolayer level\cite{Morita2008,WangHongFei2015,WenYuChieh2016,Ishiyama2017,Penalber-Johnstone2018}. 
 This technique allows for detecting intramolecular vibrational modes, and molecular orientation by detecting polarization dependence of the VSFG signals\cite{Vidal05}.  
 Furthermore, the VSFG spectroscopy does not require ultrahigh-vacuum environment,
 because the interface selectivity is attributed to the symmetry reasons\cite{WeiX02,Morita2018}.
-With the electric dipole approximation, the VSFG process is forbidden in any centrosymmetric bulk medium\cite{Che2012},
+This important property can be explained as following.
+
+
+In general, the components of nonlinear susceptibility represented in different coordinate frames, $\chi^{(2)}_{\alpha\beta\gamma}$ and $\chi^{(2)}_{ijk}$, satisfy the condition 
+\begin{equation}
+\chi^{(2)}_{\alpha\beta\gamma} = a_{\alpha i}a_{\beta j}a_{\gamma k}\chi^{(2)}_{ijk},
+\label{eq:tensor_chi}
+\end{equation}
+where $a$ can written as a $3 \times 3$ matrix representing an arbitrary combination of rotation and inversion.
+If $a$ is restricted to be a symmetry transformation $A$, then all the properties of the sample are identically described in both coordinate frames.
+Then the elements of $\chi^{(2)}$ are the same in both coordinate frames so that
+\begin{equation}
+\chi^{(2)}_{\alpha\beta\gamma} = A_{\alpha i}A_{\beta j}A_{\gamma k}\chi^{(2)}_{ijk}.
+\label{eq:tensor_chi_2}
+\end{equation}
+If the sample has inversion symmetry\cite{Franken1963}, i.e., $A_{\alpha i} = -\delta_{\alpha i}$, Eq.\thinspace\ref{eq:tensor_chi_2} yields
+\begin{align}
+\chi^{(2)}_{\alpha\beta\gamma} &= (-\delta_{\alpha i}) (-\delta_{\beta j}) (-\delta_{\gamma k})\chi^{(2)}_{ijk} \nonumber\\
+    & = -\chi^{(2)}_{\alpha\beta\gamma} \nonumber\\
+    & = 0.
+\label{eq:tensor_chi_3}
+\end{align}
+Therefore, for any material exihibiting inversion symmetry, $\chi^{(2)}$ is identically 0, and sum-frequency generation is precluded.
+This result implies that, with the electric dipole approximation, the VSFG process is forbidden in any centrosymmetric bulk medium\cite{Che2012},
 such as isotropic liquids and glasses, but it is allowed at interfaces because of the broken inversion symmetry\cite{PF00}.
-The advantage is its wide applicability to almost every interface as long as light can reach them. 
+The advantage is its wide applicability to almost every interface which lack a center of inversion, as long as light can reach them. 
 Therefore, the VSFG spectroscopy can be used to probe many types of interfaces, namely, liquid-liquid and 
 solid-liquid interfaces\cite{Guyot-Sionnest1987,RS91,Du93,QD94,Richmond02,Gopalakrishnan2006,ShenYR2006,Morita2008}.
+
 %DONE from vsfg spectra?
 The VSFG spectroscopy can also be applied to metal and semiconductor surfaces\cite{Harris87,Superfine88}.
 The VSFG spectra suggest that the interfacial H-bonding between water molecules is changed by the presence of salt, 
@@ -64,13 +111,73 @@ near the water/vapor interface, i.e., the increase in surface tension
 implies a deficiency of solute in the surface layer\cite{Jarvis1968}, and
 calculated the 'thickness' of the adsorbed layer of pure water, finding 
 the depleted layer from 3.3 to 4.2 \A. 
+
+%
 Some traditional theories, such as Wagner's theory\cite{Wagner1924,dosSantos10}, 
 Onsager and Samaras's theory\cite{Onsager1934}, 
 also support the conclusion of ionic depletion near the water/vapor interface.
 However, the photoelectron emission experiments\cite{Markovich1991,Ghosal05,Garrett04} and the polarizable 
-force-field simulations\cite{Perera1991,Dang1993,Jungwirth2001,Jungwirth2002,PJ06,Horinek07,Brown08,CST11} showed that anions are able to approach the interface closer than the cations. 
-%In particular, Molecular Dynamics (MD) simulations have shown that more polarizable anions (e.g., larger halide anions) are present in the surface region\cite{Jungwirth2001,Jungwirth2002}. 
-%For example, Tian and coworkers\cite{CST11} have predicted that some ions, such as \I and Br$^{-}$, could accumulate at the interface.
+force-field simulations\cite{Perera1991,Dang1993,Jungwirth2001,Jungwirth2002,PJ06,Horinek07,Brown08,CST11} showed that 
+some heavier halies anions are able to approach the interface closer than the cations, 
+while the surface tension of these solutions is also increased compared to pure water. 
+
+%
+In particular, Molecular Dynamics (MD) simulations have shown that more polarizable anions (e.g., larger halide anions) 
+are present in the surface region\cite{Jungwirth2001,Jungwirth2002}. 
+Tian and coworkers\cite{CST11} have also predicted that some ions, such as \I and Br$^{-}$, could accumulate at the interface.
+These seemingly contradictory conclusions with the Gibbs adsorption equation may mean that our understanding of the interface is still incomplete. 
+One possible guess is that our definition of the solution/vapor interface is not clear enough. 
+This thesis will study the solution(water)/vapor interfaces from the calculation results of the nitrate and iodide solution's SFG spectrum, 
+the interfacial hydrogen bond dynamics, ion density distribution, the orientation relaxation of the OH bond at the interface, etc., 
+in an attempt to fully understand the interface from different perspectives. 
+Especially, we are trying to answer a question: How thick is the interface of the solution?
+
+%Report the available experimental data for the VSFG spectra of salty interfaces.
+%{Selected experimental data on electrolyte interfaces}\label{section_SFG_Exp}
+%[Q1: SOME EXPANSION ;
+%Q2: ESTABLISH A CONNECTION BETWEEN THESE EXP.S AND YOUR THESIS. IN PARTICULAR, WHICH OPEN QUESTIONS RAISE FROM THE EXPERIMENTS? WHICH ONE WE WANT TO ADDRESS WITH OUR SIMULATIONS]
+
+Here, we report the experimental results available on salty solutions containing alkali cations and nitrate (iodide) anions\cite{PS03,AJ12,HuaWei2014}. 
+From the experimental data of surface tension dependence on solute concentration $\text{d}\gamma/\text{d}m_2$ 
+at low electrolyte concentrations ($\leq$1.5 M )\cite{Weissenborn95,Hey81,Jarvis68,Jarvis72}, 
+the relation of the surface/bulk molar concentration ratio $K_{\text{p}}$\cite{Pegram2006} among \li, \Na and \K is: 
+\begin{equation}
+0=K_{\text{p,Na}^+}< K_{\text{p,K}^+}< K_{\text{p,Li}^+}.
+\label{eq:bscr}
+\end{equation}
+i.e., \Na is the most surface-excluded in the alkali nitrate solution RNO$_3$, \K is less excluded, 
+and \Li is the least excluded cation (see Appendix \ref{surface_tension_increment} for details).
+In modeling the interfaces of aqueous solutions of alkali nitrates, we started with LiNO$_3$, 
+because the \Li ion is the least excluded of the solution/vapor interface among the alkali metal ions. 
+
+Hua \etal\cite{HuaWei2014} have recently measured the VSFG spectra of water/vapor interface of \LiN salt solutions in the OH stretching region
+(3000--3800 \centimeter) using heterodyne detected VSFG spectroscopy\cite{HuaWei2011,HuaWei2011b,ChenXiangKe2010}. 
+The experimental result of the VSFG intensity of the alkali nitrate interfaces is given by in Fig.\thinspace\ref{fig:Allen12}. 
+At a difference with the spectra for the water/vapor interface, in the spectra of 
+\LiN solutions, a depletion of the 3200 \cm peak is observed, with an 
+enhancement of the 3400 \cm peak.
+A similar behaviour had been observed for the interface of NaNO$_3$ and 
+Mg(NO$_3$)$_2$ solutions\cite{AJ12,HuaWei2014}. It has been 
+suggested that this depletion of the 3200 \cm peak, and in some cases 
+the enhancement of the 3400 \cm peak, is an indication that nitrate 
+ions reside at the interface. On the other hand the small 
+cations should have little surface propensity. 
+It has also been argued that the positive electric field found at the interface of NaCl, NaI and 
+NaNO$_3$ salt solutions is due to the formation of an ionic double layer 
+between anions located near the surface and their counter-cations (e.g.
+Na$^+$) located further below. In Phase-Sensitive (PS) VSFG experiments the 
+magnitude of the induced change in the $\Im\chi^{(2)}$ spectra comparatively
+to that of the neat water suggested that \nitrate has a surface propensity 
+just in between I$^-$ and Cl$^-$\cite{Verreault2013,Verreault2009}. 
+% exp. results.
+\begin{figure}[H] %[htbp]
+\centering
+  \includegraphics [width=0.6 \textwidth] {./diagrams/vsfg_alkali_nitrate}
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:Allen12}Experimental VSFG intensity of \LiN solutions, compared with that of neat water\cite{HuaWei2014}.}
+\end{figure}
+
+
 %Auer and Skinner\cite{Auer08} found that water molecules, at the water/vapor interface, without an H-bond to the H atom are responsible for the distinct shoulder on the blue side of the Raman spectra, by decomposing the transition frequency distribution into subdistributions for water molecules in different H-bonding environments.
 %Caleman and coworkers tried to interpret halide ions' surface preference by molecular simulations of alkali and halide ions in water droplets, 
 %by using physical properties of ions, such as water-water interaction, ion-water energy, entropy and polarizability, without using chemical properties.\cite{Caleman11}
@@ -101,10 +208,6 @@ force-field simulations\cite{Perera1991,Dang1993,Jungwirth2001,Jungwirth2002,PJ0
 %Via the Gibbs adsorption equation, it has been known that, in 
 %aqueous solutions of simple inorganic salts, such as the
 %alkali halides, the surface tension increases with solute concentration.\cite{PJ01}
-%Traditional thermodynamic model suggests ions in water should be
-%repelled from the water/vapor interface, but recent 
-%MD simulations have predicted that some ions, such as
-%\I and Br$^{-}$, could accumulate at the interface.\cite{CST11,PJ01}
 
 % 5th
 %[REMOVE] 
@@ -125,16 +228,7 @@ force-field simulations\cite{Perera1991,Dang1993,Jungwirth2001,Jungwirth2002,PJ0
 %an enhancement in the local structure of water around the solute, or change (decrese) of entropy.\cite{Frank45a, Frank45b,Frank45c}
 %The iceberg model was proposed to consider the anomalously large decrease in entropy during hydration.\cite{Frank45c}
 
-%DONE for HBD
-%The femtosecond InfraRed Spectroscopy (fsIRS) has been used as a new experimental tool to see the HB dynamics in ionic hydration shells.\cite{Laage07} 
-%Tominaga and coworkers studied the dynamical structure of water in the presence of alkali-metal and halide ions as functions of temperature and concentration, 
-%by using the low frequency Raman spectroscopy. 
-%They found that the water-water intermolecular stretching frequency decrease with increasing ion concentration.\cite{KM98,Amo00}
 
-%H-Bonds act as bridges between protein binding sites and their substrates. \cite{Ball05}
-%The structure and dynamics of H bonds play an important role in determining the thermodynamic properties of biomolecules in aqueous solutions.\cite{HX01}  Water’s HB dynamics is also intimately connected to its ultrafast vibrational dynamics.\cite{Nagata15} The dynamic process of rupturing and reforming of H-bonds is water solution can be indirectly probed by a number of experimental methods.\cite{OC84,JT85}  The dynamical response of water is intimately related to the lifetime of H-bonds.\cite{SP05}) Although it can not be yield by experimental methods, it can be studied by computer simulations.\cite{DCR83,VPV09}
-%Computer simulations are tools for the study of  hydrogen-bond kinetics near the solvated ions and biomolecules. \cite{PJR79,YKC98}
-%Reactive halogen atoms involved in catalytic reactions are main resource to the Arctic tropospheric ozone depletion. \cite{Foster97,Knipping00,Oum98} 
 
 % WE HAD KNOW THE PROBLEM, THEN HOW TO SET UP OUR MODELS and START TO TRYING TO SOLVE THEM
 %The structural and dynamical properties of aqueous solutions have been long studied, but the basic physical
@@ -146,20 +240,15 @@ force-field simulations\cite{Perera1991,Dang1993,Jungwirth2001,Jungwirth2002,PJ0
 %by using VSFG spectroscopy and comparing the VSFG signal from four alkali halide salt solutions---NaF, NaCl, NaBr 
 %and NaI. 
 
-%Useful models for investigating HB dynamics includes the Jump model, extended jump model\cite{Laage07};
-%The analytic kinetic model connected to $C(t)$;\cite{Laage07}
-%monoexponential decay, characterized by the reorientation time $\tau_2$, of the orientational time correltion function:
-%$C(t)=\langle P_2[{\bf u}(0)\cdot{\bf u}(t)]$, where $P_2$ is the second-rank Legendre polynomial and ${\bf u}$ is the OH-bond direction vector.
-%Chloride diffusion constant in water, is calculated from simulations through the ion mean-square displacement 
-%$D=\lim\limits_{t\to\infty} 1/6t \langle |r(t)-r(0)|^2\rangle$\cite{Laage07}.
 
 %DONE by others
 In recent years, MD simulations have been used for calculating properties, 
 such as the depth profile of ion concentrations of interfaces\cite{Jungwirth2001,Jungwirth2002}, and the VSFG spectra 
 of electrolyte solution surfaces\cite{Gopalakrishnan2006,Johnson2014,Ishiyama2014,Ishiyama2017},
 but the results depend heavily on the molecular model and interaction potentials used\cite{LXD03,MKP04,TI07,MM05}.
-In this thesis, we use Density Functional Theory-based Molecular Dynamics (DFTMD) simulations to compute 
-the interfacial VSFG spectra of electrolyte solutions and to provide their molecular interpretation.
+In this thesis, we use Density Functional Theory-based Molecular Dynamics (DFTMD) simulations to generate the dynamic trajectory of 
+the liquid interface, and use them to calculate the various properties mentioned above, including the VSFG spectrum.  
+%AIM: compute the interfacial VSFG spectra of electrolyte solutions and to provide their molecular interpretation.
 The advantage of DFTMD is that it does not require a priori parameterization and it is capable to include polarization effects\cite{Ufimtsev2011},
 also including electronic polarization. DFTMD at the gradient corrected level, and also including dispersion corrections\cite{Grimme04,Grimme06,Grimme07,Grimme10,Baer2011}
 has been shown to provide an accurate description of the vibrational properties at interface\cite{Fornaro2015}.
@@ -169,11 +258,12 @@ has been shown to provide an accurate description of the vibrational properties 
 Recently considerable attention has been given to the nitrate ions in aqueous phase 
 for their ubiquitous and diverse role in atmospheric aerosols, polluted water, 
 and the remote troposphere\cite{XuM2009,Jubb2012}.
+In view of the uniqueness of the adsorption of heavier halide anions in surface tension experiments and molecular dynamics simulations, 
+we also chose the interface of lithium iodide, sodium iodide, potassium iodide and other solutions for DFTMD simulation.
 In order to clarify the variations of the structural and dynamical properties 
 of water containing ions with high surface propensity, MD simulations are a valuable tool, 
 which can provide detailed information on the structure and dynamics  
-of water in a simple and well-known system like alkali metal nitrate and alkali metal halide solutions\cite{KM98}.
-In this thesis we concentrate on the liquid/vapor interface of alkali metal nitrate and alkali metal halide solutions.
+of water in these simple and well-known systems: alkali metal nitrate and alkali metal halide solutions\cite{KM98}.
 
 %
 The hydrogen (H-) bonding network \cite{Eisenberg1969,Speedy1976,Poole1994,Soper2008b,Nilsson2011,Ball2001,Pettersson2015} as well as electrostatic forces, 
@@ -185,6 +275,28 @@ Due to molecular motions, the identity of molecules that on the interface also c
 To represent the interface at molecular level, the technique for calculating instantaneous liquid interface are used to define a liquid interface from atomic coordinates.
 The instantaneous interfaces are calculated for the aqueous electrolyte solutions, and are used in the analyse of interfacial HB dynamics, 
 reorientation relaxation rate of water molecules, etc.
+
+%DONE for HBD
+The femtosecond InfraRed Spectroscopy (fsIRS) has been used as a new experimental tool to see the HB dynamics in ionic hydration shells\cite{Laage2007}. 
+Tominaga and coworkers studied the dynamical structure of water in the presence of alkali-metal and halide ions as functions of temperature and concentration, 
+by using the low frequency Raman spectroscopy. 
+They found that the water-water intermolecular stretching frequency decrease with increasing ion concentration\cite{KM98,Amo00}.
+H-Bonds act as bridges between protein binding sites and their substrates\cite{Ball05}.
+The structure and dynamics of H-bonds play an important role in determining the thermodynamic properties of biomolecules in aqueous solutions\cite{HX01}. 
+Water’s HB dynamics is also intimately connected to its ultrafast vibrational dynamics\cite{Nagata15}. 
+The dynamic process of rupturing and reforming of H-bonds is water solution can be indirectly probed by a number of experimental methods\cite{OC84,JT85}.
+The dynamical response of water is intimately related to the lifetime of H-bonds\cite{SP05}. 
+Although it can not be yield by experimental methods, it can be studied by computer simulations\cite{Rapaport1983,Voloshin2009}.
+Computer simulations are tools for the study of hydrogen-bond kinetics near the solvated ions and biomolecules\cite{PJR79,YKC98}.
+%Reactive halogen atoms involved in catalytic reactions are main resource to the Arctic tropospheric ozone depletion. \cite{Foster97,Knipping00,Oum98} 
+
+%Useful models for investigating HB dynamics includes the jump model, extended jump model\cite{Laage2007};
+%The analytic kinetic model connected to $C(t)$\cite{Laage2007};
+%monoexponential decay, characterized by the reorientation time $\tau_2$, of the orientational time correltion function:
+%$C(t)=\langle P_2[{\bf u}(0)\cdot{\bf u}(t)]$, where $P_2$ is the second-rank Legendre polynomial and ${\bf u}$ is the OH-bond direction vector.
+%Chloride diffusion constant in water, is calculated from simulations through the ion mean-square displacement 
+%$D=\lim\limits_{t\to\infty} 1/6t \langle |r(t)-r(0)|^2\rangle$\cite{Laage2007}.
+
 %[implies]
 Based on the instantaneous interface layer, we obtained a series of properties for the aqueous interfaces that are consistent with the experimental results, 
 such as the thickness of the water/vapor interface, the relaxation time of the H-bonds at the interface, 
@@ -195,7 +307,6 @@ These results suggest that considering instantaneous interfaces is essential for
 The thesis is organized as follows. 
 In Chapter \ref{CHAPTER_Methods}, we present the methods of \abinitio Molecular Dynamics
 and the method to calculate the VSFG spectra,
-and report the available experimental data for the VSFG spectra of salty interfaces.
 In Chapter \ref{CHAPTER_Clusters}, we present the results of the vibrational properties of water clusters including alkaline nitrates, 
 which are calculated for interpreting the vibrational characteristics of water molecules in a special water/vapor interface---the water clusters.
 The theoretical results of VSFG spectra of solution/vapor interfaces of alkali metal nitrate solutions are included in Chapter \ref{CHAPTER_SFG}. 

@@ -16,7 +16,6 @@ The organization of this chapter is the following.
 Paragraph \ref{section_AIMD} to \ref{section_BOMD} give an introduction to the basic ideas of the DFTMD as well as the BOMD we adopted.
 Paragraph \ref{section_VDOS} and \ref{section_VSFG} introduce the analysis methods used in this thesis, including the method of calculating 
 vibrational properties from velocity autocorrelation and the method of calculating VSFG spectra from the Velocity Auto-Correlation Function (VACF).
-Paragraph \ref{section_SFG_Exp} presents an overview of the available experimental data for VSFG spectra of solution/vapor interfaces.
 Paragraph \ref{section:def_HBP} reviews the Luzar-Chandler HB population operator and associated correlation functions, which are the basis for studying the 
 instantanous interfacial HB dynamics. 
 
@@ -801,52 +800,7 @@ The implementation of this parametrization is given in Appendix \ref{calculate_d
 %where $i$ denote the $i$-th water molecule.
 %To parametrize the derivatives $\frac{\partial \alpha_i^{\text{m}}}{\partial R_j}$ and $\frac{\partial {\bf{\mu}}_i^{\text{m}}}{\partial R_j}$,
 %the Maximally Localized Wannier Functions (MLWF) were emplyed.\cite{Salanne08,Khatib2017}
-\section{Selected experimental data on electrolyte interfaces}\label{section_SFG_Exp}
 
-[Q1: SOME EXPANSION ;
- 
-Q2: ESTABLISH A CONNECTION BETWEEN THESE EXP.S AND YOUR THESIS. IN PARTICULAR, WHICH OPEN QUESTIONS RAISE FROM THE EXPERIMENTS? WHICH ONE WE WANT TO ADDRESS WITH OUR SIMULATIONS]
-
-In this chapter, we report the experimental results available on salty solutions containing alkali cations and nitrate (iodide) anions\cite{PS03,AJ12,HuaWei2014}. 
-
-From the experimental data of surface tension dependence on solute concentration $\text{d}\gamma/\text{d}m_2$ 
-at low electrolyte concentrations ($\leq$1.5 M )\cite{Weissenborn95,Hey81,Jarvis68,Jarvis72}, 
-the relation of the surface/bulk molar concentration ratio $K_{\text{p}}$\cite{Pegram2006} among \li, \Na and \K is: 
-\begin{equation}
-0=K_{\text{p,Na}^+}< K_{\text{p,K}^+}< K_{\text{p,Li}^+}.
-\label{eq:bscr}
-\end{equation}
-i.e., \Na is the most surface-excluded in the alkali nitrate solution RNO$_3$, \K is less excluded, 
-and \Li is the least excluded cation (see Appendix \ref{surface_tension_increment} for details).
-In modeling the interfaces of aqueous solutions of alkali nitrates, we started with LiNO$_3$, 
-because the \Li ion is the least excluded of the solution/vapor interface among the alkali metal ions. 
-
-Hua \etal\cite{HuaWei2014} have recently measured the VSFG spectra of water/vapor interface of \LiN salt solutions in the OH stretching region
-(3000--3800 \centimeter) using heterodyne detected VSFG spectroscopy\cite{HuaWei2011,HuaWei2011b,ChenXiangKe2010}. 
-The experimental result of the VSFG intensity of the alkali nitrate interfaces is given by in Fig.\thinspace\ref{fig:Allen12}. 
-At a difference with the spectra for the water/vapor interface, in the spectra of 
-\LiN solutions, a depletion of the 3200 \cm peak is observed, with an 
-enhancement of the 3400 \cm peak.
-A similar behaviour had been observed for the interface of NaNO$_3$ and 
-Mg(NO$_3$)$_2$ solutions\cite{AJ12,HuaWei2014}. It has been 
-suggested that this depletion of the 3200 \cm peak, and in some cases 
-the enhancement of the 3400 \cm peak, is an indication that nitrate 
-ions reside at the interface. On the other hand the small 
-cations should have little surface propensity. 
-It has also been argued that the positive electric field found at the interface of NaCl, NaI and 
-NaNO$_3$ salt solutions is due to the formation of an ionic double layer 
-between anions located near the surface and their counter-cations (e.g.
-Na$^+$) located further below. In Phase-Sensitive (PS) VSFG experiments the 
-magnitude of the induced change in the $\Im\chi^{(2)}$ spectra comparatively
-to that of the neat water suggested that \nitrate has a surface propensity 
-just in between I$^-$ and Cl$^-$\cite{Verreault2013,Verreault2009}. 
-% exp. results.
-\begin{figure}[H] %[htbp]
-\centering
-  \includegraphics [width=0.6 \textwidth] {./diagrams/vsfg_alkali_nitrate}
-\setlength{\abovecaptionskip}{0pt}
-  \caption{\label{fig:Allen12}Experimental VSFG intensity of \LiN solutions, compared with that of neat water\cite{HuaWei2014}.}
-\end{figure}
 
 \section{Definitions of HB population and correlation functions}\label{section:def_HBP}
 Luzar and Chandler\cite{AL96} have pioneered the analysis of the HB dynamics of pure water, and
