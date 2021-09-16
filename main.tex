@@ -328,13 +328,13 @@ Wässrige Nitratlösungen von \abinitio Molecular Dynamics} % Your thesis title,
 
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-The interfacial structure and dynamics of solutions containing alkaline nitrates have been studied by Density Functional Theory-based 
-Molecular Dynamics (DFTMD) simulations. In particular we have presented a detailed analysis of the Hydrogen Bond (HB) structure at the interface and 
+The interfacial structure and dynamics of solutions containing alkaline nitrates have been studied by density functional theory-based 
+molecular dynamics (DFTMD) simulations. In particular we have presented a detailed analysis of the hydrogen bond (HB) structure at the interface and 
 have calculated the interface vibrational spectra to provide a molecular interpretation of available experimental data.
-When calculating the Vibrational Sum-Frequency Generation (VSFG) spectrum, 
+When calculating the vibrational sum-frequency generation (VSFG) spectrum, 
 an approximation was used such that we can obtained the interface's nonlinear polarizability to 
-infrared incident light through the Velocity Auto-Correlation Function (VACF). 
-Based on the calculation of the Maximally-Localized Wannier Functions (MLWFs), the parameterization of the spatial gradient of the components of the dipole moment 
+infrared incident light through the velocity auto-correlation function (VACF). 
+Based on the calculation of the maximally-localized Wannier functions (MLWFs), the parameterization of the spatial gradient of the components of the dipole moment 
 and the polarization is realized. Therefore, the calculation of the correlation between the dipole moment and the polarization is 
 transformed into the calculation of the VACF.
 
@@ -342,7 +342,7 @@ transformed into the calculation of the VACF.
 As a first system we have analyzed the behaviour of an aqueous interface containing LiNO$_3$.
 Both the measured and calculated VSFG spectra shows a reduced intensity in the lower frequency portion,
 when compared to the water/vapor interface.
-This reduction is attributed to the Hydrogen (H-) bonds established between the \nitrate and the surrounding water molecules at the interface.
+This reduction is attributed to the hydrogen (H-) bonds established between the \nitrate and the surrounding water molecules at the interface.
 This effects is only related to the presence of the \nitrate at the water surface and is not affected by the presence of alkali metal ions.
 We have shown that the use of simple models, such as small cluster is not suitable to reproduce the experimental spectra 
 and cannot provide a microscopic interpretation of the spectra.
@@ -361,7 +361,7 @@ To analyze the HB dynamics at interfaces,
 we determined the Willard-Chandler instantaneous interface based on spatial density, 
 and proposed a statistical scheme based on the interfacial HB (IHB) population operator for the instantaneous interface.
 Combining this method with Interfacial Molecule Sampling (IMS), we can get more realistic HB dynamics for the water/vapor interface.
-This bombination of the two methods gives us a solution to the question of how thick the water/vapor interface is from the perspective
+This combination of the two methods gives us a method to determine the thickness of the water/vapor interface from the perspective
 of HB dynamics.
 
 %
@@ -440,22 +440,33 @@ I am grateful to R\'emi Khatib for helpful guidance on the programs for calculat
 I would like to thank Leila Salimi, Isidro Lorenzo Geada, Santosh Kumar Meena and Anusha Lalitha, 
 at the Institute for Physics, for their assistance.
 %
-I thank Astrid Chase, Andreas Nussbaumer and Daniela Reibel for their enthusiastic and patient help during my stay at the University of Mainz. 
+I thank Astrid Chase, Andreas Nussbaumer and Daniela Reibel for their enthusiastic and patient help.
+
+%
+The financial supports of the China Scholarship Council and TRR146 are gratefully acknowledged.
+
 
 %
 I thank Prof. Honggang Luo, Prof. Haiping Fang and Prof. Haijun Zhou for their great help in my study during my doctoral studies. 
 The cooperation and discussions with Dr. Guosheng Shi, Dr. Junming Shao, Dr. Bo Zhou and Dr. Chunlei Wang have benefited me a lot. 
-I express my sincere thanks to them.
 
 %
 I thank Prof. Yuliang Jin for his support, trust and teachings over the past year.
 
 %
-I am grateful to my parents Yuhua Diao and Dehuai Huang, and my brother Jialiang, for their care, 
-understanding and support for me for decades. 
+I would like to thank the following teachers who have benefited me for life:
+Mr. Yiyou Li, Mr. Yongliang Lu, Mr. Keyuan Zhong, 
+Mr. Bing Yang, Mr. Jiexian Chen, Mr. Yiji Li, Mr. Jiangen Chen, Mr. Jiang Wu, Mr. Sheng Ma, Mr. Jian Liang, Mr. Qichun Hu, Mr. Zengquan Jiang, 
+Mr. Xiukui Wu, Mr. Shichun Huang, Mr. Wende Zhou, Mr. Wenfeng Chen, Mr. Changchun Liao, 
+Mr. Zhengzhou Yan, Mr. Pingchuan Xu, Ms. Ruibin Huang, Mr. Yong Huang, Ms. Meiying Huang, Mr. Zhiquan Luo, Mr. Caide Tao, Mr. Silin Fan, Ms. Qiyin Ran, Mr. Weiyi Ren, Mr. Weiping Li,
+Mr. Lei Tan, Mr. Yuxiao Liu, Mr. Honggang Luo.
 
 %
-The financial supports of the China Scholarship Council and TRR146 are gratefully acknowledged.
+I am grateful to my dear parents Yuhua Diao and Dehuai Huang, and my dear brother Jialiang, for their care, 
+understanding and support for me for decades. 
+This thesis is dedicated to my dear grandmother Yuqing Zhong, the late grandparents Zongyin Huang, Sufang Ma, and Chunwen Diao. 
+I will always remember the kindness, open-mindedness, diligence and perseverance that grows deep in their hearts.
+
 \end{acknowledgements}
 
 %----------------------------------------------------------------------------------------
@@ -581,9 +592,9 @@ $h^{(d)}(t)$ & HB population operator (it is 1 if the tagged pair are closer tha
 $H(t)$ & HB population operator (continuously)& \\
 $C_{\text{HB}}(t)$ (or $c(t)$) & HB population auto-correlation function & \\
 $\omega_{\text{I}}$ & highest nuclear phonon frequency & \\
-$\theta$ & H-O-H angle in a water molecule&  \\
-$\beta$ & hyperpolarizability; reciprocal temperature & \\
-$h^{s}(t)$ & interfacial HB population operator & \\
+$\theta$ & H-O-H angle in a water molecule, or polar angle of a molecule&  \\
+$\beta$ & hyperpolarizability, or reciprocal temperature & \\
+$h^{(s)}(t)$ & interfacial HB population operator & \\
 $j(t)$ & integrated flux departing the HB configuration space at time t & \\
 $I_{\text{SFG}}$ & intensity of the sum-frequency generation beam & \\
 $I_{\text{vis}}$ & intensity of the incident visible beam & \\
@@ -627,7 +638,7 @@ $\Gamma_i$ & surface excess of component $i$ & \\
 $K_{\text{p,X}}$ & surface/bulk molar concentration ratio of ion X &  \\
 $\gamma$ & surface tension & \\
 $S_{\text{HB}}(t)$ (or $s(t)$)& survival probability of HB & \\
-$t_t$ & temporal resolutions for calculating HB dynamics & \\
+$t_\text{t}$ & temporal resolutions for calculating HB dynamics & \\
 $a_i$ & thermodynamic activity of a chemical species $i$ & \\
 $K^\ominus$ & thermodynamic equilibrium constant &  \\
 $d$ & thickness of layer of interface (model) & \\
@@ -637,7 +648,7 @@ $g(\nu)$ & VDOS for selected atoms &  \\
 $z_i$ & valence of species $i$ & \\
 ${\bf v}$ & velocity of an atom & \\
 $C(t)$ & velocity auto-correlation function & \\
-$\nu$ & vibrational frequency; vibrational quantum number& \\
+$\nu$ & vibrational frequency, or  vibrational quantum number& \\
 \end{symbols}
 
 %----------------------------------------------------------------------------------------

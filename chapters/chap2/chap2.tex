@@ -80,7 +80,7 @@ However, as a drawback, the AIMD simulations are expensive and can nowadays be p
 
 \section{Density functional theory} \label{section_DFT}
 In most currently performed AIMD simulations, the dynamics is performed within the so-called Born-Oppenheimer (BO) approximation\cite{Born1927}.
-The mass of an electron is much smaller (1/1800) than that of any nuclei. 
+The mass of an electron is much smaller (< 1/1800) than that of any nuclei. 
 This means that electrons respond much more rapidly to changes in their 
 environment than nuclei can. 
 As a result, there is a strong separation of timescales between the electronic and nuclear motion, i.e., the kinetic energy of the nuclei can be ignored.
@@ -338,7 +338,7 @@ In the BOMD, the potential energy $E[\{\psi_i\};\bf{R}]$ is minimized at each MD
 \end{equation}
 Thus the Lagrangian density is 
 \begin{align}
-L_\text{BO} (\{\psi_i\}; {\bf R}_{I})=&\frac{1}{2}\sum^N_{I=1}M_{\text{I}}\dot{\bf R}^2_{I} - {\text{min}}_{\{\psi_i\}}E[\{\psi_i\};{\bf R}_{I}] \nonumber \\
+L_\text{BO} (\{\psi_i\}; {\bf R}_{I})=&\frac{1}{2}\sum^N_{I=1}M_{I}\dot{\bf R}^2_{I} - {\text{min}}_{\{\psi_i\}}E[\{\psi_i\};{\bf R}_{I}] \nonumber \\
              +& \sum_{i,j}\Lambda_{ij}(\langle\psi_i|\psi_j\rangle-\delta_{ij} ),
 \label{eq:L_BO}
 \end{align}
@@ -401,7 +401,7 @@ To obtain the vibrational properties of a molecular system, it is possible to us
 as calculated from the AIMD trajectories.
 The obtained Vibrational Density of States (VDOS) can 
 provide information on the local environment of the water molecules' OH-stretching mode. 
-For a system comprised of $N$ atoms, the velocity ACF $C(t)$ for a molecule is\cite{MTD,JMD,TI07} 
+For a system comprised of $N$ atoms, the velocity ACF $C(t)$ for a molecule is\cite{MTD,Dickey1969,TI07} 
 \begin{equation}
 C(t)=\frac{\langle\sum^{N}_{i=1}{\bf{v}}_i(t)\cdot{\bf{v}}_i(0)\rangle}{\langle\sum^{N}_{i=1}{\bf{v}}_i(0)\cdot{\bf{v}}_i(0)\rangle},
 \label{eq:Ct3s}
@@ -428,7 +428,7 @@ The VDOS $g_z(\nu)$ for water molecules is used to extract the O-H stretch along
 \section{Calculation of VSFG spectra from molecular dynamics simulations}\label{section_VSFG}
 %SFG calculation and measurement
 %[Introduction of the VSFG spectroscopy]
-As introduced in Chapter \ref{CHAPETR_1}, the VSFG spectroscopy is a powerful tool for extracting structural and dynamical information
+As introduced in Chapter \ref{CHAPTER_1}, the VSFG spectroscopy is a powerful tool for extracting structural and dynamical information
 on surfaces and interfaces.
 It can be applied to any interface as long as light can reach it, also including liquid/metal interfaces\cite{Harris90,Harris90b,DaiHL95,Halevi96,Wieckowski99} 
 and buried interfaces\cite{Chen99,Chen07};
@@ -855,7 +855,7 @@ the HB population auto-correlation function \CHB, the continuum HB population co
 \SHB and the reactive flux $k(t)$\cite{Rapaport1983}.
 
 \FloatBarrier
-\paragraph{Hydrogen bond population auto-correlation function}
+\paragraph{Hydrogen bond population auto-correlation function}\label{para:def_HBP}
 The auto-correlation function \CHB of the HB population is used to describe the structural relaxation of H-bonds. It is defined by 
 \begin{eqnarray}
 c(t)=\langle h(0)h(t) \rangle/\langle h\rangle
