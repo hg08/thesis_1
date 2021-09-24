@@ -87,31 +87,32 @@ and the neat one which does not include any ion.
 % p1a: NO3- is in the region of top 1\AA (or NO3- is on the surface). p5 => p6, p6 => p1a.
 The calculated imaginary part is reported in panel a and the intensity in panel b of  
 Fig.\thinspace\ref{fig:sfg_LiNO3_7A_20ps_gauss150}. The calculated intensity spectra show a depletion of 
-the 3200 \cm region as in the experiments (see Fig. \ref{fig:sfg_1a}).
+the 3200 \cm region as in the experiments (see Fig. \ref{fig:Allen12},
+which is the experimental result of the VSFG intensity of the alkali nitrate interfaces) 
 The same feature is also shown in the imaginary part. 
 Also the calculated spectra show that the free OH region is less intense in the salty interface with respect to the water/vapor interface.
 %
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
-\includegraphics [width=0.6\textwidth] {./diagrams/sfg_LiNO3_7A_20ps_gauss150}
+\includegraphics [width=0.7\textwidth] {./diagrams/sfg_LiNO3_7A_20ps_gauss150}
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:sfg_LiNO3_7A_20ps_gauss150} (a) The $\Im\chi^{(2),\text{R}}_{SSP}$ and (b) $|\chi_{SSP}^{(2),\text{R}}|^2$ for water molecules 
 at the interface of \LiN solution.} 
+\end{figure}
+% Exp. results.[MOVE THIS FIGURE TO CHAPTER 4]
+\begin{figure}[H] %[htbp]
+\centering
+  \includegraphics [width=0.55 \textwidth] {./diagrams/vsfg_alkali_nitrate}
+\setlength{\abovecaptionskip}{0pt}
+  \caption{\label{fig:Allen12}Experimental VSFG intensity of \LiN solutions, compared with that of neat water\cite{HuaWei2014}.}
+\end{figure}
 %The simulation time is 40 ps and the $d$=9 \A. 
 %Note:
 %The simulation system is \Li ion, 1 \nitrate ion, and 256 water molecules in 19.7 $\times $ 19.7 $\times $ 40.0 \A$^3$ simulation box.
-\end{figure}
 
 To find the microscopic origin of the depression of the lower frequency region,
 we have also decomposed the salty water interface VDOS into the contributions coming from the different water molecules. 
 %======================================================VDOS========================
-\begin{figure}[H]
-\centering
-\includegraphics [width=0.36 \textwidth] {./diagrams/surf_x-vs-l_x_d1-5}
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:surf_x-vs-l_x_d1-5}VDOS $g_z(\nu)$ of water molecules at the interface of LiNO$_3$ solution 
-  (solid line) and at the water/vapor interface (dashed line). (a): $d=1$ \A; (b): $d=2$ \A; (c): $d=5$ \A.}
-\end{figure}
 %{Discuss the difference between the two interfaces using the VDOS--- Lore Sulpizi}
 %To explore the ion-induecd effect in the interface, 
 The VDOS $g_z(\nu)$ for the water molecules at the interface, which is calculated from the FT of the auto-correlation function 
@@ -132,6 +133,13 @@ As the thickness of the interfacial water layer included in $g_z(\nu)$ increases
 and at the same time the H-bonded OH bands for the salty and neat water interfaces become more similar.
 %To check the convergence of the dynamics of the system, $g_z(\nu)$ is calculated for the first half 10 ps 
 %and the later half second 10 ps, respectively. (see Fig.\ref{fig:FT_all_w_in_interf})
+\begin{figure}[H]
+\centering
+\includegraphics [width=0.36 \textwidth] {./diagrams/surf_x-vs-l_x_d1-5}
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:surf_x-vs-l_x_d1-5}VDOS $g_z(\nu)$ of water molecules at the interface of LiNO$_3$ solution 
+  (solid line) and at the water/vapor interface (dashed line). (a): $d=1$ \A; (b): $d=2$ \A; (c): $d=5$ \A.}
+\end{figure}
 %
 
 To explore the reason for the blue shift of the H-bonded OH stretch at the interface,
@@ -156,7 +164,7 @@ at the salty water interface is mainly caused by the H-bonds between the uppermo
 \centering
 \includegraphics [width=0.36 \textwidth] {./diagrams/vdos_LiNO3-256w_w_near_nitrate}
 \setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:vdos_LiNO3-256w_w_near_nitrate}VDOS for the six water molecules bound to \nitrate at the \LiN solution/vapor (\LiN/vapor for short) interface (salty water) and
+\caption{\label{fig:vdos_LiNO3-256w_w_near_nitrate}VDOS for the six water molecules bound to \nitrate at the \LiN solution/vapor (\LiN/vapor) interface (salty water) and
  that for 15 water molecules at the top layer ($d$=1 \A) of the neat water.}
 \end{figure} 
 
@@ -251,7 +259,7 @@ On the other hand, when we analyze the effects of cations, the model containing 
 
 \section{VSFG spectra of the alkaline iodide solution/vapor interfaces}\label{sfg_alkali_iodide_interface} %Solutions LiI, NaI, KI
 Direct investigations of the dynamics of simple ions, such as \I and \br, at water interfaces, 
-by the x-ray photoelectron spectroscopy\cite{ghosal2005} and MD simulations\cite{PJ01,PJ02} 
+by the x-ray photoelectron spectroscopy\cite{ghosal2005} and MD simulations\cite{Jungwirth2001,Jungwirth2002} 
 have shown that these ions could accumulate at the interface.
 To provide a molecular interpretation of the recorded spectra we perform here AIMD simulations of salty solutions containing alkali cations
 and iodine. % MS modified
@@ -480,16 +488,16 @@ which can be explained as consequence of the double layer formed by \I ions on
 the topmost water layer and the alkali ion in the sublayer (bulk in our relatively small simulation box). % MS modified
 Therefore, the VSFG experimental characteristics on alkaline nitrate and alkaline iodide solutions can be reproduced 
 from our calculation method, which verifies the reliability of the method used in the current thesis to calculate VSFG spectra.
-\begin{figure}[htbp]
+
+In view of the close relationship between the HB network and the VSFG spectra of the solution interface, 
+we will continue to study the properties of the water/vapor interface and the solution/vapor interface from the perspectives of HB dynamics and reorientation of water molecules 
+in Chapters \ref{CHAPTER_HBD} and \ref{CHAPTER_HBD_Solutions}.
+\begin{figure}[H]
  \centering
  \includegraphics [width=0.36 \textwidth] {./diagrams/sfg_118_2KI_both_50ps_gauss150_330K_xxz_yyz} %
  \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:sfg_118_2KI_both_50ps_gauss150_330K_xxz_yyz}$\Im\chi^{(2),R}_{XXZ}$ and $\Im\chi^{(2),R}_{YYZ}$ spectra for the KNO$_3$ solution/vapor interface.}
 \end{figure} 
-
-In view of the close relationship between the HB network and the VSFG spectra of the solution interface, 
-we will continue to study the properties of the water/vapor interface and the solution/vapor interface from the perspectives of HB dynamics and reorientation of water molecules 
-in Chapters \ref{CHAPTER_HBD} and \ref{CHAPTER_HBD_Solutions}.
 
 %\begin{figure}[htbp]
 %\centering
