@@ -30,6 +30,7 @@ Therefore, it can be seen that aqueous/vapor interfaces provide a unique environ
 [WHY IONS AT WATER/VAPOR INTERFACE IMPORTANT?]
 %[Too general]The influence of ions on the liquid interfaces is fundamental in theory and significant in practice.
 Due to the influence of ions, many properties of the interface will change significantly.
+
 %reason 1
 [EXAMPLE 1]
 For example, the stability of cell membranes is affected by the distribution of counterions\cite{Veziriglu1990}; 
@@ -37,6 +38,7 @@ the free energies of ions across liquid surfaces are essential to solvent extrac
 the uptake of pollutants by water droplets in cloud depends on the ion distribution at the aqueous liquid/vapor interfaces.
 % they worth to be studied [后面讲关于离子分布的开放问题]
 %
+
 %reason 2
 [EXAMPLE 2]
 The surface tension of a water/vapor interface changes with adding of electrolytes in water\cite{Pegram2006}.
@@ -46,6 +48,7 @@ In most strong alkali and inorganic salt solutions, the surface tension increase
 however, in most acid solutions, the surface tension decreases as the concentration of the acid increases.
 %[后面讲关于界面上MD结果与Gibbs adsorption eq 不符]
 %
+
 %reason 3
 [EXAMPLE 3]
 Furthermore, the solvation and adsorption of ions at the aqueous interfaces is an important process in a large number of chemical and biological systems\cite{Chang06}.
@@ -54,11 +57,12 @@ It was observed that there exists specific ion effect.
 The most typical example is that the solvation structure surrounding the more polarizable \I anion at the interface is more anisotropic than the solvation structure around Cl$^-$.
 %reason 3a : Hofmeister series [后面讲硝酸根离子和碘离子会趋向于界面，且会使界面水分子的振动频率升高]
 %
+
 %reason 4 
 % Ions will affect the dynamics of HBonds.
 [EXAMPLE 4]
 %[Progress of the study of HB dynamics of the interface (a)]
-Ions also change the hydrogen bond dynamics of the interface.
+Ions also change the HB dynamics of the interface.
 %[Too general]H-bonding network is important for interfaces of aqueous electrolyte solutions.
 The microscopic structure of water is determined by O-H$\cdots$O bonds between the hydroxyl group 
 and O atoms of neighboring molecules. 
@@ -70,50 +74,52 @@ electrolyte solutions may significantly change the property of the H-bonding net
 The formation of H-bonding network indicates a reduction in the orientational degree of freedom, 
 an enhancement in the local structure of water around the solute, or change (decrease) of entropy\cite{Frank45a, Frank45b,Frank45c}.
 %
-The H-bonding network \cite{Eisenberg1969,Speedy1976,Poole1994,Soper2008b,Nilsson2011,Ball2001,Pettersson2015} as well as electrostatic forces, 
+The H-bonding network\cite{Eisenberg1969,Speedy1976,Poole1994,Soper2008b,Ball2001,Nilsson2011,Pettersson2015} as well as electrostatic forces, 
 and van der Waals forces are the main factors that determine the structure of interfaces. 
 Salts change the H-bonding structure of water in the interfacial region\cite{EAR04,McLain2006,Ball2008}. 
 The specific distribution of the anions at the interface may have significant influence on the H-bonding network of interfacial water\cite{Morita2008}.
 HB dynamics is studied to obtain the structural characteristics of the solution/vapor interfaces.
 
+%reason 5 [这一段无非是多一个研究电解质溶液的理由.不要也罢.]
+%[REASON 5]
+%% ions affect thickness of interface
+%%[MS: THIS IS VERY GENERAL...] % 最好不要在具体和一般之间来回跳跃。最好先一般，再具体。
+%The presence of ions will change the thickness of the interface.
+%Determination of interface layer thickness of a non-ideal two-phase system is an important problem in interface science, molecular biology, 
+%and hydromechanics.\cite{LiZhihong2001,Goharzadeh2005,Bano2006} It has direct impact on many technical and natural phenomena, 
+%such as the competitive binding of water, ions or denaturants on the macromolecular surface\cite{Arakawa1985,Timasheff2002}, 
+%aggregation of proteins\cite{Webb2001} and binding of molecules or drugs on protein surface\cite{Hritz2004}. 
 
-%reason 5 
-[REASON 5]
-% ions affect thickness of interface
-%[MS: THIS IS VERY GENERAL...] % 最好不要在具体和一般之间来回跳跃。最好先一般，再具体。
-The presence of ions will change the thickness of the interface.
-Determination of interface layer thickness of a non-ideal two-phase system is an important problem in interface science, molecular biology, 
-and hydromechanics.\cite{LiZhihong2001,Goharzadeh2005,Bano2006} It has direct impact on many technical and natural phenomena, 
-such as the competitive binding of water, ions or denaturants on the macromolecular surface\cite{Arakawa1985,Timasheff2002}, 
-aggregation of proteins\cite{Webb2001} and binding of molecules or drugs on protein surface\cite{Hritz2004}. 
-
-%reason 6
+%reason 6 
 [EXAMPLE 6]
 Our understanding of the interfaces of aqueous salt solutions is also closely related to energy and human development. 
-For example, the chemical potential difference of the interface between two seawaters with different salt concentrations can provide new energy for mankind\cite{Pattle1954,Loeb1976}. 
+The chemical potential difference of the interface between two seawaters with different salt concentrations can provide new energy for mankind\cite{Pattle1954,Loeb1976}. 
 %At the intersection of sea water and river water, brackish water is easily produced
 %[There are more than 2 billion kilowatts of usable salinity energy on the earth, and its energy is even greater than the temperature difference energy.]
-%
-Therefore, understanding the equilibrium properties and dynamics of ions at the interface is important in designing and controlling the chemical reactions at liquid interfaces\cite{Chang06}. In particular, understanding ion behavior at the air/water interface is crucial in solving environmental problems such as acid rain and water pollution\cite{Chang06}.
+Many ocean and atomospheric reaction processes, including many key climate properties such as surface activity, 
+solubitility and interfacial molecular structure, influence climate\cite{Schill2015,Cochran2017}. 
+
+Therefore, understanding the equilibrium properties and dynamics of ions at the interface is important in designing and controlling the chemical reactions at liquid interfaces\cite{Chang06}. 
+%In particular, understanding ion behavior at the air/water interface is crucial in solving environmental problems such as acid rain and water pollution\cite{Chang06}.
 
 \paragraph{Methods for interface selectivity}
 %[Ions interfaces are so important, then what can we do to expand our understanding to them? What are the benefits? SFG, IHB, IMS,...]
 For obtaining the informations on the specific mechanism underlying the interfacial phenomena,
 gaining molecular-level understanding of the interfacial water organization and obtaining the ion distributions at interfaces,
-studying the structure and dynamics of aqueous interfaces (solution/vapor interfaces) is essential.
+studying the \emph{structure} and \emph{dynamics} of aqueous interfaces (solution/vapor interfaces) is essential.
 To achieve the goal, we need detection methods with interface selectivity. 
 
 %[THE FIRST POINT TO ADDRESS HERE IS THAT EXPERIMENTS HAVE MADE ENORMOUS PROGRESSES IN THE SELECTIVE CHARACTERIZATION OF LIQUIDS AT INTERFACES. WHY IS SFG SO RELEVANT?]
 % 为了研究界面，我们需要具有界面选择性的探测手段。近年来，SFG光谱就是最常用的一种界面探测手段。
 % method 1
 [METHOD 1]
-Experimentally, the Sum-Frequency Generation (SFG) spectroscopy is the most frequently used and powerful interface analytical tool\cite{Shen2016,Morita2018,Shen2020}.
+Experimentally, the Vibrational Sum-Frequency Generation (VSFG or SFG) spectroscopy is the most frequently used and powerful interface analytical tool\cite{Shen2016,Morita2018,Shen2020}.
 %为什么它可以做到界面选择性呢？
 It is based on a simple idea that optical responses of a surface and bulk of a medium follow different selection rules.
 The SFG spectroscopy utilizes a second-order nonlinear optical process and the resulting signal is very sensitive to surface ions and 
 molecules of a sub-monolayer level\cite{Morita2008,WangHongFei2015,WenYuChieh2016,Ishiyama2017,Penalber-Johnstone2018}. 
 %
-For any material exhibiting inversion symmetry, $\chi^{(2)}$ is identically 0, and SFG is precluded\cite{Franken1963} (see Appendix \ref{chi_properties} for details).
+For any material exhibiting inversion symmetry, the nonlinear susceptibility $\chi^{(2)}$ is identically 0, and SFG is precluded\cite{Franken1963} (see Appendix \ref{chi_properties} for details).
 This result implies that, the VSFG process is forbidden in any centrosymmetric bulk medium\cite{Che2012},
 such as isotropic liquids and glasses, but it is allowed at interfaces because of the broken inversion symmetry\cite{PF00}.
 The advantage is its wide applicability to almost every interface which lack a center of inversion, as long as light can reach them. 
@@ -145,18 +151,19 @@ such as swelling, wetting, hydrodynamics can also be studied by the VSFG spectro
 [METHOD 2]
 %[MD --> AIMD]
 %MD 用在界面之模拟上有何优势呢？
-The Molecular Dynamics (MD) simulation is another powerful tool in the microscopic study of interfaces.
-The MD simulation allows for straitforword investigation of structure and dynamics of molecules at interfaces\cite{Morita2008}.
+The Molecular Dynamics (MD) simulations are powerful tools in the microscopic study of interfaces,
+allowing for straitforword investigation of structure and dynamics of molecules at interfaces\cite{Morita2008}.
 %既然有MD,为何还需要AIMD呢？
-The MD simulations have been used for calculating properties, 
+They gives insights into short interactions between ions and water, and have been used for calculating properties, 
 such as the depth profile of ion concentrations of interfaces\cite{Jungwirth2001,Jungwirth2002}, and the VSFG spectra 
 of electrolyte solution surfaces\cite{Gopalakrishnan2006,Johnson2014,Ishiyama2014,Ishiyama2017},
 but the results depend heavily on the molecular model and interaction potentials used\cite{LXD03,MKP04,TI07,MM05}.
-To overcome this defect, one can use density functional theory-based molecular dynamics (DFTMD) simulations to generate the dynamic trajectory of 
+To overcome this defect, one can use \abinitio MD (AIMD) simulations, 
+in particular the density functional theory-based molecular dynamics (DFTMD) simulations to generate the dynamic trajectory of 
 the liquid interface, and use them to calculate the macroscopic properties, including the VSFG spectrum.  
 %[AIM: compute the interfacial VSFG spectra of electrolyte solutions and to provide their molecular interpretation.]
-The advantage of DFTMD is that it does not require a priori parameterization and it is capable to include polarization effects\cite{Ufimtsev2011},
-also including electronic polarization. The DFTMD at the gradient corrected level, and also including dispersion corrections\cite{Grimme04,Grimme06,Grimme07,Grimme10,Baer2011}
+The advantage of AIMD is that it does not require a priori parameterization and it is capable to include polarization effects\cite{Ufimtsev2011},
+also including electronic polarization. AIMD at the gradient corrected level, and also including dispersion corrections\cite{Grimme04,Grimme06,Grimme07,Grimme10,Baer2011}
 has been shown to provide an accurate description of the vibrational properties at interface\cite{Fornaro2015}.
 
 %There are still two problems in VSFG spectra.
@@ -165,53 +172,6 @@ has been shown to provide an accurate description of the vibrational properties 
 In recent years, more accurate and consistent results about the interface have been reported experimentally\cite{TianCS2009,Shen2013}. 
 However, the quantitative interpretation of the VSFG spectra is not straightforward, because the VSFG intensity is influenced by several factors, including ions' concentration, 
 molecular orientation and distribution and local field correction\cite{Morita2008}.
-%[Known]
-%Progress of the study of interfacial structure (a)
-Although there is some general consensus on the fact that anions propensity for the interface inversely correlates with
-the order of the Hofmeister series, namely 
-CO$_3^{2-}$ $>$  SO$_4^{2-}$ $>$ F$^-$ $>$ Cl$^-$ $>$ Br$^-$ $>$ NO$_3^-$ $>$ I$^-$ $>$ ClO$_4^-$ $>$ SCN$^-$\cite{PJ06,ZYJ10,DT08,Parsons2011,HuaWei2013}, 
-the driving force and the microscopic details of the solvation structure are still debated. 
-% Other result exp. on ions water interfaces>>
-
-% OPEN QUESTION 2
-Although we have SFG and powerful computer simulation technology, some problems, such as ions' propensities and surface thickness, are still unresolved regarding the solution interface.
-%\paragraph{Ions' adsorption at solution/vapor interface}
-
-For the interfaces of solutions containing ions, theoretical methods, experiments and computer simulations have given some conclusions that seem incompatible with traditional thermodynamic theories, which result in the conclusion that inorganic salts are usually negatively adsorbed and the tension may
-be raised in strong solution\cite{Gibbs1928, Adam1941}.
-%The following results seem to be inconsistent with the theoretical results given by the Gibbs adsorption equation. 
-%clearly state
-As early as the beginning of the last century, Heydweiller discovered that anions affected the surface tension significantly
-and the magnitude of the variation of the surface tension follows the same sequence discovered by Hofmeister earlier\cite{dosSantos10}.
-%[DONE for water/vapor interface--Simulations] 
-%Progress of the study of interfacial structure (b)
-Langmuir\cite{Langmuir1917} was the first to attempt a theoretical explanation of the physical mechanism for the increase of the surface tension by added electrolytes.
-The adsorption, or surface excess per unit area, of electrolytes can be described by the well-known Gibbs adsorption equation, which describing the general relation between
-surface tension, surface excesses and chemical potentials for a system of any number of components.
-%[THE INTRO SHOULD BE MORE DISCORSIVE AND AVOID FORMULA.]
-%The general form of Gibbs's relation between surface tension $\gamma$, surface excesses $\Gamma_i$, and chemical potentials $\mu_i$ for a system of any number of components is
-%\begin{equation}
-%d\gamma = -\sum_i \Gamma_i d\mu_i,
-%\label{eq:gibbs_relation}
-%\end{equation}
-%for a system with constant temperature $T$.
-Using the Gibbs adsorption equation, Langmuir concluded that this phenomenon was a consequence of ion depletion 
-near the water/vapor interface, i.e., the \emph{increase} in surface tension 
-implies a \emph{deficiency} of solute in the surface layer\cite{Jarvis1968}, and
-calculated the 'thickness' of the adsorbed layer of pure water, finding 
-the depleted layer from 3.3 to 4.2 \A. 
-%
-However, molecular dynamics (MD) simulations have shown that more polarizable anions (e.g., larger halide anions) 
-are present in the surface region\cite{Jungwirth2001,Jungwirth2002}. 
-Tian and coworkers\cite{CST11} have also predicted that some ions, such as \I and Br$^{-}$, could accumulate at the interface.
-These seemingly contradictory conclusions with the Gibbs adsorption equation mean that our understanding of the interface is still incomplete. 
-It implies that our definition of the solution/vapor interface might be not clear enough. 
-Specifically, the kinetics of halogen uptake of solutions\cite{HuJH95}, the photoelectron emission experiments\cite{Markovich1991,Ghosal05,Garrett04} and the polarizable 
-force-field simulations\cite{Perera1991,Dang1993,Knipping00,Jungwirth2001,Jungwirth2002,PJ06,Horinek07,Brown08,CST11} showed that 
-some heavier halides anions are able to \emph{approach} the interface closer than the cations, 
-while the surface tension of these solutions is also \emph{increased} compared to pure water. 
-%BUT this result is diff from Gibbs'
-The Poisson-Boltzmann approach also predicts, for a charged interface, an increase in the total number of ions in the vicinity of the interface as compared to the bulk\cite{Manciu2003}.
 
 %Report the available experimental data for the VSFG spectra of salty interfaces.
 %[KNOWN RESULTS]
@@ -235,13 +195,14 @@ because the \Li ion is the least excluded of the solution/vapor interface among 
 % WE HAD KNOW THE PROBLEM, THEN HOW TO SET UP OUR MODELS and START TO TRYING TO SOLVE THEM
 The structural and dynamical properties of aqueous solutions have been long studied, but the basic physical
 property has not been fully clarified.
-Complex ions, such as nitrate (\nitrate) and ammonium (NH$_4^+$) ions,
-are abundant in environmental and  atmospheric chemistry.\cite{SG05,Yadav2017} 
-Nitrate ions containing in water affect the properties of water, and therefore human beings as well.\cite{Comly45,Knobeloch00} 
-
-Raymond and Richamond have shown that there exists anions in the surface region of aqueous solutions of alkali halide salts, 
+%Complex ions, such as nitrate (\nitrate) and ammonium (NH$_4^+$) ions,
+%are abundant in environmental and  atmospheric chemistry.\cite{SG05,Yadav2017} 
+%Nitrate ions containing in water affect the properties of water, and therefore human beings as well.\cite{Comly45,Knobeloch00} 
+Raymond and Richamond\cite{Raymond2004} have shown that there exists anions in the surface region of aqueous solutions of alkali halide salts, 
 by using VSFG spectroscopy and comparing the VSFG signal from four alkali halide salt solutions---NaF, NaCl, NaBr 
-and NaI. 
+and NaI. Their experiments showed that the changes of the interfacial H-bonding depend on the anion's species, 
+indicating the presence of anions in the interfacial region. The frequency shifts in the peaks of the VSFG spectra display the structure-making characteristics
+of F$^-$ and the structure-breaking characteristics of larger halogen ions.
 
 %
 Hua \etal\cite{HuaWei2014} have recently measured the VSFG spectra of water/vapor interface of \LiN salt solutions in the OH stretching region
@@ -290,6 +251,57 @@ just in between I$^-$ and Cl$^-$\cite{Verreault2013,Verreault2009}.
 %Although it can not be yield by experimental methods, it can be studied by computer simulations\cite{Rapaport1983,Voloshin2009}.
 %Computer simulations are tools for the study of HB dynamics near the solvated ions and biomolecules\cite{PJR79,YKC98}.
 
+%[Known]
+%Progress of the study of interfacial structure (a)
+It was known that a variety of processes, such as propensity to salt-out proteins, enzymatic activity, and polymer and protein folding display a Hofmeister effect.
+Gurau et. al.\cite{Gurau2004} demonstrated a novel Hofmeister effect in an octadecaylamine monolayer spread on salt solutions by using VSFG spectroscopy.
+Although there is some general consensus on the fact that anions propensity for the interface inversely correlates with
+the order of the Hofmeister series, namely 
+CO$_3^{2-}$ $>$  SO$_4^{2-}$ $>$ F$^-$ $>$ Cl$^-$ $>$ Br$^-$ $>$ NO$_3^-$ $>$ I$^-$ $>$ ClO$_4^-$ $>$ SCN$^-$\cite{PJ06,ZYJ10,DT08,Parsons2011,HuaWei2013}, 
+the driving force and the microscopic details of the solvation structure are still debated. 
+% Other result exp. on ions water interfaces>>
+
+% OPEN QUESTION 2
+%Although we have SFG and powerful computer simulation technology, some problems, such as ions' propensities and surface thickness, are still unresolved regarding the solution interface.
+%\paragraph{Ions' adsorption at solution/vapor interface}
+
+For the interfaces of solutions containing ions, theoretical methods, experiments and computer simulations have given some conclusions that seem incompatible with traditional thermodynamic theories, which result in the conclusion that inorganic salts are usually negatively adsorbed and the tension may
+be raised in strong solution\cite{Gibbs1928, Adam1941}.
+%The following results seem to be inconsistent with the theoretical results given by the Gibbs adsorption equation. 
+%clearly state
+As early as the beginning of the last century, Heydweiller discovered that anions affected the surface tension significantly
+and the magnitude of the variation of the surface tension follows the same sequence discovered by Hofmeister earlier\cite{dosSantos10}.
+%[DONE for water/vapor interface--Simulations] 
+%Progress of the study of interfacial structure (b)
+Langmuir\cite{Langmuir1917} was the first to attempt a theoretical explanation of the physical mechanism for the increase of the surface tension by added electrolytes.
+The adsorption, or surface excess per unit area, of electrolytes can be described by the well-known Gibbs adsorption equation, which describing the general relation between
+surface tension, surface excesses and chemical potentials for a system of any number of components.
+%[THE INTRO SHOULD BE MORE DISCORSIVE AND AVOID FORMULA.]
+%The general form of Gibbs's relation between surface tension $\gamma$, surface excesses $\Gamma_i$, and chemical potentials $\mu_i$ for a system of any number of components is
+%\begin{equation}
+%d\gamma = -\sum_i \Gamma_i d\mu_i,
+%\label{eq:gibbs_relation}
+%\end{equation}
+%for a system with constant temperature $T$.
+Using the Gibbs adsorption equation, Langmuir concluded that this phenomenon was a consequence of ion depletion 
+near the water/vapor interface, i.e., the \emph{increase} in surface tension 
+implies a \emph{deficiency} of solute in the surface layer\cite{Jarvis1968}, and
+calculated the 'thickness' of the adsorbed layer of pure water, finding 
+the depleted layer from 3.3 to 4.2 \A. 
+%
+However, molecular dynamics (MD) simulations have shown that more polarizable anions (e.g., larger halide anions) 
+are present in the surface region\cite{Jungwirth2001,Jungwirth2002}. 
+Tian and coworkers\cite{CST11} have also predicted that some ions, such as \I and Br$^{-}$, could accumulate at the interface.
+These seemingly contradictory conclusions with the Gibbs adsorption equation mean that our understanding of the interface is still incomplete. 
+Specifically, the kinetics of halogen uptake of solutions\cite{HuJH95}, the photoelectron emission experiments\cite{Markovich1991,Ghosal05,Garrett04} and the polarizable 
+force-field simulations\cite{Perera1991,Dang1993,Knipping00,Jungwirth2001,Jungwirth2002,PJ06,Horinek07,Brown08,CST11} showed that 
+some heavier halides anions are able to \emph{approach} the interface closer than the cations, 
+while the surface tension of these solutions is also \emph{increased} compared to pure water. 
+%BUT this result is diff from Gibbs'
+The Poisson-Boltzmann approach also predicts, for a charged interface, an increase in the total number of ions in the vicinity of the interface as compared to the bulk\cite{Manciu2003}.
+These examples imply that our definition of the solution/vapor interface might be not clear enough, 
+motivating us to try to find an approach to better define the thickness of the aqueous solution/vapor interface.
+
 %[WHY THIS THESIS?]\
 \paragraph{Motivations}
 %[anisotropy dynamics is important] 
@@ -305,7 +317,7 @@ the presence of ions\cite{AJ12,AGL05}. The influence of molecular ions such as n
 carbonate ions­ has also been analyzed, but proved more elusive than that for halide solution\cite{SG05,PS03}.
 Recently considerable attention has been given to the nitrate ions in aqueous phase 
 for their ubiquitous and diverse role in atmospheric aerosols, polluted water, 
-and the remote troposphere\cite{Pitts2000,XuM2009,Jubb2012}.
+and the remote troposphere\cite{Pitts2000,XuM2009,Jubb2012,Cochran2017}.
 In view of the uniqueness of the adsorption of heavier halide anions in surface tension experiments and molecular dynamics simulations, 
 we also chose the interface of lithium iodide, sodium iodide, potassium iodide and other solutions for DFTMD simulation.
 In order to clarify the variations of the structural and dynamical properties 
@@ -317,7 +329,7 @@ of water in these simple and well-known systems: alkali metal nitrate and alkali
 % reason 1: SFG calculation 
 The first problem we want to deal with is to find the origin of the main characteristics of the
 VSFG spectra of the solution/vapor interfaces.
-We focus on nitrate solutions and alkali halide solutions because their anions have a significant impact on the structure and kinetics of the interface.
+We focus on nitrate solutions and alkali halide solutions because their anions have a significant impact on the structure and dynamics of the interface.
 For a more practical interface model, we used a more efficient algorithm to calculate the SFG spectrum of the aqueous interface, 
 and the calculated results can explain the characteristics of the spectrum in the experiment. 
 According to the definition, nonlinear susceptibility of solution/vapor interfaces is realized by the Fourier transform of 
@@ -378,7 +390,7 @@ It can be proved that the HB dynamics given by these two interface selection met
 Using this feature, as long as we gradually increase the thickness of the interface, we can find that the HB dynamics in the two cases will converge to the same. 
 We can interpret the thickness of the interface layer when the two HB dynamics converge to the same as the thickness of the aqueous interface.
 
-Besides, the interface layer with the instantaneous Willard-Chandler surface as the boundary here has also been extended to a sphere with a certain radius outside the ion, 
+Finally, the interface layer with the instantaneous Willard-Chandler surface as the boundary here has also been extended to a sphere with a certain radius outside the ion, 
 such as the space inside the first dissolved sphere of the ion. Furthermore, properties such as HB dynamics in this sphere (SHB) can also be obtained.
 %%这后面的，能删的尽量删吧！
 
