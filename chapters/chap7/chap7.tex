@@ -15,11 +15,11 @@ As a first system we have analyzed the behaviour of a salty interface containing
 Both measured and calculated VSFG spectra shows a reduced intensity of the lower frequency portion region, 
 when compared to the water/vapor interface. 
 This reduction is attributed to the H-bonds established between the \nitrate and the surrounding water molecules at the interface.
-This effects is only related to the presence of \nitrate at the water surface and is not affected by the presence of alkali metal ions.
+This effects is only related to the presence of \nitrate at the water surface and is \emph{not} affected by the presence of alkali metal ions.
 Indeed we have shown that although the \Li can reside relative close to the water surface, also forming a water mediated
 ion pair with \nit, its effect on the VSFG spectrum is not visible. The water molecule which mediate the interaction 
 between the \nitrate and the \Li would produce a red-shifted peak in small water cluster's VDOS, but its influence is not visible 
-in the VSFG spectra. To verify this conclusion, we have calculated the free energy of different configurations for 
+in the VSFG spectra. This conclusion is verified by our calculation of the free energy difference between different configurations for 
 larger water clusters by the Blue-Moon method. The results give consistent results: Li$^+$--NO$_3^-$ ion pairs 
 separated by a water molecule have lower free energy than the configuration in which Li$^+$ is in direct contact with NO$_3^-$. 
 
@@ -35,26 +35,33 @@ and then obtained the information about the HB lifetime.
 %This set of methods can be easily applied to general interface systems or solutions.
 As we did in Paragraph \ref{HBD_ITP}, we studied the population operators of N--W 
 and \I--W bonds and their correlation functions. 
+The results indicate that both \nitrate--water and \I--water bonds have shorter lifetime than water--water bonds.
+The HB relaxation and the lifetime of H-bonds
+at the interface are more dominated by the concentration of ions accumulated at the interface. 
+Furthermore, both VSFG spectra and HB dynamics demonstrates the surface propensity of \nitrate and \I ions.
+Another general conclusion is that the HB strength between water molecules in the ions' second solvation shell is indepenent 
+of the ion--water interactions in ions' first solvation shell.
 
 Based on the simulations, the method of IMS can \emph{partially} gives information on the HB breaking and reforming
 rates through the water/vapor interface and therefore partially shows how much the interface affects the dynamics of H-bonds in water. 
 This method \emph{underestimates} the HB breaking rate constant of the water/vapor interface. 
-We have provided a method based on the \emph{instantaneous} interface and the new-defined
+We have provided a method based on the \emph{instantaneous} surface and the new-defined
 IHB operator to obtain the interfacial HB dynamics of instantaneous water/vapor interfaces.  
 Using the correlation functions based on the IHB population operator, we directly calculated the HB dynamics of water layer with a certain thickness 
 under the instantaneous surface. 
 The IHB method allows us to avoid sampling the molecules reside in the interfacial layer and
 it also provide partial information on the HB breaking and reforming rates at the interface. 
-However, it \emph{overestimates} the HB breaking rate constant. The calculation results in these two extreme cases
-indicate that the HB breaking and reforming rate constants in the water layer \emph{below} the surface tends to be uniform 
-(see Fig.\thinspace\ref{fig:128w_itp_pure_water_pair_k_k_prime_ihb_both_schemes} a in Chapter \ref{CHAPTER_HBD}) 
-as the thickness of the water layer increases. The real HB dynamical characteristics at the water/vapor interface 
-are derived from the two extreme cases. 
+Unlike IMS method, it \emph{overestimates} the HB breaking rate constant. The calculated results in these two extreme cases indicate that,
+as the thickness of the water layer increases,
+the HB breaking and reforming rate constants in the water layer \emph{below} the instantaneous surface tends to be uniform 
+(see Fig.\thinspace\ref{fig:128w_itp_pure_water_pair_k_k_prime_ihb_both_schemes} a in Chapter \ref{CHAPTER_HBD}). 
+The real HB dynamical characteristics at the water/vapor interface 
+are derived from the two extreme cases when the thickness of the interface is large enough. 
 In particular, the result gives an estimate of the \emph{thickness} ($\sim$ 4 \AA) of the water/vapor interface.  
 
 The combination of the IMS method and the IHB population operator is extended to the solution/vapor interface. 
-It has been confirmed that different ions in the electrolyte solution interface have their own unique distributions in the normal direction of the interface. 
-Therefore, the thickness of the solution is greater than the thickness of the water/vapor interface. 
+It has been confirmed that different ions in the electrolyte solution interface have their specific distributions in the normal direction of the interface. 
+Therefore, the thickness of the solution/vapor interface is greater than the thickness of the water/vapor interface. 
 In addition, we regarded solvation shells of an ion as interfaces, 
 and defined the \emph{SHB population} operator, which is an extension to the IHB population.
 
@@ -78,9 +85,9 @@ over the thickness on the order of 5 \A\ (see Appendix \ref{thickness_interface}
 Therefore, both the VSFG spectra of alkaline nitrate and iodide solutions can be explained in the same way, 
 in which the anions has propensity for the surface, and the weaker anion--H bonds at the topmost interface layer contribute to the blue-shifted H-bond band,
 and the relative less free OH bonds produce a lower free OH stretching band.
-This conclusion is verified by the distribution of the number of H-bonds owned by a OH group at the instantaneous interface layer. 
+This conclusion is verified by the distribution $P(n)$ of the number of H-bonds owned by a OH group at the instantaneous interface layer with thickness $d$. 
 The main difference of this distribution between alkaline nitrate (iodide) solution/vapor interfaces and the water/vapor interface is:
-the $P(n)$ for $n= 0, 1, 2$. This difference can be viewed as the origin of less free OH bonds at these solution/vapor interface, 
+$P(n)$ for $n= 0, 1, 2$. This difference can be viewed as the origin of less free OH bonds at these solution/vapor interface, 
 and of weaker H-bonds at the topmost ($d \sim$ 4 \AA) interfacial layer.
 By calculating the rotational anisotropy decay for water molecules at the instantaneous interface, 
 we obtain that the average density of free OH bonds is an important factor that affect the decay rate of the reorientation relaxation of water molecules.
@@ -101,8 +108,13 @@ We believe that combining the VSFG method, IHB and IMS methods will help us more
 This will likely promote our understanding of the nature of these effects at interfaces.
 
 %AIMD所得之数据可以用在机器学习模型之训练中.
-[AIMD data for ML] AIMD trajectories can also be used as datasets for training new potentials for new interfacial systems, which may accerate simulations.
-or generate distributions\cite{ZHANGPAN2021}.
+As we can see from the previous chapters, AIMD simulations have increased our understanding of interface properties and the interactions between atoms.
+However, poor scaling renders AIMD calculations intractable for larger systems.
+One possible extension of our work is to train potentials on small systems within \abinitio approaches\cite{Behler2007,Behler2011,Behler2014,Kolb2017}, 
+then use these potentials to investigate large systems such as interfaces, grain boundaries and disordered systems using Monte-Carlo or MD simulations.
+Therefore, the AIMD trajectories can be used as datasets for training new potentials for new interfacial systems, 
+which may accelerate the computation.
+%or generate distributions\cite{ZHANGPAN2021}.
 
 %\paragraph{Delocalization Effect in Hydrogen Bonds}
 %The answer of the nature of H-bonds may lie with the electrons in the H-bonds. 
