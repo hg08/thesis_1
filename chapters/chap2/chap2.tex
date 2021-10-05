@@ -17,7 +17,7 @@ Paragraph \ref{section_AIMD} to \ref{section_BOMD} give an introduction to the b
 Paragraph \ref{section_VDOS} and \ref{section_VSFG} introduce the analysis methods used in this thesis, including the method of calculating 
 vibrational properties from velocity autocorrelation and the method of calculating VSFG spectra from the Velocity Auto-Correlation Function (VACF).
 Paragraph \ref{section:def_HBP} reviews the Luzar-Chandler HB population operator and associated correlation functions, which are the basis for studying the 
-instantanous interfacial HB dynamics. 
+instantaneous interfacial HB dynamics. 
 
 \section{Modeling interfaces with \abinitio molecular dynamics}\label{section_AIMD}
 Modern theoretical methodology, aided by the advent of high speed computing, has advanced
@@ -578,7 +578,7 @@ where $D(\Omega_i)$ is the direction cosine matrix of the $i$-th molecule, proje
 %\end{equation}
 %where $(P_p)_{E=0}$ is the permanent dipole moment. From Eq. (\ref{eq:beta_condition}) and Eq. (\ref{eq:static_dipole_moment}), we obtain $\sigma=1/2$ in Eq. (\ref{eq:beta_NR}).
 
-\paragraph{The Fresnel Factors}
+\paragraph{Fresnel Factors}
 Because of screening and dipole-dipole coupling, the local electric fields felt by molecules is different from the macroscopic fields\cite{Vanselow2012}. 
 The VSFG signal depends on the magnitude of the local electric fields of the interacting optical beams at the interfaces. 
 While the magnitude of the local electric fields is related to both the intensity of the incident beams and the linear refractive indices 
@@ -855,7 +855,7 @@ the HB population auto-correlation function \CHB, the continuum HB population co
 \SHB and the reactive flux $k(t)$\cite{Rapaport1983}.
 
 \FloatBarrier
-\paragraph{Hydrogen bond population auto-correlation function}\label{para:def_HBP}
+\paragraph{Hydrogen bond population auto-correlation function \CHB}\label{para:def_HBP}
 The auto-correlation function \CHB of the HB population is used to describe the structural relaxation of H-bonds. It is defined by 
 \begin{eqnarray}
 c(t)=\langle h(0)h(t) \rangle/\langle h\rangle
@@ -918,7 +918,7 @@ In other words, there are exchange processes, i.e., interchange tunneling and bi
 After an exchange process, a pair of bonded molecules still form H-bonds.
 %we say that an old HB is broken and a new HB is formed.
 In the above definition, we have not included this interexchange process, i.e., the H-bonds before and after the interexchange process are regarded as the same HB.
-If we consider this interexchange process in the definition of HB population, the corresponding function $c(t)$ will be slightly differnt, 
+If we consider this interexchange process in the definition of HB population, the corresponding function $c(t)$ will be slightly different, 
 see Fig.\thinspace\ref{fig:pure_bk_c_from_2_methods} b.   
 In the next paragraphs, for the sake of simplicity, 
 we will ignore this interchange process and simply regard the H-bonds before and after the exchange process as the same HB.
@@ -1028,7 +1028,7 @@ independent of possible breaking and reforming events in the interval from 0 to 
 Therefore, $k(t)$ measures the effective decay rate of an initial set of H-bonds\cite{DC87,Starr2000}.
 
 
-Assuming that each HB acts independently of other H-bonds\cite{AL96,AL00}, 
+Assuming that each HB acts independently of other H-bonds, 
 thanks to detailed balance condition, we obtain 
 \begin{eqnarray}
   \tau_{\text{HB}} &=& \frac{1- \langle h\rangle}{k},
