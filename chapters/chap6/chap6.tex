@@ -49,7 +49,7 @@ We simulated a solution/vapor interface including \Li and \nitrate, as shown in 
 The HB population correlation functions \CHB and \SHB for both nitrate--water (N--W) and water--water (W--W) hydrogen bonds 
 in the slab are shown in Fig.s \ref{fig:c_and_s_ln_bk_pbc} a and b, respectively.
 For both the ADH and AHD definitions, we find that the decay rates of \CHB and \SHB for N--W bonds are much faster 
-than that for W--W bonds. From the relation \ref{eq:calculate_hb_lifetime_from_s}, the faster relaxation of \SHB implies that 
+than that for W--W bonds. From Eq. \ref{eq:calculate_hb_lifetime_from_s}, the faster relaxation of \SHB implies that 
 N--W bonds have shorter lifetime than W--W bonds in bulk phase. 
 The calculation results are in good agreement with numerous experimental and simulation results\cite{PS03,Vrbka2004,Tongraar2006,Otten2007}: 
 nitrate has structure-breaking ability, or that N--W interaction is weaker, compared with W--W interaction.
@@ -201,7 +201,7 @@ and of alkali metal ion at the interface of three 0.9 M alkaline iodide solution
 %/home/gang/Github/hb_in_interface_IHB/result/128w_itp_wat_pair_hbacf_h_ihb_1.dat
 To investigate ions' effects, we calculated HB population correlation functions for H-bonds between 
 ions' first and second solvation shells at aqueous electrolyte interfaces.
-We denote these H-bonds as \emph{H-bonds in the solvation shell}.
+We denote these H-bonds as H-bonds \emph{in the solvation shell}.
 Then we compared these correlation functions to that of the water/vapor interface obtained in the previous chapter 
 (see Paragraph\thinspace\ref{PARA_IHB} in Chapter \ref{CHAPTER_HBD}). 
 %We consider \CHB and \SHB, from which the HB relaxation time $\tau_\text{R}$ and the HB lifetime $\tau_\text{a}$ can be calculated, respectively.
@@ -271,7 +271,7 @@ Therefore, the HB relaxation of the interface and the lifetime of H-bonds at the
 \end{figure} % at 330 K. 
 
 To summarize, we have investigated the effect of alkaline nitrate and alkaline iodide on the HB dynamics
-of water molecules at solution/vapor interfaces, obtained from \emph{ab inito} simulations. 
+of water molecules at solution/vapor interfaces, obtained from \abinitio simulations. 
 %我们视气液界面中的所有水分子作为一个整体，来计算其氢键动力学。涉及到离子溶解壳层内的氢键动力学时，我们通过在采样时间点水分子是否处于离子溶解壳内来确定需要考虑的水分子。
 N-W's \CHB and \SHB decay faster than W-W's, which proves that the N-W bonds is weaker than W-W ones. 
 The result calculated from $\Im\chi^{(2),\text{R}}$ spectra in Paragraph\thinspace\ref{para:def_HBP} is that the blue shift of the HB band in the $\Im\chi^{(2)}$, 
@@ -378,7 +378,7 @@ at the interface of the alkali metal salt solution as a whole is smaller and inc
 For ion--water bonds, some results obtained by molecular simulations have been obtained. For example,
 the HB dynamics of surfactant--water and W--W bonds at the interface has been analyzed by Chanda 
 and Bandyopadhyay\cite{Chanda2006}. 
-Similar analyse for N--W bonds is also done by Yadav, Choudhary and Chandra by first-principles MD simulations\cite{Yadav2017}. 
+Similar analysis for N--W bonds is also done by Yadav, Choudhary and Chandra by first-principles MD simulations\cite{Yadav2017}. 
 %As we know, in the case of water--water hydrogen bonds, the cutoff radius $r_\text{OO}^{\text{c}}=3.5$ \AA is the position of the first minimum of the oxygen--oxygen RDF 
 %(see Fig.\thinspace\ref{fig:rdf_bk_pure_pbc}).
 As for the effect of the interface on the HB dynamics in electrolyte solutions,
@@ -474,7 +474,7 @@ the results of the continuous correlation functions for both definitions (the AD
 for I$^-$--water bonds. The results of W--W bonds are also included for comparison in both Fig.s \ref{fig:X-O_c_lii_xlogscale} 
 and \thinspace\ref{fig:wat-wat_s_lii}.
 For both the ADH and AHD definitions of H-bonds, it is found that I$^-$--water bonds show faster dynamics than W--W bonds 
-(consistent to previous MD results by Chowdhuri and Chandra)\cite{Chowdhuri2006}. 
+\cite{Chowdhuri2006} (consistent to previous MD results by Chowdhuri and Chandra).
 
 The time scales of the relaxation of I$^-$--water bonds are obtained for both definitions. 
 In Table \ref{tab:properties_anion-water_hbs}, we have included the average lifetimes $\langle\tau_\text{a}\rangle$ for I$^-$--water and N--W bonds. 
@@ -885,9 +885,10 @@ The red (black) line is for the interfaces (bulk) phase.}
 \end{figure}
 
 Therefore, the increasing density of the O--H$\cdots$I bonds, and decreasing density of water dangling OH bonds are 
-two clear structural properties of alkaline iodide/vapor interface.
-The decreasing of water dangling OH bonds can explain reduction of the intensity of the 3700 \cm peak in the alkaline iodide solutions, 
-and the increasing  density of the O--H$\cdots$I bonds can explain the blue-shift of the 3200--3600 \cm band.
+two clear structural properties of solution/vapor interface.
+The decreasing of water dangling OH bonds explains reduction of the intensity of the 3700 \cm peak in the alkaline iodide solutions 
+(see Fig.s \ref{fig:Allen12} and \ref{fig:surf_x-vs-l_x_d1-5} for \LiN solution), 
+and the increasing  density of the O--H$\cdots$I bonds explains the blue-shift of the 3200--3600 \cm band (see \cite{JiN2008,Morita2018} for VSFG spectra for NaI solution.
 
 \FloatBarrier
 \section{Rotational anisotropy decay of water molecules in ions' solvation shells}\label{RAD_SHELL}
@@ -1157,10 +1158,10 @@ decreases linearly with the increase of the radius of the ions' solvation shell.
 
 The rotational anisotropy decay of water molecules at the water/vapor and solution/vapor interfaces was investigated to
 understand the effects of ions on the dynamics of water at interfaces.
-The instantaneous interfaces are used in the analyse. The main result is that the ratio of the free OH bonds for the water/vapor interface is an important factor 
+The instantaneous interfaces are used in the analysis. The main result is that the ratio of the free OH bonds for the water/vapor interface is an important factor 
 that affect the decay rate of the reorientation relaxation of water molecules.
 Single exponential decay is a good model for water molecules at the interface of the alkaline iodide solutions,
-and the faster anisotropy decay of water molecules at the interface is the effects of free OH stretch and Hydrogen--Iodide (H--I) bond.
+and the faster anisotropy decay of water molecules at the interface is the effects of free OH stretch and hydrogen--iodide bond.
 This difference of HB dynamics from the water/vapor interface is the source of 
 the HB dynamics as well as the $\Im\chi^{(2)}$ spectrum of the interface of alkaline iodide solutions.  
 %我们相信，利用这种对水分子的的分类方法，在AIMD模拟的基础上，也可其他种类的溶液界面中的水分子取向关联函数作分析。

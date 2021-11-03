@@ -8,4 +8,5 @@ pdflatex main
 ## to read
 ##evince main.dvi
 evince main.pdf
+#open main.pdf
 ##sudo cp main.pdf /mnt/e

@@ -13,8 +13,8 @@ As Stillinger said, since H-bonding is the most important interaction in liquid 
 are cooperative, it is insufficient for the purposes of computer simulation to use the potential energy function for dimers alone\cite{Stillinger1980}.
 
 The organization of this chapter is the following.
-Paragraph \ref{section_AIMD} to \ref{section_BOMD} give an introduction to the basic ideas of the DFTMD as well as the BOMD we adopted.
-Paragraph \ref{section_VDOS} and \ref{section_VSFG} introduce the analysis methods used in this thesis, including the method of calculating 
+Paragraphs \ref{section_AIMD} to \ref{section_BOMD} give an introduction to the basic ideas of the DFTMD as well as the BOMD we adopted.
+Paragraphs \ref{section_VDOS} and \ref{section_VSFG} introduce the analysis methods used in this thesis, including the method of calculating 
 vibrational properties from velocity autocorrelation and the method of calculating VSFG spectra from the Velocity Auto-Correlation Function (VACF).
 Paragraph \ref{section:def_HBP} reviews the Luzar-Chandler HB population operator and associated correlation functions, which are the basis for studying the 
 instantaneous interfacial HB dynamics. 
@@ -34,25 +34,25 @@ in the system\cite{Tuckerman2010}.
 %[The reason to use  AIMD to simulate the water/vapor interface]
 Despite the success of classical MD simulations, they  have some limitations. First, charges
 are treated as static parameters, therefore electronic polarization effects are
-not included.  The so-called polarizable models\cite{Rick94,SWR02,Lamoureux03}, in which charges 
+not included.  The so-called polarizable models\cite{Rick1994,Rick2002,Lamoureux2003}, in which charges 
 and induced dipoles are allowed to fluctuate in a changing environment, 
 have been proposed to overcome this problem. 
 While having considerable success, they also have serious limitations, including a lack of transferability 
-and standardization\cite{TME02}. Second, force fields assume a pre-specified connectivity among the atoms, therefore, they suffer
+and standardization\cite{Tuckerman2002}. Second, force fields assume a pre-specified connectivity among the atoms, therefore, they suffer
 from an inability to describe chemical bond-forming and -breaking. This problem
 can be treated using techniques such as the empirical valence
-bond method\cite{AW80} or other semi-empirical approaches. Unfortunately, these methods are also not
+bond method\cite{Warshel1980} or other semi-empirical approaches. Unfortunately, these methods are also not
 transferable and, therefore, need to be reparametrized for each type of reaction and may end
 up biasing the reaction path in undesirable ways.
 
 To overcome these limitations of force field based approaches, \abinitio molecular dynamics (AIMD) simulation techniques\cite{DKR90,MCP92,Allen1993,MET96,MP97,DM00,RC02}
 can be used. The AIMD simulation combines finite temperature dynamics with forces
 obtained from electronic structure calculations performed ‘on the fly’ as the MD simulation
-proceeds\cite{DM00}. Because the electronic structure is treated explicitly in the AIMD calculations,
+proceeds\cite{Marx2000}. Because the electronic structure is treated explicitly in the AIMD calculations,
 many-body forces, electronic polarization and bond-forming and -breaking events are described
 with the accuracy of the electronic structure representation. Moreover, the AIMD
 method can be easily extended to incorporate nuclear quantum effects via the Feynman
-path integral approach\cite{RPF65,RPF72}, leading to the \abinitio path integral technique\cite{DM96,MT96,DM99}.
+path integral approach\cite{RPF65,RPF72}, leading to the \abinitio path integral technique\cite{Marx1996,Tuckerman1996,Marx1999}.
 
 The AIMD method have been used to study a wide variety of chemically
 interesting problems in areas such as chemical reactivity, H-bonds for the interfacial structure, pKa,
@@ -66,13 +66,13 @@ drug-enzyme complexes, structure of nucleic acids, exploration of the design of 
 biomimetics and structure, dynamics and binding mechanisms in myoglobin.
 In many of these applications, new physical phenomena have been revealed, which could
 not have been uncovered using empirical models, often leading to new interpretations of
-experimental data and even suggesting new experiments to perform\cite{TME02}.
+experimental data and even suggesting new experiments to perform\cite{Tuckerman2002}.
 
 %[The reason to use the AIMD? ] 
 %[How to model the water/vapor interface system? ]
 To study the heterogeneous environment at water interface, the AIMD method is particularly suitable for the following reasons:
 (1) The AIMD method is only relying on the atomic coordinates of the model system $\bf R$, and not on any adjustable parameter, 
-i.e., the interatomic forces ${\bf F}_{\text{I}}=-\bigtriangledown_{{\bf R}_{\text{I}}}V({\bf R})$, where $V({\bf R})$ is the potential energy\cite{VKMP},
+i.e., the inter-atomic forces ${\bf F}_{\text{I}}=-\bigtriangledown_{{\bf R}_{\text{I}}}V({\bf R})$, where $V({\bf R})$ is the potential energy\cite{VandeVondele2004},
 are determined using the first principle electronic structure methods on the fly; 
 (2) New phenomena that are not foreseen before starting the simulation can simply happen if necessary.
 Therefore, the AIMD method is also a good predictive tool. 
@@ -268,22 +268,22 @@ polarizability (also called dipole polarizability) being typically 10\% too larg
 \paragraph{Dispersion corrections}
 Dispersion is a general term referring to weak, long-range correlations in electronic structure. It includes van der Waals interactions,
 which originates from the coupling of the electric field generated by fluctuations in the electronic density at position $\bf{r}$ 
-in the system with the density at another point $\bf{r'}$\cite{Zeiss1977,Kohanoff06}. These interactions are not well modelled by any mean-field level of theory, 
+in the system with the density at another point $\bf{r'}$\cite{Zeiss1977,Kohanoff06}. These interactions are not well modeled by any mean-field level of theory, 
 the \abinitio wave-function theory such as second-order M{o}ller-Plesset perturbation theory (MP2), 
 or standard DFT functionals, eg. LDA, GGAs, etc. 
 The mean-field theory does not include the electron correlation effect, MP2 theory usually overestimate the binding energies 
-and underestimates intermolecular equilibrium distances, and all the gradient corrected DFT are unable to describe dispersion 
+and underestimates inter-molecular equilibrium distances, and all the gradient corrected DFT are unable to describe dispersion 
 interactions,because they can not describe the long-range electron correlation.
 In the last two decades, a series of empirical corrections have been proposed which can improve the structural properties 
-without more computational cost\cite{WuX01,WuQ02,Zimmerli04,Grimme04,Grimme06,Grimme07,Grimme10}.
-Among such empirical approaches we  choose the DFT-D3 correction which can be used in our application to interfaces with water\cite{Grimme10,Klimes2012}.
+without more computational cost\cite{WuX2001,WuQ2002,Zimmerli2004,Grimme2004,Grimme2006,Grimme2007,Grimme2010}.
+Among such empirical approaches we  choose the DFT-D3 correction which can be used in our application to interfaces with water\cite{Grimme2010,Klimes2012}.
 
 %Detail of D3
 In the DFT-D3 correction, also used in this thesis, the input parameters are cutoff radii and dispersion coefficients, and they can be calculated by 
 KS-DFT methods using extended atomic orbital basis sets. The use of structure dependent dispersion coefficients, 
 i.e., functional coordination number, to interpolate between dispersion coefficients of atoms in different chemical environments, 
 increases the accuracy.  Moreover, no atom connectivity information is required and all the properties are calculated only 
-from Cartesian coordinates and atomic numbers\cite{Grimme10}.
+from Cartesian coordinates and atomic numbers\cite{Grimme2010}.
 
 If the three-body nonadditivity terms are considered, as well as the pairwise terms, the total energy is given by 
 \begin{equation}
@@ -308,7 +308,7 @@ where $s_{r,n}$ is the order-dependent scaling factor of the cutoff radii $R_0^{
 which is the most important parameter that has to be adjusted for each density functional 
 and $\alpha_n$ is a parameter which can be adjusted manually such that the dispersion correction is 
 smaller than 1\% of max($|E_{\text{disp}}|$) for typical covalent bond distances.
-In Ref.\cite{Grimme10} $s_{r,6}$ is optimized by a least-squares fitting procedure and $s_{r,8}$ is fixed to 1 for all density functionals.
+In Ref.\cite{Grimme2010} $s_{r,6}$ is optimized by a least-squares fitting procedure and $s_{r,8}$ is fixed to 1 for all density functionals.
 
 The leading non-additive dispersion term for three atoms A, B and C is
 \begin{equation}
@@ -331,7 +331,7 @@ since the total three-body contribution is typically 5--10\% of $E_{\text{disp}}
 \section{Born-Oppenheimer and Car-Parrinello molecular dynamics}\label{section_BOMD}
 %[Ehrenfest MD, CPMD and BOMD]
 In computational material science, the most popular AIMD simulation methods are the Born-Oppenheimer MD (BOMD) and Car-Parrinello MD (CPMD) methods. 
-In the BOMD, the potential energy $E[\{\psi_i\};\bf{R}]$ is minimized at each MD step with respect to $\{\psi_i({\bf r})\}$  under the orthonormality condition
+In BOMD, the potential energy $E[\{\psi_i\};\bf{R}]$ is minimized at each MD step with respect to $\{\psi_i({\bf r})\}$  under the orthonormality condition
 \begin{equation}
 \langle\psi_i({\bf{r}})|\psi_j({\bf r})\rangle=\delta_{ij}.
 \label{eq:e_XC}
@@ -349,7 +349,7 @@ in which $\Lambda$ is the Hermitian Lagrangian multiplier matrix. By the Euler-L
      -&2\sum_i \frac{\partial \langle\psi_i|}{\partial {\bf R}_I}\biggl(\frac{\delta E}{\delta\langle\psi_i|}-\sum_j \Lambda_{ij}|\psi_j\rangle\biggr) 
 \label{eq:LEE_BO}
 \end{align}
-The term $-\frac{\partial E}{\partial {\bf R}_{\text{I}}}$ is the Hellmann-Feynman force, and the term $\sum_{i,j}\Lambda_{ij}\frac{\partial}{\partial {\bf R}_{\text{I}}}\langle\psi_i|\psi_j\rangle$, i.e., the wave-function force $F_{\text{WF}}$\cite{Pulay69}, is a constraint force due to the orthonormality constraint. The last term comes from the fact that there is always an implicit dependence on the atomic positions through the expansion coefficient $c_{ij}({\bf r})$ that is defined by 
+The term $-\frac{\partial E}{\partial {\bf R}_{\text{I}}}$ is the Hellmann-Feynman force, and the term $\sum_{i,j}\Lambda_{ij}\frac{\partial}{\partial {\bf R}_{\text{I}}}\langle\psi_i|\psi_j\rangle$, i.e., the wave-function force $F_{\text{WF}}$\cite{Pulay1969}, is a constraint force due to the orthonormality constraint. The last term comes from the fact that there is always an implicit dependence on the atomic positions through the expansion coefficient $c_{ij}({\bf r})$ that is defined by 
 \begin{equation}
 \psi_i({\bf r})=\sum_j c_{ij}({\bf r})\phi_i({\bf r}),
 \label{eq:linear_combination}
@@ -374,7 +374,7 @@ $\{\dot{\psi}_i\}$.  Applying the Euler-Lagrangian equations leads the equations
 \label{eq:LEE_CP}
 \end{align}
 where $-\delta E/\delta\psi_i$ are the electronic forces to propagate the electronic degrees of freedom in time 
-within a fictitious Newtonian dynamics.  No SCF cycle is required to quench the electrons to the Born-Oppenheimer surface and 
+within a fictitious Newtonian dynamics.  No SCF cycle is required to quench the electrons to the BO surface and 
 to force them to evolve adiabatically with respect to the nuclei.
 
 %[A proper choice of the ficticious mass $\mu$]
@@ -386,7 +386,7 @@ is ensured by a proper choice of the fictitious mass $\mu$. The fictitious mass 
 %BOMD or CPMD? 
 Which method is to favor depends largely on the definition of accuracy, as well as on the particular application.
 In the applications in this thesis, we use the BOMD method, as implemented in CP2K package\cite{CP2K,Kuehne2020}. 
-In the BOMD  
+In BOMD,  
 (1) the nuclear positions are propagated in time followed Newton's equations of motion with the electronic ground state energy as the potential energy surface; 
 (2) the time evolution of the atomic coordinates is performed with the velocity Verlet algorithm\cite{FS2002}.
 
@@ -401,14 +401,14 @@ To obtain the vibrational properties of a molecular system, it is possible to us
 as calculated from the AIMD trajectories.
 The obtained Vibrational Density of States (VDOS) can 
 provide information on the local environment of the water molecules' OH-stretching mode. 
-For a system comprised of $N$ atoms, the velocity ACF $C(t)$ for a molecule is\cite{MTD,Dickey1969,TI07} 
+For a system comprised of $N$ atoms, the velocity ACF $C(t)$ for a molecule is\cite{MTD,Dickey1969,Ishiyama2007} 
 \begin{equation}
 C(t)=\frac{\langle\sum^{N}_{i=1}{\bf{v}}_i(t)\cdot{\bf{v}}_i(0)\rangle}{\langle\sum^{N}_{i=1}{\bf{v}}_i(0)\cdot{\bf{v}}_i(0)\rangle},
 \label{eq:Ct3s}
 \end{equation}
 where $\langle\dots\rangle$ denotes the average over starting times, $t$ is the time interval, and ${\bf{v}}_i$ denotes 
 the velocity of the $i$-th atom. The VDOS $g(\nu)$ for selected atoms, which is a function of the vibrational frequency $\nu$ 
-of atoms, is expressed in terms of the Fourier Transform (FT) of the velocity ACF of the atoms\cite{MPA86}.
+of atoms, is expressed in terms of the Fourier Transform (FT) of the velocity ACF of the atoms\cite{Allen1986}.
 In equilibrium, $C(-t)=C(t)$, and $g(\nu)$ is a real function, i.e., 
 \begin{equation}
 g(\nu)= \sqrt{\frac{2}{\pi}}\int^{\infty}_{0}\text{d}t \text{cos}(2\pi\nu{t})C(t).
@@ -431,8 +431,8 @@ The VDOS $g_z(\nu)$ for water molecules is used to extract the O-H stretch along
 As introduced in Chapter \ref{CHAPTER_1}, the VSFG spectroscopy is a powerful tool for extracting structural and dynamical information
 on surfaces and interfaces.
 It can be applied to any interface as long as light can reach it, also including liquid/metal interfaces\cite{Harris90,Harris90b,DaiHL95,Halevi96,Wieckowski99} 
-and buried interfaces\cite{Chen99,Chen07};
-It can probe liquid interface with molecular sensitivity\cite{Khatib16,Khatib16b,Khatib2017}.
+and buried interfaces\cite{ChenZ1999,ChenZ2007};
+It can probe liquid interface with molecular sensitivity\cite{Khatib2016,Khatib2016b,Khatib2017}.
 Therefore, the VSFG spectroscopy can yield structural information about solution/vapor interfaces which could not be obtained with other techniques.
 
 \subsection{Nonlinear susceptibility of solution/vapor interfaces}
@@ -491,7 +491,7 @@ In Eq.\thinspace(\ref{eq:chi_R}) $\rho=e^{-\beta H}/Z$ for a system with Hamilto
 $\mu_\kappa$ is the $\kappa$-th component of the system electric dipole and ${\alpha_{\eta\xi}}$ is the $\eta\xi$-th component of the polarizabiltiy tensor\cite{1995SM}.
 Besides the vibrational resonance, $\chi^{\text{(2),R}}$, which reflects the vibrational and orientational characteristics of the surface species, 
 the VSFG signal also includes the contribution from the non-resonant signal background $\chi^{\text{(2),NR}}$, 
-due to static hyperpolarizability of the interface itself\cite{Che2012}.  
+due to static hyperpolarizability of the interface itself\cite{CheM2012}.  
 For example, there are strong non-resonant second-order nonlinear responses\cite{Pradier11,Vanselow2012,Wieckowski99} of the interface in the case of some metal(-oxide). 
 Generally, experiments employ visible light and VSFG frequencies far from resonant conditions, therefore, the non-resonant 
 term $\chi^{\text{(2),NR}}$ is approximately off-resonant to the light frequencies involved\cite{Morita02}.
@@ -546,9 +546,9 @@ of the quantity $\langle\alpha_{\eta\xi}(t)\mu_{\kappa}(0)\rangle$, i.e., the en
 The damping rate $\gamma_{v'v}$ is not explicitly included in Eq.\thinspace(\ref{eq:beta_R_b}), because the dephasing is incorporated in the time development of the off-diagonal matrix elements 
 of $\alpha_{\eta\xi}(t)$ and $\mu_{\kappa}(0)$.
 
-The tensor elements $\chi^{(2),R}_{\eta\xi\kappa}$ is microscopically represented as the average sum of first-order hyperpolarizability of the constituent molecules $\beta$ in the space-fixed frame
+The tensor elements $\chi^{(2),\text{R}}_{\eta\xi\kappa}$ is microscopically represented as the average sum of first-order hyperpolarizability of the constituent molecules $\beta$ in the space-fixed frame
 \begin{align}
-  \chi^{(2),R}_{\eta\xi\kappa} = \langle \sum_i^N \sum_{pqr} D_{\eta p}(\Omega_i) D_{\xi q}(\Omega_i) D_{\kappa r}(\Omega_i) \beta_{pqr}\rangle
+  \chi^{(2),\text{R}}_{\eta\xi\kappa} = \langle \sum_i^N \sum_{pqr} D_{\eta p}(\Omega_i) D_{\xi q}(\Omega_i) D_{\kappa r}(\Omega_i) \beta_{pqr}\rangle
 \label{average_sum}
 \end{align}
 where $D(\Omega_i)$ is the direction cosine matrix of the $i$-th molecule, projecting $\beta$ onto the space-fixed frame\cite{Morita2000}.
@@ -582,7 +582,7 @@ where $D(\Omega_i)$ is the direction cosine matrix of the $i$-th molecule, proje
 Because of screening and dipole-dipole coupling, the local electric fields felt by molecules is different from the macroscopic fields\cite{Vanselow2012}. 
 The VSFG signal depends on the magnitude of the local electric fields of the interacting optical beams at the interfaces. 
 While the magnitude of the local electric fields is related to both the intensity of the incident beams and the linear refractive indices 
-of the different layers (bulk) of the sample\cite{Khatib16}. The Fresnel coefficients define the magnitude of the electric fields at the interface. 
+of the different layers (bulk) of the sample\cite{Khatib2016}. The Fresnel coefficients define the magnitude of the electric fields at the interface. 
 Therefore, to find out the magnitude of the local electric fields, we need to evaluate the Fresnel factors. 
 The VSFG intensity $I_{\text{SFG}}$, is proportional to the intensities of the incident visible and infrared beams, $I_{\text{vis}}$, $I$, 
 and to the square of the second-order nonlinear susceptibilities,
@@ -669,7 +669,7 @@ Similarly, for the dipole polarizability, we have
 The Eq.\thinspace(\ref{eq:dot_mu}) and Eq.\thinspace(\ref{eq:dot_alpha}) simplify the calculation of the  
 $\left\langle \dot{A}_{\eta\xi}(t) \dot{M}_{\kappa}(0)\right\rangle$ in Eq.\thinspace(\ref{eq:chi}), because $v_z(t)$
 and ${D}(t)$ can be readily determined from the DFTMD
-trajectory, and $\frac{d\mu_i}{dr_z}$ and $\frac{d\alpha_{ij}}{dr_z}$ can be parameterized\cite{Corcelli05,Khatib16}.
+trajectory, and $\frac{d\mu_i}{dr_z}$ and $\frac{d\alpha_{ij}}{dr_z}$ can be parameterized\cite{Corcelli2005,Khatib2016}.
 %
 \begin{figure}
 \centering
@@ -782,9 +782,9 @@ ${{D}}^{\text{m}}$ is time dependent.
 Based on DFTMD simulations, we can implement the parameterization of $\frac{\partial \mu_{k}}{\partial r_z}$ and $\frac{\partial\alpha_{ij}}{\partial r_z}$
 and calculate the correlation function $\langle\dot{A}_{\eta\xi}(t)\dot{M}_{\kappa}(0)\rangle$ through the velocity auto-correlation function. 
 This approximation for estimating the susceptibility retains the details of the interface, including the full electronic structure. 
-And it reduces the computational cost for a total calculation with the instantaneous evaluation of the molecular dipoles and polarizabilities\cite{sulpizi2013}. 
+And it reduces the computational cost for a total calculation with the instantaneous evaluation of the molecular dipoles and polarizabilities\cite{Sulpizi2013}. 
 The parametrization of $\frac{\partial \mu_{k}}{\partial r_z}$ and $\frac{\partial\alpha_{ij}}{\partial r_z}$ is based 
-on the calculation of the MLWF\cite{Marzari97} 
+on the calculation of the MLWF\cite{Marzari1997} 
  and can be done through the approach developed by Salanne \etal\cite{Salanne08} and Khatib \etal\cite{Khatib2017}.
 The implementation of this parametrization is given in Appendix \ref{calculate_derivatives}.
 %\paragraph{Calculation of $\chi^{(2)}$ (Method 2)}
@@ -864,7 +864,7 @@ c(t)=\langle h(0)h(t) \rangle/\langle h\rangle
 With the aid of the ergodic principle, the ensemble average $\langle \cdots\rangle$ is implemented by time average.
 The $\langle h\rangle$ is the probability that a pair of randomly chosen water molecules in the system is
 H-bonded at any time $t$. 
-As examples, the dynamics of the interoxygen distance $r_{\text{OO}}(t)$, 
+As examples, the dynamics of the inter-oxygen distance $r_{\text{OO}}(t)$, 
 the cosine of the H$-$O$\cdots$O angle (cos$\phi(t)$)  
 and the HB population operator $h(t)$ for a HB in a DFTMD simulated water cluster (H$_2$O)$_n$ (n=5) 
 at 300 K is displayed in Fig.\thinspace\ref{fig:Ex30ps_hb}, respectively.
@@ -874,7 +874,7 @@ at 300 K is displayed in Fig.\thinspace\ref{fig:Ex30ps_hb}, respectively.
 \includegraphics [width=0.42\textwidth] {./diagrams/Ex30ps_hb}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:Ex30ps_hb}Dynamics of $r_{\text{OO}}(t)$ (top panel), cos$\phi(t)$ (middle panel), 
-  and $h(t)$ (bottom panel) for a typical HB in a water cluster. The dashed lines show the interoxygen distance 
+  and $h(t)$ (bottom panel) for a typical HB in a water cluster. The dashed lines show the inter-oxygen distance 
   boundary $r^{\text{c}}_{\text{OO}}$=3.5 \AA (top panel) and criterion of cosine of H$-$O$\cdots$O angle cos$\phi^{\text{c}}$ 
   with $\phi^{\text{c}}$=30$^{\circ}$ (middle panel), respectively.}
 \end{figure} 
@@ -945,7 +945,7 @@ Because the thermal motion can cause distortions of H-bonds from the perfectly t
 water molecules show a librational motion on a time scale of $\sim$ 0.1 ps superimposed to rotational and diffusional motions ($> 1$ ps), 
 which causes a time variation of interaction parameters.
 A new HB population $h^{(d)}(t)$ was also defined to obviate the distortion of real HB dynamics\cite{Sciortino1989,Chandra2000}.
-The $h^{(d)}(t)$ is 1 when the interoxygen distance of a particular tagged pair of water molecules is less than $r^{\text{c}}_{\text{OO}}=3.5$ \AA at time $t$ and 0 otherwise. 
+The $h^{(d)}(t)$ is 1 when the inter-oxygen distance of a particular tagged pair of water molecules is less than $r^{\text{c}}_{\text{OO}}=3.5$ \AA at time $t$ and 0 otherwise. 
 The difference between the operators $h^{(d)}(t)$ and $h(t)$ is that there is no restriction on the angle. Therefore, those molecular pairs that meet the condition of $h^{(d)}(t)=1$ may not meet the condition of $h(t)=1$.
 That is, the H-bonds between the tagged molecular pairs that satisfy the condition $h^{(d)}(t)=1$ may have been broken, but they may more easily form H-bonds again.
 The function 

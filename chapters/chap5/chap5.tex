@@ -17,7 +17,7 @@ are considered in this paragraph.
 %[all the data on the simulation]
 All simulations in this chapter were performed at 300 K within the canonical (NVT) ensemble.
 The BLYP exchange and correlation functional\cite{Becke1988,LeeC1988}, 
-and the D3 dispersion corrections\cite{Grimme10,Klimes2012} have been employed.
+and the D3 dispersion corrections\cite{Grimme2010,Klimes2012} have been employed.
 The electron-ion interactions are described by GTH pseudopotentials\cite{Hartwigsen1998,Lippert1999}.
 The length of the trajectory is 60 ps of physical time.
 %The definition of $h(t)$ is based on specific H--O bond, instead of water-water pairs.
@@ -267,9 +267,9 @@ where ${\mathbf{r}}_i(t)$ is the position of the $i$th particle at time $t$ and 
 is a normalized Gaussian functions for a 3-dimensional system, where $r$ is the magnitude of ${\mathbf r}$, and $\xi$ is the coarse-graining length.
 Equation \ref{eq:gaussian_coarse_graining} is introduced to improve the accuracy of the interface, such that we can extend the domain and make it a single unicom,
 i.e., no cavity exists in the domain.
-With the parameter $\xi$ set, the interfaces can be defined to be the 2-dimensional manifold ${\mathbf r} = {\mathbf s}$ such that
+With the parameter $\xi$ set, the interfaces can be defined to be the two-dimensional manifold ${\mathbf r} = {\mathbf s}$ such that
 \begin{eqnarray}
-\bar\rho(\mathbf{s};t)= \rho_c 
+\bar\rho(\mathbf{s};t)= \rho_c, 
 \label{eq:rho_c}
 \end{eqnarray} 
 where $\rho_c$ is a reference density. This interface is a function of time as molecular configurations changes with time, that is 
@@ -453,7 +453,7 @@ can get as good results as the IMS method when $d$ is larger than $d_0$.
 Because the IHB method is concise to operate, it can be used to calculate the HB dynamics and thus HB lifetime for the water/vapor interface 
 when $d$ is larger than $d_0$. For the water/vapor interface, $d_0$ is approximately $4$ \A \ or equals to the size of $\sim$2 layers of water molecules. 
 This result coincides with the previous theoretical results based on MD simulation\cite{Townsend1985,Taylor1996,Morita2000} 
-and VSFG spectroscopy\cite{Stiopkin2011,Tyrode2013}, which have shown that isotropic properties are already recovered 
+and VSFG spectroscopy\cite{Tyrode2013}, which have shown that isotropic properties are already recovered 
 at sub-nanometer distances from the surface of ordered hydrophobic monolayers.
 For example, Stiopkin and coworkers suggested a "healing length" of about 3 \AA with the bulk-phase properties of water recovered within the top few monolayers\cite{Stiopkin2011}.
 
