@@ -103,7 +103,7 @@ H_{\text{e}} |\Psi_0 \rangle = \epsilon_0({\bf R})|\Psi_0 \rangle.
 \label{eq:SE}
 \end{equation}
 This is a high-dimensional eigenvalue problem, and it is still time consuming. 
-One great solution to the electronic structure problem is the DFT\cite{HK64,KS65}.
+One great solution to the electronic structure problem is the DFT\cite{HK64,Kohn1965}.
 
 DFT can be used to map the problem of an interacting electron gas onto that of a non-interacting particles in an effective non-local 
 potential\cite{MCP92}. 
@@ -408,7 +408,7 @@ C(t)=\frac{\langle\sum^{N}_{i=1}{\bf{v}}_i(t)\cdot{\bf{v}}_i(0)\rangle}{\langle\
 \end{equation}
 where $\langle\dots\rangle$ denotes the average over starting times, $t$ is the time interval, and ${\bf{v}}_i$ denotes 
 the velocity of the $i$-th atom. The VDOS $g(\nu)$ for selected atoms, which is a function of the vibrational frequency $\nu$ 
-of atoms, is expressed in terms of the Fourier Transform (FT) of the velocity ACF of the atoms\cite{Allen1986}.
+of atoms, is expressed in terms of the FT of the velocity ACF of the atoms\cite{Allen1986}.
 In equilibrium, $C(-t)=C(t)$, and $g(\nu)$ is a real function, i.e., 
 \begin{equation}
 g(\nu)= \sqrt{\frac{2}{\pi}}\int^{\infty}_{0}\text{d}t \text{cos}(2\pi\nu{t})C(t).
@@ -494,7 +494,7 @@ the VSFG signal also includes the contribution from the non-resonant signal back
 due to static hyperpolarizability of the interface itself\cite{CheM2012}.  
 For example, there are strong non-resonant second-order nonlinear responses\cite{Pradier11,Vanselow2012,Wieckowski99} of the interface in the case of some metal(-oxide). 
 Generally, experiments employ visible light and VSFG frequencies far from resonant conditions, therefore, the non-resonant 
-term $\chi^{\text{(2),NR}}$ is approximately off-resonant to the light frequencies involved\cite{Morita02}.
+term $\chi^{\text{(2),NR}}$ is approximately off-resonant to the light frequencies involved\cite{Morita2002}.
 %Neglecting the frequency dependence of the nonresonant term $\chi^{\text{(2),NR}}$ is usually a good approximation. 
 
 \paragraph{Microscopic expression of molecular hyperpolarizability} 
@@ -553,7 +553,7 @@ The tensor elements $\chi^{(2),\text{R}}_{\eta\xi\kappa}$ is microscopically rep
 \end{align}
 where $D(\Omega_i)$ is the direction cosine matrix of the $i$-th molecule, projecting $\beta$ onto the space-fixed frame\cite{Morita2000}.
 
-%and evaluate it with the static hyperpolarizability, which can be calculated by an \abinitio Molecular Orbital (MO) package\cite{Morita02}, 
+%and evaluate it with the static hyperpolarizability, which can be calculated by an \abinitio Molecular Orbital (MO) package\cite{Morita2002}, 
 %\begin{equation}
 %        \beta_{\eta\xi\kappa}^{\text{NR}}=\sigma\beta_{\eta\xi\kappa}^{\text{static}},
 %\label{eq:beta_NR}
@@ -599,7 +599,7 @@ direction in the medium.
 
 \subsection{VSFG spectra from velocity auto-correlation functions}
 %To construct SFG spectrum of O-H stretching at the water/vapor interface and to ascertain the molecular origin of SFG spectrum, 
-%quantum corrected time correlation function \cite{Morita02,Morita04} and instantaneous normal mode (INM) methods are used 
+%quantum corrected time correlation function \cite{Morita2002,Morita2004} and instantaneous normal mode (INM) methods are used 
 %by Perry and coworkers.\cite{Perry03} 
 %For  water/vapor interface, the INM SFG spectrum is in agreement with the time correlatin function SFG spectrum. 
 %This implies that motional narrowing effects play little role  in the interfacial line shape. The Shen group suggests that 
@@ -615,7 +615,7 @@ VACFs, reducing the computational cost to that of the accumulation of a molecula
 the overhead costs associated with the explicit calculation of the dipole and polarizability tensor. Moreover, the method permits to interpret 
 the peaks in the spectrum in terms of local modes.
 The components of the resonant term $\chi^{\text{(2),R}}_{\eta\xi\kappa}$ of the second order susceptibility can be calculated 
-according to the classical formula\cite{Morita02,Morita2008,Nihonyanagi2011}
+according to the classical formula\cite{Morita2002,Morita2008,Nihonyanagi2011}
 \begin{align}
   \chi^{\text{(2),R}}_{\eta\xi\kappa}&=\frac{-i}{k_{\text{B}}T \omega} \int_0^\infty dt e^{i\omega t}\left\langle \dot{A}_{\eta\xi}(t) \dot{M}_{\kappa}(0)\right\rangle 
  \label{eq:chi}
