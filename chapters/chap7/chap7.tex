@@ -1,14 +1,15 @@
 \chapter{Conclusion and Perspectives}\label{CHAPTER_Summary}
-Using DFTMD simulations, we have analyzed the interfacial structure and dynamics of electrolyte solutions containing alkaline nitrates and alkaline halides,
+Using density functional theory-based molecular dynamics (DFTMD) simulations, we have analyzed the interfacial structure and dynamics of electrolyte solutions containing alkaline nitrates and alkaline halides,
 which share some similarities in terms of surface propensity.
-In particular we have presented a detailed analysis of the VSFG spectra, HB dynamics, and reorientation dynamics of water molecules at the solution/vapor interfaces. 
+In particular we have presented a detailed analysis of the vibrational sum- frequency generation (VSFG) spectra, HB dynamics, and reorientation dynamics of water molecules at the solution/vapor interfaces. 
 We have also provided a molecular interpretation of the interface vibrational spectra. 
 %鉴于碘离子与硝酸根离子在Hofmeister序列中的相似性，我们有时也对碘化碱金属盐的溶液或其界面系统做了计算。以期望对含有硝酸根和碘离子等较大的阴离子的溶液中动力学性质得到一般的认识。
 
 We have shown that the use of simple models, such as small clusters are not suitable to reproduce the experimental spectra 
 and cannot provide a microscopic interpretation of the VSFG spectra. Realistic models of the interface are required to address the 
-perturbation of ions on the water surface. The elucidated mechanism [WHICH MECHANISM?] is possibly more general to anions which have high 
-surface propensity for the solution/vapor interface, for example the nitrate ion and the iodide ion.
+perturbation of ions on the water surface. 
+%[THIS IS TOO GENERAL, I DELETE IT. The elucidated mechanism is possibly more general to anions which have high 
+%surface propensity for the solution/vapor interface, for example the nitrate ion and the iodide ion.]
 
 As a first system we have analyzed the behaviour of a salty interface containing LiNO$_3$.
 Both measured and calculated VSFG spectra shows a reduced intensity of the lower frequency portion region, 
@@ -18,16 +19,16 @@ This effects is only related to the presence of \nitrate at the water surface an
 We have shown that although the \Li can reside relative close to the water surface, also forming a water mediated
 ion pair with \nit, its effect on the VSFG spectrum is not visible. The water molecule which mediate the interaction 
 between the \nitrate and the \Li would produce a red-shifted peak in small water cluster's VDOS, but its influence is not visible 
-in the VSFG spectra. [This implies presence of water seperated ions.] 
-This conclusion is verified by our calculation of the free energy difference between different configurations for 
-larger water clusters by the blue-moon method. These results give consistent results: Li$^+$--NO$_3^-$ ion pairs 
-separated by a water molecule have lower free energy than the configuration in which Li$^+$ is in direct contact with NO$_3^-$. 
+in the VSFG spectra. This result implies the distribution of anions and cations relative to the interface: 
+nitrate ions are located in the uppermost layer of the interface, and alkali metal ions are located in the layer below 
+and form with the anion a water separated ion pair.
+This conclusion that the water-seperated ion configuration is more stable than the contact ion pair is verified by our calculation of the free energy difference between different configurations for larger water cluster.
 
 Based on the instantaneous interface layer, we obtained 
 %properties for the aqueous interfaces that are consistent with the experimental results, 
 %such as 
-the thickness of the water/vapor interface, the relaxation time of the H-bonds at the interface [Which interface ?], 
-and the distribution of free OH bonds at the interface that have an important contribution to the VSFG spectrum.
+the thickness of the water/vapor interface, the relaxation time of the interfacial H-bonds, 
+and the distribution of free OH bonds, which have an important contribution to the VSFG spectrum.
 These results suggest that considering instantaneous interfaces is essential for understanding the microscopic structure about aqueous interfaces.
 
 %For bulk system, based on the Luzar-Chandler HB population operator, 
@@ -50,13 +51,12 @@ Furthermore, both VSFG spectra and HB dynamics demonstrates the surface propensi
 Another general conclusion is that the HB strength between water molecules in the ions' second solvation shell is independent 
 of the ion--water interactions in ions' first solvation shell.
 
-Based on the DFTMD simulations, the method of IMS can \emph{partially} gives information on the HB breaking and reforming
+Based on the DFTMD simulations, the method of interfacial molecule sampling (IMS) can \emph{partially} gives information on the HB breaking and reforming
 rates through the water/vapor interface and therefore partially shows how much the interface affects the dynamics of H-bonds in water. 
 This method \emph{underestimates} the HB breaking rate constant of the water/vapor interface. 
 We have provided a method based on the \emph{instantaneous} surface and the new-defined
-IHB operator to obtain the interfacial HB dynamics of instantaneous water/vapor interfaces.  
-[Using the correlation functions based on the interfacial hydrogen bond (IHB) population operator, we have calculated the HB dynamics of water layer with a certain thickness 
-under the instantaneous surface.  REFORMULATE THIS SENTANCE.]
+interfacial hydrogen bond (IHB) operator to obtain the interfacial HB dynamics of instantaneous water/vapor interfaces, and the thickness of the interface.  
+%[Using the correlation functions based on the interfacial hydrogen bond (IHB) population operator, we have calculated the HB dynamics of water layer with a certain thickness under the instantaneous surface.  REFORMULATE THIS SENTANCE.]
 The IHB method allows one to avoid sampling the molecules reside in the interfacial layer and
 it also provide partial information on the HB breaking and reforming rates at the interface. 
 Unlike IMS method, it \emph{overestimates} the HB breaking rate constant. The calculated results in these two extreme cases indicate that,
@@ -64,15 +64,14 @@ as the thickness of the water layer increases,
 the HB breaking and reforming rate constants in the water layer \emph{below} the instantaneous surface tends to be uniform 
 (see Fig.\thinspace\ref{fig:128w_itp_pure_water_pair_k_k_prime_ihb_both_schemes} a in Chapter \ref{CHAPTER_HBD}). 
 The real HB dynamical characteristics at the water/vapor interface 
-are derived from the two extreme cases when the thickness of the interface is ABOUT 4 \AA. 
-Therefore, the result has given an estimate of the thickness ($\sim$ 4 \AA) of the water/vapor interface.  
+are derived from the two extreme cases when the thickness of the interface is 4 \AA. 
+Therefore, the result has given an estimate of the thickness of the water/vapor interface.  
 The combination of the IMS method and the IHB population operator is extended to the solution/vapor interface. 
 It has been confirmed that different ions in the electrolyte solution interface have their specific distributions in the normal direction of the interface. 
 Therefore, the thickness of the solution/vapor interface is greater than the thickness of the water/vapor interface. 
 
-[In addition, we regarded solvation shells of an ion as interfaces, 
-and defined the SHB population operator, which is an extension to the IHB population.REFORMULATE THIS SENTANCE.]
-The difference between the HB dynamics for H-bonds in the second solvation shell of the \Li and for N--W bonds 
+In addition, the concept of instantaneous interface has been extended to analyze the first solvation shell around the ions.
+[TOO MANY DETAILS, NECCESSARY?] The difference between the HB dynamics for H-bonds in the second solvation shell of the \Li and for N--W bonds 
 at the interface is not visible from the values of the HB relaxation time. They reflect the difference between HB dynamics in 
 bulk water and at the water/vapor interface. For the alkaline iodide solution/vapor interfaces, we found 
 that the cations does not alter the H-bonding network outside the first hydration shell. 
@@ -111,7 +110,7 @@ We believe that combining the VSFG method, IHB and IMS methods will help us more
 This will likely promote our understanding of the nature of these effects at interfaces.
 
 %AIMD所得之数据可以用在机器学习模型之训练中.
-Finally, as we can see from the previous chapters, AIMD simulations have increased our understanding of interface properties and the interactions between atoms.
+Finally, as we can see from the previous chapters, \abinitio simulations have increased our understanding of interface properties and the interactions between atoms.
 However, poor scaling renders AIMD calculations intractable for larger systems.
 One possible extension of our work is to train potentials (e.g. with machine learning approaches\cite{Norvig2010}) on small systems within \abinitio approaches\cite{Behler2007,Behler2011,Behler2014,Kolb2017}, 
 then use these potentials to investigate large systems such as interfaces, grain boundaries and disordered systems.
