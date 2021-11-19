@@ -149,7 +149,7 @@ allowing for straightforward investigation of structure and dynamics of molecule
 They gives insights into direct interactions between ions and water, and have been used for calculating properties, 
 such as the depth profile of ion concentrations of interfaces\cite{Jungwirth2001,Jungwirth2002}, and the VSFG spectra 
 of electrolyte solution surfaces\cite{Gopalakrishnan2006,Johnson2014,Ishiyama2014,Ishiyama2017}.
-Polarizable force field have been widely used to calculate VSFG spectra\cite{LXD03,MKP04,TI07,MM05}, however,they lack
+Polarizable force field have been widely used to calculate VSFG spectra\cite{LXD03,Petersen2004,TI07,MM05}, however, they lack
 of transferability when complex interfaces are considered.
 To overcome this problem, one can use \abinitio MD (AIMD) simulations\cite{CP1985,Pastore1991,Hutter2012}, 
 in particular the density functional theory-based molecular dynamics (DFTMD) simulations\cite{CP1985,Nagata2015,Nagata2016,Kuehne2020} to generate the dynamic trajectory of 
@@ -157,7 +157,7 @@ the liquid interface, and use them to calculate the macroscopic properties, name
 orientation of ions, as well as the VSFG spectra\cite{Sulpizi2013,Usui2015,Ohto2015,Khatib2016}.  
 %[AIM: compute the interfacial VSFG spectra of electrolyte solutions and to provide their molecular interpretation.]
 The advantage of AIMD is that it does not require a priori parameterization and it is capable to include polarization effects\cite{Ufimtsev2011},
-also including electronic polarization. AIMD at the gradient corrected level, and also including dispersion corrections\cite{Grimme2004,Grimme2006,Grimme2007,Grimme2010,Baer2011}
+also including electronic polarization. \emph{Ab initio} MD at the gradient corrected level, and also including dispersion corrections\cite{Grimme2004,Grimme2006,Grimme2007,Grimme2010,Baer2011}
 has been shown to provide an accurate description of the vibrational properties at interface\cite{Fornaro2015}.
 
 %[HERE THERE IS QUITE AN ABRUPT JUMP FROM SFG TECHNIQUE TO HOFFMEISTER SERIES. MAYBE THE NEXT TWO PARAGRAPHS SHOULD GO BEFORE INTRODUCING THE SFG.SULPIZI]
@@ -205,9 +205,9 @@ near the water/vapor interface, i.e., the \emph{increase} in surface tension
 implies a \emph{deficiency} of solute in the surface layer\cite{Jarvis1968},
 and had calculated the thickness of the adsorbed layer of pure water, finding 
 the depleted layer from 3.3 to 4.2 \A.
-Later, molecular dynamics (MD) simulations have shown that more polarizable anions (e.g., larger halide anions) 
+Later, MD simulations have shown that more polarizable anions (e.g., larger halide anions) 
 can be present in the surface region\cite{Jungwirth2001,Jungwirth2002}. 
-Tian and coworkers\cite{CST11} have also predicted that some ions, such as \I and Br$^{-}$, could accumulate at the interface.
+Tian and coworkers\cite{TianCS2011} have also predicted that some ions, such as \I and Br$^{-}$, could accumulate at the interface.
 These seemingly contradictory conclusions with the Gibbs adsorption equation mean that our understanding of the interface is still incomplete. 
 %Specifically, the kinetics of halogen uptake of solutions\cite{HuJH95}, the photoelectron emission experiments\cite{Markovich1991,Ghosal05,Garrett04} and the polarizable 
 %force-field simulations\cite{Perera1991,Dang1993,Knipping00,Jungwirth2001,Jungwirth2002,PJ06,Horinek07,Brown08,CST11} showed that 
@@ -318,7 +318,7 @@ of water in these simple but non-the-less still puzzling systems: alkali metal n
 As first we want to provide a molecular interpretation of the main characteristics of the
 VSFG spectra of the electrolytic solution/vapor interfaces.
 We focus on nitrate solutions and alkali halide solutions because their anions have a significant impact on the structure and dynamics of the interface.
-We have used \abinitio MD to provide a realistic description of the electrolytic solution/vapor interface and calculated the VSFG spectra.
+We have used AIMD to provide a realistic description of the electrolytic solution/vapor interface and calculated the VSFG spectra.
 According to the definition, nonlinear susceptibility of solution/vapor interfaces is obtained by the Fourier transform (FT) of 
 the time correlation function of the dipole moment and the polarization tensor. This requires, for each step of DFTMD, 
 the calculation of the dipole moment and polarization tensor of molecules in the interface. 
@@ -329,7 +329,7 @@ which is consistent with the experiment.
 In addition to the spectra interpretation, we also provide the distribution of anions 
 and cations relative to the interface: nitrate ions are located in the uppermost layer of the interface, 
 and alkali metal ions are located in the layer below and form with the anion a water separated ion pair. 
-Using free energy calculations, we also proofed that this water-separated ion configuration is more stable than the contact ion pair.
+Using free energy calculations, we also proved that this water-separated ion configuration is more stable than the contact ion pair.
 
 The adsorption of halide anions, in both surface tension experiments and MD simulations, 
 follows the Hofmeister series\cite{Jungwirth2006,Pegram2007,ZYJ10,Tobias2008,Parsons2011,HuaWei2013}.
@@ -418,7 +418,7 @@ Furthermore, properties such as solvation shell HB (SHB) dynamics have also been
 
 %Structure of the thesis
 The thesis is organized as follows. 
-In Chapter \ref{CHAPTER_Methods}, we present the methods of \abinitio molecular dynamics
+In Chapter \ref{CHAPTER_Methods}, we present the methods of AIMD 
 and the method to calculate the VSFG spectra.
 In Chapter \ref{CHAPTER_Clusters}, we present the results of the vibrational properties of water \emph{clusters} including alkaline nitrates, 
 which are calculated for interpreting the vibrational characteristics of water molecules in a special water/vapor interface---the water clusters.

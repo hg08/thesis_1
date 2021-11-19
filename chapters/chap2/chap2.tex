@@ -256,7 +256,7 @@ gradient of the density $\nabla n$ as well as the density $n$. There are several
 
 The GGA is usually the best compromise between speed and accuracy in large systems. For solids, the most commonly used functional
 with the GGA is the one proposed by Perdew, Burke and Ernzherhof (PBE)\cite{PBE96}.
-Another popular GGA functional is the BLYP functional.  
+Another popular GGA functional is the BLYP functional\cite{Becke1988,LeeC1988}.  
 The electron densities of electric dipole and quadruple moments are not uniform in space.
 Physically, GGAs include information on the spatial variation in the electron densities,
 and thus they can create functionals with better flexibility to describe dipole and quadruple moments. 
@@ -357,7 +357,7 @@ The term $-\frac{\partial E}{\partial {\bf R}_{\text{I}}}$ is the Hellmann-Feynm
 where the KS orbitals are assumed to be real.
 
 The CPMD is an alternative method to the BOMD, which includes the 
-electrons in a single state\cite{CP}. In the CPMD, a coupled electron-ion dynamics is performed.
+electrons in a single state\cite{CP1985}. In the CPMD, a coupled electron-ion dynamics is performed.
 The CP Lagrangian is 
 \begin{align}
 L_{\text{CP}} (\{\psi_i\}; {\bf R},\dot{{\bf R}}) =& \frac{\mu}{2}\sum_i\langle\dot{\psi}_i|\dot{\psi}_i\rangle +  \frac{1}{2}\sum^N_{I=1}M_{\text{I}}\dot{\bf R}^2_{\text{I}}  - E[\{\psi_i\};{\bf R}] \nonumber \\
