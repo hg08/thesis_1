@@ -395,7 +395,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 }
 
 \DeclareDocumentEnvironment{extraAbstract}{ O{\null\vfill} }{
-	\checktoopen
+	%\checktoopen
 	\tttypeout{\abstractname}
 	#1%added to be able to have abstract more than one page long
 	\thispagestyle{empty}
