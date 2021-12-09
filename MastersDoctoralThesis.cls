@@ -374,19 +374,19 @@ KOMA-script documentation for details.}]{fancyhdr}
 		#1%added to be able to have abstract more than one page long
 		\thispagestyle{plain}
 		\begin{center}
-			{\normalsize \MakeUppercase{\univname} \par}% University name in capitals
-			\bigskip
+			%{\normalsize \MakeUppercase{\univname} \par}% University name in capitals
+			%\bigskip
 			{\huge\textit{\abstractname} \par}
 			\bigskip
-			{\normalsize \facname \par}% Faculty name
-			{\normalsize \deptname \par}% Department name
-			\bigskip
-			{\normalsize \degreename\par}% Degree name
-			\bigskip
-			{\normalsize\bfseries \@title \par}% Thesis title
-			\medskip
-			{\normalsize \byname{} \authorname \par}% Author name
-			\bigskip
+			%{\normalsize \facname \par}% Faculty name
+			%{\normalsize \deptname \par}% Department name
+			%\bigskip
+			%{\normalsize \degreename\par}% Degree name
+			%\bigskip
+			%{\normalsize\bfseries \@title \par}% Thesis title
+			%\medskip
+			%{\normalsize \byname{} \authorname \par}% Author name
+			%\bigskip
 		\end{center}
 	}
 	{
@@ -395,24 +395,24 @@ KOMA-script documentation for details.}]{fancyhdr}
 }
 
 \DeclareDocumentEnvironment{extraAbstract}{ O{\null\vfill} }{
-	%\checktoopen
+	\checktoopen
 	\tttypeout{\abstractname}
 	#1%added to be able to have abstract more than one page long
 	\thispagestyle{empty}
 	\begin{center}
-		{\normalsize \MakeUppercase{\univnameG} \par}% University name in capitals
+		%{\normalsize \MakeUppercase{\univnameG} \par}% University name in capitals
 		\bigskip
 		{\huge\textit{\abstractname} \par}
 		\bigskip
-		{\normalsize \facnameG \par}% Faculty name
-		{\normalsize \deptnameG \par}% Department name
-		\bigskip
-		{\normalsize \degreenameG\par}% Degree name
-		\bigskip
-		{\normalsize\bfseries \@titleG \par}% Thesis title
-		\medskip
-		{\normalsize \byname{} \authorname \par}% Author name
-		\bigskip
+		%{\normalsize \facnameG \par}% Faculty name
+		%{\normalsize \deptnameG \par}% Department name
+		%\bigskip
+		%{\normalsize \degreenameG\par}% Degree name
+		%\bigskip
+		%{\normalsize\bfseries \@titleG \par}% Thesis title
+		%\medskip
+		%{\normalsize \byname{} \authorname \par}% Author name
+		%\bigskip
 	\end{center}
 }
 {
