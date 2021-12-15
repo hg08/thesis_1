@@ -39,7 +39,9 @@ headsepline, % Uncomment to get a line under the header
 %consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
 ]{MastersDoctoralThesis} % The class file specifying the document structure
 
+%\usepackage[utf8x]{inputenc} 
 \usepackage[utf8]{inputenc} % Required for inputting international characters
+
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
 \usepackage{mhchem} % chemical reactions 
@@ -99,7 +101,7 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{color}
 \usepackage{soul}
 \usepackage{xspace} %In order to have space after "\newcommands" 
-\usepackage{listings}  %use for listing source codes
+\usepackage{listings} %use for listing source codes
 %\usepackage[all,cmtip]{xy}  %xypic
 \lstset{ 
     language=python, % choose the language of the code
@@ -199,11 +201,12 @@ headsepline, % Uncomment to get a line under the header
 %----------------------------------------------------------------------------------------
 
 \thesistitle{Structure, Dynamics and Vibrational Spectroscopy of Interfacial 
-Alkali Nitrate Aqueous Solutions from \abinitio Molecular Dynamics} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+Alkali Nitrate and Alkali Halide Aqueous Solutions from \abinitio Molecular Dynamics} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
 \thesistitleG{Struktur-, Dynamik- und Schwingungsspektroskopie von Alkaligrenzflächen
 Wässrige Nitratlösungen von \abinitio Molecular Dynamics} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
 \supervisor{Apl. Prof. Dr. Marialore \textsc{Sulpizi}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
-\examiner{Apl. Prof. Dr. Marialore Sulpizi, Prof. Dr. Wittig, Prof. Dr. Palberg, Prof. Dr. Spiesberger} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\examiner{Prof. Dr. Hartmut \textsc{Wittig}, Prof. Dr. Thomas \textsc{Palberg}, Prof. Dr. Hubert \textsc{Spiesberger}} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+%\examiner{Prof. Dr. Hartmut \textsc{Wittig}} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
 \degree{Doctor of Philosophy} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
 \degreeG{Doktor der Philosophie} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
 \author{Gang \textsc{Huang}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
@@ -255,13 +258,20 @@ Wässrige Nitratlösungen von \abinitio Molecular Dynamics} % Your thesis title,
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushleft} \large
 \emph{Author:}\\
-\href{http://www.johnsmith.com}{\authorname} % Author name - remove the \href bracket to remove the link
+\href{https://orcid.org/my-orcid?orcid=0000-0001-8515-8584}{\authorname} % Author name - remove the \href bracket to remove the link
 \end{flushleft}
 \end{minipage}
-\begin{minipage}[t]{0.4\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
 \begin{flushright} \large
 \emph{Supervisor:} \\
 \href{https://www.staff.uni-mainz.de/sulpizi}{\supname} % Supervisor name - remove the \href bracket to remove the link  
+%\end{flushright}
+%\end{minipage}\\[1cm]
+%\begin{minipage}[t]{0.5\textwidth}
+%\begin{flushleft} \large
+\emph{Second reviewer:}\\
+%Eximiners' name - remove the \href bracket to remove the link
+\href{https://sites.google.com/site/jamirmarino/home}{J-Prof. Dr. Jamir \textsc{Marino}}\\
 \end{flushright}
 \end{minipage}\\[3cm]
  
@@ -269,7 +279,8 @@ Wässrige Nitratlösungen von \abinitio Molecular Dynamics} % Your thesis title,
 
 	\large \textit{A thesis submitted for the award of the title "Doctor of Natural Sciences"} \\[0.3cm] % University requirement text
 \textit{to the Faculty of}\\[0.4cm]
-Physics, Mathematics and Computer Science of Johannes Gutenberg University Mainz in Mainz
+	Physics, Mathematics and Computer Science of \\
+	{\univname\par} %Johannes Gutenberg University Mainz in Mainz
 %\groupname\\\deptname\\[2cm] % Research group name and department name
  
 \vfill
@@ -334,29 +345,35 @@ molecular dynamics (DFTMD) simulations. We have presented a detailed analysis of
 have calculated the interface vibrational sum-frequency generation (VSFG) spectra to provide a molecular interpretation of available experimental data.
 
 %
-Both the measured and calculated VSFG spectra of alkaline nitrate solution show a reduced intensity in the lower frequency portion,
+Both the measured and calculated VSFG spectra of alkaline nitrate solution show a reduced intensity in the lower frequency portion of the stretching band,
 when compared to the water/vapor interface.
 This reduction is attributed to the hydrogen (H-) bonds established between the nitrate and the surrounding water molecules at the interface.
 This spectral feature is only related to the presence of the nitrate at the water surface and is not influenced by the alkali metal ions.
-We have shown that, to provide a microscopic interpretation of the spectra,
+We have also shown that, to provide a microscopic interpretation of the spectra,
 realistic models of the interface are required beyond the simple cluster models.
 
-Heavier halide anions, such as iodine, have a similar effect to nitrate ions on the structure and dynamics of the water/vapor interface.
-From the results of nonlinear susceptibilities, we conclude that water molecules at the interfaces of LiI, NaI, and KI solutions are participating
+Heavier halide anions, such as iodine, have an effect similar to that of nitrate ions on the structure and dynamics of the water/vapor interface.
+From the results of the simulations and from the calculation of the nonlinear susceptibilities, 
+we conclude that water molecules at the interfaces of LiI, NaI, and KI solutions are participating
 in weaker H-bonds, compared with those at the water/vapor interface.
-This feature comes from the unique distribution of \I ions and alkali metal cations,
-which form a double layer over the thickness on the order of 5--10 \A.
+This feature originates from the unique distribution of \I ions and alkali metal cations,
+which form a double layer over a thickness of about 5--10 \A.
 
 The second aspect which we have investigated is the HB dynamics.
-To analyze the HB dynamics at interfaces, 
+To analyze HB dynamics at interfaces, 
 we determined the instantaneous interface based on spatial density, 
 and proposed a statistical scheme based on the interfacial HB (IHB) population for identifying the instantaneous interface.
 Combining the IHB method with interfacial molecule sampling (IMS), we have obtained a method to determine the thickness of the water/vapor interface.
-The IHB method can also be extended to the solvation shells of ions in aqueous solutions.
+The IHB method has been also extended to the solvation shells of ions in aqueous solutions.
 
-Finally, the distribution of the number of H-bonds per OH group at a given instantaneous interface promotes our understanding of the difference between the alkaline nitrate
-solution/vapor and the water/vapor interfaces. In particular, the ratio of free OH bonds for interfaces affects the decay rate of the reorientation relaxation of water
-	molecules and the nonlinear susceptibility spectrum $\Im \chi^{(2)}$ of the alkaline nitrate interface.[NOT CLEAR, REFORMULATE]
+%Finally, the number $n$ of H-bonds per OH group at instantaneous interface promotes our understanding of structural features of the alkaline nitrate
+%	solution/vapor interface. 
+%	By comparing the distribution $P(n)$ of $n$ between the \LiN solution/vapor interface and the water/vapor interface, 
+%	we obtained that: For the solution interface, there is less free OH groups, and more OH groups that can form two H-bonds. 
+%	This distribution verified the "water-separated cation-nitrate ion pair" structure; 
+%	When the interface thickness is greater than 4 \A, the macroscopic properties of the solution interface, 
+%	whether it is the distribution $P(n)$ or the relaxation time of the reorientation relaxation process, converge to the same as that of bulk water.
+%	In addition, we have verified that the alkali iodide solutions also have these two properties.
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
@@ -365,33 +382,33 @@ solution/vapor and the water/vapor interfaces. In particular, the ratio of free 
 {\selectlanguage{ngerman}
 \begin{extraAbstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-Die Grenzflächenstruktur und -dynamik von Lösungen, die alkalische Nitrate und alkalische Halogenide enthalten, wurden auf der Grundlage der Dichtefunktionaltheorie untersucht
-Molekulardynamik (DFTMD)-Simulationen. Wir haben eine detaillierte Analyse der Wasserstoffbrücken(HB)-Struktur an der Grenzfläche vorgelegt und
-haben die Spektren der Grenzflächenschwingungssummenfrequenzerzeugung (VSFG) berechnet, um eine molekulare Interpretation der verfügbaren experimentellen Daten bereitzustellen.
+Die Grenzflächenstruktur und -dynamik von Lösungen, die Alkalinitrate und Alkalihalogenide enthalten, 
+wurden mit Hilfe von auf Dichtefunktionaltheorie basierenden
+Molekulardynamik-Simulationen (DFTMD) untersucht. Wir haben eine detaillierte Analyse der Wasserstoffbrückenbindungsstruktur (HB) 
+an der Grenzfläche vorgelegt und haben die Spektren der Schwingungssummen-Frequenz-Generierung (VSFG) an der Grenzfläche berechnet, 
+um eine molekulare Interpretation der verfügbaren experimentellen Daten zu ermöglichen.
 
-Sowohl die gemessenen als auch die berechneten VSFG-Spektren der alkalischen Nitratlösung zeigen eine reduzierte Intensität im unteren Frequenzbereich,
-im Vergleich zur Wasser/Dampf-Grenzfläche.
-Diese Reduktion wird den Wasserstoff-(H-)-Bindungen zugeschrieben, die zwischen dem Nitrat und den umgebenden Wassermolekülen an der Grenzfläche aufgebaut werden.
-Dieser Effekt hängt nur mit der Anwesenheit des Nitrats an der Wasseroberfläche zusammen und wird durch die Anwesenheit von Alkalimetallionen nicht beeinflusst.
-Wir haben gezeigt, dass für eine mikroskopische Interpretation der Spektren
-realistische Modelle der Grenzfläche sind erforderlich, um die Störung des Ions an der Wasseroberfläche zu untersuchen.
+%
+Sowohl die gemessenen als auch die berechneten VSFG-Spektren der Alkalinitratlösung zeigen eine verringerte Intensität im unteren Frequenzbereich 
+der Streckbande, im Vergleich zur Wasser/Dampf-Grenzfläche.
+Diese Verringerung wird auf die Wasserstoffbrückenbindungen (H-) zurückgeführt, die zwischen dem Nitrat und den umgebenden Wassermolekülen an der Grenzfläche entstehen.
+Dieses spektrale Merkmal hängt nur mit dem Vorhandensein des Nitrats an der Wasseroberfläche zusammen und wird nicht von den Alkalimetallionen beeinflusst.
+Wir haben auch gezeigt, dass für eine mikroskopische Interpretation der Spektren
+realistische Modelle der Grenzfläche erforderlich sind, die über die einfachen Clustermodelle hinausgehen.
 
-Schwerere Halogenidanionen haben einen ähnlichen Effekt wie Nitrationen auf die Struktur und Dynamik der Wasser/Dampf-Grenzfläche.
-Aus den Ergebnissen nichtlinearer Suszeptibilitäten schließen wir, dass Wassermoleküle an den Grenzflächen von LiI-, NaI- und KI-Lösungen beteiligt sind
-in schwächeren H-Brücken, verglichen mit denen an der Wasser/Dampf-Grenzfläche.
-Diese Eigenschaft kommt von einer einzigartigen Verteilung von I-Ionen und Alkalimetallkationen,
-die eine Doppelschicht über die Dicke in der Größenordnung von 5-10 Angström bilden.
+Schwerere Halogenidanionen, wie z. B. Jod, haben eine ähnliche Wirkung auf die Struktur und Dynamik der Wasser-Dampf-Grenzfläche wie Nitrationen.
+Aus den Ergebnissen der Simulationen und der Berechnung der nichtlinearen Suszeptibilitäten,
+schließen wir, dass die Wassermoleküle an den Grenzflächen von LiI-, NaI- und KI-Lösungen
+an schwächeren H-Bindungen beteiligt sind als an der Wasser/Dampf-Grenzfläche.
+Dieses Merkmal ist auf die einzigartige Verteilung von I-Ionen und Alkalimetallkationen zurückzuführen,
+die eine Doppelschicht mit einer Dicke von etwa 5-10 Angström bilden.
 
 Der zweite Aspekt, den wir untersucht haben, ist die HB-Dynamik.
 Um die HB-Dynamik an Grenzflächen zu analysieren,
-wir haben die momentane Schnittstelle basierend auf der räumlichen Dichte bestimmt,
-und schlug ein statistisches Schema basierend auf der Grenzflächen-HB(IHB)-Population für die momentane Grenzfläche vor.
-Durch die Kombination der IHB-Methode mit der Grenzflächenmolekülprobenahme (IMS) haben wir eine Methode zur Bestimmung der Dicke der Wasser/Dampf-Grenzfläche erhalten.
-Die IHB-Methode kann auch auf die Solvathüllen von Ionen in wässrigen Lösungen erweitert werden.
-
-Schließlich fördert die Verteilung der Anzahl von H-Brücken pro OH-Gruppe an einer gegebenen Momentangrenzfläche unser Verständnis des Unterschieds zwischen den alkalischen Nitraten
-Lösung/Dampf und die Wasser/Dampf-Grenzflächen. Insbesondere das Verhältnis der freien OH-Bindungen für Grenzflächen beeinflusst die Abklingrate der Reorientierungsrelaxation von Wasser
-Moleküle und das nichtlineare Suszeptibilitätsspektrum $\Im \chi^{(2)}$ der Alkalinitrat-Grenzfläche.
+haben wir die momentane Grenzfläche anhand der räumlichen Dichte bestimmt,
+und schlugen ein statistisches Schema vor, das auf der HB-Population an den Grenzflächen (IHB) basiert, um die momentane Grenzfläche zu identifizieren.
+Durch die Kombination der IHB-Methode mit dem Interfacial Molecule Sampling (IMS) haben wir eine Methode zur Bestimmung der Dicke der Wasser/Dampf-Grenzfläche entwickelt.
+Die IHB-Methode wurde auch auf die Solvatationsschalen von Ionen in wässrigen Lösungen ausgedehnt.
 \end{extraAbstract}
 }
 \selectlanguage{english}
@@ -410,7 +427,7 @@ All these have kept in my heart and gave me greater confidence in my future work
 
 %
 I am grateful to Prof. Dr. Friederike Schmid  and Prof. Dr. Kurt Binder for their talks and guidance.
-I wish to thank Prof. Dr. Thomas Kühner, Dr. Giovanni Settanni, PD Dr. Peter
+I wish to thank Prof. Dr. Thomas Kühne, Dr. Giovanni Settanni, PD Dr. Peter
 Virnau, Dr. Hans Behringer and Prof. Dr. Thomas Speck at the institute for
 physics for leading me to the fundamental statistical physics and excellent lectures and discussions. 
 
@@ -418,7 +435,7 @@ physics for leading me to the fundamental statistical physics and excellent lect
 I thank Prof. Dr. Harvey Meyer at the institute for nuclear physics. 
 I feel very honored to be a teaching assistant in his quantum field theory course. 
 %
-I thank Prof. Marie-Pierre Gaigeot in Universit{\'e} Pierre et Marie Curie for useful discussions.
+I thank Prof. Marie-Pierre Gaigeot at Universit{\'e} d'Evry val d'Essonne for useful discussions.
 
 %
 I am grateful to Dr. R\'emi Khatib for helpful guidance on the programs for calculating the VSFG spectra. 
@@ -449,7 +466,7 @@ Prof. Tan Lei and Prof. Liu Yuxiao.
 %
 I am grateful to my parents Diao Yuhua and Huang Dehuai, and my brother Jialiang, for their care, 
 understanding and support for me for decades. 
-This thesis is dedicated to my grandparents Zhong Yuqing, Diao Shengwen, Ma Sufang, and Huang Zongyin. 
+This thesis is dedicated to my grandparents Zhong Yuhtsing, Diao Sherngwern, Ma Suhfang, and Huang Zongyirn. 
 I will always remember the kindness, open-mindedness, diligence and perseverance.
 \end{acknowledgements}
 
@@ -488,6 +505,7 @@ I will always remember the kindness, open-mindedness, diligence and perseverance
 \textbf{GPW} & \textbf{G}aussian and \textbf{P}lane \textbf{W}aves\\
 \textbf{H-} & \textbf{H}ydrogen\\
 \textbf{HB} & \textbf{H}ydrogen \textbf{B}ond\\
+\textbf{HD} & \textbf{H}eterodyne \textbf{D}etected\\
 \textbf{HK} & \textbf{H}ohenberg-\textbf{K}ohn\\
 \textbf{IHB} & \textbf{I}nterfacial \textbf{H}ydrogen \textbf{B}ond\\
 \textbf{IMS} & \textbf{I}nterfacial \textbf{M}olecule \textbf{S}ampling\\
@@ -566,7 +584,6 @@ $T[n]$ & electronic kinetic energy & \\
 $E_{\text{disp}}^{(2)}$ & empirical two-body dispersion correction of energy & \\
 $E_{\text{disp}}^{(3)}$ & empirical three-body nonadditivity dispersion correction of energy & \\
 $E^{\text{XC}}[n]$ & Exchange correlation energy functional & \\
-$F$ & Farady constant &\\
 $\Delta F_{AB}$ & free energy difference between configuration A and B &  \\
 $F_A$ & free energy of configuration A &  \\
 $L_{\eta\kappa}$ & Fresnel coefficients & \\
@@ -594,6 +611,7 @@ $r_{\text{OO}}^{\text{c}}$ & the maximum value of the interoxygen distance (in t
 $\phi^{\text{c}}$ & the maximum value of the angle between the O--O axis and one of the & \\
                   & O--H bonds (in the definition of HB) & \\
 $N$ & number of water molecules & \\
+$n$ & number of H-bonds per OH group & \\
 $R_{\text{OH}}$ & O-H length in water molecule & \\
 $C_2(t)$ & orientational anisotropy decay & \\
 $Z$ & partition function & \\
