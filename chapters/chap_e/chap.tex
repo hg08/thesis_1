@@ -1,89 +1,8 @@
 \chapter{Thickness of the interface of aqueous solutions} \label{thickness_interface}
-\section{Interfacial HB dynamics} \label{ihb_and_selection}
-\paragraph{Instantaneous Surfaces}
-At a certain time $t$, the instantaneous surface ${\mathbf s}^0(x(t),y(t))$ for the water/vapor interface system can be determined by calculating 
-the coarse-graining density field: we can specify that the coarse-grained density is the reference density $\rho_\text{ref} = 0.016 $ \A$^{-3}$,
-and those grid points constitute the surface ${\mathbf s}^0(x,y)$ of pure water. In our simulated pure water system, there are two such surfaces.
-The code for calculating the instantaneous surfaces of interfacial systems can be found on \url{https://github.com/hg08/interface}. 
 %===================
-\paragraph{Griding and layering}
-We assume that the normal is along the $z$-axis direction. 
-First, we discretize the coordinates of the $xy$ plane. 
-%We divide the edges along the $x$- and  $y$-axis directions of the simulated box into $N$ parts uniformly, respectively, and 
-The $xy$ plane can be approximated by $N\times N$ discrete points. 
-Then $N\times N$ ordinates of the surface ${\mathbf s}^0(x(t_0),y(t_0))$ at the initial time $t_0$ can be represented as components of an $N\times N$-vector ${\mathbf z}^0(t_0$). 
-The surface ${\mathbf s}^0(x(t_0),y(t_0))$ is also the upper boundary of the interface.
-Secondly, we define a layering strategy, or define the thickness $d$ of the interface layer. 
-We then determine the lower boundary ${\mathbf s}^1(x(t_0),y(t_0))$ of the interface. 
-It can be expressed as a $N\times N$-vector ${\mathbf z}^1(t_0)={\mathbf z}^0(t_0)-{\mathbf d}$, 
-and ${\mathbf d}$ is a $N\times N$-dimensional constant vector in which all the entries are equal to $d$. 
-The superscripts 0 and 1 identify the upper and lower boundaries of the interface layer, respectively. 
-Similarly, other instantaneous interfaces can also be determined if one change the value of $d$.
-
-%So far, the instantaneous interfaces are static, because we only considered the initial configuration. 
-Next, the instantaneous interfaces can be defined for different moments naturally. 
-Therefore, according to the same method, for the molecular motion trajectory of an interface system, 
-we can obtain the dynamically changing interface layer, i.e., ${\mathbf z}^1(t)={\mathbf z}^0(t)-{\mathbf d}$. 
-To answer the question that whether an atom with coordinates $(x, y, z)$ at any time $t$ is in the interface layer,
-we map the atom's coordinates $(x, y)$ to an integer pair $(i, j)$, $i,j \in  \{0,\cdots,N\}$, 
-where $i = \text{int}(x /\Delta x), j = \text{int}(y/\Delta y)$, $\Delta x = a/N$, and $\Delta y = b/N$, 
-where $\text{int}(x)$ converts a real number $x$ to the nearest integer.
-At a certain time $t$, the coordinate $z$ of an atom can be approximately represented as a function defined on point $(i, j)$, $z=z(i,j)$. 
-Then we compare $z(i,j)$ and $z^l_{i,j}$ ($l=0,1$) to determine if the atom is in the interface layer. 
-If $z^0_{i,j}(t)<z(i,j)<z^1_{ij}(t)$, then the atom at $(x,y,z)$ is located in the interface layer at time $t$.
-
-\paragraph{Interfacial molecule sampling}\label{para_MS_interface}
-The steps of the IMS method is as follows. 
-1) Determine the instantaneous surface of the water/vapor interface system;
-2) Define a interfacial layer with a thickness $d$ below the surface; 
-3) Identify the atoms which are located between the two instantaneous surface;
-4) Obtain HB dynamics for molecules in interface layer at different time $t$.
-Given the thickness of layer $d$, at any sampling time $t_0$, $t_1$, $t_2$, $\cdots$, $t_n$, the set of molecules in the interface layer can be determined.
-The $t_j$ is given by 
-\begin{equation}
-t_j = t_0 + j{\delta} t \ \ (j=0,1,\cdots,n).
-\end{equation}
-We denote the set $S^0(t_i)$ of the molecules in the interface layer at two time $t_i$  and $t_j$ as $S^0(t_i)$ and $S^0(t_j)$, respectively.
-Since the molecules are always in motion, generally, we have $S^0(t_j) \neq S^0(t_i)$. 
-Therefore, to calculate HB dynamics of molecules in the interface layer, we calculate the correlation functions of 
-the HB population $h(t)$ of the molecules in the interface layer at different times, 
-and calculate the \emph{average} of the obtained correlation functions 
-over these functions, e.g., $C_{\text{HB},j}(t), j=1,\cdots,n$.
- 
-\paragraph{Interfacial HB population operator \hbos} 
-The IHB method to identify the interfacial molecules is as follows. 
-It shares the same procedures to define the instantaneously interfacial layer as we described in the above paragraph.
-%Once the interfacial layer is determined, 
-Then we define the interfacial hydrogen bond population operator \hbos,
-and calculate the autocorrelation function of \hbos and then the related observations. 
-
-%If we want to calculate dynamical characteristics of the molecules located in the interface layer, 
-%the MS method will have a error in select correct molecules in interface. 
-%In Chapter \ref{CHAPTER_HBD}, we had combined the recognition technology of the instantaneous liquid interfaces\cite{Willard2010} 
-%with the definition of H-bonds\cite{AL96b,Luzar1996} to define H-bonds that depend on the environment. 
-%With this method, we can have more understanding of the differences and commonalities in the kinetics of the breaking and reconstruction of the hydrogen bonds 
-%of the water molecules in the interface system. At the same time, we can compare the HB dynamics in the interface of different thicknesses 
-%with the HB dynamics in bulk water to obtain the thickness of the interface from the perspective of HB dynamics. 
-%In addition, for the interface system of different solutions, we can also use the layering technique to study the HB dynamics,
-%so that we can understand the particularity of the interface of various solutions relative to pure water. 
-%%These results may help us have a better understanding of the physical and chemical processes related to interfaces.
-
-None of the two methods (IMS and IHB) for obtaining HB dynamics of the interface water molecules 
-can give the true interface HB dynamics completely. However, they respectively give an extreme case of interface HB dynamics. 
-In the IMS method, the formation and breaking of intermolecular H-bonds can be truly described, 
-but the selection of interface water molecules is not accurate enough, because of the sampling rate $1/{\delta t}$. 
-Since the configuration of the molecule changes over time, 
-the contribution of H-bonds in bulk phase will be included. 
-In the IHB method, we are very accurate in choosing the interfacial water molecules and interfacial H-bonds, 
-but we may miss some intact H-bonds intersecting the boundary of the interface layer. 
-To a certain extent, the HB dynamics obtained by the IHB method is \emph{accelerated}. 
-Therefore, the comparison of the results obtained by the two methods may give a true picture of the interfacial HB dynamics.
-In particular, as the interface thickness increases, they achieve the same results.
-The code for calculating HB dynamics for instantaneous interfaces can be found on \url{https://github.com/hg08/hb_in_interface}. 
-%===================
-\section{Thickness of the solution/vapor interfaces}
-To determine the thickness of the solution/vapor interface of alkali solutions,
-we chose several different thickness values of slab of the interface and calculate 
+\section{Thickness of the solution/vapor interfaces}\label{thickness_more}
+Here we use an easy way to determine the thickness of the solution/vapor interface of alkali solutions.
+We chose several different thickness values of slab of the interface and calculate 
 the corresponding susceptibility for these slabs, respectively.
 Take the LiNO$_3$ solution/vapor interface as an example. We chose several different thickness 
 values---from 2 to 8 \A, and calculate VSFG intensities $I_{SSP} \propto |\chi^{(2),\text{R}}_{SSP}|^2$ 
@@ -137,7 +56,7 @@ converges as the thickness increase from 0 to 8 \A.
 %  The simulation time is 22.5 ps.}
 %\end{figure}
 %
-Furthermore, we also estimated the thickness of a solution/vapor interface by calculating the HB dynamics for it. 
+Furthermore, correlation functions \CHB and \SHB depend on the thickness of a solution/vapor interface. 
 Fig.\thinspace\ref{fig:2LiI-124w_S_layers} shows the dependence of the logarithm of survival probability on the thickness of the  
 LiI solution/vapor interface. We found that when $d = 6$ \AA the correlation function \SHB of the interface 
 converges as the thickness increases, indicating the thickness of the interface. 
@@ -149,7 +68,7 @@ converges as the thickness increases, indicating the thickness of the interface.
 in the LiI solution.} % 0.9 M.
 \end{figure}
 
-In addition, the survival probability \SHB is dependent on the temporal resolution \rt,
+In addition, the survival probability \SHB depends on the temporal resolution \rt,
 which is the time interval between two adjacent states in time used to calculate the survival probability.
 As an example, the \rt dependence of the $\tau_{\text{HB}}$ of the three alkali-iodine solution interfaces in DFTMD simulations is 
 reported in Fig.\thinspace\ref{fig:hb_lifetime_124_2LiI-2NaI-2KI}. 
@@ -180,3 +99,85 @@ Moreover, we can obtain the continuum HB lifetime independent of the \rt by $\ta
 % \caption{\label{fig:c2_128w_itp_pbc_15c2-vs-21} The PBC's effect on the thickness-dependence of $C_2(t)$ for water molecules at the water/vapor interfaces.
 % }
 %\end{figure}
+
+\section{Interfacial HB dynamics} \label{ihb_and_selection}
+\paragraph{Instantaneous Surfaces}
+At a certain time $t$, the instantaneous surface ${\mathbf s}^0(x(t),y(t))$ for the water/vapor interface system can be determined by calculating 
+the coarse-graining density field: we can specify that the coarse-grained density is the reference density $\rho_\text{ref} = 0.016 $ \A$^{-3}$,
+and those grid points constitute the surface ${\mathbf s}^0(x,y)$ of pure water. In our simulated pure water system, there are two such surfaces.
+The code for calculating the instantaneous surfaces of interfacial systems can be found on \url{https://github.com/hg08/interface}. 
+%===================
+\paragraph{Griding and layering}
+We assume that the normal is along the $z$-axis direction. 
+First, we discretize the coordinates of the $xy$ plane. 
+%We divide the edges along the $x$- and  $y$-axis directions of the simulated box into $N$ parts uniformly, respectively, and 
+The $xy$ plane can be approximated by $N\times N$ discrete points. 
+Then $N\times N$ ordinates of the surface ${\mathbf s}^0(x(t_0),y(t_0))$ at the initial time $t_0$ can be represented as components of an $N\times N$-vector ${\mathbf z}^0(t_0$). 
+The surface ${\mathbf s}^0(x(t_0),y(t_0))$ is also the upper boundary of the interface.
+Secondly, we define a layering strategy, or define the thickness $d$ of the interface layer. 
+We then determine the lower boundary ${\mathbf s}^1(x(t_0),y(t_0))$ of the interface. 
+It can be expressed as a $N\times N$-vector ${\mathbf z}^1(t_0)={\mathbf z}^0(t_0)-{\mathbf d}$, 
+and ${\mathbf d}$ is a $N\times N$-dimensional constant vector in which all the entries are equal to $d$. 
+The superscripts 0 and 1 identify the upper and lower boundaries of the interface layer, respectively. 
+Similarly, other instantaneous interfaces can also be determined if one change the value of $d$.
+
+%So far, the instantaneous interfaces are static, because we only considered the initial configuration. 
+Next, the instantaneous interfaces can be defined for different moments naturally. 
+Therefore, according to the same method, for the molecular motion trajectory of an interface system, 
+we can obtain the dynamically changing interface layer, i.e., ${\mathbf z}^1(t)={\mathbf z}^0(t)-{\mathbf d}$. 
+To answer the question that whether an atom with coordinates $(x, y, z)$ at any time $t$ is in the interface layer,
+we map the atom's coordinates $(x, y)$ to an integer pair $(i, j)$, $i,j \in  \{0,\cdots,N\}$, 
+where $i = \text{int}(x /\Delta x), j = \text{int}(y/\Delta y)$, $\Delta x = a/N$, and $\Delta y = b/N$, 
+where $\text{int}(x)$ converts a real number $x$ to the nearest integer.
+At a certain time $t$, the coordinate $z$ of an atom can be approximately represented as a function defined on point $(i, j)$, $z=z(i,j)$. 
+Then we compare $z(i,j)$ and $z^l_{i,j}$ ($l=0,1$) to determine if the atom is in the interface layer. 
+If $z^0_{i,j}(t)<z(i,j)<z^1_{ij}(t)$, then the atom at $(x,y,z)$ is located in the interface layer at time $t$.
+
+\paragraph{Interfacial molecule sampling}\label{para_MS_interface}
+The steps of the IMS method is as follows. 
+1) Determine the instantaneous surface of the water/vapor interface system;
+2) Define a interfacial layer with a thickness $d$ below the surface; 
+3) Identify the atoms which are located between the two instantaneous surface;
+4) Obtain HB dynamics for molecules in interface layer at different time $t$.
+Given the thickness of layer $d$, at any sampling time $t_0$, $t_1$, $t_2$, $\cdots$, $t_n$, the set of molecules in the interface layer can be determined.
+The $t_j$ is given by 
+\begin{equation}
+t_j = t_0 + j{\delta} t \ \ (j=0,1,\cdots,n).
+\end{equation}
+We denote the set $S^0(t_i)$ of the molecules in the interface layer at two time $t_i$  and $t_j$ as $S^0(t_i)$ and $S^0(t_j)$, respectively.
+Since the molecules are always in motion, generally, we have $S^0(t_j) \neq S^0(t_i)$. 
+Therefore, to calculate HB dynamics of molecules in the interface layer, we calculate the correlation functions of 
+the HB population $h(t)$ of the molecules in the interface layer at different times, 
+and calculate the \emph{average} of the obtained correlation functions. 
+ 
+\paragraph{Interfacial HB population operator \hbos} 
+The IHB method to identify the interfacial molecules is as follows. 
+It shares the same procedures to define the instantaneously interfacial layer as we described in the above paragraph.
+%Once the interfacial layer is determined, 
+Then we define the interfacial hydrogen bond population operator \hbos,
+and calculate the autocorrelation function of \hbos and then the related observations. 
+
+%If we want to calculate dynamical characteristics of the molecules located in the interface layer, 
+%the MS method will have a error in select correct molecules in interface. 
+%In Chapter \ref{CHAPTER_HBD}, we had combined the recognition technology of the instantaneous liquid interfaces\cite{Willard2010} 
+%with the definition of H-bonds\cite{AL96b,Luzar1996} to define H-bonds that depend on the environment. 
+%With this method, we can have more understanding of the differences and commonalities in the kinetics of the breaking and reconstruction of the hydrogen bonds 
+%of the water molecules in the interface system. At the same time, we can compare HB dynamics in the interface of different thicknesses 
+%with the HB dynamics in bulk water to obtain the thickness of the interface from the perspective of HB dynamics. 
+%In addition, for the interface system of different solutions, we can also use the layering technique to study HB dynamics,
+%so that we can understand the particularity of the interface of various solutions relative to pure water. 
+%%These results may help us have a better understanding of the physical and chemical processes related to interfaces.
+
+None of the two methods (IMS and IHB) for obtaining HB dynamics of the interface water molecules 
+can give the true interface HB dynamics completely. However, they respectively give an extreme case of interface HB dynamics. 
+In the IMS method, the formation and breaking of intermolecular H-bonds can be truly described, 
+but the selection of interface water molecules is not accurate enough, because of the sampling rate $1/{\delta t}$. 
+Since the configuration of the molecule changes over time, 
+the contribution of H-bonds in bulk phase will be included. 
+In the IHB method, we are accurate in choosing the interfacial water molecules and interfacial H-bonds, 
+but we may miss some intact H-bonds intersecting the boundary of the interface layer. 
+To a certain extent, HB dynamics obtained by the IHB method is \emph{accelerated}. 
+Therefore, the comparison of the results obtained by the two methods may give a true picture of the interfacial HB dynamics.
+In particular, as the interface thickness increases, they achieve the same results.
+The code for calculating HB dynamics for instantaneous interfaces can be found on \url{https://github.com/hg08/hb_in_interface}. 
+
