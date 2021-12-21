@@ -25,6 +25,7 @@
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
 %oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+ngerman,
 english, % ngerman for German
 singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
 %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
@@ -38,8 +39,12 @@ headsepline, % Uncomment to get a line under the header
 %consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
 ]{MastersDoctoralThesis} % The class file specifying the document structure
 
+%\usepackage[utf8x]{inputenc} 
 \usepackage[utf8]{inputenc} % Required for inputting international characters
+
 \usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{mhchem} % chemical reactions 
 
 %\usepackage{mathpazo} % Use the Palatino font by default
 \usepackage{lmodern} % Use the Latin Modern font by default
@@ -51,7 +56,6 @@ headsepline, % Uncomment to get a line under the header
 \addbibresource{example.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
-
 %====================
 % To strike out sth
 \usepackage{calc}
@@ -73,7 +77,7 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{wrapfig,lipsum,booktabs}
 \usepackage{setspace}
 \usepackage{enumerate}
-\usepackage{subfigure}
+\usepackage[]{subfig}
 %\usepackage{fancyhdr}
 \usepackage{eucal}
 \usepackage[below]{placeins}
@@ -97,7 +101,7 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{color}
 \usepackage{soul}
 \usepackage{xspace} %In order to have space after "\newcommands" 
-\usepackage{listings}  %use for listing source codes
+\usepackage{listings} %use for listing source codes
 %\usepackage[all,cmtip]{xy}  %xypic
 \lstset{ 
     language=python, % choose the language of the code
@@ -142,7 +146,8 @@ headsepline, % Uncomment to get a line under the header
 \newcommand{\Iodine}{I$^{-}$}
 \newcommand{\COO}{COO$^{-}$\xspace}
 \newcommand{\sfg}{Sum Frequency Generation\xspace}
-\newcommand{\cm}{cm$^{-1}$~\xspace}
+%\newcommand{\cm}{cm$^{-1}$~\xspace}
+\newcommand{\cm}{cm$^{-1}$\thinspace}
 \newcommand{\centimeter}{cm$^{-1}$}
 \newcommand{\nm}{nm$^{-2}$\xspace}
 \newcommand{\z}{\textit{z}-axis\xspace}
@@ -156,11 +161,21 @@ headsepline, % Uncomment to get a line under the header
 \newcommand{\X}{$x$\xspace}
 \newcommand{\Y}{$y$\xspace}
 \newcommand{\Z}{$z$\xspace}
+\newcommand*{\tran}{^{\mkern-1.5mu\mathsf{T}}}
 
 %
-\newcommand{\CHB}{$C_{\text{HB}}(t)$\xspace}
-\newcommand{\SHB}{$S_{\text{HB}}(t)$\xspace}
+\newcommand{\rt}{$t_\text{t}$\xspace}
 
+%
+\newcommand{\hbo}{$h(t)$\xspace}
+\newcommand{\hbos}{$h^\text{(s)}(t)$\xspace}
+\newcommand{\CHB}{$c(t)$\xspace}
+\newcommand{\SHB}{$s(t)$\xspace}
+\newcommand{\CSHB}{$c^\text{(s)}(t)$\xspace}
+\newcommand{\SSHB}{$s^\text{(s)}(t)$\xspace}
+\newcommand{\LiFourW}{[Li$\cdot$(H$_2$O)$_4$]$^+$}
+\newcommand{\rI}{$r_{\text{I}^-}$}
+\newcommand{\rcation}{$r_\text{cation}$}
 %Renew the \AA command in order to have a space when we want
 \let\oldAA\AA
 \renewcommand{\AA}{\oldAA\xspace}
@@ -186,19 +201,29 @@ headsepline, % Uncomment to get a line under the header
 %----------------------------------------------------------------------------------------
 
 \thesistitle{Structure, Dynamics and Vibrational Spectroscopy of Interfacial 
-Alkali Nitrate Aqueous Solutions from \abinitio Molecular Dynamics} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+Alkali Nitrate and Alkali Halide Aqueous Solutions from \abinitio Molecular Dynamics} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\thesistitleG{Struktur-, Dynamik- und Schwingungsspektroskopie von Alkaligrenzflächen
+Wässrige Nitratlösungen von \abinitio Molecular Dynamics} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
 \supervisor{Apl. Prof. Dr. Marialore \textsc{Sulpizi}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
-\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\examiner{Prof. Dr. Hartmut \textsc{Wittig}, Prof. Dr. Thomas \textsc{Palberg}, Prof. Dr. Hubert \textsc{Spiesberger}} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+%\examiner{Prof. Dr. Hartmut \textsc{Wittig}} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
 \degree{Doctor of Philosophy} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\degreeG{Doktor der Philosophie} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
 \author{Gang \textsc{Huang}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
 \addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
 
 \subject{Statistical Physics and Soft Matter} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\subjectG{Statistische Physik und weiche Materie} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
 \keywords{sum-frequency generation, hydrogen bond dynamics, water/vapor interfaces} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
-\university{\href{https://www.uni-mainz.de}{Johannes Gutenberg Universit\"at Mainz}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\keywordsG{Summenfrequenzerzeugung, Wasserstoffbrückendynamik, Wasser/Dampf-Grenzflächen} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{\href{https://www.uni-mainz.de}{Johannes Gutenberg University Mainz}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\universityG{\href{https://www.uni-mainz.de}{Johannes Gutenberg Universit\"at Mainz}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
 \department{\href{https://www.iph.uni-mainz.de}{Institute for Physics }} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\departmentG{\href{https://www.iph.uni-mainz.de}{Institut für Physik}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
 \group{\href{https://www.komet1.physik.uni-mainz.de}{Condensed Matter Theory Group}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\groupG{\href{https://www.komet1.physik.uni-mainz.de}{Gruppe zur Theorie der kondensierten Materie}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
 \faculty{\href{https://www.komet1.physik.uni-mainz.de}{Condensed Matter Theory}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+\facultyG{\href{https://www.komet1.physik.uni-mainz.de}{Theorie der kondensierten Materie}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
 
 \AtBeginDocument{
 \hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
@@ -207,6 +232,7 @@ Alkali Nitrate Aqueous Solutions from \abinitio Molecular Dynamics} % Your thesi
 }
 
 \DeclareUnicodeCharacter{2212}{-} % Minus sign (by Gang Huang)
+
 
 \begin{document}
 
@@ -232,25 +258,34 @@ Alkali Nitrate Aqueous Solutions from \abinitio Molecular Dynamics} % Your thesi
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushleft} \large
 \emph{Author:}\\
-\href{http://www.johnsmith.com}{\authorname} % Author name - remove the \href bracket to remove the link
+\href{https://hg08.github.io}{\authorname} % Author name - remove the \href bracket to remove the link
 \end{flushleft}
 \end{minipage}
-\begin{minipage}[t]{0.4\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
 \begin{flushright} \large
 \emph{Supervisor:} \\
 \href{https://www.staff.uni-mainz.de/sulpizi}{\supname} % Supervisor name - remove the \href bracket to remove the link  
+%\end{flushright}
+%\end{minipage}\\[1cm]
+%\begin{minipage}[t]{0.5\textwidth}
+%\begin{flushleft} \large
+\emph{Second reviewer:}\\
+%Eximiners' name - remove the \href bracket to remove the link
+\href{https://sites.google.com/site/jamirmarino/home}{J-Prof. Dr. Jamir \textsc{Marino}}\\
 \end{flushright}
 \end{minipage}\\[3cm]
  
 \vfill
 
-\large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
-\textit{in the}\\[0.4cm]
-\groupname\\\deptname\\[2cm] % Research group name and department name
+	\large \textit{A thesis submitted for the award of the title "Doctor of Natural Sciences"} \\[0.3cm] % University requirement text
+\textit{to the Faculty of}\\[0.4cm]
+	Physics, Mathematics and Computer Science of \\
+	{\univname\par} %Johannes Gutenberg University Mainz in Mainz
+%\groupname\\\deptname\\[2cm] % Research group name and department name
  
 \vfill
 
-{\large \today}\\[4cm] % Date
+{\large 2021}\\[4cm] % Date
 %\includegraphics{Logo} % University/department logo - uncomment to place it
  
 \vfill
@@ -289,11 +324,11 @@ Alkali Nitrate Aqueous Solutions from \abinitio Molecular Dynamics} % Your thesi
 
 \vspace*{0.2\textheight}
 
-\noindent\enquote{\itshape The accurate description of water has been and continues to be a challenge for both
-experiment and simulations due to the directional nature and the weakness of the hydrogen bonds in conjunction 
-with its autodissociation properties.}\bigbreak
+%\noindent\enquote{\itshape The accurate description of water has been and continues to be a challenge for both
+%experiment and simulations due to the directional nature and the weakness of the hydrogen bonds in conjunction 
+%with its autodissociation properties.}\bigbreak
 
-\hfill Dominik Marx  and J\"urg Hutter 
+%\hfill Dominik Marx  and J\"urg Hutter 
 
 \noindent\enquote{\itshape If a problem is worth looking at at all, then no mathematical technique is to be judged too sophisticated.}\bigbreak
 
@@ -305,46 +340,78 @@ with its autodissociation properties.}\bigbreak
 
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-I have analyzed the interfacial structure and dynamics of solutions containing alkali nitrates by Density Functional Theory-based 
-Molecular Dynamics (DFTMD) simulations. In particular I have presented a detailed analysis of the Hydrogen Bond (HB) structure at the interface and 
-have calculated the interface vibrational spectra in order to provide a molecular interpretation of available experimental data.
-%
-As a first system I have analyzed the behaviour of a salty water/vapor interface containing LiNO$_3$.
-Both the measured and calculated Vibrational Sum-Frequency Generation (VSFG) spectra shows a reduced intensity of the lower frequency portion region,
-when compared to the pure water/vapor interface.
-This reduction is attributed to the H-bonds established between the \nitrate and the surrounding water molecules at the interface.
-This effects is only related to the presence of \nitrate at the water surface and is not affected by the presence of alkali metal ions.
-%I have shown that although the \Li can reside relative close to the water surface, also forming a water mediated
-%ion pair with \nit, its effect on the VSFG spectrum is not visible. The water molecule which mediate the interaction
-%between the \nitrate and the \Li would produce a red-shifted peak in small water cluster, but its influence is not visible
-%neither in the VSFG spectra.
-I have shown that the use of simple models, such as small cluster is not suitable to reproduce the experimental spectra 
-and cannot provide a microscopic interpretation of the spectra.
-Realistic models of the interface are required to address the perturbation of the ion on the water surface.
+The interfacial structure and dynamics of solutions containing alkaline nitrates and alkaline halides have been studied by density functional theory-based 
+molecular dynamics (DFTMD) simulations. We have presented a detailed analysis of the hydrogen bond (HB) structure at the interface and 
+have calculated the interface vibrational sum-frequency generation (VSFG) spectra to provide a molecular interpretation of available experimental data.
 
 %
-The difference between the HB dynamics outside the first shell of the \Li and that of nitrate-water Hydrogen (H-) bonds
-at interfaces is not visible from the values of the HB relaxation time. They reflect the difference 
-between HB dynamics in bulk water and that at the water/vapor interfaces.
-For the water/vapor interface of alkaline iodine solutions, I find that the cations does not alter the H-bonding network outside the first hydration shell of cations.
-It is concluded that no long-range structural-changing effects for alkali metal cations.
+Both the measured and calculated VSFG spectra of alkaline nitrate solution show a reduced intensity in the lower frequency portion of the stretching band,
+when compared to the water/vapor interface.
+This reduction is attributed to the hydrogen (H-) bonds established between the nitrate and the surrounding water molecules at the interface.
+This spectral feature is only related to the presence of the nitrate at the water surface and is not influenced by the alkali metal ions.
+We have also shown that, to provide a microscopic interpretation of the spectra,
+realistic models of the interface are required beyond the simple cluster models.
 
-%
-From the results of nonlinear susceptibilities, I conclude that these water molecules at the water/vapor interfaces of LiI, NaI, and KI solutions are participating
-in weaker H-bonds, compared with those at the pure water surface.
-The origin of the characteristics may come from a unique distribution of \I ions and alkali metal cations,
-which form a double layer over the thickness on the order of 5--10 \A.
+Heavier halide anions, such as iodine, have an effect similar to that of nitrate ions on the structure and dynamics of the water/vapor interface.
+From the results of the simulations and from the calculation of the nonlinear susceptibilities, 
+we conclude that water molecules at the interfaces of LiI, NaI, and KI solutions are participating
+in weaker H-bonds, compared with those at the water/vapor interface.
+This feature originates from the unique distribution of \I ions and alkali metal cations,
+which form a double layer over a thickness of about 5--10 \A.
 
-%
-For the bulk and interfacial systems, I calculated the correlation functions of the hydrogen bond (HB) population, 
-and obtained the reaction rate constants with the HB formation and breakage. To analyze the HB dynamics on the interface, 
-we propose a statistical method which is based on the instantanous interface HB population for the instantaneous interface.
-With the help of instantaneous HB population operator, one do not need to know which molecules are within the instantaneous interface, 
-so there is no need to select the molecules on the interface and calculate the statistical average of physical quantities. 
-Except for the case where the interface thickness is low, this method can efficiently analyze the HB dynamics of the instantaneous interface. 
-And it can be easily applied to general interface systems or aqueous solutions.
+The second aspect which we have investigated is the HB dynamics.
+To analyze HB dynamics at interfaces, 
+we determined the instantaneous interface based on spatial density, 
+and proposed a statistical scheme based on the interfacial HB (IHB) population for identifying the instantaneous interface.
+Combining the IHB method with interfacial molecule sampling (IMS), we have obtained a method to determine the thickness of the water/vapor interface.
+The IHB method has been also extended to the solvation shells of ions in aqueous solutions.
+
+%Finally, the number $n$ of H-bonds per OH group at instantaneous interface promotes our understanding of structural features of the alkaline nitrate
+%	solution/vapor interface. 
+%	By comparing the distribution $P(n)$ of $n$ between the \LiN solution/vapor interface and the water/vapor interface, 
+%	we obtained that: For the solution interface, there is less free OH groups, and more OH groups that can form two H-bonds. 
+%	This distribution verified the "water-separated cation-nitrate ion pair" structure; 
+%	When the interface thickness is greater than 4 \A, the macroscopic properties of the solution interface, 
+%	whether it is the distribution $P(n)$ or the relaxation time of the reorientation relaxation process, converge to the same as that of bulk water.
+%	In addition, we have verified that the alkali iodide solutions also have these two properties.
 \end{abstract}
 
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE GERMAN
+%----------------------------------------------------------------------------------------
+{\selectlanguage{ngerman}
+\begin{extraAbstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+Die Grenzflächenstruktur und -dynamik von Lösungen, die Alkalinitrate und Alkalihalogenide enthalten, 
+wurden mit Hilfe von auf Dichtefunktionaltheorie basierenden
+Molekulardynamik-Simulationen (DFTMD) untersucht. Wir haben eine detaillierte Analyse der Wasserstoffbrückenbindungsstruktur (HB) 
+an der Grenzfläche vorgelegt und haben die Spektren der Schwingungssummen-Frequenz-Generierung (VSFG) an der Grenzfläche berechnet, 
+um eine molekulare Interpretation der verfügbaren experimentellen Daten zu ermöglichen.
+
+%
+Sowohl die gemessenen als auch die berechneten VSFG-Spektren der Alkalinitratlösung zeigen eine verringerte Intensität im unteren Frequenzbereich 
+der Streckbande, im Vergleich zur Wasser/Dampf-Grenzfläche.
+Diese Verringerung wird auf die Wasserstoffbrückenbindungen (H-) zurückgeführt, die zwischen dem Nitrat und den umgebenden Wassermolekülen an der Grenzfläche entstehen.
+Dieses spektrale Merkmal hängt nur mit dem Vorhandensein des Nitrats an der Wasseroberfläche zusammen und wird nicht von den Alkalimetallionen beeinflusst.
+Wir haben auch gezeigt, dass für eine mikroskopische Interpretation der Spektren
+realistische Modelle der Grenzfläche erforderlich sind, die über die einfachen Clustermodelle hinausgehen.
+
+Schwerere Halogenidanionen, wie z. B. Jod, haben eine ähnliche Wirkung auf die Struktur und Dynamik der Wasser-Dampf-Grenzfläche wie Nitrationen.
+Aus den Ergebnissen der Simulationen und der Berechnung der nichtlinearen Suszeptibilitäten,
+schließen wir, dass die Wassermoleküle an den Grenzflächen von LiI-, NaI- und KI-Lösungen
+an schwächeren H-Bindungen beteiligt sind als an der Wasser/Dampf-Grenzfläche.
+Dieses Merkmal ist auf die einzigartige Verteilung von I-Ionen und Alkalimetallkationen zurückzuführen,
+die eine Doppelschicht mit einer Dicke von etwa 5-10 Angström bilden.
+
+Der zweite Aspekt, den wir untersucht haben, ist die HB-Dynamik.
+Um die HB-Dynamik an Grenzflächen zu analysieren,
+haben wir die momentane Grenzfläche anhand der räumlichen Dichte bestimmt,
+und schlugen ein statistisches Schema vor, das auf der HB-Population an den Grenzflächen (IHB) basiert, um die momentane Grenzfläche zu identifizieren.
+Durch die Kombination der IHB-Methode mit dem Interfacial Molecule Sampling (IMS) haben wir eine Methode zur Bestimmung der Dicke der Wasser/Dampf-Grenzfläche entwickelt.
+Die IHB-Methode wurde auch auf die Solvatationsschalen von Ionen in wässrigen Lösungen ausgedehnt.
+\end{extraAbstract}
+}
+\selectlanguage{english}
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
 %----------------------------------------------------------------------------------------
@@ -352,52 +419,74 @@ And it can be easily applied to general interface systems or aqueous solutions.
 \begin{acknowledgements}
 \addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
 I wish to express my sincere gratitude to my supervisor,
-Prof. Dr. Marilore Sulpizi for her excellent guidance during my research, and her detailed and valuable advice for my writing.
+Prof. Dr. Marialore Sulpizi for her excellent guidance during my doctoral studies, and her detailed and valuable advice for my writing.
 I thank her for bringing me into interesting and novel areas of density functional theory-based molecular dynamics simulation 
 and interface physics and chemistry. By communicating with her, I was implicitly and positively affected. 
 She is rigorous in academic studies, optimistic and active, and has a wide range of interests. 
-All these have kept in my heart and gave me greater confidence in future scientific research work.
+All these have kept in my heart and gave me greater confidence in my future work.
 
 %
-I wish to thank Prof. Dr. Thomas Kühner, Dr. Giovanni Settanni, PD Dr. Peter
-Virnau, Dr. Hans Behringer and Prof. Dr. Thomas Speck in the Institute for
-Physics for leading me to the fundamental statistical physics and excellent lectures
-and discussions. I am grateful to Prof. Dr. Friederike Schmid and Prof. Dr. Kurt
-Binder for their talks and guidance.
+I am grateful to Prof. Dr. Friederike Schmid  and Prof. Dr. Kurt Binder for their talks and guidance.
+I wish to thank Prof. Dr. Thomas Kühne, Dr. Giovanni Settanni, PD Dr. Peter
+Virnau, Dr. Hans Behringer and Prof. Dr. Thomas Speck at the institute for
+physics for leading me to the fundamental statistical physics and excellent lectures and discussions. 
 
 %
-I am grateful to Dr. R\'emi Khatib for programing skills and helpful guidance on
-the programs for calculating the VSFG spectra. I also thank Dr. Shuanhu Qi, Dr. Jiajia Zhou and Dr. Fei Yu for useful discussions 
-on the the calculation of response functions. I would like to
-thank Leila Salimi, Isidro Lorenzo Geada, Santosh Kumar Meena and Anusha Lalitha, 
-at the Institute for Physics, for their encouragement and assistance.
+I thank Prof. Dr. Harvey Meyer at the institute for nuclear physics. 
+I feel very honored to be a teaching assistant in his quantum field theory course. 
+%
+I thank Prof. Marie-Pierre Gaigeot at Universit{\'e} d'Evry val d'Essonne for useful discussions.
 
 %
-I thank Prof. Honggang Luo and Prof. Haiping Fang for their great help in my study during my PhD. 
-The cooperation and discussions with Dr. Guosheng Shi, Dr. Bo Zhou and Dr. Chunlei Wang have benefited me a lot. 
-I express my sincere thanks to them.
-
+I am grateful to Dr. R\'emi Khatib for helpful guidance on the programs for calculating the VSFG spectra. 
+I thank Dr. Qi Shuanhu, Dr. Zhou Jiajia and Dr.Yu Fei for useful discussions. 
+I would like to thank Leila Salimi, Isidro Lorenzo Geada, Santosh Kumar Meena and Anusha Lalitha, 
+at the Institute for Physics, for their assistance.
 %
-I thank Prof. Dr. Yuliang Jin for his support, trust and teachings over the past year.
-
-%
-I am also grateful to my parents Yuhua Diao and Dehuai Huang and my brother Jialiang for his care, 
-understanding and support for me in the past few years. 
-I am especially grateful to my dear parents, who have worked hard for decades and nurtured me.
+I thank Astrid Chase, Andreas Nussbaumer and Daniela Reibel for their enthusiastic and patient help.
 
 %
 The financial supports of the China Scholarship Council and TRR146 are gratefully acknowledged.
+
+%
+I thank Prof. Luo Honggang, Prof. Fang Haiping and Prof. Zhou Haijun for their great help in my study during my doctoral studies. 
+The cooperation and discussions with Dr. Shi Guosheng, Dr. Shao Junming, Dr. Zhou Bo and Dr. Wang Chunlei have benefited me a lot. 
+
+%
+I thank Prof. Jin Yuliang for his support, trust and teachings over the past two years.
+
+%
+I would like to thank the following teachers who have benefited me for life:
+Mr. Lu Yongliang, Mr. Li Yiyou, 
+Mr. Yang Bing, Mr. Chen Jiexian, Mr. Chen Jiangen, Mr. Li Yiji,
+Mr. Wu Xiukui, Mr. Chen Wenfeng, Mr. Liao Changchun, Mr. Zhou Wende,
+Mr. Yan Zhengzhou, Prof. Huang Ruibin, Prof. Ran Qiyin, Prof. Huang Yong, Prof. Luo Zhiquan, Prof. Fan Silin, Prof. Tao Caide, Prof. Ren Weiyi, 
+Prof. Tan Lei and Prof. Liu Yuxiao.
+
+%
+I am grateful to my parents Diao Yuhua and Huang Dehuai, and my brother Jialiang, for their care, 
+understanding and support for me for decades. 
+This thesis is dedicated to my grandparents Zhong Yuhtsing, Diao Sherngwern, Ma Suhfang, and Huang Zongyirn. 
+I will always remember the kindness, open-mindedness, diligence and perseverance.
 \end{acknowledgements}
 
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
 %----------------------------------------------------------------------------------------
-
+{
+\hypersetup{linkcolor=black}
 \tableofcontents % Prints the main table of contents
+}
 
+{
+\hypersetup{linkcolor=black}
 \listoffigures % Prints the list of figures
+}
 
+{
+\hypersetup{linkcolor=black}
 \listoftables % Prints the list of tables
+}
 
 %----------------------------------------------------------------------------------------
 %	ABBREVIATIONS
@@ -405,26 +494,32 @@ The financial supports of the China Scholarship Council and TRR146 are gratefull
 
 \begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
 
-\textbf{ACF} & \textbf{A}uto-\textbf{C}orrelation \textbf{F}unction\\
 \textbf{AIMD} & \abinitio \textbf{M}olecular \textbf{D}ynamics\\
 \textbf{BLYP} & \textbf{B}eck-\textbf{L}ee-\textbf{Y}ang-\textbf{P}arr\\
 \textbf{BOMD} & \textbf{B}orn-\textbf{O}ppenheimer \textbf{M}olecular \textbf{D}ynamics\\
 \textbf{CPMD} & \textbf{C}ar-\textbf{P}arrinello \textbf{M}olecular \textbf{D}ynamics\\
 \textbf{DFT} & \textbf{D}ensity \textbf{F}unctional \textbf{T}heory\\
 \textbf{DFTMD} & \textbf{D}ensity \textbf{F}unctional \textbf{T}heory-based \textbf{M}olecular \textbf{D}ynamics\\
+\textbf{EDA} & \textbf{E}lectric \textbf{D}ipole \textbf{A}pproximation\\
 \textbf{GGA} & \textbf{G}eneralised \textbf{G}radient \textbf{A}pproximation\\
+\textbf{GPW} & \textbf{G}aussian and \textbf{P}lane \textbf{W}aves\\
 \textbf{H-} & \textbf{H}ydrogen\\
 \textbf{HB} & \textbf{H}ydrogen \textbf{B}ond\\
+\textbf{HD} & \textbf{H}eterodyne \textbf{D}etected\\
 \textbf{HK} & \textbf{H}ohenberg-\textbf{K}ohn\\
-\textbf{IHB} & \textbf{I}nstantaneous interface \textbf{H}ydrogen \textbf{B}ond\\
+\textbf{IHB} & \textbf{I}nterfacial \textbf{H}ydrogen \textbf{B}ond\\
+\textbf{IMS} & \textbf{I}nterfacial \textbf{M}olecule \textbf{S}ampling\\
 \textbf{KS} & \textbf{K}ohn-\textbf{S}ham\\
 \textbf{LDA} & \textbf{L}ocal \textbf{D}ensity \textbf{A}pproximation\\
 \textbf{MD} & \textbf{M}olecular \textbf{D}ynamics\\
+\textbf{MLWF} & \textbf{M}aximally-\textbf{L}ocalized \textbf{W}annier \textbf{F}unctions\\
 \textbf{MP2} & \textbf{M}oller-\textbf{P}lesset \textbf{P}erturbation\\
 \textbf{PBE} & \textbf{P}erdew-\textbf{B}urke-\textbf{E}rnzherhof\\
 \textbf{PS} & \textbf{P}hase-\textbf{S}ensitive\\
 \textbf{RDF} & \textbf{R}adial \textbf{D}istribution \textbf{F}unction\\
+\textbf{SHB} & \textbf{S}olvation shell \textbf{H}ydrogen \textbf{B}ond\\
 \textbf{SCF} & \textbf{S}elf \textbf{C}onsistent \textbf{F}ield\\
+\textbf{VACF} & \textbf{V}elocity \textbf{A}uto-\textbf{C}orrelation \textbf{F}unction\\
 \textbf{VDOS} & \textbf{V}ibrational \textbf{D}ensity \textbf{O}f \textbf{S}tates\\
 \textbf{VSFG} & \textbf{V}ibrational \textbf{S}um-\textbf{F}requency \textbf{G}eneration\\
 \textbf{XC} & e\textbf{X}change  and \textbf{C}orrelation\\
@@ -439,15 +534,16 @@ The financial supports of the China Scholarship Council and TRR146 are gratefull
 
 % The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
 
-speed of light in vacuum  & $c$ & \SI{299 792 458}{\meter\per\second} (exact)\\
+Avogadro constant & $N_{\text{A}}$ & 6.022 140 76 $\times 10^{23}$ /mol (exact) \\
 %Constant Name & $Symbol$ & $Constant Value$ with units\\
-Boltzmann constant & $k_{\text{B}}$ & 1.380 650 3(24)$\times 10^{23}$ \si{\joule\per\kelvin} \\
-elementary charge & $e$  & 1.602 176 462(63)$\times 10^{-19}$ C \\
-electron mass & $m_{\text{e}}$ & 9.109 381 88(72) $\times 10^{-31}$ kg \\
-proton mass & $m_{\text{p}}$ & 1.672 621 58(13) $\times 10^{-27}$ kg \\
-Avogadro constant & $N_{\text{A}}$ & 6.022 141 99(47) $\times 10^{23}$ mol \\
-Planck constant & $h$ & 6.626 068 76(52) $\times 10^{-34}$ J s \\
-molar gas constant & $R$ & 8.314 472(15) J mol$^{-1}$ K$^{-1}$
+Boltzmann constant & $k_{\text{B}}$ & 1.380 649 $\times 10^{23}$ \si{\joule\per\kelvin} (exact) \\
+elementary charge & $e$  & 1.602 176 634 $\times 10^{-19}$ C (exact)\\
+electron mass & $m_{\text{e}}$ & 9.109 381 887 $\times 10^{-31}$ kg \\
+molar gas constant & $R$ & 8.314 459 8 J mol$^{-1}$ K$^{-1}$,\\
+proton mass & $m_{\text{p}}$ & 1.672 621 581 $\times 10^{-27}$ kg \\
+Planck constant & $h$ & 6.626 070 15 $\times 10^{-34}$ J s (exact) \\
+reduced Planck constant & $\hbar$ & 1.054 571 817 $\times 10^{-34}$ J s\\
+speed of light in vacuum  & $c$ & \SI{299 792 458}{\meter\per\second} (exact)
 \end{constants}
 
 %----------------------------------------------------------------------------------------
@@ -463,11 +559,13 @@ molar gas constant & $R$ & 8.314 472(15) J mol$^{-1}$ K$^{-1}$
 
 \addlinespace % Gap to separate the Roman symbols from the Greek
 
+%$f_i$ & activity coefficient of species $i$ & \\
 $Z_{\text{X}}$ & atomic number of atom X & \\
 ${\bf R}$ & atomic coordinates & \\
 $\tau_{\mathrm{a}}$ & average lifetime of H-bonds: $\langle\tau_{\mathrm{a}}\rangle = \int_0^\infty tP_{\mathrm{a}}(t) d t $ & \\
+$\mu_i$ &chemical potential of component $i$ & \\
 $\kappa_i$ & decay rate of $C_2(t)$ & \\
-$n_{\text{X}}$ & coordination number of ion X & \\
+$n_{\text{X}}$ & coordination number for ion X & \\
 $\delta_1$ & difference between the first peaks' positions of the RDFs $g_{X-O}$ and $g_{X-H}$ & \\
 ${\bf M}$ & dipole moment & \\
 $\mu^{i,l,\epsilon}$ & dipole moment of the bond $\epsilon$ of the $i$-th water molecule in the lab frame & \\
@@ -475,38 +573,45 @@ $A$ & dipole polarizability (tensor) & \\
 $D$ & direction cosine matrix  & \\
 $r$ & distance & \\
 ${\mu}$ & electric dipole vector & \\
+${\phi}$ & electric potential & \\
 ${\bf E}$ & electric field strength &  \\
 $n({\bf r})$ & electron density & \\
 $H_\text{e}$ & electronic many-body Hamiltonian & \\
+$E_\text{I}({\bf R})$ & energy of the nuclei & \\
 $V({\bf r})$ & external potential & \\
 $V_{\text{ee}}$ & electron-electron repulsion energy & \\
 $T[n]$ & electronic kinetic energy & \\
 $E_{\text{disp}}^{(2)}$ & empirical two-body dispersion correction of energy & \\
 $E_{\text{disp}}^{(3)}$ & empirical three-body nonadditivity dispersion correction of energy & \\
+$E^{\text{XC}}[n]$ & Exchange correlation energy functional & \\
 $\Delta F_{AB}$ & free energy difference between configuration A and B &  \\
 $F_A$ & free energy of configuration A &  \\
 $L_{\eta\kappa}$ & Fresnel coefficients & \\
 $\omega_{\text{SFG}}$ & frequency of the sum-frequency generation beam & \\
 $\omega_{\text{vis}}$ & frequency of the incident visible beam &  \\
 $\omega_{\text{IR}}$ & frequency of the incident infrared beam &  \\
+$V_{\text{H}}$ & Hartree potential of electrons & \\
 $h(t)$ & HB population operator & \\
 $h^{(d)}(t)$ & HB population operator (it is 1 if the tagged pair are closer than $r_{\text{OO}}^{\text{c}}$)& \\
 $H(t)$ & HB population operator (continuously)& \\
-$C_{\text{HB}}(t)$ (or $c(t)$) & HB population operator correlation function & \\
+$C_{\text{HB}}(t)$ (or $c(t)$) & HB population auto-correlation function & \\
 $\omega_{\text{I}}$ & highest nuclear phonon frequency & \\
-$\theta$ & H-O-H angle in a water molecule&  \\
-$\beta$ & hyperpolarizability; reciprocal temperature & \\
-$h^{s}(t)$ & interfacial HB population operator & \\
+$\theta$ & H-O-H angle in a water molecule, or polar angle of a molecule&  \\
+$\beta$ & hyperpolarizability, or reciprocal temperature & \\
+$h^{(s)}(t)$ & interfacial HB population operator & \\
 $j(t)$ & integrated flux departing the HB configuration space at time t & \\
 $I_{\text{SFG}}$ & intensity of the sum-frequency generation beam & \\
 $I_{\text{vis}}$ & intensity of the incident visible beam & \\
 $I_{\text{IR}}$ & intensity of the incident infrared beam & \\
 $r_{\text{OO}}$ & interoxygen distance & \\
+${\delta}t$ & inverse sampling frequency & \\
+$E^{\text{KS}}[n]$ & Kohn-Sham energy functional & \\
 $\omega_{\text{e}}$ & the lowest electronic frequency &  \\
 $r_{\text{OO}}^{\text{c}}$ & the maximum value of the interoxygen distance (in the definition of HB) & \\
 $\phi^{\text{c}}$ & the maximum value of the angle between the O--O axis and one of the & \\
                   & O--H bonds (in the definition of HB) & \\
 $N$ & number of water molecules & \\
+$n$ & number of H-bonds per OH group & \\
 $R_{\text{OH}}$ & O-H length in water molecule & \\
 $C_2(t)$ & orientational anisotropy decay & \\
 $Z$ & partition function & \\
@@ -521,6 +626,7 @@ $g_z(\nu)$ & projected VDOS for selected atoms along $z$-axis &  \\
 $g_{\text{A--B}}$ & radial distribution function & \\
 $k$ & rate constant of breaking a HB & \\
 $k'$ & rate constant of reforming a HB & \\
+$r_\text{X}$ & ratio of number of X to that of H$_2$O among neighbors of a water molecule& \\
 $\theta_{\text{SFG}}$ & reflected angle of SFG beam w.r.t. the normal direction in the medium  & \\ 
 $k(t)$ & reactive flux & \\
 $\tau_{\text{R}}$ & relaxation time of HB population operator correlation function & \\
@@ -529,23 +635,32 @@ $\chi^{(2),\text{R}}$ & second-order resonant susceptibility & \\
 $\chi^{(2),\text{NR}}$ & second-order nonresonant susceptibility & \\
 $E_{\text{KSDFT}}$ & self consistent KS energy & \\
 $\Delta \nu'$  & shift of vibrational frequency & \\
+$h^\text{k,X}(t)$ & solvation shell HB population operator & \\
+$\nu_i$ & stoichiometry of ion $i$ & \\
+$\Gamma_i$ & surface excess of component $i$ & \\
 $K_{\text{p,X}}$ & surface/bulk molar concentration ratio of ion X &  \\
+$\gamma$ & surface tension & \\
 $S_{\text{HB}}(t)$ (or $s(t)$)& survival probability of HB & \\
-$t_t$ & temporal resolutions for calculating HB dynamics & \\
+$t_\text{t}$ & temporal resolutions for calculating HB dynamics & \\
+%$a_i$ & thermodynamic activity of a chemical species $i$ & \\
 $d$ & thickness of layer of interface (model) & \\
 $\tau$ & time for switching allegiance of a HB & \\
 $\hat{\mu}(t)$ & unit vector of the transition dipole & \\
 $g(\nu)$ & VDOS for selected atoms &  \\
+$z_i$ & valence of species $i$ & \\
 ${\bf v}$ & velocity of an atom & \\
 $C(t)$ & velocity auto-correlation function & \\
-$\nu$ & vibrational frequency & \\
+$\nu$ & vibrational frequency, or  vibrational quantum number& \\
+%$K^\ominus$ & thermodynamic equilibrium constant &  \\
+%$m_i$ & molality (bulk or surface) of the ion $i$ & \\
+%$m_i^*$ & solvent molality & \\
 \end{symbols}
 
 %----------------------------------------------------------------------------------------
 %	DEDICATION
 %----------------------------------------------------------------------------------------
 
-\dedicatory{To my family.} 
+\dedicatory{To my parents.}
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
@@ -558,31 +673,30 @@ $\nu$ & vibrational frequency & \\
 % Include the chapters of the thesis as separate files from the chapters folder
 % Uncomment the lines as you write the chapters
 
-\include{chapters/chap1/chap1}
-\include{chapters/chap2/chap2} 
-\include{chapters/chap3/chap3}
-\include{chapters/chap4/chap4} 
-\include{chapters/chap5/chap5} 
-\include{chapters/chap6/chap6} 
-\include{chapters/chap7/chap7} 
-\include{chapters/chap8/chap8} 
+\include{chapters/chap1/chap}
+\include{chapters/chap2/chap} 
+\include{chapters/chap3/chap} 
+\include{chapters/chap4/chap} 
+\include{chapters/chap5/chap} 
+\include{chapters/chap6/chap} 
+\include{chapters/chap7/chap} 
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
 %----------------------------------------------------------------------------------------
 
 \appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+%% Include the appendices of the thesis as separate files from the Appendices folder
+%% Uncomment the lines as you write the Appendices
 
-% Include the appendices of the thesis as separate files from the Appendices folder
-% Uncomment the lines as you write the Appendices
-
-%\include{Appendices/AppendixA}
-\include{chapters/chap_calculation/chap_calculation}
-\include{chapters/chap_parameters/chap_parameters}
-\include{chapters/chap_propensities/chap_propensities}
-\include{chapters/chap_thickness/chap_thickness}
-\include{chapters/chap_hbd_more/chap_hbd_more}
-%\include{chapters/chap_hkt/chap_hkt}
+%%\include{Appendices/AppendixA}
+\include{chapters/chap_a/chap}
+\include{chapters/chap_b/chap}
+\include{chapters/chap_c/chap}
+\include{chapters/chap_d/chap}
+\include{chapters/chap_e/chap}
+%
+%%\include{chapters/chap_hkt/chap_hkt}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
