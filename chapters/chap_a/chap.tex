@@ -1,0 +1,369 @@
+\chapter{Calculation of nonlinear optical susceptibilities}\label{calculation_of_chi}
+
+\paragraph{Definitions and relations}
+1. Definition of double product of a $m$-order tensor $A$ and a $n$-order tensor $B$ is a tensor with order $m+n-2$.
+\begin{equation}
+    A:B=A_{ij}B_{lm}\delta_{jl}\delta_{im}.
+\label{tensor_double_product}
+\end{equation}
+
+2. The components of product of $AB$ is defined by 
+\begin{equation}
+    (AB)_{ijlm}=A_{ij}B_{lm}.
+\label{tensor_product}
+\end{equation}
+
+3. For vectors $\bf{a}$, $\bf{b}$, $\bf{c}$ and $\bf{d}$, ${\bf{ab}}:{\bf{cd}}=({\bf{a}}\cdot {\bf{d}})({\bf{b}}\cdot{\bf{c}})$.
+
+Proof:
+\begin{align}
+    {\bf{ab}}:{\bf{cd}}&=({\bf{ab}})_{ij}({\bf{cd}})_{lm}\delta_{jl}\delta_{im} \nonumber \\
+    &=({\bf{ab}})_{ij}({\bf{cd}})_{ji} \nonumber\\
+    &=(a_i b_j)(c_j d_i) \nonumber\\
+    &=({\bf{b}}\cdot{\bf{c}})({\bf{a}}\cdot{\bf{d}})
+\end{align}
+
+\paragraph{Proof of Eq.\thinspace\ref{eq:beta_R_b}} \label{identities}
+Since 
+\begin{equation}
+  \lim_{t\to\infty} |e^{-it(a-ib)}|\le \lim_{t\to\infty} |e^{-bt}| = 0,\nonumber
+  \label{integral_identity0}
+\end{equation}
+we can obtain
+\begin{equation}
+  \int_0^\infty dt e^{-it(a-ib)}=\frac{1}{b+ia},\nonumber
+  \label{integral_identity0}
+\end{equation}
+i.e.,
+\begin{equation}
+  i\int_0^\infty dt e^{-it(a-ib)}=\frac{1}{a-ib}.\nonumber
+  \label{integral_identity1}
+\end{equation}
+Set $a = (\omega_{v'} - \omega_{v}) - \omega$, and $b = \gamma_{v'v}$,
+then we have
+ \begin{align}
+ \int_0^\infty dt e^{-it[(\omega_{v'}-\omega_v)-\omega-i\gamma_{v'v}]}=\frac{-i}{(\omega_{v'} -\omega_v)-\omega-i\gamma_{v'v}}.
+ \label{ident}
+ \end{align}
+ Using Eq.\ref{ident}, express Eq.\ref{eq:beta_R} in integral form, we obtain
+ \begin{align}
+  \beta_{\eta\xi\kappa}^{\text{R}}=i\int_0^\infty dt e^{i\omega t} \langle\alpha_{\eta\xi}(t)\mu_{\eta\xi}(0)\rangle,\nonumber
+ \end{align}
+which is Eq.\ref{eq:beta_R_b}.
+
+%\paragraph{Derivation of Eq.\thinspace\ref{eq:chi}}
+%Now we give the derivation of the expression of $\chi^{\text{(2),R}}$
+%\begin{align}
+%   \chi^{\text{(2),R}}_{\eta\xi\kappa}&=\frac{-i}{k_{\text{B}}T \omega} \int_0^\infty dt e^{i \omega t}\left\langle \dot{A}_{\eta\xi}(t) \dot{M}_{\kappa}(0)\right\rangle
+%\end{align}
+%Derivation: 
+%The resonant term $\chi^{(2),R}_{\eta\xi\kappa}$ is given by \cite{Morita2008}
+%\begin{align}
+%  \chi^{\text{(2),R}}_{\eta\xi\kappa}&=\frac{i\omega}{k_{\text{B}}T} \int_0^\infty dt e^{i \omega t}\left\langle {A}_{\eta\xi}(t) {M}_{\kappa}(0)\right\rangle,
+%\end{align}
+
+\paragraph{Properties of $\chi^{(2)}$}\label{chi_properties}
+%[The below is DETAILS OF SFG. NOT APPROPRIATE FOR THE INTRODUCTION.]
+Theoretically, the interaction of electromagnetic radiation with mater in the long-wavelength limit is treated within \emph{electric dipole approximation} (EDA). 
+EDA is usually expressed in terms of a scalar potential $-{\bf E}(0,t)\cdot {\bf r}$, where ${\bf E}(0,t)$ is the electric field at the origin, and $\bf r$ is the displacement vector, and a zero vector potential\cite{Kobe1982}. 
+%EDA only approximates the effect of the electric field on the medium (atoms) in the long-wavelength limit and the magnetic multipoles are neglected. 
+Within EDA, the magnetic multipoles are neglected.
+A material system under external electric field $\bf E$ induces dipole moment, or
+polarization. The polarization $\bf P$ is defined as the dipole moment per
+a unit volume of a bulk material. 
+When the system indicates a surface, $\bf P$ is defined as the dipole moment per a unit area. 
+The induced polarization $\bf P$ is represented as a power series of the electric field\cite{Morita2018}
+\begin{equation}
+{P}_{i} =\chi^{(1)}_{ij}E_j + \chi^{(2)}_{ijk}E_{j}E_{k} + \cdots,
+\label{eq:polarization_1}
+\end{equation}
+where the subscripts $i,j,k$ denote the Cartesian components. 
+The first term describes the linear response of polarization with respect 
+to electric field, where $\chi^{(1)}$ is a second-rank tensor, which is called \emph{linear susceptibility}. 
+The second term is responsible to the second-order nonlinear optical processes, and $\chi^{(2)}$ is the second-order nonlinear susceptibility.
+Therefore, the generation of a polarization in a nonlinear medium by an optical electric field ${\bf E}$ can be presented by
+\begin{equation}
+{P}^{(2)}_{i} =\chi^{(2)}_{ijk}E_{j}E_{k}.
+\label{eq:polarization_1}
+\end{equation}
+The second-order nonlinear susceptibility $\chi^{(2)}$ is a $3 \times 3 \times 3$ third-rank tensor, which characterizes the process and whose components $\chi^{(2)}_{ijk}$ are 
+restricted by the symmetry of the sample.
+The components of nonlinear susceptibility represented in different coordinate frames, $\chi^{(2)}_{\alpha\beta\gamma}$ and $\chi^{(2)}_{ijk}$, satisfy the condition 
+\begin{equation}
+\chi^{(2)}_{\alpha\beta\gamma} = a_{\alpha i}a_{\beta j}a_{\gamma k}\chi^{(2)}_{ijk},
+\label{eq:tensor_chi}
+\end{equation}
+where $a$ can be written as a $3 \times 3$ matrix representing an arbitrary combination of rotation and inversion.
+If $a$ is restricted to be a symmetry transformation $A$, then all the properties of the sample are identically described in both coordinate frames.
+Then the elements of $\chi^{(2)}$ are the same in both coordinate frames so that
+\begin{equation}
+\chi^{(2)}_{\alpha\beta\gamma} = A_{\alpha i}A_{\beta j}A_{\gamma k}\chi^{(2)}_{ijk}.
+\label{eq:tensor_chi_2}
+\end{equation}
+If the sample has inversion symmetry\cite{Franken1963}, i.e., $A_{\alpha i} = -\delta_{\alpha i}$, Eq. \ref{eq:tensor_chi_2} yields
+\begin{align}
+\chi^{(2)}_{\alpha\beta\gamma} &= (-\delta_{\alpha i}) (-\delta_{\beta j}) (-\delta_{\gamma k})\chi^{(2)}_{ijk} \nonumber\\
+    & = -\chi^{(2)}_{\alpha\beta\gamma} \nonumber\\
+    & = 0.
+\label{eq:tensor_chi_3}
+\end{align}
+Therefore, for any material exhibiting inversion symmetry, $\chi^{(2)}$ is identically 0, and sum-frequency generation is precluded.
+This result implies that, within EDA, the VSFG process is forbidden in any centrosymmetric bulk medium\cite{CheM2012},
+such as isotropic liquids and glasses, but it is allowed at interfaces because of the broken inversion symmetry\cite{PF00}.
+The advantage is its wide applicability to almost every interface which lack a center of inversion, as long as light can reach them. 
+
+%
+The second important property of $\chi^{(2)}$ is that it is a polar tensor, which has vectorial nature\cite{Nihonyanagi2013}. 
+$\chi^{(2)}$ can also be represented as
+the sum of $\beta$ of all molecules in a probed volume
+\begin{equation}
+\chi^{(2)} = \sum \beta, \nonumber
+\label{eq:tensor_chi_4}
+\end{equation}
+or more quantitative expression
+\begin{equation}
+\chi^{(2)} = N_\text{s} \beta_{lmn} R(\langle \cos\theta\rangle, \langle \cos^3\theta\rangle),
+\label{eq:tensor_chi_5}
+\end{equation}
+where $N_\text{s}$ is the number of molecules in a unit area, $R(\langle \cos\theta\rangle, \langle \cos^3\theta\rangle)$ is an orientation function,
+$\theta$ is the polar orientation angle of a molecule and $\langle \cdots \rangle$ denotes the ensemble average.
+Thus $\chi^{(2)}$ has a sign relating to the molecular orientation when $\chi^{(2)}\neq 0$. 
+From Eq.~\ref{eq:tensor_chi_5}, if $\chi^{(2)}$ and $\beta_{lmn}$ is known, the sign of $\langle \cos\theta\rangle$ can be determined. 
+Therefore, the up/down orientation of interfacial molecules can be experimentally determined.
+
+\paragraph{Molecular dipole moment and dipole polarizability derivatives} \label{calculate_derivatives} 
+
+The polarizability tensor $\alpha$ is defined by the relation
+\begin{equation}
+  \delta \boldsymbol{\mu} = {\alpha} \boldsymbol{\mathscr{E}}
+  \label{eq:def_alpha}
+\end{equation}
+where $\delta \boldsymbol{\mu}$ is the electric dipole moment (a vector) induced in the molecule by
+the electric field $\boldsymbol{\mathscr{E}}$, with the components $\mathscr{E}_x$,$\mathscr{E}_y$ and $\mathscr{E}_z$.
+Now we describe the main algorithm to implement the parametrization of the molecular dipole moment 
+derivative $\frac{\partial \mu_k}{\partial r}$ and dipole polarizability derivative $\frac{\partial\alpha_{\eta\xi}}{\partial r}$. 
+This result can be used in the VACF-based method for calculating the VSFG spectroscopy intensity.
+
+Given a DFTMD trajectory of total length $\sim 10^2$ ps for bulk water, sampled with a frequency $\sim 1$ ps$^{-1}$.
+For the $j$-th water molecule in the $n$-th snapshot of the trajectory, 
+we denote the two OH bonds as H$^{n,j,\epsilon=1}$ and H$^{n,j,\epsilon=-1}$. We will calculate statistical average over all time steps and all OH bonds, therefore, 
+we just denote the corresponding OH bonds by ${\epsilon=1}$ and ${\epsilon=-1}$, respectively. 
+The H atoms in a water molecule are denoted by H$^{\epsilon=1}$ and H$^{\epsilon=-1}$, and the O atom by O$^{0}$.
+%For the bond OH$_{\epsilon}$, we calculate vector OH$_{\epsilon}$, and $|\text{OH}_{\epsilon}|$ in the lab framework,
+%then the direction cosines ($\cos\alpha_{\epsilon}$, $\cos\beta_{\epsilon}$, $\cos\gamma_{\epsilon}$) of the vector OH$_{\epsilon}$ in the molecular frame MF$_{n,j}$.
+%The size of the array to store the direction cosines is $ 40\times 32\times 3 \times 3$.
+%Calculate the direction cosine matrix between bond framework and molecular framework. 
+
+We used three different coordinate frames: the lab frame ($x^{\text{l}},y^{\text{l}},z^{\text{l}}$), the molecular frame
+($x^{\text{m}},y^{\text{m}},z^{\text{m}}$) and the bond frame ($x^{\text{b}},y^{\text{b}},z^{\text{b}}$) (Fig.\thinspace\ref{fig:frameworks}).
+In the lab frame, the $z^{\text{l}}$-axis is perpendicular to the interface.
+The molecular frame will be used to decompose the signal into normal modes of water monomers.
+For the $j$-th molecule, the $z^{\text m}$ axis is along the bisector of the H-O-H angle, the $x^{\text m}$ axis is in the molecular plane,
+and the $y^{\text m}$ axis is out of the molecular plane. 
+In the bond frame, $z^{\text{b},\epsilon}$ axis is along the bond $\epsilon$ of a molecule, $z^{\text{b},\epsilon}$
+is in the molecular plane and $y^{\text{b},\epsilon}$ is out of the molecular plane.
+
+There are two direction cosine matrices between the bond frames and molecular frame,
+we name them as ${D}^{\text{b},\epsilon=-1}$ and  ${D}^{\text{b},\epsilon=1}$\cite{Khatib2017},
+or ${D}^{\text{b},-1}$ and  ${D}^{\text{b},1}$ for short. 
+Then the direction matrix ${D}^{\text{b},\epsilon} $ can be represented by direction cosines between ${\bf x}^{\text{b},\epsilon}$ and ${\bf x}^{\text m}$, 
+where $\epsilon=\pm 1$ and $\theta$ denotes the H-O-H angle in the $j$-th water molecule for the $n$-step:
+\begin{subequations}
+\begin{align}
+  &\hat x^{\text{b},\epsilon}_1 = \epsilon \cos\frac{\theta}{2} \hat x^{\text m}_1 +  \sin\frac{\theta}{2} \hat x^{\text m}_3 \\
+  &\hat x^{\text{b},\epsilon}_2 = \epsilon \hat x^m_2 \\
+  &\hat x^{\text{b},\epsilon}_3 = -\epsilon \sin\frac{\theta}{2} \hat x^{\text m}_1 + \cos\frac{\theta}{2} \hat x^{\text m}_3
+\end{align}
+\end{subequations}
+i.e., 
+\begin{equation}
+  {D}^{\text{b},\epsilon} =\left(
+  \begin{matrix}
+    \epsilon\text{cos}\frac{\theta}{2} &  0  & \text{sin}\frac{\theta}{2}\\
+    0 & \epsilon & 0\\
+    -\epsilon\text{sin}\frac{\theta}{2} & 0 & \text{cos}\frac{\theta}{2}
+  \end{matrix}
+  \right).
+\end{equation}
+  The molecular frame is given by the direction cosine matrix ${D}^\text{m,l}$ (or ${D}^\text{m}$) between molecular frame  and the lab frame
+  %How to determine  $({\bf D}^\text{m,l})$?  
+%Since we can know the coordinates of $(\hat x^m_3)$ in the lab frame: 
+%\begin{equation}
+%(\hat x^m_3) = (a_{31}) \hat x^l_1 + (a_{32}) \hat x^l_2 + (a_{31})_{nj} \hat x^l_3,
+%\end{equation}
+%Therefore, the relation between the unit vector  $(\hat x^m_1)$ and $(\hat x^m_2)$ are
+%
+\begin{subequations}
+\begin{align}
+  \hat {\bf x}^{\text{m}} ={D}^\text{m} \hat{\bf x}^{\text{l}}.
+\end{align}
+\end{subequations}
+%i.e., we obtain  $({\bf D}^\text{m})$.
+
+% 2a1c.
+%\begin{subequations}
+%  \begin{align}\left(
+%  \begin{matrix}
+%  \{\bf D} x^{\epsilon} \\
+%  \Delta y^{\epsilon} \\
+%  \Delta z^{\epsilon} 
+%  \end{matrix}
+%    \right)
+%    =\Delta r \left(
+%  \begin{matrix}
+%  \cos\alpha^{\epsilon}\\
+%  \cos\beta^{\epsilon}\\
+%  \cos\gamma^{\epsilon}
+%  \end{matrix}
+%    \right)
+%\end{align}
+%\end{subequations}
+%i.e., $\Delta {\bf r}^{\epsilon} =(\Delta x^{\epsilon}, \Delta y^{\epsilon} ,\Delta z^{\epsilon} )^\text{T}$.
+%        
+%2a2.
+%\begin{subequations}
+%\begin{align}
+%  &   (x'_H)_{\epsilon} -(x_O)_{0} = (x_H)_{\epsilon} -(x_O)_{0} + \Delta  x_{\epsilon} \\
+%  &   (y'_H)_{\epsilon} -(y_O)_{0} = (y_H)_{\epsilon} -(y_O)_{0} + \Delta  y_{\epsilon} \\
+%  &   (z'_H)_{\epsilon} -(z_O)_{0} = (z_H)_{\epsilon} -(z_O)_{0} + \Delta  z_{\epsilon}
+%\end{align}
+%\end{subequations}
+%
+%2a4.We need to calculate the dipole moment of each molecule for $\Delta r \in [-0.05,0.05]$. 
+The dipole moment of each OH bond with different length is required to determine the dipole moment derivative. 
+    %(For convenient, we have defined $ \text{inc} =\Delta r/|\Delta r|$.)
+    %We elongate (reduce) the bond OH$_{n, j,\epsilon}$, and keep other bonds still, then we obtain a updated coordinate file ${\text{pos}}nj\epsilon\text{inc}.\text{xyz}$, where $(n, j,\epsilon)$ is the index of the H in OH$_{\epsilon}$.
+Therefore, we elongate (reduce) one bond ${\epsilon}$ by $\Delta r = 0.05$ \AA ($\Delta r = -0.05 $ \A), and keep other 
+bonds in the total system still, then we obtain a updated coordinate.
+Then the MLWF centers for the system can be calculated from the updated coordinate, using force and energy calculation at the DFT level.
+%which is represented by the coordinate file ${\text{pos}}nj\epsilon\text{inc}.\text{xyz}$.
+    %2a5a: before next step, we generated a template input file 1.inp. 
+    %2a5b: From the template input file 1.inp, we generate an input file for the disturbed position represented by ${\text{pos}}nj\epsilon\text{inc}.\text{xyz}$ with the elongated bond OH$_{\epsilon}$: $n j \epsilon\text{inc}.\text{inp}$
+    %2a5c: Using DFTMD, we use the input file $nj\epsilon\text{inc}.\text{inp}$ to calculate and write out the Wannier centers for the system  ${\text{pos}}n j \epsilon\text{inc}.\text{xyz}$. The output: ${\text{HOMO}}n j \epsilon \text{inc}.\text{xyz}$.
+    %2a6: From the Wannier centers of the water molecule (can be found in the output ${\text{HOMO}}nj \epsilon \text{inc}.\text{xyz}$), we can calculate the dipole moment for the elongated (reduced) bond OH$_{\epsilon}$.  The $k$ component of the dipole moment: $(\mu^{b,r+\Delta r}_k)_{\epsilon}$.
+    From the Wannier centers of the $j$-th water molecule, we can calculate the dipole moment for the elongated (reduced) 
+   % MAYBE I DO NOT NEED TO DO BOTH ELONGATING AND REDUCING THE BOND,IE.,I JUST TAKE $\Delta r=0.05$\AA OR $\Delta r=0.05 $\AA IS ENOUGH!) 
+    bond ${\epsilon}$. 
+    %Therefore, the $k$ component of the dipole moment $(\mu^{b,r+\Delta r}_k)_{\epsilon}$ can be obtained.
+    In the bond frame, $|\mu^b| =|\mu^b_z|$. 
+    Therefore, we can calculate the $k=z$ component of the dipole moment for ${\epsilon}$ in water molecule $j$ from the MLWF centers\cite{Silvestrelli1999}. 
+      The MLWF centers are computed  and the partial dipole moment for a given molecular species $I$ is defined as\cite{Salanne08}
+      %
+      \begin{equation}
+        \mu^I = \sum_{i\in I}(Z_i {\bf R}_i - 2\sum_{n\in i} {\bf r}^{\text{w}}_n).
+      \end{equation}
+       %
+In particular, here it is expressed as 
+%\begin{equation}
+%  \mu^{\text{b},r+\Delta r,\epsilon} = \frac{1}{2}Z_O {\bf R}^{0} +Z_H{\bf R}^{\epsilon} +1\times (-2) \times r^{w,\epsilon} +\frac{1}{2}\times 2\times (-2)\times r^{w,0},
+%\end{equation}
+\begin{equation}
+  \mu^{\text{b},r+\Delta r,\epsilon} = \frac{1}{2}Z_{\text{O}} {\bf R}^{0} +Z_{\text{H}}{\bf R}^{\epsilon} -2r^{\text{w},\epsilon} -2r^{\text{w},0},
+\end{equation}
+where $\epsilon=\pm 1$.
+%3c: 
+In the $\epsilon$ frame, the $k=z$ component dipole moment derivative with respect to bond length\cite{Wilson1955} for the single OH bond $\epsilon$ in water molecule $j$ is
+        %
+        \begin{equation}
+          \frac{\partial \mu^{\text{b},\epsilon}}{\partial r} = (\mu^{\text{b},r+\Delta r,\epsilon}-\mu^{\text{b},r,\epsilon})/\Delta r.
+        \end{equation}
+       % for both the case of elongating the OH bond, i.e., $\Delta r > 0$ and reducing the OH bond.
+        %3d
+       % We represent this vector $\frac{\partial \mu^{\text{b},\epsilon}}{\partial r}$ as $( 0, 0, \frac{\partial \mu^{\text{b},\epsilon}}{\partial r} )^\text{T}$.
+        Since the components of the dipole moment in the molecular frame are given by the transformation:
+        \begin{subequations}
+          \begin{align}
+            \left(
+            \begin{matrix}
+              (\frac{\partial \mu^\text{m}}{\partial r})_1\\
+              (\frac{\partial \mu^\text{m}}{\partial r})_2\\
+              (\frac{\partial \mu^\text{m}}{\partial r})_3
+            \end{matrix}
+            \right)
+            = {D}^{\text{b},\epsilon}
+            \left(
+            \begin{matrix}
+              0\\
+              0\\
+              \frac{\partial \mu^{\text{b},\epsilon}}{\partial r}
+            \end{matrix}
+            \right),
+            \end{align}
+        \end{subequations}
+    % END of r-loop 
+    then, to calculate the individual polarizability for a OH bond from Wannier centers, 
+    calculations involving finite electric fields (of 0.0001 au intensity) were performed independently 
+    along $x$, $y$, and $z$ directions at each sampled time step\cite{Sulpizi2013}.
+    %4a: 
+    For the electric field $\mathscr{E} \in \{\mathscr{E}_x,\mathscr{E}_y, \mathscr{E}_z\}$,
+       like in the case of no external electric field, the MLWF centers are calculated. %in ${\text{HOMO}}nj\epsilon\varepsilon.\text{xyz}$.
+ For a finite $\Delta r$, the dipole moment is given by 
+\begin{equation}
+  \mu^{{\text b},r+\Delta r,\epsilon,\mathscr{E}} = Z_H{\bf R}^{\epsilon,\mathscr{E}} + 
+  \frac{1}{2}Z^0 {\bf R}^{0,\mathscr{E}} -2 {\bf r}^{\text{w},\epsilon,\mathscr{E}} -2{\bf r}^{\text{w},0,\mathscr{E}}.
+\end{equation}
+        %END $ \Delta r$-loop  
+%4a4 the polarizability tensors $\alpha^{b,r+|\Delta r|}$ and $\alpha^{b,|r-\Delta r|}$. 
+From the relation (obtained from Eq.\thinspace\ref{eq:def_alpha})
+      \begin{subequations}
+          \begin{align}
+            & 0 = \alpha^{{\text{b}},r+\Delta r}_{11}\mathscr{E}_{1} + \alpha^{{\text{b}},r+\Delta r}_{12}\mathscr{E}_{2} + \alpha^{{\text{b}},r+\Delta r}_{13}\mathscr{E}_{3}\\
+            & 0 = \alpha^{{\text{b}},r+\Delta r}_{21}\mathscr{E}_{1} + \alpha^{{\text{b}},r+\Delta r}_{22}\mathscr{E}_{2} + \alpha^{{\text{b}},r+\Delta r}_{23}\mathscr{E}_{3}\\
+            & \delta \mu^{{\text{b}},r+\Delta r}_{3} = \alpha^{{\text{b}},r+\Delta r}_{31}\mathscr{E}_{1} + \alpha^{{\text{b}},r+\Delta r}_{32}\mathscr{E}_{2} + \alpha^{{\text{b}},r+\Delta r}_{33}\mathscr{E}_{3}.
+          \end{align}
+      \end{subequations}
+%
+where
+\begin{equation}
+  \delta \mu^{{\text{b}},r+\Delta r}_{3} = \mu^{{\text{b}},\epsilon,r+\Delta r,\mathscr{E}}_{3} - \mu^{{\text{b}},\epsilon,r+\Delta r}_{3}.
+\end{equation}
+%
+and the expressions of the electric filed ${\mathscr{E}^\text{b}}$ in a OH frame for the three cases of external electric field 
+which is along $x$, $y$ and $z$ axis in the lab frame, respectively, we obtain 9 equations.
+%
+For
+\begin{equation}
+  {\bf\mathscr{E}}^{\text{l}} = (\mathscr{E}_0 \  0 \  0){\tran} \nonumber
+\end{equation}  
+where $\mathscr{E}_0 = 0.0001$ au, we can obtain the intensity of the external electric filed in the molecular frame  
+\begin{subequations}
+  \begin{align}
+    &\mathscr{E}^\text{m}_1 = {D}^{\text{m}}_{12} \mathscr{E}^\text{l}_2\\
+    &\mathscr{E}^\text{m}_2 = {D}^{\text{m}}_{22} \mathscr{E}^\text{l}_2\\
+    &\mathscr{E}^\text{m}_3 = {D}^{\text{m}}_{32} \mathscr{E}^\text{l}_2,
+    \end{align}
+\end{subequations}
+where ${D}^{\text{m}}_{pq}$ is the $pq$-component of ${D}^\text{m}$.
+%
+In OH bond frame,  
+\begin{equation}
+  \mathscr{E}^{\text b} = {D}^{\text b} \mathscr{E}^{\text{m}}.
+\end{equation}
+Similarly, we obtain expansions of the intensity of the electric field for other two cases: 
+when $\mathscr{E}^{\text{l}} = (0,\mathscr{E}_0, 0)^\text{T}$ and when $\mathscr{E}^{\text{l}} = (0,0,\mathscr{E}_0)^\text{T}$, respectively.
+Here, $\mathscr{E}_x$ is the electric field along $x$-axis in the lab frame. 
+    %4a5: 
+    %If we just elongate each single bond, ie., let $\Delta r > 0$,
+    Then the dipole polarizability for the bond ${\epsilon}$ is as follows:
+\begin{subequations}
+  \begin{align}
+    &\frac{\partial \alpha^{{\text b},\epsilon}_{31}}{\partial r} = (\alpha^{{\text b},\epsilon,r+\Delta r}_{31} -\alpha^{{\text b},\epsilon,r}_{31})/\Delta r\\
+    &\frac{\partial \alpha^{{\text b},\epsilon}_{32}}{\partial r} = (\alpha^{{\text b},\epsilon,r+\Delta r}_{32} -\alpha^{{\text b},\epsilon,r}_{32})/\Delta r\\
+    &\frac{\partial \alpha^{{\text b},\epsilon}_{33}}{\partial r} = (\alpha^{{\text b},\epsilon,r+\Delta r}_{33} -\alpha^{{\text b},\epsilon,r}_{33})/\Delta r.
+  \end{align}
+\end{subequations}
+    %If we just reduce each single bond, ie., let $\Delta r < 0$, then the dipole polarizability for the bond ${\epsilon}$ is as follows:
+%\begin{subequations}
+  %\begin{align}
+   % &\frac{\partial \alpha^{b,\epsilon}_{31}}{\partial r} = (\alpha^{b,\epsilon,r}_{31} -\alpha^{b,\epsilon,r+\Delta r}_{31})/|\Delta r|\\
+   % &\frac{\partial \alpha^{b,\epsilon}_{32}}{\partial r} = (\alpha^{b,\epsilon,r}_{32} -\alpha^{b,\epsilon,r+\Delta r}_{32})/|\Delta r|\\
+   % &\frac{\partial \alpha^{b,\epsilon}_{33}}{\partial r} = (\alpha^{b,\epsilon,r}_{33} -\alpha^{b,\epsilon,r+\Delta r}_{33})/|\Delta r|.
+  %\end{align}
+%\end{subequations}
+          %END 4a
+      %END $j$-loop
+%END $n$-loop
+
+Therefore, the averages for $(\frac{\partial \mu^{\text{b},\epsilon}}{\partial r})_\kappa$ and $(\frac{\partial \alpha^{\text{b},\epsilon}}{\partial r})_{\eta\xi}$ 
+(the subscripts $\kappa, \eta, \xi = x^{\text{m}}, y^{\text{m}}, z^{\text{m}}$, or $1, 2, 3$) over all OH bonds give the molecular dipole and polarizability derivatives, respectively. 
+
