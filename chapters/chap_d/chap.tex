@@ -87,7 +87,27 @@ in it.
 Lengths of H-bonds are shown in Table\thinspace\ref{tab:3_nitrate_bond}. 
 The nitrate O (ON)--water O (OW) 
 and nitrate O--water H (HW) RDFs are shown in Fig.\thinspace\ref{gdr_ON-wat--3_NO3}.
-\begin{table}
+
+%
+When $T=300$ K, the difference $r_a$ between different H atoms in one water molecule is
+$\Delta{r_a}=0.69$ \AA, while $\Delta{r_a}=0.13$ \AA for $T=100$ K. It shows that vibrational 
+peaks for the three water molecules are much closer than that at the higher temperature 300 K. 
+
+%
+The calculated VDOS for water molecules in the cluster at a lower temperature 100 K is given in 
+Fig.\thinspace\ref{fig:vdos_LiNO3-3w_100K_w1-2-3_font35}. 
+It shows that the vibrational peaks for the three water molecules 
+are close to each other ($\Delta\nu <$ 10 \cm) for both vibrational and bending modes.
+At the lower temperature, the three water molecules 
+are more symmetric distributed bound to the central nitrate. Therefore, the difference between H-bonds in the 
+symmetric isomer of [NO$_3\cdot$(H$_2$O)$_3$]$^-$ is likely a finite temperature effect,
+which can be verified by the calculation of the VDOS for water molecules.
+
+%
+Both differences $\Delta\nu$ and $\Delta{d}$ decrease as the temperature decrease,
+therefore, the different vibrational features are $T$-dependent effect. 
+
+\begin{table}[H]
 \centering
 \caption{\label{tab:3_nitrate_bond}%
 Lengths of H-bonds in [NO$_3\cdot$(H$_2$O)$_3$]$^-$. Indices of H atoms: H6, H7 in w1; 
@@ -106,7 +126,7 @@ H9, H10 in w2; and H12, H13 in w3.}
 %===================
 \begin{figure}[H] %[htbp]
 \centering
-\includegraphics [width=0.36\textwidth] {./diagrams/gdr_ON-wat--3_NO3} 
+\includegraphics [width=0.5\textwidth] {./diagrams/gdr_ON-wat--3_NO3} 
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{gdr_ON-wat--3_NO3}
 The nitrate O (ON)--water O (OW) 
@@ -114,26 +134,11 @@ and nitrate O--water H (HW) RDFs for [NO$_3\cdot$(H$_2$O)$_3$]$^-$.
 Peaks for the former are 1.93, 2.95 and 3.95 \A, and for the later are 2.95 and 4.80 \A.}
 \end{figure} 
 %==================================================================================
-When $T=300$ K, the difference $r_a$ between different H atoms in one water molecule is
-$\Delta{r_a}=0.69$ \AA, while $\Delta{r_a}=0.13$ \AA for $T=100$ K. It shows that vibrational 
-peaks for the three water molecules are much closer than that at the higher temperature 300 K. 
-
-The calculated VDOS for water molecules in the cluster at a lower temperature 100 K is given in 
-Fig.\thinspace\ref{fig:vdos_LiNO3-3w_100K_w1-2-3_font35}. 
-It shows that the vibrational peaks for the three water molecules 
-are close to each other ($\Delta\nu <$ 10 \cm) for both vibrational and bending modes.
-At the lower temperature, the three water molecules 
-are more symmetric distributed bound to the central nitrate. Therefore, the difference between H-bonds in the 
-symmetric isomer of [NO$_3\cdot$(H$_2$O)$_3$]$^-$ is likely a finite temperature effect,
-which can be verified by the calculation of the VDOS for water molecules.
-
-Both differences $\Delta\nu$ and $\Delta{d}$ decrease as the temperature decrease,
-therefore, the different vibrational features are $T$-dependent effect. 
 %--------------------
 \begin{figure}[H]%[htbp]
 \centering
 \centering
-\includegraphics [width=0.36 \textwidth] {./diagrams/vdos_LiNO3-3w_100K_w1-2-3_font35} 
+\includegraphics [width=0.5 \textwidth] {./diagrams/vdos_LiNO3-3w_100K_w1-2-3_font35} 
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:vdos_LiNO3-3w_100K_w1-2-3_font35} The VDOS $g(\nu)$ for water molecules in the
 cluster [NO$_3\cdot$(H$_2$O)$_3$]$^-$ at 100 K.} 
@@ -141,13 +146,6 @@ cluster [NO$_3\cdot$(H$_2$O)$_3$]$^-$ at 100 K.}
 %====================================================================================
 %In addition, the VDOS for H atoms and water molecules in [NO$_3\cdot$(H$_2$O)$_3$]$^-$ (Fig.\thinspace\ref{fig:vdos_NO3-3w_2_H-wat}) shows 
 %that H's contribution dominates that of the water molecule. 
-%\begin{figure}[H]
-%\centering
-%\includegraphics [width=0.4\textwidth] {./diagrams/vdos_NO3-3w_2_H-wat}%
-%\setlength{\abovecaptionskip}{0pt}
-%\caption{\label{fig:vdos_NO3-3w_2_H-wat} The comparison between the VDOS for H and for a whole water molecule 
-%({w1}, Fig.\thinspace\ref{fig:clusters_4} a), in [NO$_3\cdot$(H$_2$O)$_3$]$^-$ at 300 K.}
-%\end{figure}  %(Calculated from the function vdos3.f and ft$\_$5s.sh)
 
 \section{Solution/vapor interfaces}\label{SOLUTION_VAPOR_PROPERTIES}
 %\paragraph{Dipole orientation distribution of water at aqueous/vapor interfaces}
@@ -161,13 +159,6 @@ cluster [NO$_3\cdot$(H$_2$O)$_3$]$^-$ at 100 K.}
 %However, water molecules at the salty water surface has more $s$-polarization component.
 %The result is shown in Fig.\thinspace\ref{fig:prob_theta_ln_itp_256}.
 %%
-%\begin{figure}[H]
-%\centering
-%\includegraphics [width=0.42\textwidth]{./diagrams/prob_theta_ln_itp_256} % Here is how to import EPS art
-%\setlength{\abovecaptionskip}{20pt}
-%\caption{\label{fig:prob_theta_ln_itp_256} The dipole orientation distribution of water molecules at the water/vapor and the LiNO$_3$ solution/vapor interfaces.}
-%\end{figure}
-%
 \paragraph{Solvation shell HB dynamics of W--W bonds at the alkali iodide/vapor interfaces}
 %%%%%%%%%%%%
 % !?USEFUL %
@@ -176,7 +167,7 @@ cluster [NO$_3\cdot$(H$_2$O)$_3$]$^-$ at 100 K.}
 %[ALSO INTERESTING TO COMPARE THESE CURVES TO THOSE FOR THE NEAT WATER/VAPOR INTERFACE] 
 \begin{figure}[H]
 \centering
-\includegraphics [width=0.6\textwidth] {./diagrams/hbacf_C_sh2_2p}
+\includegraphics [width=\textwidth] {./diagrams/hbacf_C_sh2_2p}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:hbacf_C_sh2_2p}The $c^{(k)}(t)$ of W--W bonds in the solvation shell 
   of (a) cations and (b) I$^-$ at the interfaces of 0.9 M LiI, NaI and KI solutions, respectively.
@@ -219,7 +210,7 @@ Its ultrafast relaxation process has a shorter relaxation time, which shows that
 RDFs $g_\text{Li-OW}(r)$, $g_\text{Li-HW}(r)$, $g_\text{ON-OW}(r)$ and $g_\text{ON-HW}(r)$ in bulk LiNO$_3$ solution are shown in Fig.\thinspace\ref{fig:gdr_127_LiNO3}.
 \begin{figure}[H] %[htb]
 \centering                                          
-\includegraphics [width=0.6 \textwidth] {./diagrams/gdr_127_LiNO3} 
+\includegraphics [width=0.8 \textwidth] {./diagrams/gdr_127_LiNO3} 
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:gdr_127_LiNO3} RDFs $g_\text{Li-OW}(r)$, $g_\text{Li-HW}(r)$, $g_\text{ON-OW}(r)$ and $g_\text{ON-HW}(r)$ in bulk LiNO$_3$ solution.}
 %Box size: 15.78 $\times$ 15.78 $\times$ 15.78 \A$^3$; $T = 300$ K.
@@ -229,7 +220,7 @@ RDFs $g_\text{Li-OW}(r)$, $g_\text{Li-HW}(r)$, $g_\text{ON-OW}(r)$ and $g_\text{
 RDFs $g_\text{Li-OW}(r)$, $g_\text{Li-HW}(r)$, $g_\text{I-OW}(r)$ and $g_\text{I-HW}(r)$ for the LiI/vapor interface are shown in Fig.\thinspace\ref{fig:gdr_124_2LiI}.
 \begin{figure}[H]%[htb]
 \centering                                          
-\includegraphics [width=0.6 \textwidth] {./diagrams/gdr_124_2LiI} 
+\includegraphics [width=0.8 \textwidth] {./diagrams/gdr_124_2LiI} 
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:gdr_124_2LiI} RDFs $g_\text{Li-OW}(r)$, $g_\text{Li-HW}(r)$, $g_\text{I-OW}(r)$ and $g_\text{I-HW}(r)$ for the LiI/vapor interface.}
 %Box size: 15.60 $\times$ 15.60 $\times$ 31.00 \A$^3$; $T = 330$ K.
@@ -250,7 +241,7 @@ that is, the relaxation time of HB dynamics in the outer layer is smaller than t
 %为了看清不同溶液中的氢键的差别，我们在下一段研究了I-H氢键的动力学.
 \begin{figure}[H]
 \centering
-\includegraphics [width=0.42\textwidth]{./diagrams/gdr_XO--124_2XI}%fig.6.1 
+\includegraphics [width=0.6\textwidth]{./diagrams/gdr_XO--124_2XI}%fig.6.1 
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:gdr_XO--124_2XI}
 (a) RDFs $g_{\text{X-O}}(r)$(X=\li, \na, K$^+$) and (b) the coordination number of \Li (\na, K$^+$) ions at the interfaces of LiI (NaI, KI) solution. 
@@ -379,7 +370,7 @@ Clearly, we found that D$'$AA molecules are of free OH stretching during the dyn
 % 
 \begin{figure}[h]%[!htbp]
 \centering
-\includegraphics [width=0.4 \textwidth] {./diagrams/Multiple_figs} 
+\includegraphics [width=0.7 \textwidth] {./diagrams/Multiple_figs} 
 \caption{\label{fig:Multiple_figs} Four types of water molecules at the LiI/vapor interface, regarding the HB environments: (a) DDAA; (b) DDA; (c) DD$'$AA; (d) D$'$AA. The cyan balls denote \I ions. }
 \end{figure} 
 
@@ -427,7 +418,7 @@ which is smaller than the $\tau_{2}$ for DDAA, DD$'$A, and DD$'$AA molecules.
 %图 2LiI-124w_c2_fit_exp_I_shell_7water_2ps_class_DDAA.eps
 \begin{figure}[H]%[!htbp]
 \centering
-\includegraphics [width=0.4 \textwidth] {./diagrams/2LiI-124w_c2_fit_single_exp_I_shell_7water_2ps_class_DDAA} 
+\includegraphics [width=0.5 \textwidth] {./diagrams/2LiI-124w_c2_fit_single_exp_I_shell_7water_2ps_class_DDAA} 
     \caption{
 Time dependence of $C_2(t)$ for DD$'$A, DD$'$AA, and D$'$AA water molecules at the LiI/vapor interface.
     \label{fig:2LiI-124w_c2_fit_single_exp_I_shell_7water_2ps_class_DDAA}%
@@ -469,12 +460,6 @@ D$'$AA & 0.78 & 0.97 \\
 %\subsection{\LiN Solution/vapor Interface}
 %The anisotropy decay of OH bonds in water molecules in 0.4 M LiNO3 solution/vapor interface is shown in Fig.\space\ref{fig:c2_LiNO3_inset}.  In the model of the interface, there is one \Li and one \nitrate in the 15.6 \AA$\times$15.6 \AA$\times$31.0 \AA simulation box. 
 %The larger decay rate consistent to the conclusion infered from the VDOS for the interfaces, although the concentration of \LiN is lower. This result obtained from another DFTMD trajectory consistent with the previous one, and it reflects that the \nitrate on the surface of the alkali nitrate solution weaken the H-bonds and  accelerate the anisotropy decay of water molecules at the interfaces.
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics [width=0.4\textwidth] {./diagrams/c2_LiNO3_inset} 
-%\setlength{\abovecaptionskip}{10pt}
-%\caption{\label{fig:c2_LiNO3_inset} The anisotropy decay of OH chromophores in water molecules in LiNO3 solution/vapor interface.}
-%\end{figure} 
 
 %{Rotational Anisotropy Decay of Water at Aqueous/vapor Interfaces of Alkali Halide Solutions}\label{RAD}
 %\paragraph{Aqueous vapor interface of LiI(NaI) solution}

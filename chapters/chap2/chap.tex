@@ -15,7 +15,7 @@ are cooperative, it is insufficient for the purposes of computer simulation to u
 The organization of this chapter is the following.
 Paragraphs \ref{section_AIMD} to \ref{section_BOMD} give an introduction to the basic ideas of DFTMD as well as Born-Oppenheimer MD (BOMD) we adopted.
 Paragraphs \ref{section_VDOS} and \ref{section_VSFG} introduce the analysis methods used in this thesis, including the method of calculating 
-vibrational properties from velocity autocorrelation and the method of calculating the VSFG spectra from velocity ACF.
+vibrational properties from velocity auto-correlation and the method of calculating the VSFG spectra from velocity ACF.
 Paragraph \ref{section:def_HBP} reviews the Luzar-Chandler HB population operator and associated correlation functions, which are the basis for studying the 
 instantaneous interfacial HB dynamics. 
 
@@ -593,7 +593,7 @@ $L_{\eta\eta}$, $L_{\xi\xi}$ and $L_{\kappa\kappa}$ are the Fresnel coefficients
 $\theta_{\text{SFG}}$ is the reflected angle of VSFG beam with respect to the normal 
 direction in the medium.
 
-\subsection{VSFG spectra from velocity ACFs}
+\subsection{VSFG spectra from velocity auto-correlation functions}
 %To construct SFG spectrum of O-H stretching at the water/vapor interface and to ascertain the molecular origin of SFG spectrum, 
 %quantum corrected time correlation function \cite{Morita2002,Morita2004} and instantaneous normal mode (INM) methods are used 
 %by Perry and coworkers.\cite{Perry03} 
@@ -865,7 +865,7 @@ at 300 K is displayed in Fig.\thinspace\ref{fig:Ex30ps_hb}, respectively.
 %-------------------
 \begin{figure}[hbtp]
 \centering
-\includegraphics [width=0.42\textwidth] {./diagrams/Ex30ps_hb}
+\includegraphics [width=0.7\textwidth] {./diagrams/Ex30ps_hb}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:Ex30ps_hb}Dynamics of $r_{\text{OO}}(t)$ (top panel), cos$\phi(t)$ (middle panel), 
   and $h(t)$ (bottom panel) for a typical HB in a water cluster. The dashed lines show the inter-oxygen distance 
@@ -892,7 +892,7 @@ We can obtain the relaxation time from Eq.\thinspace\ref{eq:tau_relaxation}: $\t
 and $\tau_R = 14.16$ ps for the AHD definition. 
 \begin{figure}[H]
 \centering
-\includegraphics [width=0.6\textwidth] {./diagrams/pure_bk_c_from_2_methods}
+\includegraphics [width=1.0\textwidth] {./diagrams/pure_bk_c_from_2_methods}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:pure_bk_c_from_2_methods}
 The \CHB for bulk water, as computed from the ADH (solid line) and AHD (dashed line) criterion of H-bonds. 
@@ -908,7 +908,7 @@ The function \CHB is interpreted as the probability that the HB is intact at tim
 if the pair of water molecules are H-bonded at time zero. 
 
 %Besides $h(t)$, here we also discuss another possible definition of the HB population operator ${h}'(t)$.
-When a pair of water molecules $a$ and $b$ are H-bonded, 
+When a pair of water molecules are H-bonded, 
 there are 4 different forms of possible H-bonds . 
 In other words, there are exchange processes, i.e., interchange tunneling and bifurcation tunneling, during the dynamics.
 After an exchange process, a pair of bonded molecules still form H-bonds.
@@ -972,7 +972,7 @@ The \SHB for the simulated bulk water according to the formula \ref{eq:S_HB} is 
 %
 \begin{figure}[hbtp]
 \centering
-\includegraphics [width=0.36\textwidth] {./diagrams/128w_s_bk_ns40}
+\includegraphics [width=0.60\textwidth] {./diagrams/128w_s_bk_ns40}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:128w_s_itp_bk_ns40} Time dependence of \SHB for bulk water.} 
 %The length of the trajectory is 35 ps of physical time.
@@ -984,7 +984,7 @@ The average continuum HB lifetime $\langle \tau_{\mathrm{a}} \rangle$ is calcula
 \label{eq:calculate_hb_lifetime_from_s}
 \end{eqnarray}
 %
-The time derivative of \SHB
+The time derivative 
 \begin{eqnarray}
 P_a(t) = -\frac{\text{d}s(t)}{\text{d}t}\nonumber
 \label{eq:P_1}

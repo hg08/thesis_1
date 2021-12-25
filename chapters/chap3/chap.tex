@@ -24,7 +24,7 @@ Due to the experimental difficulties, most information on the dynamics of aqueou
   %\end{wrapfigure}
   \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{./diagrams/clusters_4}
+  \includegraphics[width=0.7\textwidth]{./diagrams/clusters_4}
   \setlength{\abovecaptionskip}{0pt}
     \caption{\label{fig:clusters_4}Geometry optimized structure of clusters: 
     (a) [NO$_3\cdot$(H$_2$O)$_3$]$^-$; 
@@ -45,7 +45,7 @@ Due to the experimental difficulties, most information on the dynamics of aqueou
   %
   \begin{figure}[H] %[htbp]
   \centering
-  \includegraphics [width=0.36\textwidth] {./diagrams/vdos_NO3-3w_2_H6H7_simple}%
+  \includegraphics [width=0.5\textwidth] {./diagrams/vdos_NO3-3w_2_H6H7_simple}%
   \setlength{\abovecaptionskip}{0pt}
     \caption{\label{fig:vdos_NO3-3w_2_H6H7} VDOS for the two OH bonds in w1 (Fig.\thinspace\ref{fig:clusters_4} a) of [NO$_3\cdot$(H$_2$O)$_3$]$^-$.} 
     %The length of the DFTMD trajectory is 5 ps.
@@ -72,12 +72,7 @@ Due to the experimental difficulties, most information on the dynamics of aqueou
 
   Sharp peaks in the RDF (Fig.\thinspace\ref{gdr_4_Li}) show that the solvation shell of \Li is bound to all the four water molecules.
   The peak for $g_{\text{LiO}}$ is at 2.02 \AA, and for $g_{\text{LiH}}$ is at 2.69 \AA. 
-  \begin{figure}[b!]
-  \centering
-  \includegraphics[width=0.36\textwidth] {./diagrams/gdr_4_Li}
-  \setlength{\abovecaptionskip}{0pt}
-    \caption{\label{gdr_4_Li}RDFs $g_{\text{Li-O}}$ and $g_{\text{Li-H}}$ for the cluster \LiFourW.} 
-  \end{figure}
+
   %
   The VDOS for water molecules in the cluster [Li$\cdot$(H$_2$O)$_4$]$^+$ is calculated from a 20-ps trajectory,
   during which one water molecule escaped from the bonding of the Li and then formed a new HB to 
@@ -85,16 +80,22 @@ Due to the experimental difficulties, most information on the dynamics of aqueou
   shows that there are two types of OH stretching modes in the cluster \LiFourW:
   free OH stretch which peaks at 3705 \cm and bonded OH stretch at 3625 \centimeter. 
   However, water molecules just bound to Li has two degenerate free O-H stretching modes. 
-\begin{figure}%
+  \begin{figure}[H] %[b!]
+  \centering
+  \includegraphics[width=0.60\textwidth] {./diagrams/gdr_4_Li}
+  \setlength{\abovecaptionskip}{0pt}
+    \caption{\label{gdr_4_Li}RDFs $g_{\text{Li-O}}$ and $g_{\text{Li-H}}$ for the cluster \LiFourW.} 
+  \end{figure}
+\begin{figure}[H]%
     \centering
-    \subfloat[]{{\includegraphics[width=5.3cm]{./diagrams/vdos_4_Li} }}
+    \subfloat[]{{\includegraphics[width=6.6cm]{./diagrams/vdos_4_Li} }}
     \qquad
-    \subfloat[]{{\includegraphics[width=5.0cm]{./diagrams/vdos_4_Li-wat_w1_5ps} }}
+    \subfloat[]{{\includegraphics[width=6.2cm]{./diagrams/vdos_4_Li-wat_w1_5ps} }}
     \caption{
 (A) 
-The VDOS for the four water molecules (all water molecules) in the cluster \LiFourW.
+VDOS for the four water molecules (all water molecules) in the cluster \LiFourW.
 (B)
-The VDOS for water molecules (three water molecules) bound to Li in the cluster \LiFourW.
+VDOS for water molecules (three water molecules) bound to Li in the cluster \LiFourW.
 }%
     \label{fig:vdos_4_Li}%
 \end{figure}
@@ -140,7 +141,7 @@ nitrate O--Li &1.91 $\pm$ 0.08
 
 %\subsection{Structural Characterization}
  Besides, the RDF between the alkali (\li, \na\space or \pot) and the water O (panel a) and the nitrate O (ON)-- water H (HW) (panel b) are reported in Fig.\thinspace\ref{fig:gdr_3_RNO3}. 
-The sharp and left-shifted peaks in the RDF (Fig.\thinspace\ref{fig:gdr_3_RNO3} b) 
+The sharp and left-shifted peaks (Fig.\thinspace\ref{fig:gdr_3_RNO3} b) 
 show that the nitrate is solvated and in particular a stronger HB is formed in the presence of the cation in all three clusters. 
 %=============
 % To express number ranges like 2--4, use en-dash, which can be implemented by typing two hyphens (--).
@@ -157,16 +158,15 @@ which only bound to the nitrate in the cluster [NO$_3\cdot$(H$_2$O)$_3$]$^-$ (34
 %\egin{figure}[h!]
 \begin{figure}[H]
 \centering
-  \includegraphics [width=0.72\textwidth] {./diagrams/gdr_3_RNO3}
+  \includegraphics [width=\textwidth] {./diagrams/gdr_3_RNO3}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:gdr_3_RNO3} (a) RDF $g_{\text{R-O}}$ for clusters RNO$_3$(H$_2$O)$_3$ (R=Li, Na, K);
   (b) RDF $g_{\text{O-H}}$ for clusters RNO$_3$(H$_2$O)$_3$ and [NO$_3\cdot$(H$_2$O)$_3$]$^-$ (no alkali metal cation, denoted as "R=-").}
 \end{figure}
 %
-%\begin{figure}[htbp]
 \begin{figure}[H]
  \centering
- \includegraphics [width=0.90\textwidth, center] {./diagrams/vdos_Li_Na_K-NO3-3w}
+ \includegraphics [width=1.1\textwidth, center] {./diagrams/vdos_Li_Na_K-NO3-3w}
  \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:vdos_Li_Na_K-NO3-3w}VDOS for H$_2$O in clusters: (a) LiNO$_3$(H$_2$O)$_3$, (b) NaNO$_3$(H$_2$O)$_3$ and (c) KNO$_3$(H$_2$O)$_3$.  
  w1: \water bound to R and \water;
@@ -177,7 +177,7 @@ which only bound to the nitrate in the cluster [NO$_3\cdot$(H$_2$O)$_3$]$^-$ (34
 %
 \begin{figure}[H]
 \centering
-\includegraphics [width=0.90\textwidth, center] {./diagrams/vdos_LiNO3-3-5w}
+\includegraphics [width=1.1\textwidth, center] {./diagrams/vdos_LiNO3-3-5w}
 \setlength{\abovecaptionskip}{0pt}
 \caption{\label{fig:vdos_LiNO3-3-5w}VDOS for H$_2$O in clusters LiNO$_3$(H$_2$O)$_n$: 
   (a) $n=3$;  (b) $n=4$; (c) $n=5$.
