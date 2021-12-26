@@ -340,6 +340,9 @@ For ion--water bonds, some results obtained by molecular simulations have been o
 HB dynamics of surfactant--water and W--W bonds at the interface has been analyzed by Chanda 
 and Bandyopadhyay\cite{Chanda2006}. 
 Similar analysis for N--W bonds is also done by Yadav, Choudhary and Chandra by first-principles MD simulations\cite{Yadav2017}. 
+Besides, using the classification method of water molecules at the solution interface used by Tian and coworkers\cite{TianCS08}, 
+we had discussed the reorientation relaxation time of water
+molecules at solution/vapor interfaces (see Appendix \ref{classification_water} ).
 %As we know, in the case of water--water hydrogen bonds, the cutoff radius $r_\text{OO}^{\text{c}}=3.5$ \AA is the position of the first minimum of the oxygen--oxygen RDF 
 %(Fig.\thinspace\ref{fig:rdf_bk_pure_pbc}).
 As for the effect of the interface on HB dynamics in electrolyte solutions,
@@ -396,24 +399,37 @@ This is consistent with the VDOS analysis and the blue-shifted frequency (of 55 
 %As the interface thickness increases, the \SHB converges to a fixed curve, 
 %which characterizes HB dynamics of the solution/vapor interface. 
 %In particular, it gives the average continuum HB lifetime in bulk solution. ]
-For anion-oxygen (X--O) bonds, we can use a similar criterion. The cutoff values for X--O distance are obtained from the positions of the first
-minimum of the X--O RDF, i.e., $R_\text{XO}^\text{c}$=4.1 \A\ for X = I$^-$ (Fig.\thinspace\ref{fig:gdr_124_LiI}). We have used $\phi^\text{c} = 30^{\circ}$ for the angular cutoff\cite{Chowdhuri2006}.
-The function \CHB of I$^-$--water and W--W bonds describes the structural relaxation of these H-bonds. 
-The intermittent correlation functions \CHB are shown in Fig.\thinspace\ref{fig:X-O_c_lii_xlogscale}, and
-the results of the continuous correlation functions for both definitions (the ADH and AHD criteria) for the H-bonds are shown in Fig.\thinspace\ref{fig:wat-wat_s_lii} 
-for I$^-$--water bonds. The results of W--W bonds are also included for comparison in both Fig.s \ref{fig:X-O_c_lii_xlogscale} 
-and \thinspace\ref{fig:wat-wat_s_lii}.
-For both the ADH and AHD definitions of H-bonds, it is found that I$^-$--water bonds show faster dynamics than W--W bonds 
+For anion-oxygen (X--O) bonds, the cutoff values for X--O distance are obtained from the positions of the first
+minimum of the X--O RDF, i.e., $R_\text{XO}^\text{c}$=4.1 \A\ for X = I$^-$ (Fig.\thinspace\ref{fig:gdr_124_LiI}). 
+We have used $\phi^\text{c} = 30^{\circ}$ for the angular cutoff\cite{Chowdhuri2006}.
+The intermittent and continuous correlaton functions (\CHB and \SHB) of I$^-$--water and W--W bonds,
+are shown in Fig.s \thinspace\ref{fig:X-O_c_lii_xlogscale} and \ref{fig:wat-wat_s_lii}, respectively. 
+The W--W bonds are also included for comparison.
+For both the ADH and AHD definitions, I$^-$--water bonds show faster dynamics than W--W bonds 
 \cite{Chowdhuri2006} (consistent to previous MD results by Chowdhuri and Chandra).
 
-The time scales of the relaxation of I$^-$--water bonds are obtained for both definitions. 
-In Table \ref{tab:properties_anion-water_hbs}, we have included the average lifetimes $\langle\tau_\text{a}\rangle$ for I$^-$--water and N--W bonds. 
-We have performed the fitting in the time region 0.2 ps < $t$ < 12 ps to calculate the forward and backward rate constants for HB reactive flux.
-From both ADH and AHD criteria, the average lifetime $\langle\tau_\text{a}\rangle$ of I$^-$--water bonds is shorter than that of N--W bonds.
-In addition, based on HB population operator for ion--molecule pairs, we also calculated the HB lifetime $1/k$ for these two H-bonds. 
-The results show that the lifetime of I$^-$--water bonds is only half of lifetime of N--W bonds. Therefore, from the perspective of HB dynamics,
+%The time scales of the relaxation of I$^-$--water bonds. 
+In Table \ref{tab:properties_anion-water_hbs}, we included the average lifetimes $\langle\tau_\text{a}\rangle$ for I$^-$--water and N--W bonds. 
+We performed the fitting in the time region 0.2 ps < $t$ < 12 ps to calculate the forward and backward rate constants for HB reactive flux.
+From both ADH and AHD definitions, the average lifetime $\langle\tau_\text{a}\rangle$ of I$^-$--water bonds is shorter than that of N--W bonds.
+In addition, the calculated values of the HB lifetime $1/k$ for these two H-bonds 
+show that the lifetime of I$^-$--water bonds is only half of lifetime of N--W bonds. Therefore, from the perspective of HB dynamics,
 we can draw the following conclusion: I$^-$--water bonds and N--W bonds are both weaker than W--W bonds. In particular, 
 I$^-$--water bonds is slightly weaker than N--W bonds.
+\begin{table}[H]
+\centering
+\caption{ 
+    Dynamical properties of I$^-$--water and N--W bonds within the ADH (AHD) criterion.} 
+\begin{tabular}{ccc}
+\label{tab:properties_anion-water_hbs}
+ Quantities  & I$^-$--water & NO$_3^-$--water \\
+\hline
+  $\langle\tau_a\rangle$ (ps) & 0.10 (0.11) & 4.35 (7.91) \\
+  $1/k$ (ps) & 2.80 (2.40) & 4.15(6.02) \\
+\end{tabular} % 300 K
+% Data from: LiI solution:  gang@XPS /home/gang/Github/water_pair_HB_dynamics/src/least_square_fit
+% Data from: LiNO3 solution:  /home/gang/Github/water_pair_HB_dynamics/src/least_square_fit/LiNO3 
+\end{table}
 \begin{figure}[H]
 \centering
 \includegraphics [width= \textwidth] {./diagrams/X-O_c_lii_xlogscale} 
@@ -428,20 +444,6 @@ A base-10 log scale is used for the $x$-axis.
 \setlength{\abovecaptionskip}{0pt}
   \caption{\label{fig:wat-wat_s_lii}Time dependence of \SHB of I$^-$--water (I$^-$--W) and W--W bonds.}
 \end{figure} % 300 K
-\begin{table}[htbp]
-\centering
-\caption{ 
-    Dynamical properties of I$^-$--water and N--W bonds within the ADH (AHD) criterion.} 
-\begin{tabular}{ccc}
-\label{tab:properties_anion-water_hbs}
- Quantities  & I$^-$--water & NO$_3^-$--water \\
-\hline
-  $\langle\tau_a\rangle$ (ps) & 0.10 (0.11) & 4.35 (7.91) \\
-  $1/k$ (ps) & 2.80 (2.40) & 4.15(6.02) \\
-\end{tabular} % 300 K
-% Data from: LiI solution:  gang@XPS /home/gang/Github/water_pair_HB_dynamics/src/least_square_fit
-% Data from: LiNO3 solution:  /home/gang/Github/water_pair_HB_dynamics/src/least_square_fit/LiNO3 
-\end{table}
 
 \FloatBarrier
 \section{Water-water HB dynamics within ions' solvation shells} \label{PARA_SHBD}
@@ -816,15 +818,6 @@ However, the reorientation dynamics of water molecules in the solvation shells o
 (for \LiN and NaNO$_3$ solutions, respectively) or accelerate (for the KNO$_3$ solution), 
 due to the presence of alkali metal ions. 
 
-\begin{figure}[H]
-\centering
-\includegraphics [width=0.7\textwidth] {./diagrams/C2_ln-nn-kn_itp_pbc} 
-\setlength{\abovecaptionskip}{0pt}
-\caption{\label{fig:C2_ln-nn-kn_itp_pbc}The $C_2(t)$ for water molecules in the solvation shell of \Li, \Na, \K, \I and \nitrate ions 
-at alkali nitrate (alkali iodide) solution/vapor interfaces. 
-For comparison, the $C_2(t)$ for bulk water (black line) is shown.}
-\end{figure} % 300 K
-
 
 For the dynamic process in a short time, we find a relation between the reorientation relaxation time and the radius of solvation shell.
 Using a single exponential fit of $C_2(t)$ we obtain the values of $\tau_2$ as reported in Table \ref{tab:relaxation_tau_vs_radius_ln}. 
@@ -841,6 +834,16 @@ We also give a linear regression function (solid line) to fit this relation, obt
 \label{eq:tau2_r_relation}
 \end{equation} % 
 where $a= -1.5 \pm 0.5$ and $b = 8.6 \pm 1.7$.
+\begin{figure}[H]
+\centering
+\includegraphics [width=0.7\textwidth] {./diagrams/C2_ln-nn-kn_itp_pbc} 
+\setlength{\abovecaptionskip}{0pt}
+\caption{\label{fig:C2_ln-nn-kn_itp_pbc}The $C_2(t)$ for water molecules in the solvation shell of \Li, \Na, \K, \I and \nitrate ions 
+at alkali nitrate (alkali iodide) solution/vapor interfaces. 
+For comparison, the $C_2(t)$ for bulk water (black line) is shown.}
+\end{figure} % 300 K
+
+%
 \begin{table}[H]
 \centering
 \caption{\label{tab:relaxation_tau_vs_radius_ln} 
@@ -858,6 +861,24 @@ where $a= -1.5 \pm 0.5$ and $b = 8.6 \pm 1.7$.
 \end{tabular}
 \end{table} % 300 K % fitting error is less than 0.02.
 
+Using the same approach as above, we calculated $\tau_2$ with a single exponential fitting. 
+%The time correlation functions for water molecules bound to specific ions, for selected frequency windows up to 5 ps, 
+%are shown in Fig.\thinspace\ref{fig:2LiI-124w_0-25ps_c2_150222b_s3}.
+%Although the values of $\tau_2$ in \Li and \Na's solvation shell is relatively larger than that in alkali nitrate solution, 
+We also find that $\tau_2$ of the water molecules in the solvation shell decreases with the increase of the radius of the solvation shell 
+(see the data for \I in Table \ref{tab:relaxation_tau_vs_radius_ln}).
+
+
+%
+To explain the $C_2(t)$ for the \LiN/vapor and the LiI/vapor interfaces, 
+we list the peaks of RDFs for the LiI/vapor, the \LiN/vapor and the water/vapor interfaces (Fig.\thinspace\ref{tab:rdf_I2wat_peaks}).
+We find that there is a correlation between reorientation and the strength of the H-bonds:
+Nitrate--water and W--W bonds have very close local structure, while the iodide-water (I$^-$--W) bonds are of significantly different local structure.
+This result can be found from the larger value (3.61 \AA and 2.66 \AA, 
+see the first two rows in Table\thinspace\ref{tab:rdf_I2wat_peaks}) of the first peaks' locations in $g_\text{I-OW}$ and $g_\text{I-HW}$,
+and close first peak locations for ON--OW and OW--OW RDFs (2.80 \A\  and 2.79 \A, see the 3rd and 5th row in Table\thinspace\ref{tab:rdf_I2wat_peaks}). 
+The difference between water molecules with W--W and N--W bonds is discussed in Paragraph\thinspace\ref{para:types_wat_alkali_nitrate}.
+
 %
 \begin{figure}[H]
 \centering
@@ -870,52 +891,7 @@ and ions (\wat, \Li, \Na, \K, \I and \nitrate ions) in the slab of alkali nitrat
 % $\tau_2 = -1.67r + 13.3$. 
 }
 \end{figure} % 300 K
-%\paragraph{Alkali-iodine solutions}
-Using the same approach as above, we calculated $\tau_2$ with a single exponential fitting. 
-%The time correlation functions for water molecules bound to specific ions, for selected frequency windows up to 5 ps, 
-%are shown in Fig.\thinspace\ref{fig:2LiI-124w_0-25ps_c2_150222b_s3}.
-%Although the values of $\tau_2$ in \Li and \Na's solvation shell is relatively larger than that in alkali nitrate solution, 
-We also find that $\tau_2$ of the water molecules in the solvation shell decreases with the increase of the radius of the solvation shell 
-(see the data for \I in Table \ref{tab:relaxation_tau_vs_radius_ln}).
-
-%THE SAME APPROACH AS OBOVE, CALCULATE THE TAU2 WITH A SINGLE EXPONENTIAL AND CHECK THE DATA FORM LI AND NA IN  COMPARISON WITH PREVIOUS RESULTS AND ADD THE VALUE OF I- TO THE GRAPH\thinspace\ref{fig:ln_nn_kn_tau2_vs_shell_radius}.]
-%It shows that water molecules bound to \I anions decay fastest,while those bound to \Na slowest. 
-%The larger characteristic time indicates that the water molecules are held more rigidly within the first hydration shell of the ion. 
-%Therefore, we found that the order of the rigidity of the solvation shell is: \Li > \Na > \I.
 %
-%We obtain non single-exponential kinetics for the rotation of water molecules in both surface and bulk water (and this is true for water molecules bound to ions).
-%Therefore, the rotational motion of water molecules are not simply characterized by a well-defined rate constant (Fig.\thinspace\ref{fig:2NaI-124w_c2_fit_150223}).
-%The similar non-exponential kinetics is also obtain in HB dynamics in liquid water.\cite{AL96,AL96b,Dirama2005} 
-%Luzar and Chandler interpreted the non-exponential kinetics as the result of an interplay between diffusion and HB dynamics \cite{AL96}. 
-%Here, we try to understand the non-exponential kinetics of rotational anisotropy decay by the model in Eq.\thinspace\ref{eq:tcf3}.
-%
-%\begin{table}[h!]
-%\centering
-%\caption{\label{tab:table_expfit}%
-%The fitted parameters of anisotropy decay of water molecules in the LiI (NaI) solution. The decay rate $\kappa$ comes from fitting ([0,10] ps).}
-%\begin{tabular}{lccc}
-%Water molecules & $c$  & $\tau_2$ (ps) \\
-%\hline
-%\I-shell (LiI) & 0.82 & 4.2 \\
-%\Li-shell (LiI) & 0.88 & 14.3 \\
-%%bulk (LiI) & 0.85 & 8.4\\
-%%surface (LiI) & 0.81 & 2.9  \\
-%\I-shell (NaI) & 0.86 & 7.1 \\
-%\Na-shell (NaI) & 0.79 & 14.3 \\
-%%bulk (NaI) & 0.83 & 16.7 \\
-%%surface (NaI) & 0.78 & 8.4 \\
-%\end{tabular}
-%\end{table}
-
-
-To explain the $C_2(t)$ for the \LiN/vapor and the LiI/vapor interfaces, 
-we list the peaks of RDFs for the LiI/vapor, the \LiN/vapor and the water/vapor interfaces (Fig.\thinspace\ref{tab:rdf_I2wat_peaks}).
-We find that there is a correlation between reorientation and the strength of the H-bonds:
-Nitrate--water and W--W bonds have very close local structure, while the iodide-water (I$^-$--W) bonds are of significantly different local structure.
-This result can be found from the larger value (3.61 \AA and 2.66 \AA, 
-see the first two rows in Table\thinspace\ref{tab:rdf_I2wat_peaks}) of the first peaks' locations in $g_\text{I-OW}$ and $g_\text{I-HW}$,
-and close first peak locations for ON--OW and OW--OW RDFs (2.80 \A\  and 2.79 \A, see the 3rd and 5th row in Table\thinspace\ref{tab:rdf_I2wat_peaks}). 
-The difference between water molecules with W--W and N--W bonds is discussed in Paragraph\thinspace\ref{para:types_wat_alkali_nitrate}.
 \begin{table}[H]
 \centering
 \caption{\label{tab:rdf_I2wat_peaks} 
