@@ -125,7 +125,7 @@ headsepline, % Uncomment to get a line under the header
 %\usepackage[toc,page]{appendix} %For adding appendices
 \usepackage{pgfplots} % a plotting package in latex
 \usepackage[export]{adjustbox}[2011/08/13]
-
+\usepackage{pdfpages} % To include CV.pdf into the thesis
 %=================================================
 %(Re-)New commands
 %=================================================
@@ -697,6 +697,11 @@ $\nu$ & vibrational frequency, or  vibrational quantum number& \\
 %
 %%\include{chapters/chap_hkt/chap_hkt}
 
+%---
+%CV
+%---
+\includepdf[pages=1]{chapters/chap_cv/cv_ganghuang.pdf}
+\includepdf[pages=2]{chapters/chap_cv/cv_ganghuang.pdf}
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
@@ -704,6 +709,5 @@ $\nu$ & vibrational frequency, or  vibrational quantum number& \\
 \printbibliography[heading=bibintoc]
 
 %----------------------------------------------------------------------------------------
-
 \end{document}  
 
