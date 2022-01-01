@@ -15,7 +15,7 @@ are cooperative, it is insufficient for the purposes of computer simulation to u
 The organization of this chapter is the following.
 Paragraphs \ref{section_AIMD} to \ref{section_BOMD} give an introduction to the basic ideas of DFTMD as well as Born-Oppenheimer MD (BOMD) we adopted.
 Paragraphs \ref{section_VDOS} and \ref{section_VSFG} introduce the analysis methods used in this thesis, including the method of calculating 
-vibrational properties from velocity auto-correlation and the method of calculating the VSFG spectra from velocity ACF.
+vibrational properties from velocity ACF and the method of calculating the VSFG spectra.
 Paragraph \ref{section:def_HBP} reviews the Luzar-Chandler HB population operator and associated correlation functions, which are the basis for studying the 
 instantaneous interfacial HB dynamics. 
 
@@ -23,8 +23,8 @@ instantaneous interfacial HB dynamics.
 Modern theoretical methodology, aided by the advent of high speed computing, has advanced
 to a level where the microscopic details of dynamical processes in condensed phases can be
 treated on a relatively routine basis. One common theoretical approach
-for obtaining these microscopic details of the system is the MD simulations
-In the MD simulations, classical Newton equations of motion for
+for obtaining these microscopic details of the system is the MD simulation.
+In the MD simulation, classical Newton equations of motion for
 a system are solved numerically starting from a pre-specified initial state, and subject to a set of
 boundary conditions appropriate to the problem. The MD methodology allows both equilibrium
 thermodynamic and dynamical properties of a system at finite temperature to be computed,
@@ -32,21 +32,24 @@ while simultaneously providing a view of the microscopic motion of individual at
 in the system\cite{Tuckerman2010}.
 
 %[The reason to use  AIMD to simulate the water/vapor interface]
-Despite the success of classical MD simulations, they  have some limitations. First, charges
-are treated as static parameters, therefore electronic polarization effects are
+Despite the success of classical MD simulations, they  have some limitations. 
+First, charges are treated as static parameters, therefore electronic polarization effects are
 not included.  The so-called polarizable models\cite{Rick1994,Rick2002,Lamoureux2003}, in which charges 
 and induced dipoles are allowed to fluctuate in a changing environment, 
 have been proposed to overcome this problem. 
 While having considerable success, they also have serious limitations, including a lack of transferability 
-and standardization\cite{Tuckerman2002}. Second, force fields assume a pre-specified connectivity among the atoms, therefore, they suffer
-from an inability to describe chemical bond-forming and -breaking. This problem
-can be treated using techniques such as the empirical valence
-bond method\cite{Warshel1980} or other semi-empirical approaches. Unfortunately, these methods are also not
-transferable and, therefore, need to be reparametrized for each type of reaction and may end
+and standardization\cite{Tuckerman2002}. 
+Second, force fields assume a pre-specified connectivity among the atoms, therefore, they suffer
+from an inability to describe chemical bond-forming and -breaking. 
+This problem can be treated using techniques such as the empirical valence
+bond method\cite{Warshel1980} or other semi-empirical approaches. 
+Unfortunately, these methods are also not transferable and, therefore, 
+need to be reparametrized for each type of reaction and may end
 up biasing the reaction path in undesirable ways.
 
-To overcome these limitations of force field based approaches, AIMD simulation techniques\cite{DKR90,MCP92,Allen1993,MET96,MP97,Marx2000,RC02}
-can be used. The AIMD method combines finite temperature dynamics with forces
+To overcome these limitations of force field based approaches, 
+AIMD simulation techniques\cite{DKR90,MCP92,Allen1993,MET96,MP97,Marx2000,RC02} can be used. 
+The AIMD method combines finite temperature dynamics with forces
 obtained from electronic structure calculations performed ‘on the fly’ as the MD simulation
 proceeds\cite{Marx2000}. Because the electronic structure is treated explicitly in AIMD calculations,
 many-body forces, electronic polarization and bond-forming and -breaking events are described
@@ -84,10 +87,14 @@ In most currently performed AIMD simulations, the dynamics is performed within t
 The mass of an electron is much smaller than that of any nuclei. 
 This means that electrons respond much more rapidly to changes in their 
 environment than nuclei can. 
-As a result, there is a strong separation of timescales between the electronic and nuclear motion, i.e., the kinetic energy of the nuclei can be ignored.
-First, we solve the question that describe the electron motion, for fixed positions of the nuclei. In other words, for a set of electrons moving in the field of a set of fixed nuclei, we find the lowest energy configuration (or \emph{ground state}) of the electrons. 
+As a result, there is a strong separation of timescales between the electronic and nuclear motion, 
+i.e., the kinetic energy of the nuclei can be ignored.
+First, we solve the question that describe the electron motion, for fixed positions of the nuclei. 
+In other words, for a set of electrons moving in the field of a set of fixed nuclei, 
+we find the lowest energy configuration (or \emph{ground state}) of the electrons. 
 Then we can express the ground state energy as a function of the positions of the nuclei (\emph{adiabatic potential energy surface} of atoms).
-In this approximation, the electrons are treated independently at constant nuclear coordinates $\bf R$. This is BO approximation, or adiabatic approximation. 
+In this approximation, the electrons are treated independently at constant nuclear coordinates $\bf R$. 
+This is BO approximation, or adiabatic approximation. 
 Applying BO approximation, the potential energy $V(\bf R)$ is  written as
 \begin{equation}
   V({\bf R})=\langle \Psi_0 | H_{\text{e}} | \Psi_0 \rangle + E_{I}({\bf R}),
@@ -119,7 +126,6 @@ ground state the density $n$ determines the energy).
 (If we want to solve variationally for the ground state energy of a system with $H=T + V_{ee}+\sum_{i=1}^N v(i)$) the 
 HK theorem says that there exists a valid functional $Q[n]$ that delivers the sum of the electronic kinetic energy $T[n]$ 
 and electron-electron repulsion energy $V_{ee}[n]$ of each trial electron density $n$\cite{Levy1979}.
-
 The electronic density $n(\bf r)$, which depends on just 3 electronic degrees of freedom, become the central quantity in DFT 
 in place of the complex $3N_{\text{e}}$-dimensional many-body wave-function.
 
@@ -129,12 +135,15 @@ The second HK theorem states that the total energy in the electronic density spa
 \label{eq:HK2}
 \end{equation}
 for which the equality holds if and only if $n_0=n'$ (variational principle).
-One try to choose different $n$ to optimize $E^{\text{DFT}}[n]$, the quantum expectation value of $H_{\text{e}}[n]$, thus to determine $E^{\text{DFT}}[n_0]$, i.e.
+One try to choose the $n$ to optimize $E^{\text{DFT}}[n]$, the quantum expectation value of $H_{\text{e}}[n]$, thus to determine $E^{\text{DFT}}[n_0]$, i.e.
 \begin{equation}
 E^{\text{DFT}}[n_0]= \min\limits_{\psi} \psi  H_{\text{e}} \psi  = \min\limits_{n}\psi[n]H_{\text{e}}[n]\psi[n] =\min\limits_{n}E^{\text{DFT}}[n],
 \label{eq:var}
 \end{equation}
 Eq.\thinspace(\ref{eq:SE}) can be solved by iteratively diagonalizing $H_{\text{e}}[n]$ within a self consistent field (SCF) procedure.
+The second HK theorem gives an important property of the overall functional\cite{Sholl2009}: 
+The $n$ that minimizes the energy of the overall functional is 
+the true electron density corresponding to the full solution of the Schr{\"o}dinger equation.
 
 %[The ground-state energy of a many-electron system as minimum of an energy functional]
 Assuming atomic units and considering the physical relevant Coulomb interaction, the total Hamiltonian is 
@@ -152,7 +161,7 @@ E^{\text{DFT}}[n({\bf r})] = T[{n (\bf r)}] + U[n({\bf r})] + V[n(\bf r)].
 \label{eq:asume}
 \end{equation}
 The next problem is how to provide an explicit form for the three terms appearing in Eq.\thinspace(\ref{eq:asume}). 
-The solution is the Kohn-Sham approach to DFT. 
+The solution is the Kohn-Sham (KS) approach to DFT. 
 A reference system with the same electron density as the density for the full interacting system  and without electron electron repulsion is introduced. 
 For such reference system, the kinetic energy functional is
 \begin{equation}
@@ -170,7 +179,7 @@ in which $N_{\text{occ}}$ is the number of occupied orbitals and $f_i$ the occup
 \end{equation}
 and $\psi_i({\bf r})$ is the wave-function of the $i$-th state. 
 
-The total energy functional of the Kohn-Sham (KS) system is
+The total energy functional of the KS system is
 \begin{align}
  E^{\text{KS}}[n({\bf r})]=&E^{\text{KS}}[\{\psi_i[n({\bf r})]\}]  \nonumber \\
         =&T_\text{s}[\{\psi_i[n({\bf r})]\}] +U_H[n({\bf r})] +V[n({\bf r})]+E_{\text{XC}}[n({\bf r})] \label{eq:T_s} \\
@@ -187,7 +196,7 @@ of the kinetic energy, that is expressed explicitly only with the reduced 2-part
 
 Directly minimizing Eq.\thinspace(\ref{eq:T_s}) is not straightforward because $T_\text{s}[\{\psi_i[n({\bf r})]\}]$ 
 is an explicit orbital functional. However, it is more appropriate to
-make $E_{\text{KS}} [\{\psi_i [n({\bf r})]\}]$ stationary by the following Euler-Lagrange equation.
+make $E_{\text{KS}} [\{\psi_i [n({\bf r})]\}]$ stationary by the Euler-Lagrange equation.
 It is possible to use the variational principle to derive the corresponding Euler-Lagrange equation of
 the non- interacting system within the potential $v_{\text{ext}}$.
 The KS scheme permits to map the full interacting many-body problem, with the electron-electron interaction $\hat U$
@@ -890,6 +899,13 @@ The ACF \CHB for the simulated bulk water
 is shown in Fig.\thinspace\ref{fig:pure_bk_c_from_2_methods} a. 
 We can obtain the relaxation time from Eq.\thinspace\ref{eq:tau_relaxation}: $\tau_R = 14.01$ ps for the ADH definition, 
 and $\tau_R = 14.16$ ps for the AHD definition. 
+
+%
+The method of HB dynamics, whose basis is the HB population operator $h(t)$, 
+has been frequently used in previous literature\cite{Luzar1994,AL96,Chandra2000}. 
+The function \CHB is interpreted as the probability that the HB is intact at time $t$, 
+if the pair of water molecules are H-bonded at time zero. 
+%
 \begin{figure}[H]
 \centering
 \includegraphics [width=1.0\textwidth] {./diagrams/pure_bk_c_from_2_methods}
@@ -902,14 +918,10 @@ The \CHB for bulk water, as computed from the ADH (solid line) and AHD (dashed l
 %The length of the trajectory is 35 ps of physical time. Ref:\cite{Khaliullin2013}}
 \end{figure} 
 
-The method of HB population-based HB dynamics has been frequently used in previous literature\cite{Luzar1994,AL96,Chandra2000}. 
-The basis is the population operator $h(t)$ of the HB formed between two water molecules. 
-The function \CHB is interpreted as the probability that the HB is intact at time $t$, 
-if the pair of water molecules are H-bonded at time zero. 
 
 %Besides $h(t)$, here we also discuss another possible definition of the HB population operator ${h}'(t)$.
 When a pair of water molecules are H-bonded, 
-there are 4 different forms of possible H-bonds . 
+there are 4 different forms of possible H-bonds. 
 In other words, there are exchange processes, i.e., interchange tunneling and bifurcation tunneling, during the dynamics.
 After an exchange process, a pair of bonded molecules still form H-bonds.
 %we say that an old HB is broken and a new HB is formed.
